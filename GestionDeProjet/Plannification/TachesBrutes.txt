@@ -8,11 +8,11 @@ Légende :
 # Pas de trie particulier
 
 - Documentation à propos de la façon dont fonctionne les site de e-commerce (commence vers le 10/2024)
-    > Définition claire des infrastructures nécessaires (bâtiments, équipements informatiques, etc)
-    > Définition claire des techniques et méthodes de communications pour vendre des produits
-    > Définition claire des techniques et méthodes de communications pour vendre des services
+    > Définir clairement des infrastructures nécessaires (bâtiments, équipements informatiques, etc)
+    > Définir clairement des techniques et méthodes de communications pour vendre des produits
+    > Définir clairement des techniques et méthodes de communications pour vendre des services
     > Définir les méthodes pour intégrer et gérer légalement les différents moyens de paiement
-    > Définition claire des aspects légaux et administratifs (conditions d’utilisation, RGPD , etc)
+    > Définir clairement des aspects légaux et administratifs (conditions d’utilisation, RGPD , etc)
     > Définir les points de sécurité critique en rapport un site de e-commerce (gestion base de données, authentification utilisateur, etc)
     > Définir clairement notre degré de liberté vis-à-vis des contraintes GRETA/IUT (encore plus si publication)
     > Se renseigner sur l'impact environnemental des produits achetés pour essayer de le réduire (acheter Français par exemple)
@@ -31,7 +31,7 @@ Légende :
     > Définir une charte graphique claire et exhaustive
     > Designer le site : esthétisme et ergonomie (penser au côté responsive)
     > Créer la carte servant à la navigation dans le site
-    > Définir les technologies et outils de déploiement et de gestion
+    > Définir les technologies et outils pour le site
     > Implémenter le site : version basique
       >> Fonctionnalités de base : navigation, pages, structure etc
       >> Intégrer les premiers produits aux sites
@@ -40,18 +40,18 @@ Légende :
     > Implémenter le site : version améliorer
       >> Intégrer ou améliorer l'ergonomie et l'esthétisme
       >> Ajouter des fonctionnalités non-essentielles
-    > Essayer d'optimiser la consommation d'énergie de l'infrastructure mise en place
+    > Optimiser la consommation d'énergie de l'infrastructure mise en place
     > Communiquer sur nos mesures réduisant la consommation d'énergie
-    > Vérifier la bonne application des normes sur les données personnels et aux normes du numériques
+    > Vérifier l'application des normes sur le numérique (RGPD, etc)
     > Définir des mesures de sécurité : politique de mots de passe, backup, redondance, etc
     > Relever et remédier aux failles et vulnérabilités trouvées
     > Superviser le site
     > Préparer un PCA et un PRA en cas d'attaques
-- Gérer nos réseaux sociaux (si publication du projet) (commence vers le 04/2025)
+- Gérer les réseaux sociaux (version restreinte car non-publication du projet) (commence vers le 04/2025)
     > Préparer des publications à l'avance
-    > Ouvrir nos comptes (X, Instagram, Snapchat, Facebook, etc)
+    > Ouvrir des comptes (X, Instagram, Snapchat, Facebook, etc)
     > Gérer les comptes : les maintenir relativement actifs, répondre aux commentaires, etc
-    > Communiquer sur le fait qu'on est écolo de fou là, le RSE, tout ça
+    > Communiquer sur l'aspect social : des articles JDR par des joueurs pour des joueurs
 - Préparer et produire les jalons GRETA : (commence vers le 09/2024)
     > Réunions hebdomadaires (?)
     > Jalon 2 et 3 : 05/12/2024
@@ -79,7 +79,7 @@ Expérience utilisateur et Communication
     > Designer le site : esthétisme et ergonomie (penser au côté responsive)
     > Créer la carte servant à la navigation dans le site
     > Communiquer sur nos mesures réduisant la consommation d'énergie
-- Gérer nos réseaux sociaux (si publication du projet)
+- Gérer les réseaux sociaux (si publication du projet)
     > Gérer les comptes : les maintenir relativement actifs, répondre aux commentaires, etc
     > Communiquer sur l'aspect social : des articles JDR par des joueurs pour des joueurs
 
@@ -102,7 +102,7 @@ Gestion interne et Marketing
       > Protéger nos stocks : accidents, vols, etc
 - Créer le site
     > Définir une charte graphique claire et exhaustive
-- Gérer nos réseaux sociaux (si publication du projet)
+- Gérer les réseaux sociaux (si publication du projet)
     > Préparer des publications à l'avance
     > Ouvrir nos comptes (X, Instagram, Snapchat, Facebook, etc)
 
@@ -130,8 +130,8 @@ Sécurité
     > EN FONCTION DE LA POLITIQUE DE STOCK : protéger nos stocks : accidents, vols, etc
 - Créer le site
     > Définir des mesures de sécurité : politique de mots de passe, backup, redondance, etc
-    > Relever et remédier aux failles et vulnérabilités trouvées
     > Superviser le site
+    > Relever et remédier aux failles et vulnérabilités trouvées
     > Préparer un PCA et un PRA : réaction en cas d'incidents
 
 Formalisation et conformité
