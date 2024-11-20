@@ -1,0 +1,165 @@
+Légende :
+  - XXXX
+	=> Tâche principale : tâche traitant d'un aspect général du projet
+  > XXXX ou >> XXXX (etc)
+	=> Sous-tâche : dépend d'une tâche principale ou d'une sous-tâches ; le nombre de chevrons donne le degré de précision et la place dans l'arborescence des tâches
+
+======================================= Par tâches =======================================
+# Pas de trie particulier
+
+- Documentation à propos de la façon dont fonctionne les site de e-commerce (commence vers le 10/2024)
+    > Définition claire des infrastructures nécessaires (bâtiments, équipements informatiques, etc)
+    > Définition claire des techniques et méthodes de communications pour vendre des produits
+    > Définition claire des techniques et méthodes de communications pour vendre des services
+    > Définir les méthodes pour intégrer et gérer légalement les différents moyens de paiement
+    > Définition claire des aspects légaux et administratifs (conditions d’utilisation, RGPD , etc)
+    > Définir les points de sécurité critique en rapport un site de e-commerce (gestion base de données, authentification utilisateur, etc)
+    > Définir clairement notre degré de liberté vis-à-vis des contraintes GRETA/IUT (encore plus si publication)
+    > Se renseigner sur l'impact environnemental des produits achetés pour essayer de le réduire (acheter Français par exemple)
+    > Se renseigner sur l'essor de la communauté JDR pour avoir une vision social du projet
+- Proposer des produits et des services (commence vers le 12/2024)
+    > Établir une liste exhaustive des produits à proposer sur le site
+    > Établir une liste exhaustive des services à proposer sur le site
+    > Établir une politique de stock (flue tendu?, méthode de stockage?,... influe sur le prix de revient)
+    > Établir les prix des produits et des services à proposer sur le site
+    > Effectuer une revue de faisabilité (principalement pour les services)
+    > Effectuer une revue des points critiques de conformité des produits et des services proposés
+    > Se fournir les produits
+    > Designer les produits
+    > Préparer les offres de services
+- Créer le site (commence vers le 03/2025)
+    > Définir une charte graphique claire et exhaustive
+    > Designer le site : esthétisme et ergonomie (penser au côté responsive)
+    > Créer la carte servant à la navigation dans le site
+    > Définir les technologies et outils de déploiement et de gestion
+    > Implémenter le site : version basique
+      >> Fonctionnalités de base : navigation, pages, structure etc
+      >> Intégrer les premiers produits aux sites
+      >> Intégrer les premiers services aux sites
+      >> Intégrer les différents moyens de paiement
+    > Implémenter le site : version améliorer
+      >> Intégrer ou améliorer l'ergonomie et l'esthétisme
+      >> Ajouter des fonctionnalités non-essentielles
+    > Essayer d'optimiser la consommation d'énergie de l'infrastructure mise en place
+    > Communiquer sur nos mesures réduisant la consommation d'énergie
+    > Vérifier la bonne application des normes sur les données personnels et aux normes du numériques
+    > Définir des mesures de sécurité : politique de mots de passe, backup, redondance, etc
+    > Relever et remédier aux failles et vulnérabilités trouvées
+    > Superviser le site
+    > Préparer un PCA et un PRA en cas d'attaques
+- Gérer nos réseaux sociaux (si publication du projet) (commence vers le 04/2025)
+    > Préparer des publications à l'avance
+    > Ouvrir nos comptes (X, Instagram, Snapchat, Facebook, etc)
+    > Gérer les comptes : les maintenir relativement actifs, répondre aux commentaires, etc
+    > Communiquer sur le fait qu'on est écolo de fou là, le RSE, tout ça
+- Préparer et produire les jalons GRETA : (commence vers le 09/2024)
+    > Réunions hebdomadaires (?)
+    > Jalon 2 et 3 : 05/12/2024
+        - Objectif → prêt le 24/11/2024
+    > Jalon 4 :
+        - Objectif → prêt le 09/02/2025
+        > Point d'étape livrable 4 → 03/02/2025
+    > Jalon 5 et 6 :
+        - Objectif → prêt le 04/05/2025
+        > Points d'étapes livrables 5 et 6 → 24/02/2025, 10/03/2025, 31/03/2025, 14/04/2025
+    > Jalon 7, 8 et 9 :
+        - Objectif → prêt le 01/06/2025
+        > Points d'étapes livrables 7, 8 et 9 → 19/05/2025
+
+======================================= Par axes =======================================
+# Sous-tâches triées par ordre chronologique : en haut = en première (ne prend pas en charge la parallèlisation)
+
+Expérience utilisateur et Communication
+- Documentation à propos de la façon dont fonctionne les site de e-commerce
+    > Se renseigner sur l'impact environnemental des produits achetés pour essayer de le réduire (acheter Français par exemple)
+    > Se renseigner sur l'essor de la communauté JDR pour avoir une vision social du projet
+- Proposer des produits et des services
+    > Promouvoir nos produits et services : interne (visibilité dans le site, article à la une) et externe (communication externe, pub)
+- Créer le site
+    > Designer le site : esthétisme et ergonomie (penser au côté responsive)
+    > Créer la carte servant à la navigation dans le site
+    > Communiquer sur nos mesures réduisant la consommation d'énergie
+- Gérer nos réseaux sociaux (si publication du projet)
+    > Gérer les comptes : les maintenir relativement actifs, répondre aux commentaires, etc
+    > Communiquer sur l'aspect social : des articles JDR par des joueurs pour des joueurs
+
+Gestion interne et Marketing
+- Documentation à propos de la façon dont fonctionne les site de e-commerce
+    > Définition claire des techniques et méthodes de communications pour vendre des produits
+    > Définition claire des techniques et méthodes de communications pour vendre des services
+- Proposer des produits et des services
+    > Établir une liste exhaustive des produits à proposer sur le site
+    > Établir une liste exhaustive des services à proposer sur le site
+    > Établir une politique de stock (flue tendu(?), méthode de stockage(?),... influe sur le prix de revient)
+    > Établir les prix des produits et des services à proposer sur le site
+    > Effectuer une revue de faisabilité : définir ce qui obligatoire facultatif, possible(principalement pour les services)
+    > Se fournir les produits
+    > Designer les produits
+    > Préparer les offres de services
+    > EN FONCTION DE LA POLITIQUE DE STOCK : 
+      > Définir les infrastructures de stockages à mettre en place
+      > Se tenir au courant des normes en matières de stockages
+      > Protéger nos stocks : accidents, vols, etc
+- Créer le site
+    > Définir une charte graphique claire et exhaustive
+- Gérer nos réseaux sociaux (si publication du projet)
+    > Préparer des publications à l'avance
+    > Ouvrir nos comptes (X, Instagram, Snapchat, Facebook, etc)
+
+Infrastructure
+- Documentation à propos de la façon dont fonctionne les site de e-commerce
+    > Définition claire des infrastructures nécessaires (bâtiments, équipements informatiques, etc)
+- Proposer des produits et des services
+    > EN FONCTION DE LA POLITIQUE DE STOCK : définir les infrastructures de stockages à mettre en place
+- Créer le site
+    > Définir les technologies et outils de déploiement et de gestion
+    > Implémenter le site : version basique
+      >> Fonctionnalités de base : navigation, pages, structure etc
+      >> Intégrer les premiers produits aux sites
+      >> Intégrer les premiers services aux sites
+      >> Intégrer les différents moyens de paiement
+    > Implémenter le site : version améliorer
+      >> Intégrer ou améliorer l'ergonomie et l'esthétisme
+      >> Ajouter des fonctionnalités non-essentielles
+    > Essayer d'optimiser la consommation d'énergie de l'infrastructure mise en place
+
+Sécurité
+- Documentation à propos de la façon dont fonctionne les site de e-commerce
+    > Définir les points de sécurité critique en rapport un site de e-commerce (gestion base de données, authentification utilisateur, etc)
+- Proposer des produits et des services
+    > EN FONCTION DE LA POLITIQUE DE STOCK : protéger nos stocks : accidents, vols, etc
+- Créer le site
+    > Définir des mesures de sécurité : politique de mots de passe, backup, redondance, etc
+    > Relever et remédier aux failles et vulnérabilités trouvées
+    > Superviser le site
+    > Préparer un PCA et un PRA : réaction en cas d'incidents
+
+Formalisation et conformité
+- Documentation à propos de la façon dont fonctionne les site de e-commerce
+    > Définir clairement notre degré de liberté vis-à-vis des contraintes GRETA/IUT (encore plus si publication)
+    > Définir les méthodes pour intégrer et gérer légalement les différents moyens de paiement
+    > Définition claire des aspects légaux et administratifs (conditions d’utilisation, RGPD , etc)
+- Proposer des produits et des services
+    > Effectuer une revue des points critiques de conformité des produits et des services proposés
+    > EN FONCTION DE LA POLITIQUE DE STOCK : se tenir au courant des normes en matières de stockages
+- Créer le site
+    > Vérifier la bonne application des normes sur les données personnels et aux normes du numériques
+- Préparer et produire les jalons GRETA :
+    > Réunions hebdomadaires (?)
+    > Jalon 2 et 3 : 05/12/2024
+        - Objectif → prêt le 24/11/2024
+    > Jalon 4 :
+        - Objectif → prêt le 09/02/2025
+        > Point d'étape livrable 4 → 03/02/2025
+    > Jalon 5 et 6 :
+        - Objectif → prêt le 04/05/2025
+        > Points d'étapes livrables 5 et 6 → 24/02/2025, 10/03/2025, 31/03/2025, 14/04/2025
+    > Jalon 7, 8 et 9 :
+        - Objectif → prêt le 01/06/2025
+        > Points d'étapes livrables 7, 8 et 9 → 19/05/2025
+
+
+
+
+
+
