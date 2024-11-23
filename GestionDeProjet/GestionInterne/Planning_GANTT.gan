@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2024-10-01" view-index="0" gantt-divider-location="416" resource-divider-location="463" version="3.3.3312" locale="fr_FR">
+<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2024-11-01" view-index="0" gantt-divider-location="416" resource-divider-location="463" version="3.3.3312" locale="fr_FR">
     <description/>
     <view zooming-state="default:9" id="gantt-chart">
         <field id="tpd3" name="Nom" width="273" order="0"/>
@@ -71,7 +71,7 @@ Externe = communication externe, pub, etc
                 <task id="335" uid="473ca2e18f58409fa488bf5a64415352" name="Communiquer sur l'aspect social et communautaire du projet" color="#666666" meeting="false" start="2025-06-02" duration="1" complete="0" expand="true"/>
             </task>
         </task>
-        <task id="112" uid="5d5d356d894b47e88aa879cd71e2c0e2" name="Gestion interne et Marketing" color="#55308d" meeting="false" start="2025-06-02" duration="1" complete="0" expand="false">
+        <task id="112" uid="5d5d356d894b47e88aa879cd71e2c0e2" name="Gestion interne et Marketing" color="#55308d" meeting="false" start="2025-06-02" duration="1" complete="0" expand="true">
             <task id="153" uid="ffc09e7c6c154bc8aa9f31153cbd8135" name="Documentation et recherches" color="#666666" meeting="false" start="2025-06-02" duration="1" complete="0" expand="false">
                 <task id="155" uid="1536d2e78ec74ee29fd9cbc8d1ee8b9a" name="Définir les méthodes de vente des produits" color="#666666" meeting="false" start="2025-06-02" duration="1" complete="0" expand="true"/>
                 <task id="156" uid="2ac957c9f69247f49b59fd4027bcfc9f" name="Définir les méthodes de vente des services" color="#666666" meeting="false" start="2025-06-02" duration="1" complete="0" expand="true"/>
@@ -93,10 +93,10 @@ Externe = communication externe, pub, etc
                 <task id="195" uid="1e27a47649e74bf2ad0d09fa519b8496" name="Préparer des publications à l'avance" color="#666666" meeting="false" start="2025-06-02" duration="1" complete="0" expand="true"/>
                 <task id="196" uid="cf7699bbca3643d8a67ad0f00f8cd254" name="Ouvrir des comptes (X, Instagram, etc)" color="#666666" meeting="false" start="2025-06-02" duration="1" complete="0" expand="true"/>
             </task>
-            <task id="151" uid="c02fc77b0bae40a1abb08059a7e9aa49" name="Préparer et produire les jalons GRETA" color="#666666" meeting="false" start="2025-06-02" duration="0" complete="0" expand="false">
-                <task id="76" uid="11f7744bf2af4427ac4a5de6243a4d50" name="Réunions hebdomadaires" meeting="false" start="2025-06-02" duration="0" complete="0" expand="false">
-                    <task id="79" uid="35f186ebf1db4b9393c10d88487f0249" name="test" color="#8cb6ce" meeting="true" start="2025-06-02" duration="0" complete="0" thirdDate="2024-11-11" thirdDate-constraint="0" expand="true"/>
-                    <task id="78" uid="0a8ba19f30344bf5b01e50f5b43dc048" name="test2" color="#8cb6ce" meeting="true" start="2025-06-02" duration="0" complete="0" thirdDate="2024-11-11" thirdDate-constraint="0" expand="true"/>
+            <task id="151" uid="c02fc77b0bae40a1abb08059a7e9aa49" name="Préparer et produire les jalons GRETA" color="#666666" meeting="false" start="2025-06-02" duration="1" complete="0" expand="true">
+                <task id="76" uid="11f7744bf2af4427ac4a5de6243a4d50" name="Réunions hebdomadaires" meeting="false" start="2025-06-02" duration="1" complete="0" expand="true">
+                    <task id="79" uid="35f186ebf1db4b9393c10d88487f0249" name="test" color="#8cb6ce" meeting="false" start="2025-06-02" duration="1" complete="0" thirdDate="2024-11-11" thirdDate-constraint="0" expand="true"/>
+                    <task id="78" uid="0a8ba19f30344bf5b01e50f5b43dc048" name="test2" color="#8cb6ce" meeting="false" start="2025-06-02" duration="1" complete="0" thirdDate="2024-11-11" thirdDate-constraint="0" expand="true"/>
                 </task>
             </task>
         </task>
