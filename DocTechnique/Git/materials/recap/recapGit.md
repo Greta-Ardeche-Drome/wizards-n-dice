@@ -22,36 +22,36 @@
       - [Avec l'outil CLI](#avec-loutil-cli-3)
     - [Afficher les détails d'un commit spécifique](#afficher-les-détails-dun-commit-spécifique)
       - [Dans SourceGit](#dans-sourcegit-3)
-      - [Avec l'outil CLI :](#avec-loutil-cli-)
+      - [Avec l'outil CLI](#avec-loutil-cli-4)
   - [Branches](#branches)
     - [Créer une nouvelle branche](#créer-une-nouvelle-branche)
       - [Dans SourceGit](#dans-sourcegit-4)
-      - [Avec l'outil CLI](#avec-loutil-cli-4)
+      - [Avec l'outil CLI](#avec-loutil-cli-5)
     - [Lister les branches](#lister-les-branches)
       - [Dans SourceGit](#dans-sourcegit-5)
-      - [Avec l'outil CLI](#avec-loutil-cli-5)
+      - [Avec l'outil CLI](#avec-loutil-cli-6)
     - [Changer de branche active](#changer-de-branche-active)
       - [Dans SourceGit](#dans-sourcegit-6)
-      - [Avec l'outil CLI](#avec-loutil-cli-6)
+      - [Avec l'outil CLI](#avec-loutil-cli-7)
     - [Fusionner une branche souhaitée dans la branche active](#fusionner-une-branche-souhaitée-dans-la-branche-active)
       - [Dans SourceGit](#dans-sourcegit-7)
-      - [Avec l'outil CLI](#avec-loutil-cli-7)
+      - [Avec l'outil CLI](#avec-loutil-cli-8)
     - [Récupérer un commit spécifique d'une autre branche et le copier sur la branche active](#récupérer-un-commit-spécifique-dune-autre-branche-et-le-copier-sur-la-branche-active)
       - [Dans SourceGit](#dans-sourcegit-8)
-      - [Avec l'outil CLI](#avec-loutil-cli-8)
+      - [Avec l'outil CLI](#avec-loutil-cli-9)
     - [Résoudre des conflits de fusion post-merge ou pull](#résoudre-des-conflits-de-fusion-post-merge-ou-pull)
       - [Dans SourceGit](#dans-sourcegit-9)
-      - [Avec l'outil CLI](#avec-loutil-cli-9)
+      - [Avec l'outil CLI](#avec-loutil-cli-10)
   - [Travailler avec un repo distant](#travailler-avec-un-repo-distant)
     - [Tirer les changements du repo distant (pull)](#tirer-les-changements-du-repo-distant-pull)
       - [Dans SourceGit](#dans-sourcegit-10)
-      - [Avec l'outil CLI](#avec-loutil-cli-10)
+      - [Avec l'outil CLI](#avec-loutil-cli-11)
     - [Récupérer l'historique des commits de toutes les branches sans les télécharger (fetch)](#récupérer-lhistorique-des-commits-de-toutes-les-branches-sans-les-télécharger-fetch)
       - [Dans SourceGit](#dans-sourcegit-11)
-      - [Avec l'outil CLI](#avec-loutil-cli-11)
+      - [Avec l'outil CLI](#avec-loutil-cli-12)
     - [Pousser les changements sur le repo distant (push)](#pousser-les-changements-sur-le-repo-distant-push)
       - [Dans SourceGit](#dans-sourcegit-12)
-      - [Avec l'outil CLI](#avec-loutil-cli-12)
+      - [Avec l'outil CLI](#avec-loutil-cli-13)
   - [Workflow général](#workflow-général)
   - [Bonnes pratiques](#bonnes-pratiques)
 
@@ -160,7 +160,7 @@ Les infos générales regroupent la plupart des infos que l'on souhaite récupé
 - le message de commit,
 - les changements des fichiers liés au commit.
 
-#### Avec l'outil CLI :
+#### Avec l'outil CLI
 Une commande, parmi d'autres, d'obtenir des infos sur un commit en particulier, est la suivante :
 ```bash
 git show <commit-id>
