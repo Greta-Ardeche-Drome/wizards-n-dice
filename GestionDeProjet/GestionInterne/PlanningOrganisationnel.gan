@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Planning Wizards &amp; Dices" company="" webLink="http://" view-date="2024-08-01" view-index="0" gantt-divider-location="579" resource-divider-location="300" version="3.3.3312" locale="fr_FR">
+<?xml version="1.0" encoding="UTF-8"?><project name="Planning Wizards &amp; Dices" company="" webLink="http://" view-date="2024-08-01" view-index="0" gantt-divider-location="543" resource-divider-location="300" version="3.3.3312" locale="fr_FR">
     <description/>
     <view zooming-state="default:9" id="gantt-chart">
-        <field id="tpd3" name="Nom" width="405" order="0"/>
-        <field id="tpd4" name="Date de début" width="90" order="1"/>
-        <field id="tpd5" name="Date de fin" width="83" order="2"/>
+        <field id="tpd3" name="Nom" width="366" order="0"/>
+        <field id="tpd4" name="Date de début" width="95" order="1"/>
+        <field id="tpd5" name="Date de fin" width="81" order="2"/>
         <option id="filter.completedTasks" value="false"/>
         <option id="filter.dueTodayTasks" value="false"/>
         <option id="filter.overdueTasks" value="false"/>
@@ -79,20 +79,20 @@
             <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
             <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
         </taskproperties>
-        <task id="80" uid="2d76ef79251848059c2b22eb06bd755a" name="Jalons imposés" color="#f10d0c" meeting="false" start="2024-10-07" duration="235" complete="0" expand="true">
+        <task id="80" uid="2d76ef79251848059c2b22eb06bd755a" name="Jalons imposés" color="#f10d0c" meeting="false" start="2024-10-07" duration="235" complete="0" expand="false">
             <task id="81" uid="f4e57e4caccb40619e4879537c210335" name="Jalon 1" color="#f10d0c" meeting="false" start="2024-10-07" duration="38" complete="0" expand="false">
                 <task id="342" uid="f1120becc4f44a12ae7aea190e001bda" name="Rédiger la fiche projet tutoré" color="#00a933" meeting="false" start="2024-10-07" duration="33" complete="0" expand="true"/>
                 <task id="341" uid="9f14c87c2f0348a2ba4c2808c1d5aef1" name="Préparer oral de présentation du projet" color="#00a933" meeting="false" start="2024-11-02" duration="11" complete="0" expand="true"/>
                 <task id="340" uid="21c2b5c96b694a67a5daca89b847587e" name="Fiche PT et oral de présentation du projet" color="#f10d0c" meeting="true" start="2024-11-15" duration="0" complete="0" expand="true"/>
-                <task id="343" uid="67ecf84dabd9418fb0bc541630bcde31" name="Débriefer la prestation oral" color="#00a933" meeting="true" start="2024-11-16" duration="0" complete="0" expand="true"/>
+                <task id="343" uid="67ecf84dabd9418fb0bc541630bcde31" name="Débriefer le déroulé du jalon 1" color="#00a933" meeting="true" start="2024-11-16" duration="0" complete="0" expand="true"/>
             </task>
             <task id="85" uid="623e5826f4ae4fa882e9a142e2c9deef" name="Jalon 2" color="#f10d0c" meeting="false" start="2024-11-09" duration="27" complete="0" expand="false">
                 <task id="345" uid="90ab163e9cda4480aa8b5cc7fb038884" name="Préparer le script" color="#00a933" meeting="false" start="2024-11-09" duration="23" complete="0" expand="true"/>
                 <task id="344" uid="be0e511269ba43e1b3716aa9ebb6ffb1" name="Préparer le support de diapositives" color="#00a933" meeting="false" start="2024-11-30" duration="5" complete="0" expand="true"/>
                 <task id="346" uid="9ec10bed83074c0ab558724cbb91b77b" name="Pitch public" color="#f10d0c" meeting="true" start="2024-12-05" duration="0" complete="0" expand="true"/>
-                <task id="348" uid="9216577af1054bca8ce1554e5e750739" name="Débriefer la prestation pendant le pitch" color="#666666" meeting="true" start="2024-12-07" duration="0" complete="0" expand="true"/>
+                <task id="348" uid="9216577af1054bca8ce1554e5e750739" name="Débriefer le déroulé du jalon 2" color="#666666" meeting="true" start="2024-12-07" duration="0" complete="0" expand="true"/>
             </task>
-            <task id="93" uid="30f2a6b5a98f4abc828d4af779eab3fa" name="Jalon 3" color="#f10d0c" meeting="false" start="2024-12-07" duration="35" complete="0" expand="false">
+            <task id="93" uid="30f2a6b5a98f4abc828d4af779eab3fa" name="Jalon 3" color="#f10d0c" meeting="false" start="2024-12-07" duration="40" complete="0" expand="false">
                 <task id="349" uid="7530164912d74bd59b2bbd11b378ba03" name="Préparer l'affiche" color="#ea7500" meeting="false" start="2024-12-07" duration="27" complete="0" expand="true"/>
                 <task id="367" uid="d6b52da398f34f82a3b6391e56eeedb2" name="Affiche : prête" color="#f10d0c" meeting="true" start="2025-01-11" duration="0" complete="0" expand="true">
                     <notes><![CDATA[DATE À CONFIRMER]]></notes>
@@ -100,6 +100,7 @@
                 <task id="395" uid="787737699bd844cc9827ae55fb95b53c" name="J3 - Livraison de l'affiche" color="#f10d0c" meeting="true" start="2025-01-13" duration="0" complete="0" expand="true">
                     <notes><![CDATA[DATE À CONFIRMER]]></notes>
                 </task>
+                <task id="404" uid="9e72ac14fbb94691afc15c94150debc4" name="Débriefer le déroulé du jalon 3" color="#666666" meeting="true" start="2025-01-18" duration="0" complete="0" expand="true"/>
             </task>
             <task id="91" uid="9989339afe744bafad9b115d4e94b133" name="Jalon 4" color="#f10d0c" meeting="false" start="2025-01-18" duration="28" complete="0" expand="false">
                 <task id="353" uid="029e6bbb92e8446580d38053cde7b426" name="Préparer le script" color="#666666" meeting="false" start="2025-01-18" duration="19" complete="0" expand="true"/>
@@ -108,7 +109,7 @@
                 <task id="351" uid="a268fe97469d47cc8ff687cce275abb4" name="J4 - Présentation de l'avancement technique" color="#f10d0c" meeting="true" start="2025-02-10" duration="0" complete="0" expand="true">
                     <notes><![CDATA[DATE À CONFIRMER]]></notes>
                 </task>
-                <task id="355" uid="455f892153064b3aaa865130a233b753" name="Débriefer la prestation pendant le pitch" color="#666666" meeting="true" start="2025-02-15" duration="0" complete="0" expand="true"/>
+                <task id="405" uid="b0857c989d704087b6dd4dea4b0f3646" name="Débriefer le déroulé du jalon 4" color="#666666" meeting="true" start="2025-02-15" duration="0" complete="0" expand="true"/>
             </task>
             <task id="97" uid="eab22041fe6a4a7caa3e35646d19a89d" name="Jalon 5 et 6" color="#f10d0c" meeting="false" start="2025-04-13" duration="31" complete="0" expand="false">
                 <task id="363" uid="a4b928af716a4875bbe63bff8d16637c" name="Rédaction de l'analyse de risque" color="#666666" meeting="false" start="2025-04-13" duration="19" complete="0" expand="true"/>
@@ -116,7 +117,7 @@
                 <task id="390" uid="4a9a16ba87694ddb97888c813008736d" name="J5 - Livrer l'analyse de risque" color="#f10d0c" meeting="true" start="2025-05-05" duration="0" complete="0" expand="true"/>
                 <task id="391" uid="2f6e9fe7cd0d4d209159da6e25eb7c67" name="Préparer la présentation des processus projet" color="#666666" meeting="false" start="2025-04-25" duration="14" complete="0" expand="true"/>
                 <task id="365" uid="e4ae00a74ea044488b149708b79d6326" name="J6 - Présentation du processus projet : prêt" color="#f10d0c" meeting="true" start="2025-05-12" duration="0" complete="0" expand="true"/>
-                <task id="393" uid="4a6da4c4c9214f60bafd8575f609394a" name="Débriefer l'analyse de risque et la présentation des processus" color="#666666" meeting="true" start="2025-05-17" duration="0" complete="0" expand="true"/>
+                <task id="393" uid="4a6da4c4c9214f60bafd8575f609394a" name="Débriefer le déroulé des jalons 5 et 6" color="#666666" meeting="true" start="2025-05-17" duration="0" complete="0" expand="true"/>
             </task>
             <task id="101" uid="09681227ca1a47cd97613dd6bebcdcff" name="Jalon 7 à 9" color="#f10d0c" meeting="false" start="2025-05-04" duration="32" complete="0" expand="false">
                 <task id="382" uid="f3530ab9f6524679b08c377ade1f8e11" name="Rédaction du mémoire de projet" color="#666666" meeting="false" start="2025-05-04" duration="26" complete="0" expand="true"/>
@@ -126,13 +127,13 @@
                 <task id="389" uid="51358ffabf3a47af813aad39381ecfd9" name="Préparer la vidéo de démonstration" color="#666666" meeting="false" start="2025-05-11" duration="20" complete="0" expand="true"/>
                 <task id="384" uid="a852969e68cd40ad99cbee9ed5945e52" name="Présentation et vidéo de démo : prêtes" color="#f10d0c" meeting="true" start="2025-05-31" duration="0" complete="0" expand="true"/>
                 <task id="383" uid="2e0f73fd726241b38bcda05094abd655" name="J8 - Présenter le projet et la vidéo de démo" color="#f10d0c" meeting="true" start="2025-06-02" duration="0" complete="0" expand="true"/>
-                <task id="387" uid="7ad3c57aa8254094932f106d69a724dd" name="Copie_Rédaction du mémoire de projet" color="#666666" meeting="false" start="2025-05-17" duration="14" complete="0" expand="true"/>
+                <task id="387" uid="7ad3c57aa8254094932f106d69a724dd" name="Préparration du Proof Of Concept" color="#666666" meeting="false" start="2025-05-17" duration="14" complete="0" expand="true"/>
                 <task id="385" uid="fe49486f29c0475199eab45f28d8a19f" name="Proof Of Concept : prêt" color="#f10d0c" meeting="true" start="2025-05-31" duration="0" complete="0" expand="true"/>
                 <task id="386" uid="7f8bafb6b109418c850042fd11171c2e" name="J9 - Présentation du Proof Of Concept" color="#f10d0c" meeting="true" start="2025-06-02" duration="0" complete="0" expand="true"/>
                 <task id="394" uid="66dfa55bb45e488391426945b74c97f9" name="Débriefer des jalons 7 à 9" color="#666666" meeting="true" start="2025-06-07" duration="0" complete="0" expand="true"/>
             </task>
         </task>
-        <task id="0" uid="1e2188cfd5a746838d03251ca51480d7" name="Documentation, recherches et définition des aspects inconnus" color="#55308d" meeting="false" start="2024-09-07" duration="134" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="true">
+        <task id="0" uid="1e2188cfd5a746838d03251ca51480d7" name="Documentation, recherches et définition des aspects inconnus" color="#55308d" meeting="false" start="2024-09-07" duration="134" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="false">
             <task id="12" uid="7f54f040ed1e4477adbeffe314a11531" name="Définir le degré de liberté vis-à-vis des contraintes GRETA/IUT" color="#00a933" meeting="false" start="2024-09-07" duration="50" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="true"/>
             <task id="338" uid="b709dc64ce8d4f46950e4e97c81f9f63" name="Se renseigner sur le fonctionnement d'autres sites (Amazon, etc)" color="#ea7500" meeting="false" start="2024-10-12" duration="62" complete="0" expand="true">
                 <depend id="3" type="2" difference="0" hardness="Strong"/>
@@ -177,6 +178,12 @@
             <task id="377" uid="85dfcfa4d0d74bec913e71daedfacda4" name="Se renseigner sur les normes en matières de stockages" color="#666666" meeting="false" start="2025-01-12" duration="7" complete="0" expand="true"/>
             <task id="21" uid="d416b3a5975447e4852a61547fc04a16" name="Se renseigner sur l'essor de la communauté JDR" color="#666666" meeting="false" start="2025-01-12" duration="7" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="true"/>
             <task id="18" uid="4717d76a9b994e4e953c50967c374ffc" name="Se renseigner sur l'impact environ. des produits" color="#666666" meeting="false" start="2025-01-12" duration="11" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="true"/>
+        </task>
+        <task id="63" uid="0da90acb2f7547a4a82764de3ff706b4" name="Gérer les réseaux sociaux" color="#55308d" meeting="false" start="2024-12-16" duration="25" complete="0" expand="false">
+            <task id="64" uid="b0acca280a5443e6b46d6adba48dfb17" name="Préparer des publications simples à l'avance" color="#666666" meeting="false" start="2024-12-16" duration="18" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="true">
+                <notes><![CDATA[2 à 4 publications]]></notes>
+            </task>
+            <task id="65" uid="393f60975fb241c89f9c002c1f1bdc8f" name="Ouvrir des comptes privés (X, Instagram, etc)" color="#666666" meeting="false" start="2025-01-10" duration="2" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="true"/>
         </task>
         <task id="23" uid="d18f60717a1c49cbae4aa17e82df00ef" name="Proposer des produits et des services" color="#55308d" meeting="false" start="2024-11-09" duration="159" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="false">
             <task id="39" uid="0a24fc18c3cd43b9a86401b2737ff04c" name="Définir une charte graphique exhaustive" color="#ea7500" meeting="false" start="2024-11-09" duration="42" complete="0" expand="true"/>
@@ -229,7 +236,7 @@ Externe = communication externe, pub, etc
             </task>
             <task id="396" uid="2e5df6144e71487eb5967e11471bf3f6" name="Point d'étape : propositions de prestation du projet" color="#d60be4" meeting="true" start="2025-04-19" duration="0" complete="0" expand="true"/>
         </task>
-        <task id="36" uid="ae3b69a7f7a141f1afbf92f98146dbbb" name="Créer le site" color="#55308d" meeting="false" start="2025-01-18" duration="124" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="false">
+        <task id="36" uid="ae3b69a7f7a141f1afbf92f98146dbbb" name="Créer le site" color="#55308d" meeting="false" start="2025-01-18" duration="124" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="true">
             <task id="40" uid="f2ea02f241c44d208610e71fbc397a79" name="Designer le site : esthétisme et ergonomie" color="#666666" meeting="false" start="2025-01-18" duration="8" complete="0" expand="true">
                 <depend id="46" type="2" difference="0" hardness="Strong"/>
             </task>
@@ -254,7 +261,11 @@ Externe = communication externe, pub, etc
 - Outils techniques]]></notes>
                 <depend id="381" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="381" uid="b3b8477159be4f8eb427f4d4a2324467" name="Mettre en oeuvre les méthodes et outils de supervision" color="#666666" meeting="false" start="2025-02-16" duration="14" complete="0" expand="true"/>
+            <task id="381" uid="b3b8477159be4f8eb427f4d4a2324467" name="Mettre en oeuvre les méthodes et outils de supervision" color="#666666" meeting="false" start="2025-02-16" duration="14" complete="0" expand="true">
+                <notes><![CDATA[Intégration de Brad Pitch]]></notes>
+                <depend id="406" type="1" difference="0" hardness="Strong"/>
+            </task>
+            <task id="406" uid="1ec9077d54394c2f899cc4bf17f554da" name="Intégrer de Brad Pitch aux outils de supervision" color="#666666" meeting="false" start="2025-02-16" duration="7" complete="0" expand="true"/>
             <task id="46" uid="314f9b73ee1b496aa7dabdbdb246f936" name="Implémenter le site" color="#55308d" meeting="false" start="2025-02-16" duration="63" complete="0" expand="false">
                 <depend id="58" type="2" difference="0" hardness="Strong"/>
                 <depend id="60" type="2" difference="0" hardness="Strong"/>
@@ -270,7 +281,7 @@ Externe = communication externe, pub, etc
                 <task id="50" uid="989f90e6db3449b2ae9bf4213db7becc" name="Intégrer les différents moyens de paiement" color="#666666" meeting="false" start="2025-02-16" duration="19" complete="0" expand="true">
                     <depend id="53" type="2" difference="0" hardness="Strong"/>
                 </task>
-                <task id="378" uid="7adfc7c70086404daad27debbd978053" name="Point d'étape : fonctionnement essentiel du site" color="#d60be4" meeting="true" start="2025-03-15" duration="0" complete="0" expand="true"/>
+                <task id="378" uid="7adfc7c70086404daad27debbd978053" name="Point d'étape : fonctionnement des essentiels du site" color="#d60be4" meeting="true" start="2025-03-15" duration="0" complete="0" expand="true"/>
                 <task id="53" uid="2ff86340776d49658527fe64f84d5457" name="Intégrer ou améliorer l'ergonomie et l'esthétisme" color="#666666" meeting="false" start="2025-03-16" duration="14" complete="0" expand="true">
                     <depend id="54" type="2" difference="0" hardness="Strong"/>
                 </task>
@@ -278,7 +289,7 @@ Externe = communication externe, pub, etc
             </task>
             <task id="401" uid="e564ffbead7948cd9ee095abe066f167" name="Point d'étape : état du site" color="#d60be4" meeting="true" start="2025-04-19" duration="0" complete="0" expand="true"/>
             <task id="58" uid="c9ba7c5e1f8740c19011738c41d4838c" name="Vérifier l'application des normes sur le numérique (RGPD, etc)" color="#666666" meeting="false" start="2025-04-20" duration="7" complete="0" expand="true"/>
-            <task id="60" uid="94892b3184754304a7bfe146e4f26b5d" name="Relever et un maximum de failles et de vulnérabilités" color="#666666" meeting="false" start="2025-04-20" duration="12" complete="0" expand="true">
+            <task id="60" uid="94892b3184754304a7bfe146e4f26b5d" name="Relever un maximum de failles et de vulnérabilités" color="#666666" meeting="false" start="2025-04-20" duration="12" complete="0" expand="true">
                 <depend id="55" type="2" difference="0" hardness="Strong"/>
                 <depend id="379" type="2" difference="0" hardness="Strong"/>
             </task>
@@ -287,26 +298,7 @@ Externe = communication externe, pub, etc
                 <depend id="57" type="2" difference="0" hardness="Strong"/>
             </task>
             <task id="57" uid="fcc21636c62947ad9f16d02c6fdd7812" name="Communiquer sur nos mesures réduisant environ." color="#666666" meeting="false" start="2025-05-18" duration="7" complete="0" expand="true"/>
-            <task id="402" uid="c629d98325a44f5d866c731186c738c3" name="Point d'étape : état du site" color="#d60be4" meeting="true" start="2025-05-24" duration="0" complete="0" expand="true"/>
-        </task>
-        <task id="63" uid="0da90acb2f7547a4a82764de3ff706b4" name="Gérer les réseaux sociaux" color="#55308d" meeting="false" start="2024-12-16" duration="168" complete="0" expand="false">
-            <task id="64" uid="b0acca280a5443e6b46d6adba48dfb17" name="Préparer des publications à l'avance" color="#666666" meeting="false" start="2024-12-16" duration="18" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="true">
-                <notes><![CDATA[2 à 4 publications]]></notes>
-            </task>
-            <task id="65" uid="393f60975fb241c89f9c002c1f1bdc8f" name="Ouvrir des comptes (X, Instagram, etc)" color="#666666" meeting="false" start="2025-01-10" duration="2" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="true">
-                <notes><![CDATA[Publié ce qui a été préparé
-Points de check des réseaux (en team toutes les 3 semaines)
-Publication tous les mois et demi min
-Respo market : check tous les samedi (avant réu hebdo de préf)]]></notes>
-            </task>
-            <task id="67" uid="0a0e2f18a34245c4afb6a0e9b2a22ab4" name="Publication régulière A" color="#666666" meeting="false" start="2025-02-01" duration="1" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="true"/>
-            <task id="370" uid="d7d72eb6d509496cbd032a0911ac527d" name="Publication régulière B" color="#666666" meeting="false" start="2025-02-22" duration="1" complete="0" expand="true"/>
-            <task id="371" uid="f98dc6992e4b486eb4fd43fd1019ae5c" name="Publication régulière C" color="#666666" meeting="false" start="2025-03-15" duration="1" complete="0" expand="true"/>
-            <task id="403" uid="c8f118ede1c8413a84f7d9d9efea34e8" name="Point d'étape : vie de nos réseaux" color="#d60be4" meeting="true" start="2025-03-15" duration="0" complete="0" expand="true"/>
-            <task id="372" uid="0e1bf8b177ac435e83769e472f21bb95" name="Publication régulière D" color="#666666" meeting="false" start="2025-04-05" duration="1" complete="0" expand="true"/>
-            <task id="373" uid="24817f7c9ea740a58ab8f096bb3d5bf1" name="Publication régulière E" color="#666666" meeting="false" start="2025-04-26" duration="1" complete="0" expand="true"/>
-            <task id="374" uid="ff65fc605c7a4c3f88dbc7961111d99f" name="Publication régulière F" color="#666666" meeting="false" start="2025-05-17" duration="1" complete="0" expand="true"/>
-            <task id="375" uid="6043633a94e048cb95b64ebf4ca5cf04" name="Publication régulière G" color="#666666" meeting="false" start="2025-06-07" duration="1" complete="0" expand="true"/>
+            <task id="402" uid="c629d98325a44f5d866c731186c738c3" name="Point d'étape : niveau de sécurité et respect des normes et de l’environnement" color="#d60be4" meeting="true" start="2025-05-24" duration="0" complete="0" expand="true"/>
         </task>
     </tasks>
     <resources>
