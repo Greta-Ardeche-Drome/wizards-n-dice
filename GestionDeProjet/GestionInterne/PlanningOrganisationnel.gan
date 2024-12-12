@@ -1,14 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Planning Wizards &amp; Dices" company="" webLink="http://" view-date="2024-08-01" view-index="0" gantt-divider-location="543" resource-divider-location="319" version="3.3.3312" locale="fr_FR">
+<?xml version="1.0" encoding="UTF-8"?><project name="Planning Wizards &amp; Dices" company="" webLink="http://" view-date="2024-11-01" view-index="0" gantt-divider-location="537" resource-divider-location="319" version="3.3.3312" locale="fr_FR">
     <description/>
-    <view zooming-state="default:9" id="gantt-chart">
-        <field id="tpd3" name="Nom" width="366" order="0"/>
-        <field id="tpd4" name="Date de début" width="95" order="1"/>
-        <field id="tpd5" name="Date de fin" width="81" order="2"/>
+    <view zooming-state="default:8" id="gantt-chart">
+        <field id="tpd3" name="Nom" width="372" order="0"/>
+        <field id="tpd4" name="Date de début" width="82" order="1"/>
+        <field id="tpd5" name="Date de fin" width="82" order="2"/>
         <option id="filter.completedTasks" value="false"/>
         <option id="filter.dueTodayTasks" value="false"/>
         <option id="filter.overdueTasks" value="false"/>
         <option id="filter.inProgressTodayTasks" value="false"/>
-        <option id="color.recent"><![CDATA[#ea7500 #666666 #d60be4 #f4f4f4 #00a933 #55308d #f10d0c]]></option>
+        <option id="color.recent"><![CDATA[#666666 #ea7500 #d60be4 #f4f4f4 #00a933 #55308d #f10d0c]]></option>
     </view>
     <view id="resource-table">
         <field id="0" name="Nom" width="146" order="0"/>
@@ -116,7 +116,8 @@ Lien vers Moodle de dépôts : https://cours.univ-grenoble-alpes.fr/mod/assign/v
                 <task id="363" uid="a4b928af716a4875bbe63bff8d16637c" name="Rédaction de l'analyse de risque" color="#666666" meeting="false" start="2025-04-13" duration="19" complete="0" expand="true"/>
                 <task id="364" uid="83efe65da07d4064a6a1aad1ec95436d" name="Analyse de risques : prête" color="#f10d0c" meeting="true" start="2025-05-03" duration="0" complete="0" expand="true"/>
                 <task id="390" uid="4a9a16ba87694ddb97888c813008736d" name="J5 - Livrer l'analyse de risque" color="#f10d0c" meeting="true" start="2025-05-05" duration="0" complete="0" expand="true"/>
-                <task id="391" uid="2f6e9fe7cd0d4d209159da6e25eb7c67" name="Préparer la présentation des processus projet" color="#666666" meeting="false" start="2025-04-25" duration="14" complete="0" expand="true"/>
+                <task id="409" uid="f466bfaa9a894d9aa7e4e6dd49270a32" name="Préparer le script de présentation des processus projet" color="#666666" meeting="false" start="2025-04-27" duration="10" complete="0" expand="true"/>
+                <task id="410" uid="98397b23ee9c427188e0cd9fab58d476" name="Préparer le support de diapositives de la présentation" color="#666666" meeting="false" start="2025-05-04" duration="6" complete="0" expand="true"/>
                 <task id="365" uid="e4ae00a74ea044488b149708b79d6326" name="J6 - Présentation du processus projet : prêt" color="#f10d0c" meeting="true" start="2025-05-12" duration="0" complete="0" expand="true"/>
                 <task id="393" uid="4a6da4c4c9214f60bafd8575f609394a" name="Débriefer le déroulé des jalons 5 et 6" color="#666666" meeting="true" start="2025-05-17" duration="0" complete="0" expand="true"/>
             </task>
@@ -124,8 +125,17 @@ Lien vers Moodle de dépôts : https://cours.univ-grenoble-alpes.fr/mod/assign/v
                 <task id="382" uid="f3530ab9f6524679b08c377ade1f8e11" name="Rédaction du mémoire de projet" color="#666666" meeting="false" start="2025-05-04" duration="26" complete="0" expand="true"/>
                 <task id="369" uid="36c2e1c1f7274f9e9f0135bb8f5603c4" name="Mémoire de projet : prêt" color="#f10d0c" meeting="true" start="2025-05-31" duration="0" complete="0" expand="true"/>
                 <task id="360" uid="1f43ee2eb5cc4749b84cce756fcdfbcd" name="J7 - Livrer le mémoire de projet" color="#f10d0c" meeting="true" start="2025-06-02" duration="0" complete="0" expand="true"/>
-                <task id="388" uid="21905eddfe0947468678d5caaae765a0" name="Préparer la présentation finale du projet" color="#666666" meeting="false" start="2025-05-11" duration="14" complete="0" expand="true"/>
-                <task id="389" uid="51358ffabf3a47af813aad39381ecfd9" name="Préparer la vidéo de démonstration" color="#666666" meeting="false" start="2025-05-11" duration="20" complete="0" expand="true"/>
+                <task id="388" uid="21905eddfe0947468678d5caaae765a0" name="Préparer le script pour la présentation finale du projet" color="#666666" meeting="false" start="2025-05-11" duration="7" complete="0" expand="true">
+                    <depend id="411" type="2" difference="0" hardness="Strong"/>
+                </task>
+                <task id="411" uid="4191575ebd1042e3b7cd0248c73579ab" name="Préparer le support de diapositive pour la présentation" color="#666666" meeting="false" start="2025-05-18" duration="7" complete="0" expand="true"/>
+                <task id="389" uid="51358ffabf3a47af813aad39381ecfd9" name="Préparer le script de la vidéo de démonstration" color="#666666" meeting="false" start="2025-05-11" duration="7" complete="0" expand="true">
+                    <depend id="413" type="2" difference="0" hardness="Strong"/>
+                </task>
+                <task id="413" uid="84ca932a10374a12942871338d6fd60e" name="Tourner la vidéo de démonstration" color="#666666" meeting="false" start="2025-05-18" duration="7" complete="0" expand="true">
+                    <depend id="412" type="2" difference="0" hardness="Strong"/>
+                </task>
+                <task id="412" uid="25d6253524524cd2a15f4d9fc1dcb36b" name="Monter la vidéo de démonstration" color="#666666" meeting="false" start="2025-05-25" duration="6" complete="0" expand="true"/>
                 <task id="384" uid="a852969e68cd40ad99cbee9ed5945e52" name="Présentation et vidéo de démo : prêtes" color="#f10d0c" meeting="true" start="2025-05-31" duration="0" complete="0" expand="true"/>
                 <task id="383" uid="2e0f73fd726241b38bcda05094abd655" name="J8 - Présenter le projet et la vidéo de démo" color="#f10d0c" meeting="true" start="2025-06-02" duration="0" complete="0" expand="true"/>
                 <task id="387" uid="7ad3c57aa8254094932f106d69a724dd" name="Préparration du Proof Of Concept" color="#666666" meeting="false" start="2025-05-17" duration="14" complete="0" expand="true"/>
@@ -190,6 +200,7 @@ Lien vers Moodle de dépôts : https://cours.univ-grenoble-alpes.fr/mod/assign/v
         <task id="23" uid="d18f60717a1c49cbae4aa17e82df00ef" name="Proposer des produits et des services" color="#55308d" meeting="false" start="2024-11-09" duration="159" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="false">
             <task id="39" uid="0a24fc18c3cd43b9a86401b2737ff04c" name="Définir une charte graphique exhaustive" color="#ea7500" meeting="false" start="2024-11-09" duration="42" complete="0" expand="true">
                 <notes><![CDATA[Inclus la préparation de template pour les documents de l'équipe]]></notes>
+                <depend id="407" type="2" difference="0" hardness="Strong"/>
             </task>
             <task id="407" uid="4751cccdd8214b3f9a61cc237293d6ac" name="Migration et formatage des anciens documents" color="#666666" meeting="false" start="2024-12-22" duration="12" complete="0" expand="true">
                 <notes><![CDATA[Formalisation des anciens documents avec les nouveaux templates
@@ -225,10 +236,10 @@ Trie et réagencement de l'arborescence]]></notes>
             <task id="33" uid="a7f961bf91e948e0b9b6e06ec64a1e26" name="Se fournir les produits" color="#666666" meeting="false" start="2025-02-23" duration="42" complete="0" expand="true">
                 <depend id="30" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="34" uid="8bbed02de4d44241a17852a500aebd7a" name="Designer des produits originaux" color="#666666" meeting="false" start="2025-02-09" duration="17" complete="0" expand="true">
+            <task id="34" uid="8bbed02de4d44241a17852a500aebd7a" name="Designer des produits originaux" color="#666666" meeting="false" start="2025-02-09" duration="42" complete="0" expand="true">
                 <depend id="30" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="35" uid="ef89b65ecfa64f0ba658d0fe51c2f916" name="Préparer les offres de services" color="#666666" meeting="false" start="2025-02-09" duration="17" complete="0" expand="true">
+            <task id="35" uid="ef89b65ecfa64f0ba658d0fe51c2f916" name="Préparer les offres de services" color="#666666" meeting="false" start="2025-02-09" duration="21" complete="0" expand="true">
                 <depend id="30" type="2" difference="0" hardness="Strong"/>
             </task>
             <task id="30" uid="88682bec513a48a192956138d34093e4" name="Revoir les points de conformité des produits et des services" color="#666666" meeting="false" start="2025-04-06" duration="7" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="true">
@@ -241,7 +252,7 @@ Externe = communication externe, pub, etc
             </task>
             <task id="396" uid="2e5df6144e71487eb5967e11471bf3f6" name="Point d'étape : propositions de prestation du projet" color="#d60be4" meeting="true" start="2025-04-19" duration="0" complete="0" expand="true"/>
         </task>
-        <task id="36" uid="ae3b69a7f7a141f1afbf92f98146dbbb" name="Créer le site" color="#55308d" meeting="false" start="2025-01-18" duration="124" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="true">
+        <task id="36" uid="ae3b69a7f7a141f1afbf92f98146dbbb" name="Créer le site" color="#55308d" meeting="false" start="2025-01-18" duration="124" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="false">
             <task id="40" uid="f2ea02f241c44d208610e71fbc397a79" name="Designer le site : esthétisme et ergonomie" color="#666666" meeting="false" start="2025-01-18" duration="8" complete="0" expand="true">
                 <depend id="46" type="2" difference="0" hardness="Strong"/>
             </task>
@@ -330,7 +341,7 @@ Externe = communication externe, pub, etc
         <allocation task-id="11" resource-id="0" function="Default:1" responsible="false" load="100.0"/>
         <allocation task-id="6" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
         <allocation task-id="399" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
-        <allocation task-id="64" resource-id="0" function="Default:1" responsible="false" load="100.0"/>
+        <allocation task-id="64" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
         <allocation task-id="25" resource-id="0" function="Default:1" responsible="false" load="100.0"/>
         <allocation task-id="26" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
         <allocation task-id="397" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
@@ -338,10 +349,36 @@ Externe = communication externe, pub, etc
         <allocation task-id="400" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
         <allocation task-id="28" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
         <allocation task-id="376" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
-        <allocation task-id="33" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
         <allocation task-id="408" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
         <allocation task-id="0" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
         <allocation task-id="396" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="47" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="378" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="53" resource-id="0" function="Default:1" responsible="false" load="100.0"/>
+        <allocation task-id="60" resource-id="0" function="Default:1" responsible="false" load="100.0"/>
+        <allocation task-id="55" resource-id="0" function="Default:1" responsible="false" load="100.0"/>
+        <allocation task-id="57" resource-id="0" function="Default:1" responsible="false" load="100.0"/>
+        <allocation task-id="402" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="33" resource-id="0" function="Default:1" responsible="false" load="100.0"/>
+        <allocation task-id="363" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="364" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="390" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="365" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="409" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="393" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="382" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="369" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="360" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="388" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="411" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="413" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="384" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="383" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="387" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="385" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="386" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="394" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="65" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
         <allocation task-id="342" resource-id="1" function="3" responsible="true" load="100.0"/>
         <allocation task-id="341" resource-id="1" function="3" responsible="false" load="100.0"/>
         <allocation task-id="340" resource-id="1" function="3" responsible="false" load="100.0"/>
@@ -363,8 +400,7 @@ Externe = communication externe, pub, etc
         <allocation task-id="5" resource-id="1" function="3" responsible="false" load="100.0"/>
         <allocation task-id="7" resource-id="1" function="3" responsible="false" load="100.0"/>
         <allocation task-id="399" resource-id="1" function="3" responsible="false" load="100.0"/>
-        <allocation task-id="64" resource-id="1" function="3" responsible="true" load="100.0"/>
-        <allocation task-id="65" resource-id="1" function="3" responsible="true" load="100.0"/>
+        <allocation task-id="64" resource-id="1" function="3" responsible="false" load="100.0"/>
         <allocation task-id="25" resource-id="1" function="3" responsible="true" load="100.0"/>
         <allocation task-id="26" resource-id="1" function="3" responsible="false" load="100.0"/>
         <allocation task-id="397" resource-id="1" function="3" responsible="false" load="100.0"/>
@@ -377,6 +413,34 @@ Externe = communication externe, pub, etc
         <allocation task-id="337" resource-id="1" function="3" responsible="true" load="100.0"/>
         <allocation task-id="396" resource-id="1" function="3" responsible="false" load="100.0"/>
         <allocation task-id="0" resource-id="1" function="3" responsible="false" load="100.0"/>
+        <allocation task-id="381" resource-id="1" function="3" responsible="true" load="100.0"/>
+        <allocation task-id="61" resource-id="1" function="3" responsible="false" load="100.0"/>
+        <allocation task-id="48" resource-id="1" function="3" responsible="true" load="100.0"/>
+        <allocation task-id="378" resource-id="1" function="3" responsible="false" load="100.0"/>
+        <allocation task-id="53" resource-id="1" function="3" responsible="true" load="100.0"/>
+        <allocation task-id="54" resource-id="1" function="3" responsible="true" load="100.0"/>
+        <allocation task-id="401" resource-id="1" function="3" responsible="false" load="100.0"/>
+        <allocation task-id="60" resource-id="1" function="3" responsible="false" load="100.0"/>
+        <allocation task-id="379" resource-id="1" function="3" responsible="false" load="100.0"/>
+        <allocation task-id="57" resource-id="1" function="3" responsible="true" load="100.0"/>
+        <allocation task-id="402" resource-id="1" function="3" responsible="false" load="100.0"/>
+        <allocation task-id="363" resource-id="1" function="3" responsible="false" load="100.0"/>
+        <allocation task-id="364" resource-id="1" function="3" responsible="false" load="100.0"/>
+        <allocation task-id="390" resource-id="1" function="3" responsible="false" load="100.0"/>
+        <allocation task-id="410" resource-id="1" function="3" responsible="true" load="100.0"/>
+        <allocation task-id="365" resource-id="1" function="3" responsible="false" load="100.0"/>
+        <allocation task-id="393" resource-id="1" function="3" responsible="false" load="100.0"/>
+        <allocation task-id="382" resource-id="1" function="3" responsible="false" load="100.0"/>
+        <allocation task-id="369" resource-id="1" function="3" responsible="false" load="100.0"/>
+        <allocation task-id="360" resource-id="1" function="3" responsible="false" load="100.0"/>
+        <allocation task-id="389" resource-id="1" function="3" responsible="true" load="100.0"/>
+        <allocation task-id="412" resource-id="1" function="3" responsible="true" load="100.0"/>
+        <allocation task-id="384" resource-id="1" function="3" responsible="false" load="100.0"/>
+        <allocation task-id="383" resource-id="1" function="3" responsible="false" load="100.0"/>
+        <allocation task-id="387" resource-id="1" function="3" responsible="false" load="100.0"/>
+        <allocation task-id="385" resource-id="1" function="3" responsible="false" load="100.0"/>
+        <allocation task-id="386" resource-id="1" function="3" responsible="false" load="100.0"/>
+        <allocation task-id="394" resource-id="1" function="3" responsible="false" load="100.0"/>
         <allocation task-id="2" resource-id="2" function="1" responsible="true" load="100.0"/>
         <allocation task-id="342" resource-id="2" function="1" responsible="false" load="100.0"/>
         <allocation task-id="341" resource-id="2" function="1" responsible="false" load="100.0"/>
@@ -405,6 +469,33 @@ Externe = communication externe, pub, etc
         <allocation task-id="211" resource-id="2" function="1" responsible="true" load="100.0"/>
         <allocation task-id="396" resource-id="2" function="1" responsible="false" load="100.0"/>
         <allocation task-id="0" resource-id="2" function="1" responsible="false" load="100.0"/>
+        <allocation task-id="61" resource-id="2" function="1" responsible="true" load="100.0"/>
+        <allocation task-id="406" resource-id="2" function="1" responsible="true" load="100.0"/>
+        <allocation task-id="49" resource-id="2" function="1" responsible="true" load="100.0"/>
+        <allocation task-id="378" resource-id="2" function="1" responsible="false" load="100.0"/>
+        <allocation task-id="401" resource-id="2" function="1" responsible="false" load="100.0"/>
+        <allocation task-id="54" resource-id="2" function="1" responsible="false" load="100.0"/>
+        <allocation task-id="60" resource-id="2" function="1" responsible="true" load="100.0"/>
+        <allocation task-id="379" resource-id="2" function="1" responsible="true" load="100.0"/>
+        <allocation task-id="402" resource-id="2" function="1" responsible="false" load="100.0"/>
+        <allocation task-id="363" resource-id="2" function="1" responsible="false" load="100.0"/>
+        <allocation task-id="364" resource-id="2" function="1" responsible="false" load="100.0"/>
+        <allocation task-id="390" resource-id="2" function="1" responsible="false" load="100.0"/>
+        <allocation task-id="365" resource-id="2" function="1" responsible="false" load="100.0"/>
+        <allocation task-id="409" resource-id="2" function="1" responsible="false" load="100.0"/>
+        <allocation task-id="393" resource-id="2" function="1" responsible="false" load="100.0"/>
+        <allocation task-id="382" resource-id="2" function="1" responsible="false" load="100.0"/>
+        <allocation task-id="369" resource-id="2" function="1" responsible="false" load="100.0"/>
+        <allocation task-id="360" resource-id="2" function="1" responsible="false" load="100.0"/>
+        <allocation task-id="388" resource-id="2" function="1" responsible="false" load="100.0"/>
+        <allocation task-id="411" resource-id="2" function="1" responsible="false" load="100.0"/>
+        <allocation task-id="413" resource-id="2" function="1" responsible="false" load="100.0"/>
+        <allocation task-id="384" resource-id="2" function="1" responsible="false" load="100.0"/>
+        <allocation task-id="383" resource-id="2" function="1" responsible="false" load="100.0"/>
+        <allocation task-id="387" resource-id="2" function="1" responsible="false" load="100.0"/>
+        <allocation task-id="385" resource-id="2" function="1" responsible="false" load="100.0"/>
+        <allocation task-id="386" resource-id="2" function="1" responsible="false" load="100.0"/>
+        <allocation task-id="394" resource-id="2" function="1" responsible="false" load="100.0"/>
         <allocation task-id="338" resource-id="3" function="2" responsible="true" load="100.0"/>
         <allocation task-id="342" resource-id="3" function="2" responsible="true" load="100.0"/>
         <allocation task-id="341" resource-id="3" function="2" responsible="false" load="100.0"/>
@@ -433,6 +524,31 @@ Externe = communication externe, pub, etc
         <allocation task-id="30" resource-id="3" function="2" responsible="true" load="100.0"/>
         <allocation task-id="396" resource-id="3" function="2" responsible="false" load="100.0"/>
         <allocation task-id="0" resource-id="3" function="2" responsible="false" load="100.0"/>
+        <allocation task-id="50" resource-id="3" function="2" responsible="true" load="100.0"/>
+        <allocation task-id="378" resource-id="3" function="2" responsible="false" load="100.0"/>
+        <allocation task-id="401" resource-id="3" function="2" responsible="false" load="100.0"/>
+        <allocation task-id="58" resource-id="3" function="2" responsible="true" load="100.0"/>
+        <allocation task-id="55" resource-id="3" function="2" responsible="true" load="100.0"/>
+        <allocation task-id="402" resource-id="3" function="2" responsible="false" load="100.0"/>
+        <allocation task-id="33" resource-id="3" function="2" responsible="true" load="100.0"/>
+        <allocation task-id="363" resource-id="3" function="2" responsible="false" load="100.0"/>
+        <allocation task-id="364" resource-id="3" function="2" responsible="false" load="100.0"/>
+        <allocation task-id="390" resource-id="3" function="2" responsible="false" load="100.0"/>
+        <allocation task-id="365" resource-id="3" function="2" responsible="false" load="100.0"/>
+        <allocation task-id="410" resource-id="3" function="2" responsible="false" load="100.0"/>
+        <allocation task-id="393" resource-id="3" function="2" responsible="false" load="100.0"/>
+        <allocation task-id="382" resource-id="3" function="2" responsible="false" load="100.0"/>
+        <allocation task-id="369" resource-id="3" function="2" responsible="false" load="100.0"/>
+        <allocation task-id="360" resource-id="3" function="2" responsible="false" load="100.0"/>
+        <allocation task-id="389" resource-id="3" function="2" responsible="false" load="100.0"/>
+        <allocation task-id="413" resource-id="3" function="2" responsible="false" load="100.0"/>
+        <allocation task-id="412" resource-id="3" function="2" responsible="false" load="100.0"/>
+        <allocation task-id="384" resource-id="3" function="2" responsible="false" load="100.0"/>
+        <allocation task-id="383" resource-id="3" function="2" responsible="false" load="100.0"/>
+        <allocation task-id="387" resource-id="3" function="2" responsible="false" load="100.0"/>
+        <allocation task-id="385" resource-id="3" function="2" responsible="false" load="100.0"/>
+        <allocation task-id="386" resource-id="3" function="2" responsible="false" load="100.0"/>
+        <allocation task-id="394" resource-id="3" function="2" responsible="false" load="100.0"/>
     </allocations>
     <vacations>
         <vacation start="2024-11-30" end="2024-12-01" resourceid="0"/>
