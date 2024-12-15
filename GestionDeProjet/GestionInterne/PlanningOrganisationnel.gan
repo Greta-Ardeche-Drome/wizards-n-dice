@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Planning Wizards &amp; Dices" company="" webLink="http://" view-date="2024-12-05" view-index="0" gantt-divider-location="537" resource-divider-location="319" version="3.3.3312" locale="fr_FR">
+<?xml version="1.0" encoding="UTF-8"?><project name="Planning Wizards &amp; Dices" company="" webLink="http://" view-date="2025-01-01" view-index="0" gantt-divider-location="537" resource-divider-location="319" version="3.3.3312" locale="fr_FR">
     <description/>
-    <view zooming-state="default:2" id="gantt-chart">
+    <view zooming-state="default:8" id="gantt-chart">
         <field id="tpd3" name="Nom" width="372" order="0"/>
         <field id="tpd4" name="Date de début" width="82" order="1"/>
         <field id="tpd5" name="Date de fin" width="82" order="2"/>
@@ -11,8 +11,8 @@
         <option id="color.recent"><![CDATA[#00a933 #666666 #ea7500 #d60be4 #f4f4f4 #55308d #f10d0c]]></option>
     </view>
     <view id="resource-table">
-        <field id="0" name="Nom" width="269" order="0"/>
-        <field id="1" name="Rôle par défaut" width="31" order="1"/>
+        <field id="0" name="Nom" width="276" order="0"/>
+        <field id="1" name="Rôle par défaut" width="39" order="1"/>
     </view>
     <!-- -->
     <calendars base-id="fr">
@@ -79,7 +79,7 @@
             <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
             <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
         </taskproperties>
-        <task id="80" uid="2d76ef79251848059c2b22eb06bd755a" name="Jalons imposés" color="#f10d0c" meeting="false" start="2024-10-07" duration="235" complete="0" expand="false">
+        <task id="80" uid="2d76ef79251848059c2b22eb06bd755a" name="Jalons imposés" color="#f10d0c" meeting="false" start="2024-10-07" duration="235" complete="0" expand="true">
             <task id="81" uid="f4e57e4caccb40619e4879537c210335" name="Jalon 1" color="#f10d0c" meeting="false" start="2024-10-07" duration="38" complete="0" expand="false">
                 <task id="342" uid="f1120becc4f44a12ae7aea190e001bda" name="Rédiger la fiche projet tutoré" color="#00a933" meeting="false" start="2024-10-07" duration="33" complete="0" expand="true"/>
                 <task id="341" uid="9f14c87c2f0348a2ba4c2808c1d5aef1" name="Préparer oral de présentation du projet" color="#00a933" meeting="false" start="2024-11-02" duration="11" complete="0" expand="true"/>
@@ -121,7 +121,7 @@ Lien vers Moodle de dépôts : https://cours.univ-grenoble-alpes.fr/mod/assign/v
                 <task id="365" uid="e4ae00a74ea044488b149708b79d6326" name="J6 - Présentation du processus projet : prêt" color="#f10d0c" meeting="true" start="2025-05-12" duration="0" complete="0" expand="true"/>
                 <task id="393" uid="4a6da4c4c9214f60bafd8575f609394a" name="Débriefer le déroulé des jalons 5 et 6" color="#666666" meeting="true" start="2025-05-17" duration="0" complete="0" expand="true"/>
             </task>
-            <task id="101" uid="09681227ca1a47cd97613dd6bebcdcff" name="Jalon 7 à 9" color="#f10d0c" meeting="false" start="2025-05-04" duration="32" complete="0" expand="false">
+            <task id="101" uid="09681227ca1a47cd97613dd6bebcdcff" name="Jalon 7 à 9" color="#f10d0c" meeting="false" start="2025-05-04" duration="32" complete="0" expand="true">
                 <task id="382" uid="f3530ab9f6524679b08c377ade1f8e11" name="Rédaction du mémoire de projet" color="#666666" meeting="false" start="2025-05-04" duration="26" complete="0" expand="true"/>
                 <task id="369" uid="36c2e1c1f7274f9e9f0135bb8f5603c4" name="Mémoire de projet : prêt" color="#f10d0c" meeting="true" start="2025-05-31" duration="0" complete="0" expand="true"/>
                 <task id="360" uid="1f43ee2eb5cc4749b84cce756fcdfbcd" name="J7 - Livrer le mémoire de projet" color="#f10d0c" meeting="true" start="2025-06-02" duration="0" complete="0" expand="true"/>
@@ -144,7 +144,7 @@ Lien vers Moodle de dépôts : https://cours.univ-grenoble-alpes.fr/mod/assign/v
                 <task id="394" uid="66dfa55bb45e488391426945b74c97f9" name="Débriefer des jalons 7 à 9" color="#666666" meeting="true" start="2025-06-07" duration="0" complete="0" expand="true"/>
             </task>
         </task>
-        <task id="0" uid="1e2188cfd5a746838d03251ca51480d7" name="Documentation, recherches et définition des aspects inconnus" color="#55308d" meeting="false" start="2024-09-07" duration="134" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="false">
+        <task id="0" uid="1e2188cfd5a746838d03251ca51480d7" name="Documentation, recherches et définition des aspects inconnus" color="#55308d" meeting="false" start="2024-09-07" duration="134" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="true">
             <task id="12" uid="7f54f040ed1e4477adbeffe314a11531" name="Définir le degré de liberté vis-à-vis des contraintes GRETA/IUT" color="#00a933" meeting="false" start="2024-09-07" duration="50" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="true"/>
             <task id="408" uid="4415b78a23894861b7008330f74b0ce2" name="Plannification détaillé du projet" color="#00a933" meeting="false" start="2024-11-17" duration="29" complete="0" expand="true"/>
             <task id="338" uid="b709dc64ce8d4f46950e4e97c81f9f63" name="Se renseigner sur le fonctionnement d'autres sites (Amazon, etc)" color="#ea7500" meeting="false" start="2024-10-12" duration="63" complete="0" expand="true">
@@ -176,7 +176,7 @@ Lien vers Moodle de dépôts : https://cours.univ-grenoble-alpes.fr/mod/assign/v
                 <depend id="21" type="2" difference="0" hardness="Strong"/>
                 <depend id="377" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="11" uid="d0e17fb349c34f90917aa68e8f13fe16" name="Définir les points de sécurité critique" color="#666666" meeting="false" start="2024-12-22" duration="13" complete="0" expand="true">
+            <task id="11" uid="d0e17fb349c34f90917aa68e8f13fe16" name="Définir les points de sécurité critique" color="#666666" meeting="false" start="2024-12-22" duration="12" complete="0" expand="true">
                 <depend id="18" type="2" difference="0" hardness="Strong"/>
                 <depend id="21" type="2" difference="0" hardness="Strong"/>
                 <depend id="377" type="2" difference="0" hardness="Strong"/>
@@ -191,7 +191,7 @@ Lien vers Moodle de dépôts : https://cours.univ-grenoble-alpes.fr/mod/assign/v
             <task id="21" uid="d416b3a5975447e4852a61547fc04a16" name="Se renseigner sur l'essor de la communauté JDR" color="#666666" meeting="false" start="2025-01-12" duration="7" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="true"/>
             <task id="18" uid="4717d76a9b994e4e953c50967c374ffc" name="Se renseigner sur l'impact environ. des produits" color="#666666" meeting="false" start="2025-01-12" duration="11" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="true"/>
         </task>
-        <task id="63" uid="0da90acb2f7547a4a82764de3ff706b4" name="Gérer les réseaux sociaux" color="#55308d" meeting="false" start="2024-12-15" duration="26" complete="0" expand="false">
+        <task id="63" uid="0da90acb2f7547a4a82764de3ff706b4" name="Gérer les réseaux sociaux" color="#55308d" meeting="false" start="2024-12-15" duration="26" complete="0" expand="true">
             <task id="64" uid="b0acca280a5443e6b46d6adba48dfb17" name="Préparer des publications simples à l'avance" color="#666666" meeting="false" start="2024-12-15" duration="19" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="true">
                 <notes><![CDATA[2 à 4 publications]]></notes>
             </task>
@@ -206,10 +206,10 @@ Lien vers Moodle de dépôts : https://cours.univ-grenoble-alpes.fr/mod/assign/v
                 <notes><![CDATA[Formalisation des anciens documents avec les nouveaux templates
 Trie et réagencement de l'arborescence]]></notes>
             </task>
-            <task id="25" uid="3c68ae23c08c4855b34a17a2505e76a4" name="Établir une liste des produits à proposer" color="#666666" meeting="false" start="2025-01-11" duration="15" complete="0" expand="true">
+            <task id="25" uid="3c68ae23c08c4855b34a17a2505e76a4" name="Établir une liste des produits à proposer" color="#666666" meeting="false" start="2025-01-05" duration="14" complete="0" expand="true">
                 <depend id="29" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="26" uid="18c79281933c46eaac21b35cd4c16d93" name="Établir une liste des services à proposer" color="#666666" meeting="false" start="2025-01-11" duration="15" complete="0" expand="true">
+            <task id="26" uid="18c79281933c46eaac21b35cd4c16d93" name="Établir une liste des services à proposer" color="#666666" meeting="false" start="2025-01-12" duration="14" complete="0" expand="true">
                 <depend id="29" type="2" difference="0" hardness="Strong"/>
             </task>
             <task id="397" uid="3bff08e2eabc49638cc0eeb26f850a1a" name="Point d'étape : directives des prestations du site" color="#d60be4" meeting="true" start="2025-01-25" duration="0" complete="0" expand="true"/>
@@ -252,7 +252,7 @@ Externe = communication externe, pub, etc
             </task>
             <task id="396" uid="2e5df6144e71487eb5967e11471bf3f6" name="Point d'étape : propositions de prestation du projet" color="#d60be4" meeting="true" start="2025-04-19" duration="0" complete="0" expand="true"/>
         </task>
-        <task id="36" uid="ae3b69a7f7a141f1afbf92f98146dbbb" name="Créer le site" color="#55308d" meeting="false" start="2025-01-18" duration="124" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="false">
+        <task id="36" uid="ae3b69a7f7a141f1afbf92f98146dbbb" name="Créer le site" color="#55308d" meeting="false" start="2025-01-18" duration="124" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="true">
             <task id="40" uid="f2ea02f241c44d208610e71fbc397a79" name="Designer le site : esthétisme et ergonomie" color="#666666" meeting="false" start="2025-01-18" duration="8" complete="0" expand="true">
                 <depend id="46" type="2" difference="0" hardness="Strong"/>
             </task>
@@ -304,6 +304,15 @@ Externe = communication externe, pub, etc
                 <task id="54" uid="7f7d439d24f9419b802ee4eff906c19c" name="Ajouter des fonctionnalités non-essentielles" color="#666666" meeting="false" start="2025-03-30" duration="21" complete="0" expand="true"/>
             </task>
             <task id="401" uid="e564ffbead7948cd9ee095abe066f167" name="Point d'étape : état du site" color="#d60be4" meeting="true" start="2025-04-19" duration="0" complete="0" expand="true"/>
+            <task id="414" uid="371adef3c6f94e41bb35daaea67b97b4" name="Proposer des changements hypothétiques améliorant l’infrastructure" color="#666666" meeting="false" start="2025-04-20" duration="6" complete="0" expand="true">
+                <notes><![CDATA[Création d'une infrastructure idélisée]]></notes>
+            </task>
+            <task id="416" uid="a13dbec05c7d48b4936d88f624d625ba" name="Définir le critère de disponibilité de l’infrastructure réel" color="#666666" meeting="false" start="2025-04-20" duration="6" complete="0" expand="true">
+                <depend id="417" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="417" uid="a7846933097547b682417d600ffe9f00" name="Définir le critère de disponibilité de l’infrastructure idéalisée" color="#666666" meeting="false" start="2025-04-27" duration="6" complete="0" expand="true">
+                <notes><![CDATA[Optionnel]]></notes>
+            </task>
             <task id="58" uid="c9ba7c5e1f8740c19011738c41d4838c" name="Vérifier l'application des normes sur le numérique (RGPD, etc)" color="#666666" meeting="false" start="2025-04-20" duration="7" complete="0" expand="true"/>
             <task id="60" uid="94892b3184754304a7bfe146e4f26b5d" name="Relever un maximum de failles et de vulnérabilités" color="#666666" meeting="false" start="2025-04-20" duration="12" complete="0" expand="true">
                 <depend id="55" type="2" difference="0" hardness="Strong"/>
@@ -354,7 +363,6 @@ Externe = communication externe, pub, etc
         <allocation task-id="47" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
         <allocation task-id="378" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
         <allocation task-id="53" resource-id="0" function="Default:1" responsible="false" load="100.0"/>
-        <allocation task-id="60" resource-id="0" function="Default:1" responsible="false" load="100.0"/>
         <allocation task-id="55" resource-id="0" function="Default:1" responsible="false" load="100.0"/>
         <allocation task-id="57" resource-id="0" function="Default:1" responsible="false" load="100.0"/>
         <allocation task-id="402" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
@@ -378,6 +386,7 @@ Externe = communication externe, pub, etc
         <allocation task-id="386" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
         <allocation task-id="394" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
         <allocation task-id="65" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="416" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
         <allocation task-id="342" resource-id="1" function="3" responsible="true" load="100.0"/>
         <allocation task-id="341" resource-id="1" function="3" responsible="false" load="100.0"/>
         <allocation task-id="340" resource-id="1" function="3" responsible="false" load="100.0"/>
@@ -417,7 +426,6 @@ Externe = communication externe, pub, etc
         <allocation task-id="53" resource-id="1" function="3" responsible="true" load="100.0"/>
         <allocation task-id="54" resource-id="1" function="3" responsible="true" load="100.0"/>
         <allocation task-id="401" resource-id="1" function="3" responsible="false" load="100.0"/>
-        <allocation task-id="60" resource-id="1" function="3" responsible="false" load="100.0"/>
         <allocation task-id="379" resource-id="1" function="3" responsible="false" load="100.0"/>
         <allocation task-id="57" resource-id="1" function="3" responsible="true" load="100.0"/>
         <allocation task-id="402" resource-id="1" function="3" responsible="false" load="100.0"/>
@@ -438,6 +446,7 @@ Externe = communication externe, pub, etc
         <allocation task-id="385" resource-id="1" function="3" responsible="false" load="100.0"/>
         <allocation task-id="386" resource-id="1" function="3" responsible="false" load="100.0"/>
         <allocation task-id="394" resource-id="1" function="3" responsible="false" load="100.0"/>
+        <allocation task-id="414" resource-id="1" function="3" responsible="true" load="100.0"/>
         <allocation task-id="2" resource-id="2" function="1" responsible="true" load="100.0"/>
         <allocation task-id="342" resource-id="2" function="1" responsible="false" load="100.0"/>
         <allocation task-id="341" resource-id="2" function="1" responsible="false" load="100.0"/>
@@ -545,6 +554,7 @@ Externe = communication externe, pub, etc
         <allocation task-id="386" resource-id="3" function="2" responsible="false" load="100.0"/>
         <allocation task-id="394" resource-id="3" function="2" responsible="false" load="100.0"/>
         <allocation task-id="64" resource-id="3" function="2" responsible="true" load="100.0"/>
+        <allocation task-id="417" resource-id="3" function="2" responsible="true" load="100.0"/>
     </allocations>
     <vacations>
         <vacation start="2024-11-30" end="2024-12-01" resourceid="0"/>
