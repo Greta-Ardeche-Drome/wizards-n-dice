@@ -1,9 +1,0 @@
-Matos :
-	haute dispo : 24/7 théoriquement possible 
-	hébergement : qui ?
-		maquette : pas obligé de tourner tout le temps
-			Répartission du cout de la conso elec 
-		pc (pas de serv rackable) 
-	gestion des stock
-		dev/deploiement de logiciel/solution/autre pour gérer les stock
-		comment : chez nous (en mode chill guy) ? ou autre (autre = besoin d'idée réalisable)
