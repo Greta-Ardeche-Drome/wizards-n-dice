@@ -1,4 +1,4 @@
-Avant d’utiliser le Template_ODT, vous devez télécharger la police Playfair Display. Pour cela : 
+Avant d’utiliser le Template_ODT, vous devez télécharger la police Playfair Display (A faire qu'une seule fois sur chaque machine). Pour cela : 
 
 1) Copier le .zip "playfair-display.zip" sur votre machine. 
 
