@@ -1,14 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Planning Wizards &amp; Dices" company="" webLink="http://" view-date="2025-01-03" view-index="0" gantt-divider-location="548" resource-divider-location="319" version="3.3.3312" locale="fr_FR">
+<?xml version="1.0" encoding="UTF-8"?><project name="Planning Wizards &amp; Dices" company="" webLink="http://" view-date="2024-12-22" view-index="0" gantt-divider-location="533" resource-divider-location="319" version="3.3.3312" locale="fr_FR">
     <description/>
     <view zooming-state="default:2" id="gantt-chart">
-        <field id="tpd3" name="Nom" width="352" order="0"/>
-        <field id="tpd4" name="Date de début" width="92" order="1"/>
-        <field id="tpd5" name="Date de fin" width="88" order="2"/>
+        <field id="tpd3" name="Nom" width="342" order="0"/>
+        <field id="tpd4" name="Date de début" width="89" order="1"/>
+        <field id="tpd5" name="Date de fin" width="86" order="2"/>
         <option id="filter.completedTasks" value="false"/>
         <option id="filter.dueTodayTasks" value="false"/>
         <option id="filter.overdueTasks" value="false"/>
         <option id="filter.inProgressTodayTasks" value="false"/>
-        <option id="color.recent"><![CDATA[#666666 #ea7500 #00a933 #d60be4 #f4f4f4 #55308d #f10d0c]]></option>
+        <option id="color.recent"><![CDATA[#00a933 #ea7500 #666666 #d60be4 #f4f4f4 #55308d #f10d0c]]></option>
     </view>
     <view id="resource-table">
         <field id="0" name="Nom" width="276" order="0"/>
@@ -148,23 +148,20 @@ Lien vers Moodle de dépôts : https://cours.univ-grenoble-alpes.fr/mod/assign/v
             <task id="12" uid="7f54f040ed1e4477adbeffe314a11531" name="Définir le degré de liberté vis-à-vis des contraintes GRETA/IUT" color="#00a933" meeting="false" start="2024-09-07" duration="50" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="true"/>
             <task id="408" uid="4415b78a23894861b7008330f74b0ce2" name="Plannification détaillé du projet" color="#00a933" meeting="false" start="2024-11-17" duration="29" complete="0" expand="true"/>
             <task id="338" uid="b709dc64ce8d4f46950e4e97c81f9f63" name="Se renseigner sur le fonctionnement d'autres sites (Amazon, etc)" color="#00a933" meeting="false" start="2024-10-12" duration="63" complete="0" expand="true"/>
-            <task id="2" uid="727df98bc6b24c9286db77c2c8ff73fd" name="Définir les infrastructures, technologies et outils pour le site" color="#ea7500" meeting="false" start="2024-11-30" duration="28" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="true">
-                <depend id="11" type="2" difference="0" hardness="Strong"/>
-            </task>
+            <task id="2" uid="727df98bc6b24c9286db77c2c8ff73fd" name="Définir les infrastructures, technologies et outils pour le site" color="#ea7500" meeting="false" start="2024-11-30" duration="34" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="true"/>
             <task id="398" uid="2f92bd01ece6495288f44526c1d947e3" name="Point d'étape : avancée de la documentation (1)" color="#d60be4" meeting="true" start="2024-12-21" duration="0" complete="0" expand="true"/>
-            <task id="3" uid="ef40893ec8d9488cb523a15349b424b1" name="Définir les méthodes de vente des produits" color="#ea7500" meeting="false" start="2024-12-22" duration="6" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="true">
+            <task id="3" uid="ef40893ec8d9488cb523a15349b424b1" name="Définir les méthodes de vente des produits" color="#00a933" meeting="false" start="2024-12-22" duration="6" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="true">
                 <depend id="7" type="2" difference="0" hardness="Strong"/>
                 <depend id="18" type="2" difference="0" hardness="Strong"/>
                 <depend id="21" type="2" difference="0" hardness="Strong"/>
                 <depend id="377" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="5" uid="2f253be087824b7183771aa5a737f561" name="Définir les méthodes de vente des services" color="#ea7500" meeting="false" start="2024-12-22" duration="6" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="true">
-                <depend id="7" type="2" difference="0" hardness="Strong"/>
+            <task id="5" uid="2f253be087824b7183771aa5a737f561" name="Définir les méthodes de vente des services" color="#ea7500" meeting="false" start="2024-12-22" duration="12" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="true">
                 <depend id="18" type="2" difference="0" hardness="Strong"/>
                 <depend id="21" type="2" difference="0" hardness="Strong"/>
                 <depend id="377" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="7" uid="5cd58dbedb9e4f8397d98e109e45cc3b" name="Définir les aspects légaux et administratifs (RGPD, etc)" color="#666666" meeting="false" start="2024-12-29" duration="13" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="true">
+            <task id="7" uid="5cd58dbedb9e4f8397d98e109e45cc3b" name="Définir les aspects légaux et administratifs (RGPD, etc)" color="#ea7500" meeting="false" start="2024-12-29" duration="13" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="true">
                 <depend id="18" type="2" difference="0" hardness="Strong"/>
                 <depend id="21" type="2" difference="0" hardness="Strong"/>
                 <depend id="377" type="2" difference="0" hardness="Strong"/>
@@ -174,7 +171,7 @@ Lien vers Moodle de dépôts : https://cours.univ-grenoble-alpes.fr/mod/assign/v
                 <depend id="21" type="2" difference="0" hardness="Strong"/>
                 <depend id="377" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="6" uid="a1606f93e8fa41ea85cb2486448ea316" name="Définir les méthodes de gestion des moyens de paiement" color="#ea7500" meeting="false" start="2024-12-22" duration="19" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="true">
+            <task id="6" uid="a1606f93e8fa41ea85cb2486448ea316" name="Définir les méthodes de gestion des moyens de paiement" color="#00a933" meeting="false" start="2024-12-22" duration="19" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="true">
                 <depend id="18" type="2" difference="0" hardness="Strong"/>
                 <depend id="21" type="2" difference="0" hardness="Strong"/>
                 <depend id="377" type="2" difference="0" hardness="Strong"/>
@@ -183,7 +180,7 @@ Lien vers Moodle de dépôts : https://cours.univ-grenoble-alpes.fr/mod/assign/v
             <task id="377" uid="85dfcfa4d0d74bec913e71daedfacda4" name="Se renseigner sur les normes en matières de stockages" color="#666666" meeting="false" start="2025-01-12" duration="7" complete="0" expand="true"/>
             <task id="21" uid="d416b3a5975447e4852a61547fc04a16" name="Se renseigner sur l'essor de la communauté JDR" color="#666666" meeting="false" start="2025-01-12" duration="7" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="true"/>
             <task id="18" uid="4717d76a9b994e4e953c50967c374ffc" name="Se renseigner sur l'impact environ. des produits" color="#666666" meeting="false" start="2025-01-12" duration="11" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="true"/>
-            <task id="39" uid="0a24fc18c3cd43b9a86401b2737ff04c" name="Définir une charte graphique exhaustive à usage interne" color="#ea7500" meeting="false" start="2024-11-09" duration="44" complete="0" expand="true">
+            <task id="39" uid="0a24fc18c3cd43b9a86401b2737ff04c" name="Définir une charte graphique exhaustive à usage interne" color="#00a933" meeting="false" start="2024-11-09" duration="44" complete="0" expand="true">
                 <notes><![CDATA[Inclus la préparation de template pour les documents de l'équipe]]></notes>
             </task>
             <task id="407" uid="4751cccdd8214b3f9a61cc237293d6ac" name="Migration et formatage des anciens documents" color="#ea7500" meeting="false" start="2024-12-22" duration="12" complete="0" expand="true">
