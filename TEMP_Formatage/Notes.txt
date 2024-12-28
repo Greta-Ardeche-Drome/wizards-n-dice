@@ -1,0 +1,2 @@
+- Ne pas enregistrer les versions différentes verisons des documents (Git le fait déjà, on va se surcharger sinon
+- Définir une règles de nommages pour les fichiers
