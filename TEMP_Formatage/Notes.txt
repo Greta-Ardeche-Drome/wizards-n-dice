@@ -1,4 +1,8 @@
-- Ne pas enregistrer les versions différentes verisons des documents (Git le fait déjà, on va se surcharger sinon
+- Ne pas enregistrer les versions différentes verisons des documents (Git le fait déjà, on va se surcharger sinon)
 - Définir une règles de nommages pour les fichiers
 - Bug ODT récurrent : UTILISER LES PDF
 - Lien hypertexte propre et compressé
+- Ne pas sur-utiliser le gras/italique etc
+- DE LA RIGUEUR LA CON DE SA MèRE
+
+- PERSO : METTRE FIGURE EN ORANGE
