@@ -1,8 +1,16 @@
 - Ne pas enregistrer les versions différentes verisons des documents (Git le fait déjà, on va se surcharger sinon)
 - Définir une règles de nommages pour les fichiers
+	Utiliser le nom du documents (doit tenir sur les lignes du templates par le template - moins OK, mais pas plus)
+	+ "_vX-Y" en fonction de la version
 - Bug ODT récurrent : UTILISER LES PDF
 - Lien hypertexte propre et compressé
 - Ne pas sur-utiliser le gras/italique etc
-- DE LA RIGUEUR LA CON DE SA MèRE
+- Flexibilité possible : utiliser son cerveau et réduire la police de 1 à 2 points, sautez plus de lignes, etc. pour rendre l'ensemble cohérent et plus facile à suivre
+- DE LA RIGUEUR LA CON DE SA MèRE : pas de majuscule de con, évitez les mots et les tournures de phrases familières, faire des phrases ... bref être pro
+- ecrire du code dnas un document : privilégié Annexe ; police = Consolas ; taille 8 ; pas de gras / italique / souligner etc ; respecter les indentations
 
 - PERSO : METTRE FIGURE EN ORANGE
+- Arthur : bien overall, on a une bonne vision d'ensemble, 
+	ATTENTION cependant :   III. (Gérer et sécuriser les transactions) manque de profondeur
+				si tout est accentué, rien ne l'est --> résonne l'utilisation du gras et des autres moyens de mettre en valeur le texte. Mettre en valeur QUE L'IMPORTANT
+				gaffe au "listing" --> trop de liste tue la liste, ça devient difficile à lire
