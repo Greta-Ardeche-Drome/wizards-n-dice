@@ -1,0 +1,22 @@
+PH = Proirité hausse
+PN = Proirité normale 
+PB = Proirité basse
+
+Fichiers juriques à faire :
+- PH : Mentions légales 			[doit être sur le site]
+- PH : Conditions Générales de Vente (CGV)	[doit être sur le site]
+- PH : Politique de confidentialité		[doit être sur le site]
+- PH : Politique de cookies			[doit être sur le site]
+- PH : Formulaire de rétractation		[doit être sur le site]
+- PH : Charte d'utilisation et de modération de forum
+- PN : Closes sur la protection des mineurs
+- PN : Assurance de responsabilité civile
+- PB : Documents comptables (à définir)
+- PB : Décharge sur la propriété intellectuelle
+
+
+Autres : 
+- Registre des sous-traitants
+- Ajouter LDAP 
+	+ Découper configuration autant que possible 
+	=> Commencer par les services internes : DNS, Bastion, StormShield (conf v0) - idée de pouvoir commencer à bosser
