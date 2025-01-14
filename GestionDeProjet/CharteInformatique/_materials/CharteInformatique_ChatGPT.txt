@@ -1,0 +1,74 @@
+Charte Informatique de Wizards & Dice
+
+Struture :
+
+1. Préambule
+2. Champ d'application
+3. Utilisation des ressources informatiques
+    3.1. Utilisation professionnelle
+    3.2. Respect de la législation
+    3.3. Accès aux systèmes
+4. Sécurité des systèmes et des données
+    4.1. Mots de passe
+    4.2. Protection des données
+    4.3. Sécurité des appareils
+5. Communication et internet
+    5.1. Usage de l’internet
+    5.2. Emails et messagerie
+6. Protection de la vie privée
+7. Sanctions
+8. Mise à jour de la charte
+
+
+Préambule
+La présente charte informatique a pour objectif de définir les règles et bonnes pratiques d’utilisation des ressources informatiques au sein de Wizards & Dice, afin de garantir leur utilisation efficace, sécurisée et conforme aux lois en vigueur. Chaque collaborateur est tenu de respecter ces règles pour assurer la protection des données, des systèmes, et la bonne continuité des activités de l’entreprise.
+
+Cette charte est annexée au règlement intérieur et doit être connue de tous les collaborateurs. Son non-respect peut entraîner des sanctions disciplinaires.
+
+1. Champ d'application
+La charte s’applique à l’ensemble des collaborateurs de Wizards & Dice, qu’ils soient employés permanents, contractuels, stagiaires, sous-traitants ou toute autre personne ayant accès aux systèmes d’information de l’entreprise.
+
+Les ressources informatiques englobent l’ensemble des matériels (ordinateurs, serveurs, smartphones, tablettes, etc.), logiciels, réseaux, ainsi que les données et services utilisés ou fournis par l’entreprise.
+
+2. Utilisation des ressources informatiques
+2.1. Utilisation professionnelle
+Les équipements et logiciels informatiques mis à disposition doivent être utilisés à des fins professionnelles uniquement. Toute utilisation personnelle doit rester exceptionnelle, raisonnable et ne doit en aucun cas nuire à la sécurité des systèmes ni perturber l’activité de l’entreprise.
+
+2.2. Respect de la législation
+Les collaborateurs doivent se conformer à la législation en vigueur en matière de droits d’auteur, de propriété intellectuelle, de confidentialité et de protection des données personnelles. Il est interdit de télécharger, installer ou utiliser des logiciels pirates, ou d’acquérir des licences non approuvées par l’entreprise.
+
+2.3. Accès aux systèmes
+Les collaborateurs sont responsables de la confidentialité de leurs identifiants d’accès (nom d’utilisateur, mot de passe, etc.). Il est interdit de partager ces identifiants ou d’utiliser ceux d’un autre utilisateur. Toute tentative de contourner les systèmes de sécurité est strictement prohibée.
+
+3. Sécurité des systèmes et des données
+3.1. Mots de passe
+Les mots de passe doivent être complexes, confidentiels et régulièrement renouvelés. Ils ne doivent pas être écrits ou partagés. Wizards & Dice se réserve le droit d’imposer des règles concernant la longueur, la complexité et la fréquence de renouvellement des mots de passe.
+
+3.2. Protection des données
+Les collaborateurs doivent veiller à la protection des données sensibles ou confidentielles, en particulier celles concernant les clients, les partenaires ou l’entreprise. Toute fuite ou perte de données doit être immédiatement signalée au service informatique.
+
+3.3. Sécurité des appareils
+Les appareils personnels ou professionnels utilisés pour accéder aux systèmes de Wizards & Dice doivent être protégés par un mot de passe et sécurisés contre les malwares et autres menaces. L’usage d’outils antivirus et l’application des mises à jour de sécurité sont obligatoires.
+
+4. Communication et internet
+4.1. Usage de l’internet
+L’accès à internet fourni par Wizards & Dice doit être utilisé à des fins professionnelles. L’accès à des sites illégaux, inappropriés ou contraires aux valeurs de l’entreprise est formellement interdit. L’usage des réseaux sociaux doit rester modéré et respecter les règles de confidentialité et d’éthique de l’entreprise.
+
+4.2. Emails et messagerie
+Les emails professionnels doivent être rédigés avec soin et dans le respect des destinataires. Il est interdit d’utiliser les messageries électroniques de l’entreprise pour diffuser des messages à caractère injurieux, diffamatoire, discriminatoire ou inapproprié.
+
+5. Protection de la vie privée
+Wizards & Dice respecte la vie privée de ses collaborateurs. Toutefois, afin de garantir la sécurité des systèmes d’information et la conformité avec la législation, l’entreprise se réserve le droit de surveiller l’utilisation des ressources informatiques (emails, accès internet, etc.), dans le respect des règles prévues par la loi.
+
+6. Sanctions
+Tout manquement aux règles définies dans cette charte peut entraîner des sanctions disciplinaires allant d’un simple avertissement à un licenciement pour faute grave, en fonction de la gravité des faits. Des poursuites pénales peuvent également être envisagées en cas d'infractions à la législation (fraude, piratage, etc.).
+
+7. Mise à jour de la charte
+Wizards & Dice se réserve le droit de mettre à jour cette charte afin de l’adapter à l’évolution technologique, légale ou organisationnelle de l’entreprise. Chaque collaborateur sera informé des modifications et sera tenu de s’y conformer.
+
+Fait à [Ville], le [Date]
+Signature de l’employeur:
+[Nom et Prénom de l’employeur]
+
+Signature du collaborateur:
+[Nom et Prénom du collaborateur]
