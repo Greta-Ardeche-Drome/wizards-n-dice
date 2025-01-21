@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Planning Wizards &amp; Dices" company="" webLink="http://" view-date="2024-11-01" view-index="0" gantt-divider-location="718" resource-divider-location="319" version="3.3.3312" locale="fr_FR">
+<?xml version="1.0" encoding="UTF-8"?><project name="Planning Wizards &amp; Dices" company="" webLink="http://" view-date="2024-11-01" view-index="0" gantt-divider-location="703" resource-divider-location="319" version="3.3.3312" locale="fr_FR">
     <description/>
     <view zooming-state="default:8" id="gantt-chart">
         <field id="tpd3" name="Nom" width="365" order="0"/>
@@ -9,7 +9,7 @@
         <option id="filter.dueTodayTasks" value="false"/>
         <option id="filter.overdueTasks" value="false"/>
         <option id="filter.inProgressTodayTasks" value="false"/>
-        <option id="color.recent"><![CDATA[#00a933 #ea7500 #2a6099 #666666 #d60be4 #f4f4f4 #55308d #f10d0c]]></option>
+        <option id="color.recent"><![CDATA[#55308d #2a6099 #666666 #00a933 #ea7500 #d60be4 #f4f4f4 #f10d0c]]></option>
     </view>
     <view id="resource-table">
         <field id="0" name="Nom" width="276" order="0"/>
@@ -93,7 +93,7 @@
                 <task id="346" uid="9ec10bed83074c0ab558724cbb91b77b" name="Pitch public" color="#f10d0c" meeting="true" start="2024-12-05" duration="0" complete="0" expand="true"/>
                 <task id="348" uid="9216577af1054bca8ce1554e5e750739" name="Débriefer le déroulé du jalon 2" color="#666666" meeting="true" start="2024-12-07" duration="0" complete="0" expand="true"/>
             </task>
-            <task id="93" uid="30f2a6b5a98f4abc828d4af779eab3fa" name="Jalon 3" color="#f10d0c" meeting="false" start="2024-12-07" duration="47" complete="0" expand="true">
+            <task id="93" uid="30f2a6b5a98f4abc828d4af779eab3fa" name="Jalon 3" color="#f10d0c" meeting="false" start="2024-12-07" duration="47" complete="0" expand="false">
                 <task id="349" uid="7530164912d74bd59b2bbd11b378ba03" name="Préparer l'affiche" color="#ea7500" meeting="false" start="2024-12-07" duration="34" complete="0" expand="true"/>
                 <task id="367" uid="d6b52da398f34f82a3b6391e56eeedb2" name="Affiche : prête" color="#f10d0c" meeting="true" start="2025-01-12" duration="0" complete="0" expand="true"/>
                 <task id="395" uid="787737699bd844cc9827ae55fb95b53c" name="J3 - Livraison de l'affiche" color="#f10d0c" meeting="true" start="2025-01-23" duration="0" complete="0" expand="true">
@@ -145,51 +145,88 @@ Lien vers Moodle de dépôts : https://cours.univ-grenoble-alpes.fr/mod/assign/v
                 <task id="394" uid="66dfa55bb45e488391426945b74c97f9" name="Débriefer des jalons 7 à 9" color="#666666" meeting="true" start="2025-06-07" duration="0" complete="0" expand="true"/>
             </task>
         </task>
-        <task id="0" uid="1e2188cfd5a746838d03251ca51480d7" name="Documentation, recherches et définition des aspects inconnus" color="#55308d" meeting="false" start="2024-09-07" duration="137" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="false">
-            <task id="12" uid="7f54f040ed1e4477adbeffe314a11531" name="Définir le degré de liberté vis-à-vis des contraintes GRETA/IUT" color="#00a933" meeting="false" start="2024-09-07" duration="50" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="true"/>
-            <task id="408" uid="4415b78a23894861b7008330f74b0ce2" name="Plannification détaillé du projet" color="#00a933" meeting="false" start="2024-11-17" duration="29" complete="0" expand="true"/>
-            <task id="338" uid="b709dc64ce8d4f46950e4e97c81f9f63" name="Se renseigner sur le fonctionnement d'autres sites (Amazon, etc)" color="#00a933" meeting="false" start="2024-10-12" duration="63" complete="0" expand="true"/>
-            <task id="2" uid="727df98bc6b24c9286db77c2c8ff73fd" name="Définir les infrastructures, technologies et outils pour le site" color="#00a933" meeting="false" start="2024-11-30" duration="34" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="true"/>
-            <task id="398" uid="2f92bd01ece6495288f44526c1d947e3" name="Point d'étape : avancée de la documentation (1)" color="#d60be4" meeting="true" start="2024-12-21" duration="0" complete="0" expand="true"/>
-            <task id="3" uid="ef40893ec8d9488cb523a15349b424b1" name="Définir les méthodes de vente des produits" color="#2a6099" meeting="false" start="2024-12-22" duration="6" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="true">
-                <depend id="7" type="2" difference="0" hardness="Strong"/>
-                <depend id="18" type="2" difference="0" hardness="Strong"/>
-                <depend id="21" type="2" difference="0" hardness="Strong"/>
-                <depend id="377" type="2" difference="0" hardness="Strong"/>
-            </task>
-            <task id="5" uid="2f253be087824b7183771aa5a737f561" name="Définir les méthodes de vente des services" color="#00a933" meeting="false" start="2024-12-22" duration="12" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="true">
-                <depend id="18" type="2" difference="0" hardness="Strong"/>
-                <depend id="21" type="2" difference="0" hardness="Strong"/>
-                <depend id="377" type="2" difference="0" hardness="Strong"/>
-            </task>
-            <task id="7" uid="5cd58dbedb9e4f8397d98e109e45cc3b" name="Définir les aspects légaux et administratifs (RGPD, etc)" color="#00a933" meeting="false" start="2024-12-29" duration="13" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="true">
-                <depend id="18" type="2" difference="0" hardness="Strong"/>
-                <depend id="21" type="2" difference="0" hardness="Strong"/>
-                <depend id="377" type="2" difference="0" hardness="Strong"/>
-            </task>
-            <task id="11" uid="d0e17fb349c34f90917aa68e8f13fe16" name="Définir les points de sécurité critique" color="#00a933" meeting="false" start="2024-12-29" duration="13" complete="0" expand="true">
-                <depend id="18" type="2" difference="0" hardness="Strong"/>
-                <depend id="21" type="2" difference="0" hardness="Strong"/>
-                <depend id="377" type="2" difference="0" hardness="Strong"/>
-            </task>
-            <task id="6" uid="a1606f93e8fa41ea85cb2486448ea316" name="Définir les méthodes de gestion des moyens de paiement" color="#00a933" meeting="false" start="2024-12-22" duration="19" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="true">
-                <depend id="18" type="2" difference="0" hardness="Strong"/>
-                <depend id="21" type="2" difference="0" hardness="Strong"/>
-                <depend id="377" type="2" difference="0" hardness="Strong"/>
-            </task>
-            <task id="399" uid="e526f0ee5de945729bd606662dc3f768" name="Point d'étape : avancée de la documentation (2)" color="#d60be4" meeting="true" start="2025-01-11" duration="0" complete="0" expand="true"/>
-            <task id="18" uid="4717d76a9b994e4e953c50967c374ffc" name="Se renseigner sur l'impact environ. des produits" color="#ea7500" meeting="false" start="2025-01-12" duration="11" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="true"/>
-            <task id="21" uid="d416b3a5975447e4852a61547fc04a16" name="Se renseigner sur l'essor de la communauté JDR" color="#ea7500" meeting="false" start="2025-01-12" duration="14" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="true"/>
-            <task id="39" uid="0a24fc18c3cd43b9a86401b2737ff04c" name="Définir une charte graphique exhaustive à usage interne" color="#00a933" meeting="false" start="2024-11-09" duration="44" complete="0" expand="true">
-                <notes><![CDATA[Inclus la préparation de template pour les documents de l'équipe]]></notes>
-            </task>
-            <task id="407" uid="4751cccdd8214b3f9a61cc237293d6ac" name="Migration et formatage des anciens documents" color="#00a933" meeting="false" start="2024-12-22" duration="16" complete="0" expand="true">
-                <notes><![CDATA[Formalisation des anciens documents avec les nouveaux templates
+        <task id="0" uid="1e2188cfd5a746838d03251ca51480d7" name="Documentation, recherches et définition des aspects inconnus" color="#55308d" meeting="false" start="2024-09-07" duration="137" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="true">
+            <task id="433" uid="1350ccfd5d4643fda5e4a8a1fb533d79" name="Recherches documentaires" color="#55308d" meeting="false" start="2024-09-07" duration="137" complete="0" expand="false">
+                <task id="12" uid="7f54f040ed1e4477adbeffe314a11531" name="Définir le degré de liberté vis-à-vis des contraintes GRETA/IUT" color="#00a933" meeting="false" start="2024-09-07" duration="50" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="true"/>
+                <task id="408" uid="4415b78a23894861b7008330f74b0ce2" name="Plannification détaillé du projet" color="#00a933" meeting="false" start="2024-11-17" duration="29" complete="0" expand="true"/>
+                <task id="338" uid="b709dc64ce8d4f46950e4e97c81f9f63" name="Se renseigner sur le fonctionnement d'autres sites (Amazon, etc)" color="#00a933" meeting="false" start="2024-10-12" duration="63" complete="0" expand="true"/>
+                <task id="2" uid="727df98bc6b24c9286db77c2c8ff73fd" name="Définir les infrastructures, technologies et outils pour le site" color="#00a933" meeting="false" start="2024-11-30" duration="34" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="true"/>
+                <task id="398" uid="2f92bd01ece6495288f44526c1d947e3" name="Point d'étape : avancée de la documentation (1)" color="#d60be4" meeting="true" start="2024-12-21" duration="0" complete="0" expand="true"/>
+                <task id="3" uid="ef40893ec8d9488cb523a15349b424b1" name="Définir les méthodes de vente des produits" color="#2a6099" meeting="false" start="2024-12-22" duration="6" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="true">
+                    <depend id="7" type="2" difference="0" hardness="Strong"/>
+                    <depend id="18" type="2" difference="0" hardness="Strong"/>
+                    <depend id="21" type="2" difference="0" hardness="Strong"/>
+                    <depend id="377" type="2" difference="0" hardness="Strong"/>
+                </task>
+                <task id="5" uid="2f253be087824b7183771aa5a737f561" name="Définir les méthodes de vente des services" color="#00a933" meeting="false" start="2024-12-22" duration="12" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="true">
+                    <depend id="18" type="2" difference="0" hardness="Strong"/>
+                    <depend id="21" type="2" difference="0" hardness="Strong"/>
+                    <depend id="377" type="2" difference="0" hardness="Strong"/>
+                </task>
+                <task id="7" uid="5cd58dbedb9e4f8397d98e109e45cc3b" name="Définir les aspects légaux et administratifs (RGPD, etc)" color="#00a933" meeting="false" start="2024-12-29" duration="13" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="true">
+                    <depend id="18" type="2" difference="0" hardness="Strong"/>
+                    <depend id="21" type="2" difference="0" hardness="Strong"/>
+                    <depend id="377" type="2" difference="0" hardness="Strong"/>
+                </task>
+                <task id="11" uid="d0e17fb349c34f90917aa68e8f13fe16" name="Définir les points de sécurité critique" color="#00a933" meeting="false" start="2024-12-29" duration="13" complete="0" expand="true">
+                    <depend id="18" type="2" difference="0" hardness="Strong"/>
+                    <depend id="21" type="2" difference="0" hardness="Strong"/>
+                    <depend id="377" type="2" difference="0" hardness="Strong"/>
+                </task>
+                <task id="6" uid="a1606f93e8fa41ea85cb2486448ea316" name="Définir les méthodes de gestion des moyens de paiement" color="#00a933" meeting="false" start="2024-12-22" duration="19" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="true">
+                    <depend id="18" type="2" difference="0" hardness="Strong"/>
+                    <depend id="21" type="2" difference="0" hardness="Strong"/>
+                    <depend id="377" type="2" difference="0" hardness="Strong"/>
+                </task>
+                <task id="399" uid="e526f0ee5de945729bd606662dc3f768" name="Point d'étape : avancée de la documentation (2)" color="#d60be4" meeting="true" start="2025-01-11" duration="0" complete="0" expand="true"/>
+                <task id="18" uid="4717d76a9b994e4e953c50967c374ffc" name="Se renseigner sur l'impact environ. des produits" color="#ea7500" meeting="false" start="2025-01-12" duration="11" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="true"/>
+                <task id="21" uid="d416b3a5975447e4852a61547fc04a16" name="Se renseigner sur l'essor de la communauté JDR" color="#ea7500" meeting="false" start="2025-01-12" duration="14" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="true"/>
+                <task id="39" uid="0a24fc18c3cd43b9a86401b2737ff04c" name="Définir une charte graphique exhaustive à usage interne" color="#00a933" meeting="false" start="2024-11-09" duration="44" complete="0" expand="true">
+                    <notes><![CDATA[Inclus la préparation de template pour les documents de l'équipe]]></notes>
+                </task>
+                <task id="407" uid="4751cccdd8214b3f9a61cc237293d6ac" name="Migration et formatage des anciens documents" color="#00a933" meeting="false" start="2024-12-22" duration="16" complete="0" expand="true">
+                    <notes><![CDATA[Formalisation des anciens documents avec les nouveaux templates
 Trie et réagencement de l'arborescence]]></notes>
+                </task>
+                <task id="377" uid="85dfcfa4d0d74bec913e71daedfacda4" name="Se renseigner sur les normes en matières de stockages" color="#00a933" meeting="false" start="2025-01-12" duration="7" complete="0" expand="true"/>
+                <task id="420" uid="3fb18dc92717431cb373727a30259d8d" name="Définir une charte informatique exhaustive à usage interne" color="#ea7500" meeting="false" start="2025-01-12" duration="14" complete="0" expand="true">
+                    <notes><![CDATA[Inclus la préparation de template pour les documents de l'équipe]]></notes>
+                </task>
             </task>
-            <task id="377" uid="85dfcfa4d0d74bec913e71daedfacda4" name="Se renseigner sur les normes en matières de stockages" color="#00a933" meeting="false" start="2025-01-12" duration="7" complete="0" expand="true"/>
-            <task id="420" uid="3fb18dc92717431cb373727a30259d8d" name="Définir une charte informatique exhaustive à usage interne" color="#ea7500" meeting="false" start="2025-01-12" duration="14" complete="0" expand="true">
+            <task id="422" uid="966f39cc2c4141d6a4c4a25e55265961" name="Documentation juridique" color="#55308d" meeting="false" start="2025-01-12" duration="1" complete="0" expand="false">
                 <notes><![CDATA[Inclus la préparation de template pour les documents de l'équipe]]></notes>
+                <task id="423" uid="d3d3640375b9490f9a60ce532bd92f5d" name="Rédiger les mentions légales du site" color="#666666" meeting="false" start="2025-01-12" duration="1" complete="0" expand="true">
+                    <notes><![CDATA[Devra figurer sur le site]]></notes>
+                </task>
+                <task id="426" uid="758909ceebfc44f19a8f8efc61bf745f" name="Rédiger les Conditions Générales de Ventes" color="#666666" meeting="false" start="2025-01-12" duration="1" complete="0" expand="true">
+                    <notes><![CDATA[Devra figurer sur le site]]></notes>
+                </task>
+                <task id="425" uid="01dbe641cffa480e8ba3e99441ba5ac0" name="Rédiger les politiques de confidentialité" color="#666666" meeting="false" start="2025-01-12" duration="1" complete="0" expand="true">
+                    <notes><![CDATA[Devra figurer sur le site]]></notes>
+                </task>
+                <task id="424" uid="18bac04cad294efaa7770b1880625d89" name="Rédiger les politiques de cookies" color="#666666" meeting="false" start="2025-01-12" duration="1" complete="0" expand="true">
+                    <notes><![CDATA[Devra figurer sur le site]]></notes>
+                </task>
+                <task id="427" uid="79b00df4ff1f40a3a33e8a5d227399be" name="Préparer un formulaire de rétraction" color="#666666" meeting="false" start="2025-01-12" duration="1" complete="0" expand="true">
+                    <notes><![CDATA[Devra figurer sur le site]]></notes>
+                </task>
+                <task id="428" uid="e99f7335020a432494a4bf1652efc1e5" name="Rédiger la charte d'utilisation et de modération de forum" color="#666666" meeting="false" start="2025-01-12" duration="1" complete="0" expand="true">
+                    <notes><![CDATA[Devra être signer pour accéder au forum]]></notes>
+                </task>
+                <task id="432" uid="483816b31ec94feb8eafac8af6be860c" name="Intégrer des closes sur la protection des mineurs" color="#666666" meeting="false" start="2025-01-12" duration="1" complete="0" expand="true">
+                    <notes><![CDATA[Devra être signer pour accéder au forum]]></notes>
+                </task>
+                <task id="431" uid="4be28316caf54d098568a7b7e7b1f9a3" name="Se renseigner sur une assurance de responsabilité civile" color="#666666" meeting="false" start="2025-01-12" duration="1" complete="0" expand="true">
+                    <notes><![CDATA[Pas forcément y souscrire mais ...
+- comprendre les avantages et bénéfices / inconvénients
+- voir comment l'adapter et où souscire si cas réel pour notre entreprise]]></notes>
+                </task>
+                <task id="430" uid="b6df9b4737ec4a1896bac9720e5a0144" name="Rédiger les documents comptables*" color="#666666" meeting="false" start="2025-01-12" duration="1" complete="0" expand="true">
+                    <notes><![CDATA[À définir plus précisément]]></notes>
+                </task>
+                <task id="429" uid="fca2477a096547118b2962113ded8614" name="Rédiger une décharge sur la propriété intellectuelle" color="#666666" meeting="false" start="2025-01-12" duration="1" complete="0" expand="true">
+                    <notes><![CDATA[Préciser la documentation nécessaire]]></notes>
+                </task>
             </task>
         </task>
         <task id="63" uid="0da90acb2f7547a4a82764de3ff706b4" name="Gérer les réseaux sociaux" color="#55308d" meeting="false" start="2024-12-15" duration="30" complete="0" expand="false">
@@ -198,7 +235,7 @@ Trie et réagencement de l'arborescence]]></notes>
             </task>
             <task id="65" uid="393f60975fb241c89f9c002c1f1bdc8f" name="Documenter le contenu des différents comptes" color="#ea7500" meeting="false" start="2024-12-29" duration="17" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="true"/>
         </task>
-        <task id="23" uid="d18f60717a1c49cbae4aa17e82df00ef" name="Proposer des produits et des services" color="#55308d" meeting="false" start="2025-01-05" duration="105" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="false">
+        <task id="23" uid="d18f60717a1c49cbae4aa17e82df00ef" name="Proposer des produits et des services" color="#55308d" meeting="false" start="2025-01-05" duration="105" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="true">
             <task id="25" uid="3c68ae23c08c4855b34a17a2505e76a4" name="Établir une liste des produits à proposer" color="#ea7500" meeting="false" start="2025-01-05" duration="14" complete="0" expand="true">
                 <depend id="29" type="2" difference="0" hardness="Strong"/>
             </task>
@@ -244,6 +281,20 @@ Externe = communication externe, pub, etc
 ]]></notes>
             </task>
             <task id="396" uid="2e5df6144e71487eb5967e11471bf3f6" name="Point d'étape : propositions de prestation du projet" color="#d60be4" meeting="true" start="2025-04-19" duration="0" complete="0" expand="true"/>
+            <task id="440" uid="22010442c8e947efb92dcba231a16fc6" name="Préparer un registre des sous-traitants" color="#666666" meeting="false" start="2025-01-12" duration="1" complete="0" expand="true">
+                <notes><![CDATA[Peut-être fait en mode "dégrader" avec seulement quelques sous-traitants factices]]></notes>
+            </task>
+            <task id="439" uid="e67776a84fc4486e85a4b3cd76ca6aed" name="Gestion des stocks" color="#55308d" meeting="false" start="2025-01-12" duration="1" complete="0" expand="true">
+                <task id="434" uid="82ba55dff2744703ba1e0b6248ba0478" name="Rédiger les politiques de gestion des stocks" color="#666666" meeting="false" start="2025-01-12" duration="1" complete="0" expand="true"/>
+                <task id="438" uid="b3822bdd11644d168ea513bdd1cd1097" name="Rédiger une check-list synthétique des bonnes pratiques de stockage" color="#666666" meeting="false" start="2025-01-12" duration="1" complete="0" expand="true"/>
+                <task id="437" uid="eb995389b74a4ba79519e737b3c7e1d1" name="Créer un template de fichier d'inventaire des stocks" color="#666666" meeting="false" start="2025-01-12" duration="1" complete="0" expand="true">
+                    <notes><![CDATA[Peut-être fait en mode "dégrader" avec seulement quelques commandes factices]]></notes>
+                </task>
+                <task id="436" uid="8dcff817fb8d4b4ebe79dba470f052bf" name="Rédiger une fiche de contrôle qualité" color="#666666" meeting="false" start="2025-01-12" duration="1" complete="0" expand="true"/>
+                <task id="435" uid="14df957bf3434b50bcddf780c05989e2" name="Préparer une fiche de suivi des produits personnalisés" color="#666666" meeting="false" start="2025-01-12" duration="1" complete="0" expand="true">
+                    <notes><![CDATA[Peut-être fait en mode "dégrader" avec seulement quelques commandes factices]]></notes>
+                </task>
+            </task>
         </task>
         <task id="36" uid="ae3b69a7f7a141f1afbf92f98146dbbb" name="Créer le site" color="#55308d" meeting="false" start="2025-01-05" duration="137" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="false">
             <task id="419" uid="2ef1d89fe213467b852563a3a1cca8a7" name="Définir une charte graphique exhaustive propre au site web" color="#ea7500" meeting="false" start="2025-01-12" duration="14" complete="0" expand="true"/>
@@ -383,6 +434,25 @@ Externe = communication externe, pub, etc
         <allocation task-id="18" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
         <allocation task-id="420" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
         <allocation task-id="25" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="422" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="423" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="424" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="425" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="426" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="427" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="428" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="429" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="430" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="431" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="432" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="433" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="434" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="435" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="436" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="437" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="438" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="439" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="440" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
         <allocation task-id="342" resource-id="1" function="3" responsible="true" load="100.0"/>
         <allocation task-id="341" resource-id="1" function="3" responsible="false" load="100.0"/>
         <allocation task-id="340" resource-id="1" function="3" responsible="false" load="100.0"/>
