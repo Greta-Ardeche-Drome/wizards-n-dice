@@ -26,5 +26,7 @@ PB = Proirité basse
 - Ajouter "Config LDAP" + redécouper les tâches techniques
 	+ Découper configuration autant que possible 
 	=> Commencer par les services internes : DNS, Bastion, StormShield (conf v0) - idée de pouvoir commencer à bosser
+- Tache bot discord 
+- temps en + pour la charte graphique du site
 
 

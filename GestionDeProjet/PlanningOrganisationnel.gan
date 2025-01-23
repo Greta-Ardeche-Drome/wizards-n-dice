@@ -1,14 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Planning Wizards &amp; Dices" company="" webLink="http://" view-date="2025-01-07" view-index="0" gantt-divider-location="553" resource-divider-location="319" version="3.3.3312" locale="fr_FR">
+<?xml version="1.0" encoding="UTF-8"?><project name="Planning Wizards &amp; Dices" company="" webLink="http://" view-date="2025-01-09" view-index="0" gantt-divider-location="538" resource-divider-location="319" version="3.3.3312" locale="fr_FR">
     <description/>
     <view zooming-state="default:2" id="gantt-chart">
-        <field id="tpd3" name="Nom" width="354" order="0"/>
-        <field id="tpd4" name="Date de début" width="90" order="1"/>
-        <field id="tpd5" name="Date de fin" width="93" order="2"/>
+        <field id="tpd3" name="Nom" width="344" order="0"/>
+        <field id="tpd4" name="Date de début" width="87" order="1"/>
+        <field id="tpd5" name="Date de fin" width="91" order="2"/>
         <option id="filter.completedTasks" value="false"/>
         <option id="filter.dueTodayTasks" value="false"/>
         <option id="filter.overdueTasks" value="false"/>
         <option id="filter.inProgressTodayTasks" value="false"/>
-        <option id="color.recent"><![CDATA[#ea7500 #2a6099 #00a933 #666666 #d60be4 #f4f4f4 #55308d #f10d0c]]></option>
+        <option id="color.recent"><![CDATA[#00a933 #ea7500 #2a6099 #666666 #d60be4 #f4f4f4 #55308d #f10d0c]]></option>
     </view>
     <view id="resource-table">
         <field id="0" name="Nom" width="276" order="0"/>
@@ -177,8 +177,8 @@ Lien vers Moodle de dépôts : https://cours.univ-grenoble-alpes.fr/mod/assign/v
                 <depend id="377" type="2" difference="0" hardness="Strong"/>
             </task>
             <task id="399" uid="e526f0ee5de945729bd606662dc3f768" name="Point d'étape : avancée de la documentation (2)" color="#d60be4" meeting="true" start="2025-01-11" duration="0" complete="0" expand="true"/>
-            <task id="21" uid="d416b3a5975447e4852a61547fc04a16" name="Se renseigner sur l'essor de la communauté JDR" color="#ea7500" meeting="false" start="2025-01-12" duration="7" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="true"/>
-            <task id="377" uid="85dfcfa4d0d74bec913e71daedfacda4" name="Se renseigner sur les normes en matières de stockages" color="#ea7500" meeting="false" start="2025-01-12" duration="7" complete="0" expand="true"/>
+            <task id="377" uid="85dfcfa4d0d74bec913e71daedfacda4" name="Se renseigner sur les normes en matières de stockages" color="#00a933" meeting="false" start="2025-01-12" duration="7" complete="0" expand="true"/>
+            <task id="21" uid="d416b3a5975447e4852a61547fc04a16" name="Se renseigner sur l'essor de la communauté JDR" color="#ea7500" meeting="false" start="2025-01-12" duration="11" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="true"/>
             <task id="18" uid="4717d76a9b994e4e953c50967c374ffc" name="Se renseigner sur l'impact environ. des produits" color="#ea7500" meeting="false" start="2025-01-12" duration="14" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="true"/>
             <task id="39" uid="0a24fc18c3cd43b9a86401b2737ff04c" name="Définir une charte graphique exhaustive à usage interne" color="#00a933" meeting="false" start="2024-11-09" duration="44" complete="0" expand="true">
                 <notes><![CDATA[Inclus la préparation de template pour les documents de l'équipe]]></notes>
@@ -187,17 +187,17 @@ Lien vers Moodle de dépôts : https://cours.univ-grenoble-alpes.fr/mod/assign/v
                 <notes><![CDATA[Formalisation des anciens documents avec les nouveaux templates
 Trie et réagencement de l'arborescence]]></notes>
             </task>
-            <task id="420" uid="3fb18dc92717431cb373727a30259d8d" name="Définir une charte informatique exhaustive à usage interne" color="#ea7500" meeting="false" start="2025-01-12" duration="14" complete="0" expand="true">
+            <task id="420" uid="3fb18dc92717431cb373727a30259d8d" name="Définir une charte informatique exhaustive à usage interne" color="#00a933" meeting="false" start="2025-01-12" duration="14" complete="0" expand="true">
                 <notes><![CDATA[Inclus la préparation de template pour les documents de l'équipe]]></notes>
             </task>
         </task>
-        <task id="63" uid="0da90acb2f7547a4a82764de3ff706b4" name="Gérer les réseaux sociaux" color="#55308d" meeting="false" start="2024-12-15" duration="30" complete="0" expand="true">
+        <task id="63" uid="0da90acb2f7547a4a82764de3ff706b4" name="Gérer les réseaux sociaux" color="#55308d" meeting="false" start="2024-12-15" duration="30" complete="0" expand="false">
             <task id="64" uid="b0acca280a5443e6b46d6adba48dfb17" name="Préparer des publications simples à l'avance" color="#00a933" meeting="false" start="2024-12-15" duration="19" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="true">
                 <notes><![CDATA[2 à 4 publications]]></notes>
             </task>
-            <task id="65" uid="393f60975fb241c89f9c002c1f1bdc8f" name="Documenter le contenu des différents comptes" color="#ea7500" meeting="false" start="2024-12-29" duration="17" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="true"/>
+            <task id="65" uid="393f60975fb241c89f9c002c1f1bdc8f" name="Documenter le contenu des différents comptes" color="#00a933" meeting="false" start="2024-12-29" duration="17" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="true"/>
         </task>
-        <task id="23" uid="d18f60717a1c49cbae4aa17e82df00ef" name="Proposer des produits et des services" color="#55308d" meeting="false" start="2025-01-05" duration="105" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="true">
+        <task id="23" uid="d18f60717a1c49cbae4aa17e82df00ef" name="Proposer des produits et des services" color="#55308d" meeting="false" start="2025-01-05" duration="105" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="false">
             <task id="25" uid="3c68ae23c08c4855b34a17a2505e76a4" name="Établir une liste des produits à proposer" color="#ea7500" meeting="false" start="2025-01-05" duration="14" complete="0" expand="true">
                 <depend id="29" type="2" difference="0" hardness="Strong"/>
             </task>
@@ -245,7 +245,7 @@ Externe = communication externe, pub, etc
             <task id="396" uid="2e5df6144e71487eb5967e11471bf3f6" name="Point d'étape : propositions de prestation du projet" color="#d60be4" meeting="true" start="2025-04-19" duration="0" complete="0" expand="true"/>
         </task>
         <task id="36" uid="ae3b69a7f7a141f1afbf92f98146dbbb" name="Créer le site" color="#55308d" meeting="false" start="2025-01-05" duration="137" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="true">
-            <task id="419" uid="2ef1d89fe213467b852563a3a1cca8a7" name="Définir une charte graphique exhaustive propre au site web" color="#ea7500" meeting="false" start="2025-01-12" duration="14" complete="0" expand="true"/>
+            <task id="419" uid="2ef1d89fe213467b852563a3a1cca8a7" name="Définir une charte graphique exhaustive propre au site web" color="#ea7500" meeting="false" start="2025-01-12" duration="21" complete="0" expand="true"/>
             <task id="421" uid="d7b93b54e08641cc82b58e1ff9fc90e0" name="Rassembler le matériel nécessaire à l'infrastructure" color="#ea7500" meeting="false" start="2025-01-05" duration="21" complete="0" expand="true"/>
             <task id="40" uid="f2ea02f241c44d208610e71fbc397a79" name="Designer le site : esthétisme et ergonomie" color="#666666" meeting="false" start="2025-01-26" duration="7" complete="0" expand="true">
                 <depend id="46" type="2" difference="0" hardness="Strong"/>
