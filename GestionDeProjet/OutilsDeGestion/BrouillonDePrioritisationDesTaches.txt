@@ -20,3 +20,4 @@ Autres :
 - Ajouter "LDAP" + redécouper les tâches techniques
 	+ Découper configuration autant que possible 
 	=> Commencer par les services internes : DNS, Bastion, StormShield (conf v0) - idée de pouvoir commencer à bosser
+- Tache d'ajout du bot discord à la semaine 19/01 -> 25/01
