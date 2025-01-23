@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Planning Wizards &amp; Dices" company="" webLink="http://" view-date="2025-01-09" view-index="0" gantt-divider-location="538" resource-divider-location="319" version="3.3.3312" locale="fr_FR">
+<?xml version="1.0" encoding="UTF-8"?><project name="Planning Wizards &amp; Dices" company="" webLink="http://" view-date="2025-01-13" view-index="0" gantt-divider-location="538" resource-divider-location="319" version="3.3.3312" locale="fr_FR">
     <description/>
     <view zooming-state="default:2" id="gantt-chart">
         <field id="tpd3" name="Nom" width="344" order="0"/>
@@ -253,10 +253,11 @@ Externe = communication externe, pub, etc
             <task id="41" uid="f02e779f0f0745beb69e0b26a5e9cabe" name="Créer la carte servant à la navigation" color="#666666" meeting="false" start="2025-01-26" duration="7" complete="0" expand="true">
                 <depend id="46" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="380" uid="7e1e507aa7864cafb074e89ddaf788b1" name="Déployer l'infrastructure réseau" color="#666666" meeting="false" start="2025-01-18" duration="15" complete="0" expand="true">
+            <task id="380" uid="7e1e507aa7864cafb074e89ddaf788b1" name="Déployer l'infrastructure réseau" color="#666666" meeting="false" start="2025-01-19" duration="14" complete="0" expand="true">
                 <depend id="46" type="2" difference="0" hardness="Strong"/>
                 <depend id="62" type="2" difference="3" hardness="Strong"/>
             </task>
+            <task id="406" uid="1ec9077d54394c2f899cc4bf17f554da" name="Intégrer de Brad Pitch au serveur Discord" color="#666666" meeting="false" start="2025-01-19" duration="7" complete="0" expand="true"/>
             <task id="59" uid="b9a412549ad649b1a6fec0862869974d" name="Mettre en oeuvre les mesures de sécurité" color="#666666" meeting="false" start="2025-01-22" duration="11" complete="0" expand="true">
                 <notes><![CDATA[Backup, redondance, etc]]></notes>
                 <depend id="46" type="2" difference="0" hardness="Strong"/>
@@ -273,9 +274,9 @@ Externe = communication externe, pub, etc
             </task>
             <task id="381" uid="b3b8477159be4f8eb427f4d4a2324467" name="Mettre en oeuvre les méthodes et outils de supervision" color="#666666" meeting="false" start="2025-02-16" duration="14" complete="0" expand="true">
                 <notes><![CDATA[Intégration de Brad Pitch]]></notes>
-                <depend id="406" type="1" difference="0" hardness="Strong"/>
+                <depend id="422" type="1" difference="0" hardness="Strong"/>
             </task>
-            <task id="406" uid="1ec9077d54394c2f899cc4bf17f554da" name="Intégrer de Brad Pitch aux outils de supervision" color="#666666" meeting="false" start="2025-02-16" duration="7" complete="0" expand="true"/>
+            <task id="422" uid="e2ea02880aa44adc8a4b1f540a355352" name="Intégrer de Brad Pitch aux outils de supervison" color="#666666" meeting="false" start="2025-02-16" duration="7" complete="0" priority="0" expand="true"/>
             <task id="46" uid="314f9b73ee1b496aa7dabdbdb246f936" name="Implémenter le site" color="#55308d" meeting="false" start="2025-02-16" duration="63" complete="0" expand="false">
                 <depend id="58" type="2" difference="0" hardness="Strong"/>
                 <depend id="60" type="2" difference="0" hardness="Strong"/>
@@ -498,6 +499,7 @@ Externe = communication externe, pub, etc
         <allocation task-id="394" resource-id="2" function="1" responsible="false" load="100.0"/>
         <allocation task-id="421" resource-id="2" function="1" responsible="true" load="100.0"/>
         <allocation task-id="420" resource-id="2" function="1" responsible="false" load="100.0"/>
+        <allocation task-id="422" resource-id="2" function="1" responsible="true" load="100.0"/>
         <allocation task-id="338" resource-id="3" function="2" responsible="true" load="100.0"/>
         <allocation task-id="342" resource-id="3" function="2" responsible="true" load="100.0"/>
         <allocation task-id="341" resource-id="3" function="2" responsible="false" load="100.0"/>
