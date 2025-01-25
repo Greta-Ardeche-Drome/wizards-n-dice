@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Planning Wizards &amp; Dices" company="" webLink="http://" view-date="2024-12-23" view-index="0" gantt-divider-location="728" resource-divider-location="424" version="3.3.3312" locale="fr_FR">
+<?xml version="1.0" encoding="UTF-8"?><project name="Planning Wizards &amp; Dices" company="" webLink="http://" view-date="2024-11-25" view-index="0" gantt-divider-location="713" resource-divider-location="424" version="3.3.3312" locale="fr_FR">
     <description/>
     <view zooming-state="default:7" id="gantt-chart">
-        <field id="tpd3" name="Nom" width="421" order="0"/>
-        <field id="tpd4" name="Date de début" width="80" order="1"/>
-        <field id="tpd5" name="Date de fin" width="99" order="2"/>
-        <field id="tpd1" name="Priorité" width="112" order="3"/>
+        <field id="tpd3" name="Nom" width="412" order="0"/>
+        <field id="tpd4" name="Date de début" width="78" order="1"/>
+        <field id="tpd5" name="Date de fin" width="97" order="2"/>
+        <field id="tpd1" name="Priorité" width="110" order="3"/>
         <option id="filter.completedTasks" value="false"/>
         <option id="filter.dueTodayTasks" value="false"/>
         <option id="filter.overdueTasks" value="false"/>
@@ -195,8 +195,7 @@ Trie et réagencement de l'arborescence]]></notes>
                     <notes><![CDATA[Inclus la préparation de template pour les documents de l'équipe]]></notes>
                 </task>
             </task>
-            <task id="422" uid="966f39cc2c4141d6a4c4a25e55265961" name="Documentation juridique" color="#55308d" meeting="false" start="2025-02-02" duration="35" complete="0" expand="false">
-                <notes><![CDATA[Inclus la préparation de template pour les documents de l'équipe]]></notes>
+            <task id="422" uid="966f39cc2c4141d6a4c4a25e55265961" name="Documentation juridique" color="#55308d" meeting="false" start="2025-02-02" duration="35" complete="0" expand="true">
                 <task id="423" uid="d3d3640375b9490f9a60ce532bd92f5d" name="Rédiger les mentions légales du site" color="#666666" meeting="false" start="2025-02-02" duration="7" complete="0" priority="2" expand="true">
                     <notes><![CDATA[Devra figurer sur le site]]></notes>
                     <depend id="428" type="2" difference="0" hardness="Strong"/>
@@ -256,7 +255,7 @@ Trie et réagencement de l'arborescence]]></notes>
                 <depend id="439" type="2" difference="0" hardness="Strong"/>
             </task>
             <task id="397" uid="3bff08e2eabc49638cc0eeb26f850a1a" name="Point d'étape : directives des prestations du site" color="#d60be4" meeting="true" start="2025-02-01" duration="0" complete="0" expand="true"/>
-            <task id="439" uid="e67776a84fc4486e85a4b3cd76ca6aed" name="Gestion des stocks" color="#55308d" meeting="false" start="2025-02-02" duration="49" complete="0" expand="true">
+            <task id="439" uid="e67776a84fc4486e85a4b3cd76ca6aed" name="Gestion des stocks" color="#55308d" meeting="false" start="2025-02-02" duration="49" complete="0" expand="false">
                 <task id="434" uid="82ba55dff2744703ba1e0b6248ba0478" name="Rédiger les politiques de gestion des stocks" color="#666666" meeting="false" start="2025-02-02" duration="14" complete="0" priority="2" expand="true">
                     <depend id="436" type="2" difference="7" hardness="Strong"/>
                     <depend id="438" type="2" difference="0" hardness="Strong"/>
@@ -490,7 +489,7 @@ Fichiers de configuration à jour (post hardening)
                 <notes><![CDATA[Dialogue : Axel -> Lois -> Axel ->  ...]]></notes>
                 <depend id="46" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="46" uid="314f9b73ee1b496aa7dabdbdb246f936" name="Implémenter le site" color="#55308d" meeting="false" start="2025-02-16" duration="63" complete="0" priority="2" expand="true">
+            <task id="46" uid="314f9b73ee1b496aa7dabdbdb246f936" name="Implémenter le site" color="#55308d" meeting="false" start="2025-02-16" duration="63" complete="0" priority="2" expand="false">
                 <depend id="58" type="2" difference="0" hardness="Strong"/>
                 <depend id="60" type="2" difference="0" hardness="Strong"/>
                 <task id="47" uid="535e42ba9765439691b3b14f67d43154" name="Fonctionnalités de base : navigation, pages, etc" color="#666666" meeting="false" start="2025-02-16" duration="14" complete="0" expand="true">
@@ -595,7 +594,6 @@ Loïs -> Esthétique]]></notes>
         <allocation task-id="18" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
         <allocation task-id="420" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
         <allocation task-id="25" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
-        <allocation task-id="422" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
         <allocation task-id="433" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
         <allocation task-id="436" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
         <allocation task-id="437" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
@@ -676,6 +674,7 @@ Loïs -> Esthétique]]></notes>
         <allocation task-id="40" resource-id="1" function="3" responsible="false" load="100.0"/>
         <allocation task-id="48" resource-id="1" function="3" responsible="true" load="100.0"/>
         <allocation task-id="53" resource-id="1" function="3" responsible="true" load="100.0"/>
+        <allocation task-id="439" resource-id="1" function="3" responsible="true" load="100.0"/>
         <allocation task-id="2" resource-id="2" function="1" responsible="true" load="100.0"/>
         <allocation task-id="342" resource-id="2" function="1" responsible="false" load="100.0"/>
         <allocation task-id="341" resource-id="2" function="1" responsible="false" load="100.0"/>
@@ -810,6 +809,7 @@ Loïs -> Esthétique]]></notes>
         <allocation task-id="470" resource-id="3" function="2" responsible="true" load="100.0"/>
         <allocation task-id="50" resource-id="3" function="2" responsible="true" load="100.0"/>
         <allocation task-id="54" resource-id="3" function="2" responsible="false" load="100.0"/>
+        <allocation task-id="422" resource-id="3" function="2" responsible="true" load="100.0"/>
     </allocations>
     <vacations>
         <vacation start="2024-11-30" end="2024-12-01" resourceid="0"/>
