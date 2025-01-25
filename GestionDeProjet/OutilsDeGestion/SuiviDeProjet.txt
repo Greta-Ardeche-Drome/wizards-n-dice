@@ -5,8 +5,9 @@ Bien le rebonjour @Corp
 Pas de réunion aujourd'hui, mais "no rest for the wicked" : voici une annonce de suivi de projet
 
 J'ai déposé un "compte-rendu de réunion" (même endroit que les autres donc) qui donne le cap à court termes, c'est-à-dire pour cette semaine. Je vous pris de le lire, principalement la partie **II. Suivi de projet** :)
-Par ailleurs, il me faudrait vos retours sur ce que vous aviez à faire/finir/déposer sur le Git/etc pour aujourd'hui svp. J'attends vos retours d'ici **lundi 27/01 soir maximum**. Aussi, si vous avez des retours sur le jalon 3 (organisation, rendu final, etc), n'hésitez pas ;)
+Par ailleurs, il me faut vos retours sur ce que vous aviez à faire/finir/déposer sur le Git/etc pour aujourd'hui svp. J'attends vos retours d'ici **lundi 27/01 soir maximum**. Aussi, si vous avez des retours sur le jalon 3 (organisation, rendu final, etc), n'hésitez pas ;)
 Pour ma part, la charte informatique est finie, mais je n'ai pas eu le temps de régulariser ma partie aux niveaux des documents financiers. Je reporte donc cette tâche à la semaine à venir. De plus, j'ai redécoupé et réorganiser les tâches du planning organisationnel. J'ai opté pour une approche légérement différentes d'avant. Certaines tâches traitant de sujet(s) très similaire(s) ont été rationnalisées en groupe. Chaque groupe de tâches est sous la tutelle d'un membre, dépendamment des tâches et de son rôle de responsable. La principale différence est que le **responsable d'un groupe a autorité sur la répartition des effectifs** du projet pour les tâches de ce groupe (ce qui est déjà renseigné fait figure de suggestions et de choix par défaut). Si vous avez un doute sur le responsable d'un groupe de tâches, consultez le planning puis, sur la tâche de groupage : Propriétés > Ressources (pas de ressources = pas de responsable désigné ; pour les groupes composées de tâches transverses ou hétéroclites). Je vous invite donc a : prendre connaissance du/des groupe(s) dont vous êtes responsable(s) et des tâches les composants ; à être à l'**initiative** sur ces tâches (vous le "chef de projet" pour celles-ci :D ). Je terminerais mon retour sur un rappel : pour modifier/créer (ou autre) une tâche sur le planning, veuillez m'adresser un ticket Taïga
+
 
 La prochaine réunion est prévu pour le samedi 1er février 2025, de 14h30 à 16h30
 À l'ordre du jour :  
@@ -29,3 +30,5 @@ Axel :
 > > Aide : Loïs et Hugo
 > Écrire à M. DUCHEMIN à propos des modalités du jalon 4
 > Tenir les documents financiers à jours 
+
+|| Désolé pour le double ping @Corp ||
