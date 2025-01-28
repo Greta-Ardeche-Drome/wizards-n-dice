@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Planning Wizards &amp; Dices" company="" webLink="http://" view-date="2024-12-16" view-index="0" gantt-divider-location="698" resource-divider-location="424" version="3.3.3312" locale="fr_FR">
+<?xml version="1.0" encoding="UTF-8"?><project name="Planning Wizards &amp; Dices" company="" webLink="http://" view-date="2024-12-16" view-index="0" gantt-divider-location="683" resource-divider-location="424" version="3.3.3312" locale="fr_FR">
     <description/>
     <view zooming-state="default:7" id="gantt-chart">
-        <field id="tpd3" name="Nom" width="403" order="0"/>
-        <field id="tpd4" name="Date de début" width="76" order="1"/>
-        <field id="tpd5" name="Date de fin" width="95" order="2"/>
-        <field id="tpd1" name="Priorité" width="108" order="3"/>
+        <field id="tpd3" name="Nom" width="394" order="0"/>
+        <field id="tpd4" name="Date de début" width="73" order="1"/>
+        <field id="tpd5" name="Date de fin" width="94" order="2"/>
+        <field id="tpd1" name="Priorité" width="106" order="3"/>
         <option id="filter.completedTasks" value="false"/>
         <option id="filter.dueTodayTasks" value="false"/>
         <option id="filter.overdueTasks" value="false"/>
@@ -106,14 +106,12 @@ Lien vers Moodle de dépôts : https://cours.univ-grenoble-alpes.fr/mod/assign/v
                 </task>
                 <task id="404" uid="9e72ac14fbb94691afc15c94150debc4" name="Débriefer le déroulé du jalon 3" color="#666666" meeting="true" start="2025-01-25" duration="0" complete="0" expand="true"/>
             </task>
-            <task id="91" uid="9989339afe744bafad9b115d4e94b133" name="Jalon 4" color="#f10d0c" meeting="false" start="2025-01-25" duration="21" complete="0" priority="4" expand="false">
-                <task id="353" uid="029e6bbb92e8446580d38053cde7b426" name="Préparer le script" color="#666666" meeting="false" start="2025-01-25" duration="12" complete="0" expand="true"/>
-                <task id="354" uid="352506bdf77444ef9f40cb4c21211c79" name="Préparer le support de diapositives" color="#666666" meeting="false" start="2025-02-01" duration="8" complete="0" expand="true"/>
-                <task id="392" uid="7dd83d4d70954af6bf5b9ba8ef1720f0" name="Présentation de l'avancement technique : prête" color="#f10d0c" meeting="true" start="2025-02-08" duration="0" complete="0" expand="true"/>
-                <task id="351" uid="a268fe97469d47cc8ff687cce275abb4" name="Présentation de l'avancement technique" color="#f10d0c" meeting="true" start="2025-02-10" duration="0" complete="0" priority="4" expand="true">
-                    <notes><![CDATA[DATE À CONFIRMER]]></notes>
-                </task>
-                <task id="405" uid="b0857c989d704087b6dd4dea4b0f3646" name="Débriefer le déroulé du jalon 4" color="#666666" meeting="true" start="2025-02-15" duration="0" complete="0" expand="true"/>
+            <task id="91" uid="9989339afe744bafad9b115d4e94b133" name="Jalon 4" color="#f10d0c" meeting="false" start="2025-01-25" duration="28" complete="0" priority="4" expand="true">
+                <task id="353" uid="029e6bbb92e8446580d38053cde7b426" name="Préparer le script" color="#ea7500" meeting="false" start="2025-01-25" duration="15" complete="0" expand="true"/>
+                <task id="354" uid="352506bdf77444ef9f40cb4c21211c79" name="Préparer le support de diapositives" color="#666666" meeting="false" start="2025-02-02" duration="14" complete="0" expand="true"/>
+                <task id="392" uid="7dd83d4d70954af6bf5b9ba8ef1720f0" name="Présentation de l'avancement technique : prête" color="#f10d0c" meeting="true" start="2025-02-15" duration="0" complete="0" expand="true"/>
+                <task id="351" uid="a268fe97469d47cc8ff687cce275abb4" name="Présentation de l'avancement technique" color="#f10d0c" meeting="true" start="2025-02-17" duration="0" complete="0" priority="4" expand="true"/>
+                <task id="405" uid="b0857c989d704087b6dd4dea4b0f3646" name="Débriefer le déroulé du jalon 4" color="#666666" meeting="true" start="2025-02-22" duration="0" complete="0" expand="true"/>
             </task>
             <task id="97" uid="eab22041fe6a4a7caa3e35646d19a89d" name="Jalon 5 et 6" color="#f10d0c" meeting="false" start="2025-04-13" duration="31" complete="0" priority="4" expand="false">
                 <task id="363" uid="a4b928af716a4875bbe63bff8d16637c" name="Rédaction de l'analyse de risque" color="#666666" meeting="false" start="2025-04-13" duration="19" complete="0" expand="true"/>
@@ -554,7 +552,6 @@ Loïs -> Esthétique]]></notes>
         <allocation task-id="346" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
         <allocation task-id="367" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
         <allocation task-id="404" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
-        <allocation task-id="353" resource-id="0" function="Default:1" responsible="false" load="100.0"/>
         <allocation task-id="392" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
         <allocation task-id="351" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
         <allocation task-id="405" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
@@ -607,6 +604,8 @@ Loïs -> Esthétique]]></notes>
         <allocation task-id="40" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
         <allocation task-id="47" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
         <allocation task-id="53" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="353" resource-id="0" function="Default:1" responsible="false" load="100.0"/>
+        <allocation task-id="354" resource-id="0" function="Default:1" responsible="false" load="100.0"/>
         <allocation task-id="342" resource-id="1" function="3" responsible="true" load="100.0"/>
         <allocation task-id="341" resource-id="1" function="3" responsible="false" load="100.0"/>
         <allocation task-id="340" resource-id="1" function="3" responsible="false" load="100.0"/>
@@ -683,7 +682,6 @@ Loïs -> Esthétique]]></notes>
         <allocation task-id="348" resource-id="2" function="1" responsible="false" load="100.0"/>
         <allocation task-id="367" resource-id="2" function="1" responsible="false" load="100.0"/>
         <allocation task-id="404" resource-id="2" function="1" responsible="false" load="100.0"/>
-        <allocation task-id="353" resource-id="2" function="1" responsible="true" load="100.0"/>
         <allocation task-id="392" resource-id="2" function="1" responsible="false" load="100.0"/>
         <allocation task-id="351" resource-id="2" function="1" responsible="false" load="100.0"/>
         <allocation task-id="405" resource-id="2" function="1" responsible="false" load="100.0"/>
@@ -809,6 +807,7 @@ Loïs -> Esthétique]]></notes>
         <allocation task-id="54" resource-id="3" function="2" responsible="false" load="100.0"/>
         <allocation task-id="422" resource-id="3" function="2" responsible="true" load="100.0"/>
         <allocation task-id="26" resource-id="3" function="2" responsible="true" load="100.0"/>
+        <allocation task-id="353" resource-id="3" function="2" responsible="true" load="100.0"/>
     </allocations>
     <vacations>
         <vacation start="2024-11-30" end="2024-12-01" resourceid="0"/>
