@@ -1,0 +1,52 @@
+Plan de la revue sur la communauté JDR francophone
+Introduction
+
+    Définition du jeu de rôle (JDR) et de ses différentes pratiques (papier, en ligne, live-action, etc.).
+    Contexte : Un loisir longtemps perçu comme niche, mais qui bénéficie d’un regain d’intérêt.
+    Objectif de la revue : Observer la présence et l’évolution de la communauté francophone sur Internet et ailleurs.
+
+1. Présence de la communauté JDR francophone sur Internet
+
+    Peu de visibilité et d’interactions en ligne :
+        Comparaison avec la communauté anglophone plus active sur des plateformes comme Reddit ou Discord.
+        Forums spécialisés toujours actifs (Casus NO, Le Scriptorium, etc.), mais à l'ancienne et limités en influence.
+        Quelques communautés sur Facebook, mais avec une portée variable.
+    Les plateformes émergentes :
+        Les groupes Discord et serveurs spécialisés gagnent en popularité.
+        YouTube et Twitch avec des streams de parties (ex. : Roll ‘n Play, la chaîne Rôliste TV).
+        Podcasts et actual plays qui renforcent une certaine visibilité.
+
+2. Popularité des outils numériques (Virtual Tabletops et autres)
+
+    Usage des VTT (Virtual TableTops) :
+        Roll20, Foundry VTT, Fantasy Grounds : adoption plus faible en France comparé au monde anglophone ?
+        Facteurs freinants : complexité de prise en main, barrière de la langue, préférence pour le papier.
+        Facteurs encourageants : accessibilité, montée du jeu à distance post-COVID.
+    Autres outils numériques :
+        Augmentation des aides de jeu numériques (D&D Beyond, applications de gestion de personnages et scénarios).
+        Influence du numérique sur la manière de jouer (ex. : IA, générateurs de contenu).
+
+3. Regain d’intérêt pour le JDR : effet Baldur’s Gate 3 et film D&D
+
+    BG3 et le film DnD : catalyseurs récents
+        Augmentation du nombre de nouveaux joueurs attirés par ces médias.
+        Impact sur les ventes de jeux et sur la reconnaissance culturelle du JDR.
+        Réaction de la communauté francophone : accueil mitigé ou enthousiasme ?
+    Influence des tendances geek et pop culture :
+        Montée en puissance du médiéval-fantastique et de la fantasy mainstream.
+        Effet Critical Role en anglais, quelques initiatives similaires en français.
+
+4. Qui joue ? Tranches d’âge et profils de la communauté
+
+    Public historiquement varié :
+        Anciens rôlistes des années 80-90 toujours actifs.
+        Nouvelle génération initiée par les streams et jeux vidéo inspirés du JDR.
+    Une diversité en croissance :
+        Plus de mixité dans les genres et tranches d'âge, bien que le JDR reste encore majoritairement masculin.
+        Efforts pour rendre le loisir plus accessible à des publics variés (handicap, inclusivité, etc.).
+
+Conclusion
+
+    Le JDR francophone reste une niche par rapport à la scène anglophone, mais connaît une évolution intéressante.
+    La transition numérique et la culture pop jouent un rôle dans son expansion, mais la communauté reste encore discrète sur Internet.
+    Perspectives : Comment favoriser une plus grande visibilité et interaction en ligne ? Quelles évolutions pour le futur du JDR francophone ?
