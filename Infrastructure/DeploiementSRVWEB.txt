@@ -1,0 +1,30 @@
+#################################################################
+#								#
+#	Créateur : <Prénom NOM> - <Rôle> 			#
+#	Date de création : JJ/MM/AAAA				#
+#								#
+#	Dernier modificateur : <Prénom NOM> - <Rôle>		#
+#	Date de modification : JJ/MM/AAAA			#
+#								#
+#		Version actuelle : 1.0				#
+#								#
+#################################################################
+
+
+----------------------- <Titre de la section> ----------------------- 
+
+[Écrivez des sections - pas la peine de trop détailler certes, mais soyez CLAIR]
+[Pour aligner les #, utiliser des "Tab" (tabulations) : c'est litéralement fait pour ce genre d'usage]
+[Soyer rigoureux pour que d'autres vous comprennent (mettez vous à leur place)]
+[Copier/coller sont vos meilleurs amis pour reproduire un morceau ou l'entiereté du template]
+
+SRV WEB AARD
+
+Créer conteneur LXC
+Nom : SRV-WEB-AARD
+Mot de passe root : a4X8TRK6%r01rREQ
+
+Stockage local
+Debian 12
+
+
