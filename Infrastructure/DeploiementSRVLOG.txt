@@ -1,30 +1,37 @@
 #################################################################
 #								#
-#	Créateur : <Prénom NOM> - <Rôle> 			#
-#	Date de création : JJ/MM/AAAA				#
+#	Créateur : Arthur YANG - Responsable Documentation 	#
+#				 & Administratif		#
+			
+#	Date de création : 07/02/2025				#
 #								#
-#	Dernier modificateur : <Prénom NOM> - <Rôle>		#
-#	Date de modification : JJ/MM/AAAA			#
+#	Dernier modificateur : Arthur YANG			#
+#	Date de modification : 07/02/2025			#
 #								#
 #		Version actuelle : 1.0				#
 #								#
 #################################################################
 
 
------------------------ <Titre de la section> ----------------------- 
+----------------------- Déploiement du serveur de logs ----------------------- 
 
-[Écrivez des sections - pas la peine de trop détailler certes, mais soyez CLAIR]
-[Pour aligner les #, utiliser des "Tab" (tabulations) : c'est litéralement fait pour ce genre d'usage]
-[Soyer rigoureux pour que d'autres vous comprennent (mettez vous à leur place)]
-[Copier/coller sont vos meilleurs amis pour reproduire un morceau ou l'entiereté du template]
+Création du conteneur LXC :
+   => Nom : SRV-LOG-AARD
+   => OS : Debian 12
+   => Stockage : local -> local_dfs
+   => Mot de passe root conteneur : a4X8TRK6%r01rREQ (voir si c'est le bon mdp)
 
-SRV LOG AARD
 
-Créer conteneur LXC
-Nom : SRV-LOG-AARD
-Mot de passe root : a4X8TRK6%r01rREQ
+Configuration réseau :
+   => Interface : in - VLAN 20 (LOGS)
+   => IP : 192.168.7.133
+   => Masque : 255.255.255.0
+   => Passerelle : 192.168.7.142
+   => DNS : 1.1.1.1 (Pour l'instant)
 
-Stockage local
-Debian 12
 
+Allocation des ressources :
+   => CPU : 1 cœur
+   => RAM : 512 Mb
+   => Stockage : 16 Gb
 
