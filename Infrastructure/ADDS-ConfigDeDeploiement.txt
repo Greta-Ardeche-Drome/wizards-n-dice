@@ -33,6 +33,11 @@ Vérification de l'adressage IP (et désactivation IPv6) et de la version du ser
 	> Version : 21H2 (renommage ISO en conséquence)
 Renommage du PC et redémarrage
 
+Résolution des problèmes de connexions (mauvaise interface réseau virtuelle)
+Installation des services AD et DNS
+Déploiement de la forêt : wnd.local
+Mises à jour
+
 
 
 
