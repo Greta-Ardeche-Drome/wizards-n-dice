@@ -1,0 +1,35 @@
+#################################################################
+#								#
+#	Créateur : Axel MOURILLON - Chef de projet 		#
+#	Date de création : 05/02/2025				#
+#								#
+#	Dernier modificateur : <Prénom NOM> - <Rôle>		#
+#	Date de modification : JJ/MM/AAAA			#
+#								#
+#		Version actuelle : 1.0				#
+#								#
+#################################################################
+
+
+----------------------- Authentification nominative sur Proxmox ----------------------- 
+
+Création d'un compte nominatif pour Axel MOURILLON qui servira de template
+	Nom d'utilisateur : axelm
+	Royaume : Proxmox VE authentification server
+	Mot de passe : [voir Bitwarden]
+	> Identifants renseignés dans Bitwarden
+Création d'un groupe pour les administrateurs de l'infrastructure
+Création des comptes nominatifs pour :
+	Loïs ALLAIRE
+	> Nom d'utilisateur : loisa
+	Hugo CLAMOND
+	> Nom d'utilisateur : hugoc
+	Arthur YANG
+	> Nom d'utilisateur : arthury
+Identifants associés renseignés dans Bitwarden
+Communication dans le Discord pour prévenir et encourager l'utilisation de compte nominatif
+Tests
+	> Connexion impossible : aucun abonnement en cours de validité impossible ; impossible d'en ajouter un
+Désactivation des comptes
+
+
