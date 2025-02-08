@@ -74,3 +74,6 @@ Sur la page de connexion (http://192.168.7.134:3000) depuis un poste, nous pouvo
 Cela nous authentifie, et nous arrivons sur la page Web de Grafana.
 
 Nous pouvons aller dans "ajouter votre première source de donnée" pour configurer Grafana avec Loki.
+
+	=> URL : http://192.168.7.133:3100
+	=> Save & test pour voir si la communication du SRV-MONITORING-AARD communique avec SRV-LOG-AARD
