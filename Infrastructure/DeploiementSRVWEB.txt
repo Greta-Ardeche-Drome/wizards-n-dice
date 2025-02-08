@@ -15,6 +15,9 @@
 
 -----------------------  Déploiement du serveur web  ----------------------- 
 
+Sources : https://www.it-connect.fr/installation-de-wordpress-sous-linux/
+		https://www.it-connect.fr/installer-un-serveur-lamp-linux-apache-mariadb-php-sous-debian-11/
+
 Création du conteneur LXC :
    => Nom : SRV-WEB-AARD
    => OS : Debian-12-standard_12.7-1_amd64.tar.zst
@@ -34,3 +37,114 @@ Allocation des ressources :
    => Stockage : 8 Gb
 
 
+Actions effectuées dans le conteneur : 
+
+   => Connexion via root / mot de passe
+   => apt update
+   => apt upgrade
+   => apt install curl
+   => apt install unzip
+   => Création utilisateur "web" et groupe "web" / mdp : ZH7S#YOJkTxYf1^! si besoin plus tard via adduser.
+
+
+Actions pour Apache et Wordpress et leur installation (avec le compte en root) :
+
+	Remarques : 
+		- Choix d'installer MySQL ou MariaDB sur le serveur de BDD.
+		- la commande "a2enmod" qui sert à activer un module. A l'inverse, la commande "a2dismod" sert à désactiver un module.
+		- Le fichier de configuration d'Apache 2 est le suivant :
+
+			=> /etc/apache2/apache2.conf
+
+			Dans un premier temps, il peut servir à configurer Apache pour ne pas afficher le numéro de version sur les pages d'erreurs. Même si cette option est gérable aussi dans le fichier "/etc/apache2/conf-enabled/security.conf", c'est au choix.
+
+		- Pour la configuration qui concerne PHP, le fichier de configuration est différent : "/etc/php/7.4/apache2/php.ini"
+
+
+	A. L'archive d'installation de WordPress
+	Connectez-vous sur votre serveur Linux en SSH afin de télécharger l'archive ZIP qui contient les sources de WordPress.
+
+	Positionnez-vous dans le dossier "/tmp" et téléchargez la dernière version de WordPress :
+
+	=> cd /tmp
+	=> wget https://wordpress.org/latest.zip
+
+
+	B. Le serveur Web (Apache)
+		Installer Apache : 
+
+		=> apt-get install -y apache2
+
+	Pour qu'Apache démarre automatiquement en même temps que Debian, saisissez la commande ci-dessous (même si normalement c'est déjà le cas) :
+
+		=> systemctl enable apache2
+
+	Activation de quelques modules d'Apache qui sont indispensables, notamment pour faire tourner un site Internet :
+
+		=> a2enmod rewrite
+		=> a2enmod headers
+		=> a2enmod deflate
+		=> a2enmod ssl
+
+	Après avoir activé ou désactivé un module, ou modifié la configuration d'Apache, il faut redémarrer le service apache2 :
+
+		=> systemctl restart apache2
+
+
+	C. Installer PHP
+
+	PHP va venir se greffer sur notre serveur Apache, comme une extension, afin de pouvoir traiter les scripts intégrés aux pages ".php". Afin d'y aller progressivement, installons le paquet "php" en lui-même :
+
+		=> apt-get install -y php
+
+	On peut voir que cette commande va installer une multitude de paquets.
+
+	Avant d'aller plus loin, nous allons installer quelques paquets supplémentaires pour compléter l'installation de PHP sur notre serveur. Par exemple, pour permettre les interactions entre PHP et notre instance MariaDB/MySQL.
+
+		=> apt-get install -y php-pdo php-mysql php-zip php-gd php-mbstring php-curl php-xml php-pear php-bcmath
+
+
+	D. Décompresser l'archive WordPress à la racine du site
+
+	Nous allons utiliser le site par défaut d'Apache, qui a pour racine "/var/www/html" afin de stocker les données de notre site WordPress. Au préalable, on supprime la page d'index créée par défaut par Apache :
+
+		=> rm /var/www/html/index.html
+	
+	On décompresse l'archive dans "/var/www/html" grâce à la commande suivante (en étant positionné dans le dossier où l'on a téléchargé le fichier latest.zip) :
+
+		=>  unzip latest.zip -d /var/www/html
+	
+	Le dossier WordPress apparaitra donc dans "/var/www/html" qui est le dossier où sont stockées les pages web par défaut. 
+
+
+	Déplacez-nous dans le dossier "/var/www/html" et exécutons la commande ci-dessous pour déplacer tout le contenu du dossier "wordpress" à la racine de notre site :
+
+		=>  mv wordpress/* /var/www/html/
+
+	
+	Puisque le dossier "wordpress" ne sert plus à rien, on va le supprimer :
+
+		=>  rm wordpress/ -Rf
+
+
+	Enfin, on termine en donnant les droits à l'utilisateur "www-data" (correspondant à Apache) sur tous les fichiers de notre site, de manière récursive :
+
+		=>  chown -R www-data:www-data /var/www/html/
+
+	On obtient une liste de fichiers et dossiers. Au niveau des droits et pour des raisons de sécurité, nous devons avoir 755 sur les dossiers et 644 sur les fichiers. Ce qui est le cas par défaut si nous n'avons pas fait de modifications. En aucun cas nous ne devons poser des droits "777" sur un dossier ou un fichier.
+
+	
+	Si vous avez un doute ou que vous pensez avoir modifié les droits, vous pouvez rectifier la situation.
+
+	Pour les fichiers, exécutez cette commande :
+
+		=>  find /var/www/html/ -type f -exec chmod 644 {} \;
+
+	Pour les dossiers, exécutez cette commande :
+
+		=>  find /var/www/html/ -type d -exec chmod 755 {} \;
+
+
+	E. Installation de WordPress
+
+	Pour la première fois, nous allons nous connecter sur l'interface web WordPress dans le but d'effectuer l'installation. Pour cela, il faut se rendre sur "http://IP-SERVEUR".
