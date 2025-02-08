@@ -17,6 +17,8 @@
 
 Sources : https://www.youtube.com/watch?v=iqpLXUdJ0Ro&ab_channel=Thetips4you
 		https://blog.stephane-robert.info/docs/observer/logs/loki/
+		https://www.aukfood.fr/collecter-et-afficher-les-logs-avec-grafana-loki/
+		https://github.com/grafana/loki/blob/main/clients/cmd/promtail/promtail-local-config.yaml
 
 Création du conteneur LXC :
    => Nom : SRV-LOG-AARD
@@ -79,6 +81,14 @@ server:
   log_level: info  # Change "debug" en "info" pour éviter trop de logs inutiles en prod
   grpc_server_max_concurrent_streams: 1000
 
+compactor:
+  working_directory: /var/lib/loki/retention
+  compaction_interval: 1m
+  retention_enabled: true
+  retention_delete_delay: 1m
+  retention_delete_worker_count: 150
+  delete_request_store: filesystem  # Stockage local pour les requêtes de suppression
+
 common:
   instance_addr: 192.168.7.135  # Utilise l'IP de ton serveur au lieu de localhost
   path_prefix: /var/lib/loki  # Change "/tmp/loki" pour éviter de perdre les logs au reboot
@@ -100,7 +110,7 @@ query_range:
 
 limits_config:
   metric_aggregation_enabled: true
-  enforce_metric_name: false  # Désactive la restriction sur les noms de métriques pour éviter les erreurs
+  retention_period: 1m
 
 schema_config:
   configs:
@@ -130,8 +140,11 @@ frontend:
 		=> chown -R log:log /var/lib/loki
 		=> chmod -R 750 /var/lib/loki
 
+	=> Créer un dossier /var/lib/loki/retention : mkdir -p /var/lib/loki/retention
+		=> chown -R log:log /var/lib/loki/retention
+		=> chmod -R 750 /var/lib/loki/retention
+
 	=> Nous mettons l'utilisateur créée plus tôt "log" en tant que propriétaire et propriétaire groupe des fichiers de config de Loki.
-	
 		=> chown -R log:log loki-config.yaml loki-linux-amd64
 		=> chmod 755 loki-linux-amd64
 		=> chmod 640 loki-config.yaml
@@ -206,7 +219,7 @@ scrape_configs:
           job: varlogs
           host: srv-log-aard
           stream: stdout
-          __path__: /var/log/*.log
+          __path__: /var/log/*
 
 --------------------------------------------------------------------------------------------
 
@@ -254,3 +267,27 @@ Commandes système et visualisation des logs en direct :
 		=> journalctl -f -u promtail.service
 
 	Normalement le service promtail est lancé.
+
+
+Dans nos conteneurs LXC Debian, les logs semblent être dans le "journald" et non le syslog.
+
+On installe "rsyslog" pour qu'ils puissent etre visible dans "syslog"
+
+	=> apt install rsyslog -y
+	=> systemctl enable rsyslog --now
+	=> tail -f /var/log/syslog
+
+Pour que notre utilisateur "log" puissent avoir les droits de lecture de logs, on va lui ajouter dans le groupe adm : 
+
+	=> usermod -aG adm logserver
+	=> systemctl restart promtail.service
+
+En effet, Un problèmes d’accès aux fichiers /var/log/auth.log, /var/log/cron.log et /var/log/user.log par Grafana sera présent par le fait que l'on a paramétré le service promtail avec l'utilisateur "log".
+
+Faire de même avec le fichier "syslog" : 
+
+	=> chown log:root /var/log/syslog
+	=> chmod 640 /var/log/syslog
+	=> systemctl restart promtail.service
+
+De manière générale, regarder les permissions des fichiers selon l'utilisateur qui utilise le service.

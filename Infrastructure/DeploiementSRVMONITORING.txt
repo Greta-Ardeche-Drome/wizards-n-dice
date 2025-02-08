@@ -77,3 +77,9 @@ Nous pouvons aller dans "ajouter votre première source de donnée" pour configu
 
 	=> URL : http://192.168.7.133:3100
 	=> Save & test pour voir si la communication du SRV-MONITORING-AARD communique avec SRV-LOG-AARD
+
+Mise en place d'un DASHBOARD pour tester : 
+
+	=> Choix de la database LOKI
+	=> Ensuite, c'est effectuer des requêtes. Soit des filename, job etc ... et le choix du chemin (var/log/svglog) etc ...
+
