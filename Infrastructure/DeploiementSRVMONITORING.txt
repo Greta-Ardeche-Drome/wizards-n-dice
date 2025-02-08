@@ -1,0 +1,76 @@
+#################################################################
+#								#
+#	Créateur : Arthur YANG - Responsable Documentation 	#
+#				 & Administratif		#
+			
+#	Date de création : 07/02/2025				#
+#								#
+#	Dernier modificateur : Arthur YANG			#
+#	Date de modification : 07/02/2025			#
+#								#
+#		Version actuelle : 1.0				#
+#								#
+#################################################################
+
+
+----------------------- Déploiement du serveur de monitoring ----------------------- 
+
+Sources : https://grafana.com/docs/grafana/latest/setup-grafana/installation/debian/
+		https://grafana.com/docs/grafana/latest/getting-started/build-first-dashboard/
+
+Création du conteneur LXC :
+   => Nom : SRV-MONITORING-AARD
+   => OS : Debian-12-standard_12.7-1_amd64.tar.zst
+   => Stockage : local -> local_zfs
+   => Mot de passe root conteneur : Zy&r@*!nXDZCq9FL
+
+Configuration réseau :
+   => Interface : in - VLAN 20 (servers)
+   => IP : 192.168.7.134
+   => Masque : 255.255.255.240
+   => Passerelle : 192.168.7.142
+   => DNS : 1.1.1.1 (Pour l'instant)
+
+
+Allocation des ressources :
+   => CPU : 1 cœur
+   => RAM : 512 Mb
+   => Stockage : 16 Gb
+
+Actions effectuées dans le conteneur : 
+
+   => Connexion via root / mot de passe
+   => apt update
+   => apt upgrade
+   => Création utilisateur "monitoring" et groupe "monitoring" / mdp : *dfV%8qfL56erD#9 si besoin plus tard via adduser.
+
+
+
+Actions pour Grafana et son installation (avec le compte en root) :
+
+	Remarques : 
+		- Choix d'installer Grafana Enterprise (gratuit et similaire à Grafana OSS)
+		- Nous installons à partir du dépôt APT, car si nous installons depuis le dépôt APT, Grafana est automatiquement mis à jour lorsque nous exécutons "apt-get update".
+
+
+   => Installez les packages requis : apt-get install -y apt-transport-https software-properties-common wget
+   => Import de la clé GPG Grafana :
+	   => mkdir -p /etc/apt/keyrings/
+	   => wget -q -O - https://apt.grafana.com/gpg.key | gpg --dearmor | tee /etc/apt/keyrings/grafana.gpg > /dev/null
+   => Ajout d'un dépot pour les versions stables : echo "deb [signed-by=/etc/apt/keyrings/grafana.gpg] https://apt.grafana.com stable main" | tee -a /etc/apt/sources.list.d/grafana.list
+   => Ajout d'un dépot pour les versions en beta : echo "deb [signed-by=/etc/apt/keyrings/grafana.gpg] https://apt.grafana.com beta main" | tee -a /etc/apt/sources.list.d/grafana.list
+   => Exécution de la commande suivante pour mettre à jour la liste des paquets disponibles : sudo apt-get update
+   => Pour installer Grafana Enterprise : apt-get install grafana-enterprise
+   => Démarrer le serveur Grafana : service grafana-server start
+   => Pour vérifier que le service fonctionne : service grafana-server status
+   => Pour configurer le serveur Grafana afin qu'il démarre au démarrage : systemctl enable grafana-server
+   => vérifier que le service est démarrer au démarrage : systemctl is-enabled grafana-server
+   => Remarque : le port par défaut de Grafana est 3000, vérifier que Grafana écoute bien sur le port 3000 : ss -tulnp | grep 3000
+   => Tester l'accès HTTP avec curl : curl -I http://localhost:3000 OU dans une barre de recherche : http://@IP:3000
+   => Facultatif (sécurité), modifier les paramètres du serveur Grafana via fichier de configuration : /etc/grafana/grafana.ini
+
+Sur la page de connexion (http://192.168.7.134:3000) depuis un poste, nous pouvons entrer par défaut "admin" pour le nom d'utilisateur et le mot de passe "X#J#nk591h".
+
+Cela nous authentifie, et nous arrivons sur la page Web de Grafana.
+
+Nous pouvons aller dans "ajouter votre première source de donnée" pour configurer Grafana avec Loki.

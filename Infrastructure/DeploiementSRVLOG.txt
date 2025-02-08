@@ -15,17 +15,19 @@
 
 ----------------------- Déploiement du serveur de logs ----------------------- 
 
+Sources : https://www.youtube.com/watch?v=iqpLXUdJ0Ro&ab_channel=Thetips4you
+		https://blog.stephane-robert.info/docs/observer/logs/loki/
+
 Création du conteneur LXC :
    => Nom : SRV-LOG-AARD
-   => OS : Debian 12
-   => Stockage : local -> local_dfs
-   => Mot de passe root conteneur : a4X8TRK6%r01rREQ (voir si c'est le bon mdp)
-
+   => OS : Debian-12-standard_12.7-1_amd64.tar.zst
+   => Stockage : local -> local_zfs
+   => Mot de passe root conteneur : a4X8TRK6%r01rREQ
 
 Configuration réseau :
-   => Interface : in - VLAN 20 (LOGS)
+   => Interface : in - VLAN 20 (servers)
    => IP : 192.168.7.133
-   => Masque : 255.255.255.0
+   => Masque : 255.255.255.240
    => Passerelle : 192.168.7.142
    => DNS : 1.1.1.1 (Pour l'instant)
 
@@ -34,4 +36,102 @@ Allocation des ressources :
    => CPU : 1 cœur
    => RAM : 512 Mb
    => Stockage : 16 Gb
+
+
+Petite actions effectuées dans le conteneur : 
+
+   => Connexion via root / mot de passe
+   => apt update
+   => apt upgrade
+   => apt install unzip
+   => apt install curl
+   => Création utilisateur "log" et groupe "log" / mdp : SbemnE&ZpDRNs2Ed si besoin plus tard via adduser.
+
+	
+Installation de Loki et Promtail :
+
+	Remarques : 
+		-  Le port sur lequel Loki écoute les requêtes par défaut est 3100 qui permet aux utilisateurs d’interagir avec Loki via des requêtes HTTP.
+
+1**Installation de Loki**
+   => Téléchargement et installation :
+	On se place dans le chemin : /usr/local/bin/
+	On télécharge le fichier zip de Loki : wget https://github.com/grafana/loki/releases/latest/download/loki-linux-amd64
+	Nous pouvons ensuite l'unzip : unzip (nom du fichier)
+	C'est un fichier executable que l'on a.
+      
+   => Configuration de Loki :
+
+	Nous devons ici, avoir un fichier nommé "loki-config.yml" pour la configuration de Loki.
+	Nous pouvons télécharger un modèle pré-existant : wget https://raw.githubusercontent.com/grafana/loki/master/cmd/loki/loki-local-config.yaml
+	Cela télécharge un modèle que l'on peut renommer comme nous le voulions.
+	
+
+	=> Config .yml personnalisé que nous effectuons : 
+
+---------------------------------------------------------------------------------------------------------------------
+
+auth_enabled: false
+
+server:
+  http_listen_port: 3100
+  grpc_listen_port: 9096
+  log_level: info  # Change "debug" en "info" pour éviter trop de logs inutiles en prod
+  grpc_server_max_concurrent_streams: 1000
+
+common:
+  instance_addr: 192.168.7.135  # Utilise l'IP de ton serveur au lieu de localhost
+  path_prefix: /var/lib/loki  # Change "/tmp/loki" pour éviter de perdre les logs au reboot
+  storage:
+    filesystem:
+      chunks_directory: /var/lib/loki/chunks
+      rules_directory: /var/lib/loki/rules
+  replication_factor: 1
+  ring:
+    kvstore:
+      store: inmemory
+
+query_range:
+  results_cache:
+    cache:
+      embedded_cache:
+        enabled: true
+        max_size_mb: 500  # Augmente la taille du cache pour améliorer les performances
+
+limits_config:
+  metric_aggregation_enabled: true
+  enforce_metric_name: false  # Désactive la restriction sur les noms de métriques pour éviter les erreurs
+
+schema_config:
+  configs:
+    - from: 2024-02-07  # Mets une date actuelle pour éviter des problèmes de compatibilité
+      store: tsdb
+      object_store: filesystem
+      schema: v13
+      index:
+        prefix: index_
+        period: 24h
+
+pattern_ingester:
+  enabled: true
+  metric_aggregation:
+    loki_address: 192.168.7.135:3100  # Mets l'IP du serveur de logs
+
+ruler:
+  alertmanager_url: http://192.168.7.134:9093  # Si tu as un Alertmanager sur le serveur de monitoring
+
+frontend:
+  encoding: protobuf
+
+---------------------------------------------------------------------------------------------------------------------
+
+
+	=> Créer un dossier /var/lib/loki/
+
+	=> Lancer loki avec le fichier de configuration : ./loki-linux-amd64 -config.file=loki-config.yaml
+
+
+
+
+
 

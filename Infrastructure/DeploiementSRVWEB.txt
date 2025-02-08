@@ -17,9 +17,9 @@
 
 Création du conteneur LXC :
    => Nom : SRV-WEB-AARD
-   => OS : Debian 12
-   => Stockage : local -> local_dfs
-   => Mot de passe root conteneur : a4X8TRK6%r01rREQ (Voir si c'est le bon MDP)
+   => OS : Debian-12-standard_12.7-1_amd64.tar.zst
+   => Stockage : local -> local_zfs
+   => Mot de passe root conteneur : sc7GgM5G&Ei*qIh0
 
 Configuration réseau :
    => Interface : DMZ publique - VLAN 100 (WEB)
