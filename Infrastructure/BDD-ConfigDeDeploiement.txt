@@ -94,7 +94,7 @@ Installation de MariaDB (en root) :
 
 	Après la création, on peut vérifier la création de l'utilisateur : 
 
-		=> SELECT User, Host FROM mysql.user WHERE User = 'adminwp202110_itconnect';	
+		=> SELECT User, Host FROM mysql.user WHERE User = 'adminwp202502_wnd';	
 
 
    => Ensuite, donner tous les droits à l'utilisateur "adminwp202502_wnd" sur la base de données WordPress. Notre serveur Web et la base de données étant pas sur le même serveur, nous allons donner ces droits pour une connexion locale et distant comme précédemment. Ce qui donne :
@@ -127,6 +127,6 @@ Nous changeons aussi le port d'écoute sur le serveur BDD dans /etc/mysql/mariad
 	=> Port 3306 vers 29590
 	=> Port 29591 pour la BDD pre-prod
 
-Le port de prod et pre-prod se suivent meme si cela n'a pas encore été fait.
+Le port de prod et pre-prod se suivent meme si cela n'a pas encore été fait pour le serveur de pre-prod.
 
 Voila pour la configuration de la BDD

@@ -44,6 +44,7 @@ Actions effectuées dans le conteneur :
    => apt upgrade
    => apt install curl
    => apt install unzip
+   => apt install mariadb-client
    => Création utilisateur "web" et groupe "web" / mdp : ZH7S#YOJkTxYf1^! si besoin plus tard via adduser.
 
 
@@ -153,8 +154,35 @@ Actions pour Apache et Wordpress et leur installation (avec le compte en root) :
 
 	Ensuite il faut entrer les informations de la base de données : 
 
-		=> Nom de la base de données : dans cet exemple, ce sera "wp202110_itconnect"
-		=> Identifiant : le nom de l'utilisateur qui a les droits sur la base de données, en l'occurrence "adminwp202110_itconnect"
-		=> Mot de passe : le mot de passe de cet utilisateur
-		=> Adresse de la base de données : si le serveur Web et la base de données sont sur le même serveur, indiquez "localhost", sinon indiquez l'adresse IP du serveur distant
-		=> Préfixe des tables : chaque table de la base de données WordPress aura un préfixe. Par défaut, ce préfixe est "wp" donc par exemple la table des utilisateurs sera nommée "wp_users".
+		=> Nom de la base de données : ce sera "wp202502_wnd"
+		=> Identifiant : le nom de l'utilisateur qui a les droits sur la base de données, en l'occurrence "adminwp202502_wnd"
+		=> Mot de passe : le mot de passe de cet utilisateur : "*$6GH89PSx!3fv7Ib"
+		=> Adresse de la base de données : notre serveur web et la BDD ne sont pas sur le même serveur, donc nous c'est : "192.168.7.145:29590" (on précise les ports que nous avons changés lors du déploiement du serveur BDD)
+		=> Préfixe des tables : chaque table de la base de données WordPress aura un préfixe. Par défaut, ce préfixe est "wp" donc par exemple la table des utilisateurs sera nommée "wp_users". On met pour nous "wp_wnd_".
+
+	WordPress va tester de se connecter à notre base de données et si cela fonctionne, un bouton "Lancer l'installation" va s'afficher. Cliquons dessus.
+
+
+	Il ne reste que quelques champs à renseigner comme le titre du site (modifiable ultérieurement) et la création d'un premier compte utilisateur.
+		=> Compte "admin" sur le wordpress : 
+			=> ID : wnd_admin_wp
+			=> MDP : 6#io8ZaV7!xiOaSZ
+
+	Choisissez un mot de passe complexe pour cet utilisateur, indiquez l'adresse e-mail associée et cliquez sur "Installer WordPress".
+
+	WordPress est installé ! On peut cliquer sur le bouton "Se connecter". Sur la page de connexion qui apparaît, avec le compte admin que nous venons de créer "wnd_admin_wp".
+
+
+	Avant d'aller plus loin, nous pouvons pour retourner sur notre console Linux et réaliser deux petites opérations. Tout d'abord pour supprimer le fichier "wp-config-sample.php", car il n'a plus d'intérêt (nous avons notre fichier wp-config.php définitif).
+
+		=> rm /var/www/html/wp-config-sample.php
+
+	Ensuite, pour appliquer des droits très restrictifs sur le fichier "wp-config.php" pour le basculer en lecture seule seulement pour Apache. Indispensable pour des raisons de sécurité.
+
+		=> chmod 400 /var/www/html/wp-config.php
+
+	Suite à la connexion, nous arrivons sur l'interface d'administration de WordPress. C'est notre centre de contrôle pour créer nos pages, nos articles, mais aussi ajouter des extensions, des thèmes et configurer WordPress dans son ensemble.
+
+	Cette interface d'administration est accessible à l'adresse suivante : http://172.16.7.1/wp-admin/.
+
+Voila pour le déploiement du serveur WEB.
