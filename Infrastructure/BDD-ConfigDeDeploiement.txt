@@ -1,0 +1,132 @@
+#################################################################
+#								#
+#	Créateur : Arthur YANG - Responsable Documentation 	#
+#				 & Administratif		#
+			
+#	Date de création : 14/02/2025				#
+#								#
+#	Dernier modificateur : Arthur YANG			#
+#	Date de modification : 14/02/2025			#
+#								#
+#		Version actuelle : 1.0				#
+#								#
+#################################################################
+
+
+----------------------- Déploiement du serveur de base de données ----------------------- 
+
+Sources : https://www.it-connect.fr/installation-de-wordpress-sous-linux/
+		https://www.it-connect.fr/installer-un-serveur-lamp-linux-apache-mariadb-php-sous-debian-11/
+
+Création de la VM Debian :
+   => Nom : SRV-BDD-PROD-AARD
+   => OS : Debian-12.9.0-amd64-netinst.iso
+   => Stockage : local -> vmdata
+   => Mot de passe root VM : Raven621! (temporaire)
+
+Configuration réseau :
+   => Interface : in - VLAN 30 (database)
+   => IP : 192.168.7.145
+   => Masque : 255.255.255.248
+   => Passerelle : 192.168.7.150
+   => DNS : 192.168.7.129
+
+
+Allocation des ressources :
+   => CPU : 2 cœurs
+   => RAM : 2 Go
+   => Stockage : 32 Go
+
+Installation classique de Debian sur une VM.
+   => Séparation des /var, /tmp etc ... dans différentes partitions.
+   => Création utilisateur "prod" et groupe "prod" / mdp : Raven621! (temporaire) si besoin plus tard.
+   => Pas d'installation graphique.
+
+Petite actions effectuées dans la VM : 
+
+   => Connexion via root / mot de passe
+   => apt update
+   => apt upgrade
+   => apt install unzip
+   => apt install curl
+
+	
+Installation de MariaDB (en root) :
+
+	Remarques : 
+		- Script "mariadb-secure-installation", en résumé, nous allons pouvoir définir un mot de passe pour le compte "root" de MariaDB, empêcher les connexions distantes sur notre instance à l'aide du compte "root", empêcher les connexions anonymes et supprimer la base de test.
+
+		- 
+
+   => installer MariaDB sous Debian : apt-get install -y mariadb-server
+   => Suite à l'installation, nous pouvons exécuter le script "mariadb-secure-installation" afin de sécuriser un minimum notre     	installation de MariaDB.
+	=> commande : mariadb-secure-installation
+      
+   => Configuration de mariadb-secure-installation :
+
+	Compte pour accéder à MariaDB (root seulement) : 
+		=> root / mdp : Raven621! (temporaire)
+	
+	=> Suivi des bonnes pratiques sur le site de IT-CONNECT (voir image sur le site) via les sources ci-dessus.
+	
+
+   => Lancement de mariaDB avec les iddentifiants root : 
+
+	=> mariadb -u root -p
+
+   => Saisissons le mot de passe "root". Ensuite, nous avons accès à la console MariaDB / MySQL. Vous pouvons saisir nos requêtes SQL ici. 
+	=> show databases;
+
+
+   => La création de la base de données. Nous allons donner  un nom pas très évident, mais parlant malgré tout : "wp202502_wnd". Ce nom reste parlant pour nous : on sait qu'il s'agit de la base de données WordPress (wp), créée en février 2025 pour le site "Wizards & Dice".
+	
+	=> CREATE DATABASE wp202502_wnd;
+
+	On peut voir que notre base de données apparaît bien dans la liste.
+
+
+   => Créer l'utilisateur qui sera administrateur de la base de données WordPress. Cet utilisateur sera nommé "adminwp202502_wnd" et il aura comme mot de passe "*$6GH89PSx!3fv7Ib".
+	
+	=> CREATE USER 'adminwp202502_wnd'@'localhost' IDENTIFIED BY '*$6GH89PSx!3fv7Ib';
+	=> CREATE USER 'adminwp202502_wnd'@'172.16.7.1' IDENTIFIED BY '*$6GH89PSx!3fv7Ib';
+
+	Ici, la première commande permet de juster créer l'utilisateur en local, mais nous avons un serveur web et bdd séparés, donc il faut aussi que le serveur web puisse utiliser l'utilisateur en question sur un serveur distant (serveur bdd).
+
+	Après la création, on peut vérifier la création de l'utilisateur : 
+
+		=> SELECT User, Host FROM mysql.user WHERE User = 'adminwp202110_itconnect';	
+
+
+   => Ensuite, donner tous les droits à l'utilisateur "adminwp202502_wnd" sur la base de données WordPress. Notre serveur Web et la base de données étant pas sur le même serveur, nous allons donner ces droits pour une connexion locale et distant comme précédemment. Ce qui donne :
+
+	=> GRANT ALL PRIVILEGES ON wp202502_wnd.* TO 'adminwp202502_wnd'@'localhost';
+	=> GRANT ALL PRIVILEGES ON wp202502_wnd.* TO 'adminwp202502_wnd'@'172.16.7.1' IDENTIFIED BY '*$6GH89PSx!3fv7Ib';
+
+Enfin, il faut exécuter la commande suivante pour actualiser les droits et activer les nouveaux privilèges sur notre base de données :
+
+	=> FLUSH PRIVILEGES;
+
+La base de données pour WordPress est prête. Pour le moment elle est vide, mais WordPress va créer sa structure de tables lors de l'installation. Quittez la console MariaDB / MySQL :
+
+	=> exit
+
+Vérifier que MySQL écoute bien sur l'IP du serveur de base de données (192.168.7.145)
+
+	Par défaut, MariaDB écoute uniquement sur localhost. Pour autoriser les connexions depuis un autre serveur, on modifie le fichier /etc/mysql/mariadb.conf.d/50-server.cnf :
+
+	=> bind-address = 192.168.7.145
+
+	Puis on redemarre MariaDB : systemctl restart mariadb.service
+
+On peut vérifier qu'il écoute bien sur cette IP : 
+
+	=> ss -tulnp | grep mariadb
+
+Nous changeons aussi le port d'écoute sur le serveur BDD dans /etc/mysql/mariadb.conf.d/50-server.cnf : 
+
+	=> Port 3306 vers 29590
+	=> Port 29591 pour la BDD pre-prod
+
+Le port de prod et pre-prod se suivent meme si cela n'a pas encore été fait.
+
+Voila pour la configuration de la BDD

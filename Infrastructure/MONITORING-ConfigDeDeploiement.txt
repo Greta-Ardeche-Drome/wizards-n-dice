@@ -29,7 +29,7 @@ Configuration réseau :
    => IP : 192.168.7.134
    => Masque : 255.255.255.240
    => Passerelle : 192.168.7.142
-   => DNS : 1.1.1.1 (Pour l'instant)
+   => DNS : 192.168.7.129
 
 
 Allocation des ressources :

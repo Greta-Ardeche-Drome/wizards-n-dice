@@ -29,7 +29,7 @@ Configuration réseau :
    => IP : 172.16.7.1
    => Masque : 255.255.255.128
    => Passerelle : 172.16.7.126
-   => DNS : 1.1.1.1 (Pour l'instant)
+   => DNS : 1.1.1.1 (Zone DMZ publique)
 
 Allocation des ressources :
    => CPU : 1 cœur
@@ -147,4 +147,14 @@ Actions pour Apache et Wordpress et leur installation (avec le compte en root) :
 
 	E. Installation de WordPress
 
-	Pour la première fois, nous allons nous connecter sur l'interface web WordPress dans le but d'effectuer l'installation. Pour cela, il faut se rendre sur "http://IP-SERVEUR".
+	Pour la première fois, nous allons nous connecter sur l'interface web WordPress dans le but d'effectuer l'installation. Pour cela, 	il faut se rendre sur "http://IP-SERVEUR" (Pour nous c'est : http://172.16.7.1)
+
+	La première étape consiste à choisir la langue du site et de l'interface de WordPress.
+
+	Ensuite il faut entrer les informations de la base de données : 
+
+		=> Nom de la base de données : dans cet exemple, ce sera "wp202110_itconnect"
+		=> Identifiant : le nom de l'utilisateur qui a les droits sur la base de données, en l'occurrence "adminwp202110_itconnect"
+		=> Mot de passe : le mot de passe de cet utilisateur
+		=> Adresse de la base de données : si le serveur Web et la base de données sont sur le même serveur, indiquez "localhost", sinon indiquez l'adresse IP du serveur distant
+		=> Préfixe des tables : chaque table de la base de données WordPress aura un préfixe. Par défaut, ce préfixe est "wp" donc par exemple la table des utilisateurs sera nommée "wp_users".
