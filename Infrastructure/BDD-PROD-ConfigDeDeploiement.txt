@@ -13,7 +13,7 @@
 #################################################################
 
 
------------------------ Déploiement du serveur de base de données ----------------------- 
+----------------------- Déploiement du serveur de base de données prod ----------------------- 
 
 Sources : https://www.it-connect.fr/installation-de-wordpress-sous-linux/
 		https://www.it-connect.fr/installer-un-serveur-lamp-linux-apache-mariadb-php-sous-debian-11/
