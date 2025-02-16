@@ -1,0 +1,133 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/25.0.2 Chrome/128.0.6613.186 Electron/32.2.5 Safari/537.36" version="25.0.2">
+  <diagram name="Page-1" id="TismizE8A68H-9k3w-Sa">
+    <mxGraphModel dx="819" dy="1647" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#ffffff" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="YqawrPtrUhzIzxj1BCeo-4" value="DMZ WEB&amp;nbsp;&lt;div&gt;(DMZ publique)&lt;/div&gt;&lt;div&gt;172.16.7.0/24&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFF00;strokeColor=#000000;align=left;verticalAlign=top;fontColor=#000000;fontSize=10;" parent="1" vertex="1">
+          <mxGeometry x="31.77" y="75" width="320" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="IB3uZ79_0tRTxkBwEHRQ-3" value="VLAN WAF&lt;div&gt;172.16.7.192/26&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#00CC66;align=left;verticalAlign=top;fontSize=8;fontColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="241.77" y="125" width="100" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="IB3uZ79_0tRTxkBwEHRQ-2" value="VLAN PROXY&lt;div&gt;172.16.7.128/26&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#33FF99;align=left;verticalAlign=top;fontSize=8;fontColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="141.77" y="125" width="100" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="IB3uZ79_0tRTxkBwEHRQ-1" value="VLAN WEB&lt;div&gt;172.16.7.0/25&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#99FFCC;align=left;verticalAlign=top;fontColor=#000000;fontSize=8;" parent="1" vertex="1">
+          <mxGeometry x="41.77" y="125" width="100" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="YqawrPtrUhzIzxj1BCeo-30" value="DMZ BASTION&amp;nbsp;&lt;div&gt;(DMZ privée)&lt;/div&gt;&lt;div&gt;172.16.14.0/30&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#a20025;strokeColor=#6F0000;align=left;verticalAlign=top;fontColor=#ffffff;fontSize=10;" parent="1" vertex="1">
+          <mxGeometry x="560" y="105" width="140" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="YqawrPtrUhzIzxj1BCeo-26" value="LAN Stormshield&lt;div&gt;192.168.7.0/24&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;fillColor=#FF9933;fontColor=#000000;fontSize=8;align=left;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="80" y="240" width="700" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="YqawrPtrUhzIzxj1BCeo-1" value="" style="sketch=0;aspect=fixed;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;fillColor=#00188D;shape=mxgraph.mscae.enterprise.firewall" parent="1" vertex="1">
+          <mxGeometry x="420" y="120" width="79.54" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="YqawrPtrUhzIzxj1BCeo-2" value="&lt;font color=&quot;#000000&quot;&gt;Internet&lt;/font&gt;" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="399.77" y="10" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="YqawrPtrUhzIzxj1BCeo-3" value="" style="endArrow=none;html=1;rounded=0;entryX=0.502;entryY=0.963;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;strokeColor=#000000;strokeWidth=3;" parent="1" source="YqawrPtrUhzIzxj1BCeo-1" target="YqawrPtrUhzIzxj1BCeo-2" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="470" y="190" as="sourcePoint" />
+            <mxPoint x="520" y="140" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YqawrPtrUhzIzxj1BCeo-5" value="Serveur Web" style="image;aspect=fixed;perimeter=ellipsePerimeter;html=1;align=center;shadow=0;dashed=0;spacingTop=3;image=img/lib/active_directory/web_server.svg;labelBackgroundColor=none;fontColor=#000000;fontSize=8;" parent="1" vertex="1">
+          <mxGeometry x="71.77" y="150" width="40" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="YqawrPtrUhzIzxj1BCeo-7" value="Reverse Proxy" style="image;aspect=fixed;perimeter=ellipsePerimeter;html=1;align=center;shadow=0;dashed=0;spacingTop=3;image=img/lib/active_directory/generic_server.svg;labelBackgroundColor=none;fontColor=#000000;fontSize=8;" parent="1" vertex="1">
+          <mxGeometry x="178" y="150" width="28.000000000000004" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="YqawrPtrUhzIzxj1BCeo-8" value="WAF" style="image;aspect=fixed;perimeter=ellipsePerimeter;html=1;align=center;shadow=0;dashed=0;spacingTop=3;image=img/lib/active_directory/generic_server.svg;labelBackgroundColor=none;fontColor=#000000;fontSize=8;" parent="1" vertex="1">
+          <mxGeometry x="278" y="150" width="28.000000000000004" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="YqawrPtrUhzIzxj1BCeo-9" value="VLAN SERVERS&lt;br&gt;&lt;div&gt;192.168.7.128/28&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#007FFF;strokeColor=#000000;align=left;verticalAlign=top;fontColor=#000000;fontSize=10;" parent="1" vertex="1">
+          <mxGeometry x="90" y="270" width="350" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="YqawrPtrUhzIzxj1BCeo-10" value="Bastion" style="image;aspect=fixed;perimeter=ellipsePerimeter;html=1;align=center;shadow=0;dashed=0;spacingTop=3;image=img/lib/active_directory/generic_server.svg;labelBackgroundColor=none;fontColor=#ffffff;fontSize=8;" parent="1" vertex="1">
+          <mxGeometry x="640" y="128.22" width="30" height="53.57" as="geometry" />
+        </mxCell>
+        <mxCell id="YqawrPtrUhzIzxj1BCeo-11" value="Monitoring &lt;br&gt;(Graphana)" style="image;aspect=fixed;perimeter=ellipsePerimeter;html=1;align=center;shadow=0;dashed=0;spacingTop=3;image=img/lib/active_directory/generic_server.svg;labelBackgroundColor=none;fontColor=#000000;fontSize=8;" parent="1" vertex="1">
+          <mxGeometry x="340" y="330" width="28.000000000000004" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="YqawrPtrUhzIzxj1BCeo-12" value="Serveur de&lt;div&gt;sauvegarde&lt;/div&gt;" style="image;aspect=fixed;perimeter=ellipsePerimeter;html=1;align=center;shadow=0;dashed=0;spacingTop=3;image=img/lib/active_directory/generic_server.svg;labelBackgroundColor=none;fontColor=#000000;fontSize=8;" parent="1" vertex="1">
+          <mxGeometry x="190" y="330" width="28.000000000000004" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="YqawrPtrUhzIzxj1BCeo-13" value="Serveur de&amp;nbsp;&lt;div&gt;log&lt;/div&gt;" style="image;aspect=fixed;perimeter=ellipsePerimeter;html=1;align=center;shadow=0;dashed=0;spacingTop=3;image=img/lib/active_directory/generic_server.svg;labelBackgroundColor=none;fontColor=#000000;fontSize=8;" parent="1" vertex="1">
+          <mxGeometry x="290" y="330" width="28.000000000000004" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="YqawrPtrUhzIzxj1BCeo-14" value="Serveur de&lt;div&gt;test&lt;/div&gt;" style="image;aspect=fixed;perimeter=ellipsePerimeter;html=1;align=center;shadow=0;dashed=0;spacingTop=3;image=img/lib/active_directory/generic_server.svg;labelBackgroundColor=none;fontColor=#000000;fontSize=8;" parent="1" vertex="1">
+          <mxGeometry x="241.77" y="330" width="28.000000000000004" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="YqawrPtrUhzIzxj1BCeo-15" value="&lt;div&gt;VLAN DATABASE&lt;/div&gt;&lt;div&gt;192.168.7.144/29&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#00FF00;strokeColor=#000000;align=left;verticalAlign=top;fontColor=#000000;fontSize=10;" parent="1" vertex="1">
+          <mxGeometry x="610" y="270" width="160" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="YqawrPtrUhzIzxj1BCeo-16" value="DNS/AD" style="image;aspect=fixed;perimeter=ellipsePerimeter;html=1;align=center;shadow=0;dashed=0;spacingTop=3;image=img/lib/active_directory/generic_server.svg;labelBackgroundColor=none;fontColor=#000000;fontSize=8;" parent="1" vertex="1">
+          <mxGeometry x="99.99999999999999" y="330" width="28.000000000000004" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="YqawrPtrUhzIzxj1BCeo-17" value="Serveur BDD&lt;div&gt;Prod&lt;/div&gt;" style="image;aspect=fixed;perimeter=ellipsePerimeter;html=1;align=center;shadow=0;dashed=0;spacingTop=3;image=img/lib/active_directory/generic_server.svg;labelBackgroundColor=none;fontColor=#000000;fontSize=8;" parent="1" vertex="1">
+          <mxGeometry x="640" y="310" width="28.000000000000004" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="YqawrPtrUhzIzxj1BCeo-18" value="Serveur BDD&lt;div&gt;Pre-Prod&lt;/div&gt;" style="image;aspect=fixed;perimeter=ellipsePerimeter;html=1;align=center;shadow=0;dashed=0;spacingTop=3;image=img/lib/active_directory/generic_server.svg;labelBackgroundColor=none;fontColor=#000000;fontSize=8;" parent="1" vertex="1">
+          <mxGeometry x="710" y="310" width="28.000000000000004" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="YqawrPtrUhzIzxj1BCeo-19" value="" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;strokeWidth=2;strokeColor=#000000;" parent="1" source="YqawrPtrUhzIzxj1BCeo-4" target="YqawrPtrUhzIzxj1BCeo-1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="460" y="260" as="sourcePoint" />
+            <mxPoint x="510" y="210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YqawrPtrUhzIzxj1BCeo-21" value="" style="endArrow=none;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;strokeWidth=2;strokeColor=#000000;exitX=0.75;exitY=0;exitDx=0;exitDy=0;" parent="1" source="YqawrPtrUhzIzxj1BCeo-9" target="YqawrPtrUhzIzxj1BCeo-1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="460" y="260" as="sourcePoint" />
+            <mxPoint x="510" y="210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YqawrPtrUhzIzxj1BCeo-22" value="" style="endArrow=none;html=1;rounded=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;strokeWidth=2;strokeColor=#000000;" parent="1" target="YqawrPtrUhzIzxj1BCeo-15" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="460" y="190" as="sourcePoint" />
+            <mxPoint x="510" y="210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YqawrPtrUhzIzxj1BCeo-24" value="Serveur&amp;nbsp;&lt;div&gt;Proxmox&lt;/div&gt;" style="image;aspect=fixed;perimeter=ellipsePerimeter;html=1;align=center;shadow=0;dashed=0;spacingTop=3;image=img/lib/active_directory/generic_server.svg;labelBackgroundColor=none;fontColor=#000000;fontSize=8;" parent="1" vertex="1">
+          <mxGeometry x="386" y="330" width="28.000000000000004" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="YqawrPtrUhzIzxj1BCeo-27" value="&lt;div&gt;VLAN USERS&lt;/div&gt;&lt;div&gt;192.168.7.0/25&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;fillColor=#33FFFF;verticalAlign=top;align=left;fontColor=#000000;fontSize=10;" parent="1" vertex="1">
+          <mxGeometry x="450" y="270" width="150" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="YqawrPtrUhzIzxj1BCeo-31" value="" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;strokeWidth=2;strokeColor=#000000;" parent="1" target="YqawrPtrUhzIzxj1BCeo-30" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="500" y="154.71" as="sourcePoint" />
+            <mxPoint x="620" y="154.71" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YqawrPtrUhzIzxj1BCeo-32" value="" style="endArrow=none;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;strokeWidth=2;strokeColor=#000000;" parent="1" source="YqawrPtrUhzIzxj1BCeo-27" target="YqawrPtrUhzIzxj1BCeo-1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="440" y="280" as="sourcePoint" />
+            <mxPoint x="490" y="230" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YqawrPtrUhzIzxj1BCeo-37" value="" style="shape=flexArrow;endArrow=classic;startArrow=classic;html=1;rounded=0;fillColor=#660066;" parent="1" edge="1">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="530" y="140" as="sourcePoint" />
+            <mxPoint x="530" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YqawrPtrUhzIzxj1BCeo-38" value="&lt;font color=&quot;#000000&quot;&gt;Tunnel&amp;nbsp;&lt;/font&gt;&lt;span style=&quot;color: rgb(0, 0, 0); background-color: initial;&quot;&gt;IPsec&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(0, 0, 0); background-color: initial;&quot;&gt;10.0.0.0/30&lt;/span&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" parent="1" vertex="1">
+          <mxGeometry x="530" y="50" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="YqawrPtrUhzIzxj1BCeo-40" value="NAS" style="image;aspect=fixed;perimeter=ellipsePerimeter;html=1;align=center;shadow=0;dashed=0;spacingTop=3;image=img/lib/active_directory/generic_server.svg;labelBackgroundColor=none;fontColor=#000000;fontSize=8;" parent="1" vertex="1">
+          <mxGeometry x="141.76999999999998" y="330" width="28.000000000000004" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="CGVpo9sNGCtjRVV3CvOS-3" value="Postes utilisateurs" style="fontColor=#000000;verticalAlign=top;verticalLabelPosition=bottom;labelPosition=center;align=center;html=1;outlineConnect=0;fillColor=#CCCCCC;strokeColor=#6881B3;gradientColor=none;gradientDirection=north;strokeWidth=2;shape=mxgraph.networks.pc;" parent="1" vertex="1">
+          <mxGeometry x="470" y="310" width="100" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="IB3uZ79_0tRTxkBwEHRQ-15" value="&lt;font color=&quot;#000000&quot;&gt;Note : Infra AARD uniquement. Voir Infrastructure/__Suivi_adressages.ods pour les adressages de l&#39;infra DRYN.&lt;/font&gt;&lt;div&gt;&lt;font color=&quot;#000000&quot;&gt;Voir ce même fichier pour les adressages des machines.&lt;/font&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="1" vertex="1">
+          <mxGeometry x="81.77" y="-10" width="248.23" height="70" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
