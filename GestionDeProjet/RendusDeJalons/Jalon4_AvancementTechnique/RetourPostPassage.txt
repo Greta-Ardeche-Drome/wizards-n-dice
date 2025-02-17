@@ -1,0 +1,10 @@
+- Mauvaise gestion du temps 
+	=> Trop long et mauvaise structure par rapport à la consigne
+	=> Trop imprécision
+	--> Un état des lieux aurait plus appropriée ; par couches OSI
+- Pas assez d'éléments visuels (tableaux, visuels) 
+	--> Faire des tableaux : date d'avancements par VMs/conteneur 
+	--> Faire des schémas : flux (qui va où, par quels chemins), topologies
+- Manque de préparation (pour les questions notamment)
+- Manque de structure sur l'organisation du script
+=> Vérifier la structure du script plus précisément et plus en avance
