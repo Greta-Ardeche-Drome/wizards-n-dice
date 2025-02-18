@@ -22,7 +22,7 @@ Création du conteneur LXC :
    => Nom : SRV-WEB-AARD
    => OS : Debian-12-standard_12.7-1_amd64.tar.zst
    => Stockage : local -> local_zfs
-   => Mot de passe root conteneur : sc7GgM5G&Ei*qIh0
+   => Mot de passe root conteneur : Voir Bitwarden
 
 Configuration réseau :
    => Interface : DMZ publique - VLAN 100 (WEB)
@@ -45,7 +45,7 @@ Actions effectuées dans le conteneur :
    => apt install curl
    => apt install unzip
    => apt install mariadb-client
-   => Création utilisateur "web" et groupe "web" / mdp : ZH7S#YOJkTxYf1^! si besoin plus tard via adduser.
+   => Création utilisateur "web" et groupe "web" / mdp : voir Bitwarden si besoin plus tard via adduser.
 
 
 Actions pour Apache et Wordpress et leur installation (avec le compte en root) :
@@ -156,7 +156,7 @@ Actions pour Apache et Wordpress et leur installation (avec le compte en root) :
 
 		=> Nom de la base de données : ce sera "wp202502_wnd"
 		=> Identifiant : le nom de l'utilisateur qui a les droits sur la base de données, en l'occurrence "adminwp202502_wnd"
-		=> Mot de passe : le mot de passe de cet utilisateur : "*$6GH89PSx!3fv7Ib"
+		=> Mot de passe : le mot de passe de cet utilisateur : Voir Bitwarden
 		=> Adresse de la base de données : notre serveur web et la BDD ne sont pas sur le même serveur, donc nous c'est : "192.168.7.145:29590" (on précise les ports que nous avons changés lors du déploiement du serveur BDD)
 		=> Préfixe des tables : chaque table de la base de données WordPress aura un préfixe. Par défaut, ce préfixe est "wp" donc par exemple la table des utilisateurs sera nommée "wp_users". On met pour nous "wp_wnd_".
 
@@ -166,7 +166,7 @@ Actions pour Apache et Wordpress et leur installation (avec le compte en root) :
 	Il ne reste que quelques champs à renseigner comme le titre du site (modifiable ultérieurement) et la création d'un premier compte utilisateur.
 		=> Compte "admin" sur le wordpress : 
 			=> ID : wnd_admin_wp
-			=> MDP : 6#io8ZaV7!xiOaSZ
+			=> MDP : Voir Bitwarden
 
 	Choisissez un mot de passe complexe pour cet utilisateur, indiquez l'adresse e-mail associée et cliquez sur "Installer WordPress".
 
