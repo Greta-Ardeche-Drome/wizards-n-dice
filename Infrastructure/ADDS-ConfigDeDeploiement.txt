@@ -3,10 +3,10 @@
 #	Créateur : Axel MOURILLON - Chef de projet 		#
 #	Date de création : 05/02/2025				#
 #								#
-#	Dernier modificateur : <Prénom NOM> - <Rôle>		#
-#	Date de modification : JJ/MM/AAAA			#
+#	Dernier modificateur : Axel MOURILLON - Chef de projet	#
+#	Date de modification : 18/02/2025			#
 #								#
-#		Version actuelle : 0.1				#
+#		Version actuelle : 1.0				#
 #								#
 #################################################################
 
@@ -36,7 +36,31 @@ Renommage du PC et redémarrage
 Résolution des problèmes de connexions (mauvaise interface réseau virtuelle)
 Installation des services AD et DNS
 Déploiement de la forêt : wnd.local
-Mises à jour
+Mises à jour du système
+
+Déploiement du contrôleur de domaine SRV-DC-DRYN
+   => Adressage IP
+	Interface : in - VLAN 20 (SERVERS)
+	IP : 192.168.26.129
+	Masque : 255.255.255.240
+	Passerelle : 192.168.7.142
+	DNS : 192.168.7.129
+   => Ressource : 
+	CPU : 1 socket - 2 coeurs
+	RAM : 4096 Mb
+	Stockage : 70 Gb
+Lancement de la VM et installation basique d'un serveur Windows 2022
+	Au moment du choix des partition : Personnalisé > Charger un pilote (permet de trouver le disque)
+Paramètrage du MDP Administrateur (voir Bitwarden)
+Vérification de l'adressage IP (et désactivation IPv6) et de la version du serveur
+	> échec de la vérification : aucune connexion au Firewall
+	> Version : 21H2 (renommage ISO en conséquence)
+Renommage du PC et redémarrage
+Installation des services AD et DNS
+Intégration au domaine et promotion en contrôleur de domaine
+Transfert des droits FSMO de SRV-DC-AARD à SRV-DC-DRYN
+	=> Problème avec le maitre d'opération du contrôleur de schéma : résolue en donnant les droits "Administrateur du schéma" aux membres du GL admin
+Mises à jour du système
 
 
 
