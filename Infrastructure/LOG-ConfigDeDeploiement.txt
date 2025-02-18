@@ -58,7 +58,7 @@ Installation de Loki et Promtail :
 1 Installation de Loki
    => Téléchargement et installation :
 	On se place dans le chemin : /usr/local/bin/
-	On télécharge le fichier zip de Loki : wget https://github.com/grafana/loki/releases/download/v3.3.2/loki-linux-amd64.zip
+	On télécharge le fichier zip de Loki : wget https://github.com/grafana/loki/releases/download/v3.4.2/loki-linux-amd64.zip
 	Nous pouvons ensuite l'unzip : unzip (nom du fichier)
 	C'est un fichier executable que l'on a.
       
@@ -185,7 +185,7 @@ WantedBy=multi-user.target
 2 Installation de Promtail
    => Téléchargement et installation :
 	On se place dans le chemin : /usr/local/bin/
-	On télécharge le fichier zip de Promtail : wget https://github.com/grafana/loki/releases/download/v3.3.2/promtail-linux-amd64.zip
+	On télécharge le fichier zip de Promtail : wget https://github.com/grafana/loki/releases/download/v3.4.2/promtail-linux-amd64.zip
 	Nous pouvons ensuite l'unzip : unzip (nom du fichier)
 	C'est un fichier executable que l'on a.
       
@@ -279,7 +279,7 @@ On installe "rsyslog" pour qu'ils puissent etre visible dans "syslog"
 
 Pour que notre utilisateur "log" puissent avoir les droits de lecture de logs, on va lui ajouter dans le groupe adm : 
 
-	=> usermod -aG adm logserver
+	=> usermod -aG adm log
 	=> systemctl restart promtail.service
 
 En effet, Un problèmes d’accès aux fichiers /var/log/auth.log, /var/log/cron.log et /var/log/user.log par Grafana sera présent par le fait que l'on a paramétré le service promtail avec l'utilisateur "log".

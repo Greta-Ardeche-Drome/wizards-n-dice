@@ -13,16 +13,21 @@
 #################################################################
 
 
------------------------ Configuration du serveur de monitoring ----------------------- 
+----------------------- Configuration et sécurisation du serveur de base de données prod ----------------------- 
 
-Sources : 
+Sources :
 
 
-Actions effectuées dans le conteneur : 
+Actions effectuées dans la VM : 
 
    => Connexion via root / mot de passe
+   => apt update
+   => apt upgrade
    => apt install unzip
-   => Installation de l'agent promtail
+   => apt install curl
+
+	
+Installation de l'agent promtail (en root) :
 
 	Installation de Promtail
   		 => Téléchargement et installation :
@@ -59,7 +64,7 @@ scrape_configs:
           - localhost
         labels:
           job: varlogs
-          host: SRV-MONITORING-AARD
+          host: SRV-BDD-PROD-AARD
           stream: stdout
           __path__: /var/log/*
 
@@ -67,12 +72,12 @@ scrape_configs:
 
 
 => Créer un dossier /var/lib/promtail/ : mkdir -p /var/lib/promtail
-		=> chown -R monitoring:monitoring /var/lib/promtail
+		=> chown -R prod:prod /var/lib/promtail
 		=> chmod -R 750 /var/lib/promtail
 
-	=> Nous mettons l'utilisateur créée plus tôt "monitoring" en tant que propriétaire et propriétaire groupe des fichiers de config de Loki.
+	=> Nous mettons l'utilisateur créée plus tôt "prod" en tant que propriétaire et propriétaire groupe des fichiers de config de Loki.
 	
-		=> chown -R monitoring:monitoring promtail-config.yaml promtail-linux-amd64
+		=> chown -R prod:prod promtail-config.yaml promtail-linux-amd64
 		=> chmod 755 promtail-linux-amd64
 		=> chmod 640 promtail-config.yaml
 
@@ -88,11 +93,11 @@ After=network-online.target
 
 [Service]
 Type=simple
-User=log
-Group=log
+User=prod
+Group=prod
 ExecStart=/usr/local/bin/promtail-linux-amd64 -config.file=/usr/local/bin/promtail-config.yaml
 
-SyslogIdentifier=log
+SyslogIdentifier=prod
 Restart=always
 
 [Install]
@@ -119,18 +124,17 @@ On installe "rsyslog" pour qu'ils puissent etre visible dans "syslog"
 	=> systemctl enable rsyslog --now
 	=> tail -f /var/log/syslog
 
-Pour que notre utilisateur "log" puissent avoir les droits de lecture de logs, on va lui ajouter dans le groupe adm : 
+Pour que notre utilisateur "prod" puissent avoir les droits de lecture de logs, on va lui ajouter dans le groupe adm : 
 
-	=> usermod -aG adm monitoring
+	=> usermod -aG adm prod
 	=> systemctl restart promtail.service
 
-En effet, Un problèmes d’accès aux fichiers /var/log/auth.log, /var/log/cron.log et /var/log/user.log par Grafana sera présent par le fait que l'on a paramétré le service promtail avec l'utilisateur "monitoring".
+En effet, Un problèmes d’accès aux fichiers /var/log/auth.log, /var/log/cron.log et /var/log/user.log par Grafana sera présent par le fait que l'on a paramétré le service promtail avec l'utilisateur "prod".
 
 Faire de même avec le fichier "syslog" : 
 
-	=> chown monitoring:root /var/log/syslog
+	=> chown prod:root /var/log/syslog
 	=> chmod 640 /var/log/syslog
 	=> systemctl restart promtail.service
 
 De manière générale, regarder les permissions des fichiers selon l'utilisateur qui utilise le service.
-

@@ -1,6 +1,6 @@
 #################################################################
 #								#
-#	Créateur : Arthur YANG - Responsable Documentation 	#
+#	Créateur : Loïs ALLAIRE - Responsable Documentation 	#
 #				 & Administratif		#
 			
 #	Date de création : 16/02/2025				#
@@ -97,13 +97,13 @@ Installation de MariaDB (en root) :
 
 	Après la création, on peut vérifier la création de l'utilisateur : 
 
-		=> SELECT User, Host FROM mysql.user WHERE User = 'adminwp202502_wnd';	
+		=> SELECT User, Host FROM mysql.user WHERE User = 'adminwp202502preprod_wnd';	
 
 
-   => Ensuite, donner tous les droits à l'utilisateur "adminwp202502_wnd" sur la base de données WordPress. Notre serveur Web et la base de données étant pas sur le même serveur, nous allons donner ces droits pour une connexion locale et distant comme précédemment. Ce qui donne :
+   => Ensuite, donner tous les droits à l'utilisateur "adminwp202502preprod_wnd" sur la base de données WordPress. Notre serveur Web et la base de données étant pas sur le même serveur, nous allons donner ces droits pour une connexion locale et distant comme précédemment. Ce qui donne :
 
-	=> GRANT ALL PRIVILEGES ON wp202502_wnd.* TO 'adminwp202502_wnd'@'localhost';
-	=> GRANT ALL PRIVILEGES ON wp202502_wnd.* TO 'adminwp202502_wnd'@'172.16.7.2' IDENTIFIED BY '(voir bitwarden)';
+	=> GRANT ALL PRIVILEGES ON wp202502preprod_wnd.* TO 'adminwp202502preprod_wnd'@'localhost';
+	=> GRANT ALL PRIVILEGES ON wp202502preprod_wnd.* TO 'adminwp202502preprod_wnd'@'172.16.7.2' IDENTIFIED BY '(voir bitwarden)';
 
 Enfin, il faut exécuter la commande suivante pour actualiser les droits et activer les nouveaux privilèges sur notre base de données :
 
