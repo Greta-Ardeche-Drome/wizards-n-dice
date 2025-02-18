@@ -55,10 +55,10 @@ Installation de Loki et Promtail :
 	Remarques : 
 		-  Le port sur lequel Loki écoute les requêtes par défaut est 3100 qui permet aux utilisateurs d’interagir avec Loki via des requêtes HTTP.
 
-1**Installation de Loki**
+1 Installation de Loki
    => Téléchargement et installation :
 	On se place dans le chemin : /usr/local/bin/
-	On télécharge le fichier zip de Loki : wget https://github.com/grafana/loki/releases/download/3.3.2/loki-linux-amd64.zip
+	On télécharge le fichier zip de Loki : wget https://github.com/grafana/loki/releases/download/v3.3.2/loki-linux-amd64.zip
 	Nous pouvons ensuite l'unzip : unzip (nom du fichier)
 	C'est un fichier executable que l'on a.
       
@@ -182,10 +182,10 @@ WantedBy=multi-user.target
 	Normalement le service loki est lancé, et sur grafana on devrait pouvoir communiquer entre Loki et Grafana.
 
 
-2**Installation de Promtail**
+2 Installation de Promtail
    => Téléchargement et installation :
 	On se place dans le chemin : /usr/local/bin/
-	On télécharge le fichier zip de Promtail : wget https://github.com/grafana/loki/releases/download/3.3.2/promtail-linux-amd64.zip
+	On télécharge le fichier zip de Promtail : wget https://github.com/grafana/loki/releases/download/v3.3.2/promtail-linux-amd64.zip
 	Nous pouvons ensuite l'unzip : unzip (nom du fichier)
 	C'est un fichier executable que l'on a.
       

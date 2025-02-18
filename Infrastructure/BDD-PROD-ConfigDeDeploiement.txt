@@ -125,8 +125,6 @@ On peut vérifier qu'il écoute bien sur cette IP :
 Nous changeons aussi le port d'écoute sur le serveur BDD dans /etc/mysql/mariadb.conf.d/50-server.cnf : 
 
 	=> Port 3306 vers "voir le doc de la revue de sécurité"
-	=> Pour la BDD preprod, "voir le doc de la revue de sécurité"
 
-Le port de prod et pre-prod se suivent.
 
 Voila pour la configuration de la BDD
