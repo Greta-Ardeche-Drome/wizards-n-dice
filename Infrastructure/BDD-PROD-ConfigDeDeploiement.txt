@@ -22,7 +22,7 @@ Création de la VM Debian :
    => Nom : SRV-BDD-PROD-AARD
    => OS : Debian-12.9.0-amd64-netinst.iso
    => Stockage : local -> vmdata
-   => Mot de passe root VM : Raven621! (temporaire)
+   => Mot de passe root VM : Voir Bitwarden
 
 Configuration réseau :
    => Interface : in - VLAN 30 (database)
@@ -39,7 +39,7 @@ Allocation des ressources :
 
 Installation classique de Debian sur une VM.
    => Séparation des /var, /tmp etc ... dans différentes partitions.
-   => Création utilisateur "prod" et groupe "prod" / mdp : Raven621! (temporaire) si besoin plus tard.
+   => Création utilisateur "prod" et groupe "prod" / mdp : voir Bitwarden, si besoin plus tard.
    => Pas d'installation graphique.
 
 Petite actions effectuées dans la VM : 
@@ -65,7 +65,7 @@ Installation de MariaDB (en root) :
    => Configuration de mariadb-secure-installation :
 
 	Compte pour accéder à MariaDB (root seulement) : 
-		=> root / mdp : Raven621! (temporaire)
+		=> root / mdp : Voir Bitwarden
 	
 	=> Suivi des bonnes pratiques sur le site de IT-CONNECT (voir image sur le site) via les sources ci-dessus.
 	
@@ -87,10 +87,10 @@ Installation de MariaDB (en root) :
 
    => Créer l'utilisateur qui sera administrateur de la base de données WordPress. Cet utilisateur sera nommé "adminwp202502_wnd" et il aura comme mot de passe "*$6GH89PSx!3fv7Ib".
 	
-	=> CREATE USER 'adminwp202502_wnd'@'localhost' IDENTIFIED BY '*$6GH89PSx!3fv7Ib';
-	=> CREATE USER 'adminwp202502_wnd'@'172.16.7.1' IDENTIFIED BY '*$6GH89PSx!3fv7Ib';
+	=> CREATE USER 'adminwp202502_wnd'@'localhost' IDENTIFIED BY 'MDP SUR BITWARDEN';
+	=> CREATE USER 'adminwp202502_wnd'@'172.16.7.1' IDENTIFIED BY 'MDP SUR BITWARDEN';
 
-	Ici, la première commande permet de juster créer l'utilisateur en local, mais nous avons un serveur web et bdd séparés, donc il faut aussi que le serveur web puisse utiliser l'utilisateur en question sur un serveur distant (serveur bdd).
+	Ici, la première commande permet de juste créer l'utilisateur en local, mais nous avons un serveur web et bdd séparés, donc il faut aussi que le serveur web puisse utiliser l'utilisateur en question sur un serveur distant (serveur bdd).
 
 	Après la création, on peut vérifier la création de l'utilisateur : 
 
@@ -100,7 +100,7 @@ Installation de MariaDB (en root) :
    => Ensuite, donner tous les droits à l'utilisateur "adminwp202502_wnd" sur la base de données WordPress. Notre serveur Web et la base de données étant pas sur le même serveur, nous allons donner ces droits pour une connexion locale et distant comme précédemment. Ce qui donne :
 
 	=> GRANT ALL PRIVILEGES ON wp202502_wnd.* TO 'adminwp202502_wnd'@'localhost';
-	=> GRANT ALL PRIVILEGES ON wp202502_wnd.* TO 'adminwp202502_wnd'@'172.16.7.1' IDENTIFIED BY '*$6GH89PSx!3fv7Ib';
+	=> GRANT ALL PRIVILEGES ON wp202502_wnd.* TO 'adminwp202502_wnd'@'172.16.7.1' IDENTIFIED BY 'MDP SUR BITWARDEN';
 
 Enfin, il faut exécuter la commande suivante pour actualiser les droits et activer les nouveaux privilèges sur notre base de données :
 
@@ -124,9 +124,7 @@ On peut vérifier qu'il écoute bien sur cette IP :
 
 Nous changeons aussi le port d'écoute sur le serveur BDD dans /etc/mysql/mariadb.conf.d/50-server.cnf : 
 
-	=> Port 3306 vers 29590
-	=> Port 29591 pour la BDD pre-prod
+	=> Port 3306 vers "voir le doc de la revue de sécurité"
 
-Le port de prod et pre-prod se suivent meme si cela n'a pas encore été fait pour le serveur de pre-prod.
 
 Voila pour la configuration de la BDD
