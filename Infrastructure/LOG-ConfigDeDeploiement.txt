@@ -24,7 +24,7 @@ Création du conteneur LXC :
    => Nom : SRV-LOG-AARD
    => OS : Debian-12-standard_12.7-1_amd64.tar.zst
    => Stockage : local -> local_zfs
-   => Mot de passe root conteneur : a4X8TRK6%r01rREQ
+   => Mot de passe root conteneur : Voir Bitwarden
 
 Configuration réseau :
    => Interface : in - VLAN 20 (servers)
@@ -47,7 +47,7 @@ Petite actions effectuées dans le conteneur :
    => apt upgrade
    => apt install unzip
    => apt install curl
-   => Création utilisateur "log" et groupe "log" / mdp : SbemnE&ZpDRNs2Ed si besoin plus tard via adduser.
+   => Création utilisateur "log" et groupe "log" / mdp : voir Bitwarden, si besoin plus tard via adduser.
 
 	
 Installation de Loki et Promtail :

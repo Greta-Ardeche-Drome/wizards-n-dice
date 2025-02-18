@@ -22,7 +22,7 @@ Création du conteneur LXC :
    => Nom : SRV-MONITORING-AARD
    => OS : Debian-12-standard_12.7-1_amd64.tar.zst
    => Stockage : local -> local_zfs
-   => Mot de passe root conteneur : Zy&r@*!nXDZCq9FL
+   => Mot de passe root conteneur : Voir Bitwarden
 
 Configuration réseau :
    => Interface : in - VLAN 20 (servers)
@@ -42,7 +42,7 @@ Actions effectuées dans le conteneur :
    => Connexion via root / mot de passe
    => apt update
    => apt upgrade
-   => Création utilisateur "monitoring" et groupe "monitoring" / mdp : *dfV%8qfL56erD#9 si besoin plus tard via adduser.
+   => Création utilisateur "monitoring" et groupe "monitoring" / mdp : Voir Bitwarden, si besoin plus tard via adduser.
 
 
 
@@ -69,7 +69,7 @@ Actions pour Grafana et son installation (avec le compte en root) :
    => Tester l'accès HTTP avec curl : curl -I http://localhost:3000 OU dans une barre de recherche : http://@IP:3000
    => Facultatif (sécurité), modifier les paramètres du serveur Grafana via fichier de configuration : /etc/grafana/grafana.ini
 
-Sur la page de connexion (http://192.168.7.134:3000) depuis un poste, nous pouvons entrer par défaut "admin" pour le nom d'utilisateur et le mot de passe "X#J#nk591h".
+Sur la page de connexion (http://192.168.7.134:3000) depuis un poste, nous pouvons entrer par défaut "admin" pour le nom d'utilisateur et le mot de passe (voir bitwarden).
 
 Cela nous authentifie, et nous arrivons sur la page Web de Grafana.
 
