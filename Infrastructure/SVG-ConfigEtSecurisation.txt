@@ -13,7 +13,7 @@
 #################################################################
 
 
------------------------ Configuration et sécurisation du serveur de monitoring ----------------------- 
+----------------------- Configuration et sécurisation du serveur de sauvegarde ----------------------- 
 
 Sources : 
 
@@ -23,6 +23,7 @@ Actions effectuées dans le conteneur :
    => Connexion via root / mot de passe
    => apt install unzip
    => Installation de l'agent promtail
+   => Création d'un user "svg" et son groupe sans accès interactif. (useradd --system --no-create-home --home /nonexistent --shell /usr/sbin/nologin svg)
 
 	Installation de Promtail
   		 => Téléchargement et installation :
@@ -59,7 +60,7 @@ scrape_configs:
           - localhost
         labels:
           job: varlogs
-          host: SRV-MONITORING-AARD
+          host: SRV-SVG-AARD
           stream: stdout
           __path__: /var/log/*
 
@@ -67,12 +68,12 @@ scrape_configs:
 
 
 => Créer un dossier /var/lib/promtail/ : mkdir -p /var/lib/promtail
-		=> chown -R monitoring:monitoring /var/lib/promtail
+		=> chown -R svg:svg /var/lib/promtail
 		=> chmod -R 750 /var/lib/promtail
 
-	=> Nous mettons l'utilisateur créée plus tôt "monitoring" en tant que propriétaire et propriétaire groupe des fichiers de config de Loki.
+	=> Nous mettons l'utilisateur créée plus tôt "svg" en tant que propriétaire et propriétaire groupe des fichiers de config de Loki.
 	
-		=> chown -R monitoring:monitoring promtail-config.yaml promtail-linux-amd64
+		=> chown -R svg:svg promtail-config.yaml promtail-linux-amd64
 		=> chmod 755 promtail-linux-amd64
 		=> chmod 640 promtail-config.yaml
 
@@ -88,11 +89,11 @@ After=network-online.target
 
 [Service]
 Type=simple
-User=log
-Group=log
+User=svg
+Group=svg
 ExecStart=/usr/local/bin/promtail-linux-amd64 -config.file=/usr/local/bin/promtail-config.yaml
 
-SyslogIdentifier=log
+SyslogIdentifier=svg
 Restart=always
 
 [Install]
@@ -121,20 +122,20 @@ On installe "rsyslog" pour qu'ils puissent etre visible dans "syslog"
 
 Pour que notre utilisateur "monitoring" puissent avoir les droits de lecture de logs, on va lui ajouter dans le groupe adm : 
 
-	=> usermod -aG adm monitoring
+	=> usermod -aG adm svg
 	=> systemctl restart promtail.service
 
-En effet, Un problèmes d’accès aux fichiers /var/log/auth.log, /var/log/cron.log et /var/log/user.log par Grafana sera présent par le fait que l'on a paramétré le service promtail avec l'utilisateur "monitoring".
+En effet, Un problèmes d’accès aux fichiers /var/log/auth.log, /var/log/cron.log et /var/log/user.log par Grafana sera présent par le fait que l'on a paramétré le service promtail avec l'utilisateur "svg".
 
 Faire de même avec le fichier "syslog" : 
 
-	=> chown monitoring:root /var/log/syslog
+	=> chown svg:root /var/log/syslog
 	=> chmod 640 /var/log/syslog
 	=> systemctl restart promtail.service
 
 On peut rajouter : 
 
-	=> chown monitoring:utmp /var/log/btmp
+	=> chown svg:utmp /var/log/btmp
 
 
 

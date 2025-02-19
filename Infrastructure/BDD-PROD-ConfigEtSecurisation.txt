@@ -23,8 +23,6 @@ Actions effectuées dans la VM :
    => Connexion via root / mot de passe
    => apt update
    => apt upgrade
-   => apt install unzip
-   => apt install curl
 
 	
 Installation de l'agent promtail (en root) :
@@ -38,12 +36,12 @@ Installation de l'agent promtail (en root) :
 
 	=> Configuration de Promtail :
 
-	Nous devons ici, avoir un fichier nommé "promtail-config.yml" pour la configuration de Promtail.
+	Nous devons ici, avoir un fichier nommé "promtail-config.yaml" pour la configuration de Promtail.
 	Nous pouvons télécharger un modèle pré-existant : wget https://github.com/grafana/loki/blob/main/clients/cmd/promtail/promtail-local-config.yaml ou le créer nous même.
 	Cela télécharge un modèle que l'on peut renommer comme nous le voulions.
 
 
-=> Config .yml personnalisé que nous effectuons :
+=> Config .yaml personnalisé que nous effectuons :
 
 --------------------------------------------------------------------------------------------
 
@@ -136,5 +134,10 @@ Faire de même avec le fichier "syslog" :
 	=> chown prod:root /var/log/syslog
 	=> chmod 640 /var/log/syslog
 	=> systemctl restart promtail.service
+
+On peut rajouter : 
+
+	=> chown prod:utmp /var/log/btmp
+
 
 De manière générale, regarder les permissions des fichiers selon l'utilisateur qui utilise le service.
