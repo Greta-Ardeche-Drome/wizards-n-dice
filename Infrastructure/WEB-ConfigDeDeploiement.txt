@@ -157,7 +157,7 @@ Actions pour Apache et Wordpress et leur installation (avec le compte en root) :
 		=> Nom de la base de données : ce sera "wp202502_wnd"
 		=> Identifiant : le nom de l'utilisateur qui a les droits sur la base de données, en l'occurrence "adminwp202502_wnd"
 		=> Mot de passe : le mot de passe de cet utilisateur : Voir Bitwarden
-		=> Adresse de la base de données : notre serveur web et la BDD ne sont pas sur le même serveur, donc nous c'est : "192.168.7.145:29590" (on précise les ports que nous avons changés lors du déploiement du serveur BDD)
+		=> Adresse de la base de données : notre serveur web et la BDD ne sont pas sur le même serveur, donc nous c'est : "192.168.7.145:PORTS" (on précise les ports que nous avons changés lors du déploiement du serveur BDD)
 		=> Préfixe des tables : chaque table de la base de données WordPress aura un préfixe. Par défaut, ce préfixe est "wp" donc par exemple la table des utilisateurs sera nommée "wp_users". On met pour nous "wp_wnd_".
 
 	WordPress va tester de se connecter à notre base de données et si cela fonctionne, un bouton "Lancer l'installation" va s'afficher. Cliquons dessus.
