@@ -15,19 +15,18 @@
 
 ----------------------- Configuration et sécurisation du serveur AD et DNS ----------------------- 
 
-Sources : 
+Sources : https://www.vincent-gou.fr/post/promtail_windows_service/
 
 
 Actions effectuées dans le conteneur : 
 
+Nous nous sommes placés dans "System32" de Windows.
+
    => Installation de l'agent promtail
 
-	Installation de Promtail
-  		 => Téléchargement et installation :
-		On se place dans le chemin : /usr/local/bin/
-		On télécharge le fichier zip de Promtail : wget https://github.com/grafana/loki/releases/download/v3.4.2/promtail-linux-amd64.zip
-		Nous pouvons ensuite l'unzip : unzip (nom du fichier)
-		C'est un fichier executable que l'on a.
+	=> https://www.vincent-gou.fr/post/promtail_windows_service/
+		=> Attention, un espace avant le "AppParameters".
+			=> "C:\Program Files\telegraf\nssm.exe" set promtail_agent AppParameters "-config.file config_promtail.yml"
 
 	=> Configuration de Promtail :
 
@@ -45,7 +44,7 @@ server:
   grpc_listen_port: 0
 
 positions:
-  filename: /var/lib/promtail/positions.yaml
+  filename: C:\Windows\System32\positions.yaml
 
 clients:
   - url: http://192.168.7.133:3100/loki/api/v1/push  # Utilisation de l'IP du serveur Loki
@@ -56,85 +55,15 @@ scrape_configs:
       - targets:
           - localhost
         labels:
-          job: varlogs
-          host: SRV-test-AARD
+          job: varlogs (ou windows_logs)
+          host: SRV-DC-AARD
           stream: stdout
-          __path__: /var/log/*
+          __path__: C:\Windows\Logs\*
 
 --------------------------------------------------------------------------------------------
 
 
-=> Créer un dossier /var/lib/promtail/ : mkdir -p /var/lib/promtail
-		=> chown -R test:test /var/lib/promtail
-		=> chmod -R 750 /var/lib/promtail
+Le service est lancé sur Windows et on peut le voir sur Grafana.
 
-	=> Nous mettons l'utilisateur créée plus tôt "test" en tant que propriétaire et propriétaire groupe des fichiers de config de Loki.
-	
-		=> chown -R test:test promtail-config.yaml promtail-linux-amd64
-		=> chmod 755 promtail-linux-amd64
-		=> chmod 640 promtail-config.yaml
-
-
-	=> Création du fichier : /etc/systemd/system/promtail.service
-
---------------------------------------------------------------------------------------------
-
-[Unit]
-Description=Promtail Loki
-Wants=network-online.target
-After=network-online.target
-
-[Service]
-Type=simple
-User=test
-Group=test
-ExecStart=/usr/local/bin/promtail-linux-amd64 -config.file=/usr/local/bin/promtail-config.yaml
-
-SyslogIdentifier=test
-Restart=always
-
-[Install]
-WantedBy=multi-user.target
-
---------------------------------------------------------------------------------------------
-
-
-Commandes système et visualisation des logs en direct :
-
-		=> systemctl enable promtail.service 
-		=> systemctl start promtail.service
-		=> systemctl status promtail.service
-		=> journalctl -f -u promtail.service
-
-	Normalement le service promtail est lancé.
-
-
-Dans nos conteneurs LXC Debian, les logs semblent être dans le "journald" et non le syslog.
-
-On installe "rsyslog" pour qu'ils puissent etre visible dans "syslog"
-
-	=> apt install rsyslog -y
-	=> systemctl enable rsyslog --now
-	=> tail -f /var/log/syslog
-
-Pour que notre utilisateur "test" puissent avoir les droits de lecture de logs, on va lui ajouter dans le groupe adm : 
-
-	=> usermod -aG adm test
-	=> systemctl restart promtail.service
-
-En effet, Un problèmes d’accès aux fichiers /var/log/auth.log, /var/log/cron.log et /var/log/user.log par Grafana sera présent par le fait que l'on a paramétré le service promtail avec l'utilisateur "test".
-
-Faire de même avec le fichier "syslog" : 
-
-	=> chown test:root /var/log/syslog
-	=> chmod 640 /var/log/syslog
-	=> systemctl restart promtail.service
-
-On peut rajouter : 
-
-	=> chown test:utmp /var/log/btmp
-
-
-
-De manière générale, regarder les permissions des fichiers selon l'utilisateur qui utilise le service.
+Maintenant il faut continuer à configurer le fichier ymal : 
 
