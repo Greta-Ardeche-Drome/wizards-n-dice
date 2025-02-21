@@ -1,16 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Planning Wizards &amp; Dices" company="" webLink="http://" view-date="2024-12-09" view-index="0" gantt-divider-location="638" resource-divider-location="424" version="3.3.3312" locale="fr_FR">
+<?xml version="1.0" encoding="UTF-8"?><project name="Planning Wizards &amp; Dices" company="" webLink="http://" view-date="2024-12-09" view-index="0" gantt-divider-location="623" resource-divider-location="424" version="3.3.3312" locale="fr_FR">
     <description/>
     <view zooming-state="default:7" id="gantt-chart">
-        <field id="tpd3" name="Nom" width="367" order="0"/>
-        <field id="tpd4" name="Date de début" width="68" order="1"/>
-        <field id="tpd5" name="Date de fin" width="88" order="2"/>
-        <field id="tpd1" name="Priorité" width="99" order="3"/>
+        <field id="tpd3" name="Nom" width="358" order="0"/>
+        <field id="tpd4" name="Date de début" width="66" order="1"/>
+        <field id="tpd5" name="Date de fin" width="86" order="2"/>
+        <field id="tpd1" name="Priorité" width="97" order="3"/>
         <option id="filter.completedTasks" value="false"/>
         <option id="filter.dueTodayTasks" value="false"/>
         <option id="filter.overdueTasks" value="false"/>
         <option id="filter.inProgressTodayTasks" value="false"/>
         <timeline><![CDATA[465]]></timeline>
-        <option id="color.recent"><![CDATA[#55308d #666666 #ea7500 #00a933 #2a6099 #d60be4 #f4f4f4 #f10d0c]]></option>
+        <option id="color.recent"><![CDATA[#00a933 #55308d #666666 #ea7500 #2a6099 #d60be4 #f4f4f4 #f10d0c]]></option>
     </view>
     <view id="resource-table">
         <field id="0" name="Nom" width="158" order="0"/>
@@ -243,7 +243,7 @@ Trie et réagencement de l'arborescence]]></notes>
             </task>
             <task id="485" uid="1cd4b3ff65d64aeea6fe668775e1f0eb" name="Mettre en forme la liste des produits" color="#00a933" meeting="false" start="2025-01-19" duration="14" complete="0" priority="2" expand="true"/>
             <task id="26" uid="18c79281933c46eaac21b35cd4c16d93" name="Établir une liste des services à proposer" color="#00a933" meeting="false" start="2025-01-12" duration="21" complete="0" priority="2" expand="true"/>
-            <task id="29" uid="4ea8b2e9d9bf467f8e786db8fa281851" name="Effectuer une revue de faisabilité" color="#ea7500" meeting="false" start="2025-01-26" duration="28" complete="0" priority="2" expand="true"/>
+            <task id="29" uid="4ea8b2e9d9bf467f8e786db8fa281851" name="Effectuer une revue de faisabilité" color="#00a933" meeting="false" start="2025-01-26" duration="28" complete="0" priority="2" expand="true"/>
             <task id="397" uid="3bff08e2eabc49638cc0eeb26f850a1a" name="Point d'étape : directives des prestations du site" color="#d60be4" meeting="true" start="2025-02-08" duration="0" complete="0" expand="true"/>
             <task id="439" uid="e67776a84fc4486e85a4b3cd76ca6aed" name="Gestion des stocks" color="#55308d" meeting="false" start="2025-02-02" duration="49" complete="0" priority="0" expand="false">
                 <task id="435" uid="14df957bf3434b50bcddf780c05989e2" name="Préparer une méthode de suivi des produits personnalisés" color="#00a933" meeting="false" start="2025-02-09" duration="7" complete="0" priority="0" expand="true">
