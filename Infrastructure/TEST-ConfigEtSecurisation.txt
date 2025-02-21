@@ -80,6 +80,13 @@ scrape_configs:
 
 	=> Création du fichier : /etc/systemd/system/promtail.service
 
+
+Pour ce serveur qui a un problème de CPU et RAM avec promtail, nous limitions le service afin qu'il ne consomme pas trop.
+
+	=> Limite mémoire à 50 Mo
+	=> Limite CPU à 10%
+	=> Processus avec priorité basse (Nice=10)
+
 --------------------------------------------------------------------------------------------
 
 [Unit]
@@ -91,6 +98,9 @@ After=network-online.target
 Type=simple
 User=test
 Group=test
+MemoryLimit=50M
+CPUQuota=10%
+Nice=10
 ExecStart=/usr/local/bin/promtail-linux-amd64 -config.file=/usr/local/bin/promtail-config.yaml
 
 SyslogIdentifier=test
