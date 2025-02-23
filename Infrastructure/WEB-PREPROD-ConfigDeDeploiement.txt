@@ -3,31 +3,32 @@
 #	Créateur : Arthur YANG - Responsable Documentation 	#
 #				 & Administratif		#
 			
-#	Date de création : 07/02/2025				#
+#	Date de création : 19/02/2025				#
 #								#
-#	Dernier modificateur : Arthur YANG			#
-#	Date de modification : 07/02/2025			#
+#	Dernier modificateur : Loïs ALLAIRE			#
+#	Date de modification : 19/02/2025			#
 #								#
 #		Version actuelle : 1.0				#
 #								#
 #################################################################
 
 
------------------------  Déploiement du serveur web  ----------------------- 
+-----------------------  Déploiement du serveur web preprod  ----------------------- 
 
 Sources : https://www.it-connect.fr/installation-de-wordpress-sous-linux/
 		https://www.it-connect.fr/installer-un-serveur-lamp-linux-apache-mariadb-php-sous-debian-11/
 
 Création du conteneur LXC :
-   => Nom : SRV-WEB-AARD
+   => Nom : SRV-WEB-PREPROD-AARD
    => OS : Debian-12-standard_12.7-1_amd64.tar.zst
    => Stockage : local -> local_zfs
    => Mot de passe root conteneur : Voir Bitwarden
 
 Configuration réseau :
    => Interface : DMZ publique - VLAN 100 (WEB)
-   => IP : 172.16.7.1
-   => Masque : 255.255.255.128
+   => NIC : net0
+   => IP : 172.16.7.2
+   => Masque : 255.255.255.128 (/25)
    => Passerelle : 172.16.7.126
    => DNS : 1.1.1.1 (Zone DMZ publique)
 
@@ -44,9 +45,9 @@ Actions effectuées dans le conteneur :
    => apt upgrade
    => apt install curl
    => apt install unzip
-   => apt install mariadb-client
-   => Création utilisateur "web" et groupe "web" / mdp : voir Bitwarden si besoin plus tard via adduser.
+   => Création utilisateur "webpreprod" et groupe "webpreprod" / mdp : voir Bitwarden si besoin plus tard via adduser.
 
+adduser webpreprod 
 
 Actions pour Apache et Wordpress et leur installation (avec le compte en root) :
 
@@ -63,8 +64,7 @@ Actions pour Apache et Wordpress et leur installation (avec le compte en root) :
 
 
 	A. L'archive d'installation de WordPress
-	Connectez-vous sur votre serveur Linux en SSH afin de télécharger l'archive ZIP qui contient les sources de WordPress.
-
+	
 	Positionnez-vous dans le dossier "/tmp" et téléchargez la dernière version de WordPress :
 
 	=> cd /tmp
@@ -100,7 +100,7 @@ Actions pour Apache et Wordpress et leur installation (avec le compte en root) :
 
 	On peut voir que cette commande va installer une multitude de paquets.
 
-	Avant d'aller plus loin, nous allons installer quelques paquets supplémentaires pour compléter l'installation de PHP sur notre serveur. Par exemple, pour permettre les interactions entre PHP et notre instance MariaDB/MySQL.
+	Avant d'aller plus loin, nous allons installer quelques paquets supplémentaires pour compléter l'installation de PHP sur notre serveur. Par exemple, pour permettre les interactions entre PHP.
 
 		=> apt-get install -y php-pdo php-mysql php-zip php-gd php-mbstring php-curl php-xml php-pear php-bcmath
 
@@ -146,31 +146,35 @@ Actions pour Apache et Wordpress et leur installation (avec le compte en root) :
 		=>  find /var/www/html/ -type d -exec chmod 755 {} \;
 
 
-	E. Installation de WordPress
+	E. Installation de WordPress (attention reboot le conteneur si ça marche pas) 
 
-	Pour la première fois, nous allons nous connecter sur l'interface web WordPress dans le but d'effectuer l'installation. Pour cela, 	il faut se rendre sur "http://IP-SERVEUR" (Pour nous c'est : http://172.16.7.1)
+	Pour la première fois, nous allons nous connecter sur l'interface web WordPress dans le but d'effectuer l'installation. Pour cela, il faut se rendre sur "http://IP-SERVEUR" (Pour nous c'est : http://172.16.7.2)
 
 	La première étape consiste à choisir la langue du site et de l'interface de WordPress.
 
 	Ensuite il faut entrer les informations de la base de données : 
 
-		=> Nom de la base de données : ce sera "wp202502_wnd"
-		=> Identifiant : le nom de l'utilisateur qui a les droits sur la base de données, en l'occurrence "adminwp202502_wnd"
+		=> Nom de la base de données : ce sera "wp202502preprod_wnd"
+		=> Identifiant : le nom de l'utilisateur qui a les droits sur la base de données, en l'occurrence "adminwp202502preprod_wnd"
 		=> Mot de passe : le mot de passe de cet utilisateur : Voir Bitwarden
-		=> Adresse de la base de données : notre serveur web et la BDD ne sont pas sur le même serveur, donc nous c'est : "192.168.7.145:PORTS" (on précise les ports que nous avons changés lors du déploiement du serveur BDD)
-		=> Préfixe des tables : chaque table de la base de données WordPress aura un préfixe. Par défaut, ce préfixe est "wp" donc par exemple la table des utilisateurs sera nommée "wp_users". On met pour nous "wp_wnd_".
+		=> Adresse de la base de données : notre serveur web et la BDD ne sont pas sur le même serveur, donc nous c'est : "192.168.7.146:port (voir doc revue de sécurité)" (on précise les ports que nous avons changés lors du déploiement du serveur BDD)
+		=> Préfixe des tables : chaque table de la base de données WordPress aura un préfixe. Par défaut, ce préfixe est "wp" donc par exemple la table des utilisateurs sera nommée "wp_users". On met pour nous "wp_wnd_preprod_".
 
 	WordPress va tester de se connecter à notre base de données et si cela fonctionne, un bouton "Lancer l'installation" va s'afficher. Cliquons dessus.
 
 
 	Il ne reste que quelques champs à renseigner comme le titre du site (modifiable ultérieurement) et la création d'un premier compte utilisateur.
 		=> Compte "admin" sur le wordpress : 
-			=> ID : wnd_admin_wp
+			=> ID : wnd_admin_wp_preprod
 			=> MDP : Voir Bitwarden
 
 	Choisissez un mot de passe complexe pour cet utilisateur, indiquez l'adresse e-mail associée et cliquez sur "Installer WordPress".
 
-	WordPress est installé ! On peut cliquer sur le bouton "Se connecter". Sur la page de connexion qui apparaît, avec le compte admin que nous venons de créer "wnd_admin_wp".
+
+Remarque : si on a oublier de changer le mot de passe avant de créer le compte on peut le changer dans la vm qui suporte la database associer a wordpress avec la commande suivant : 
+UPDATE wp_users SET user_pass = MD5('NouveauMotDePasse') WHERE user_login = 'admin';
+
+	WordPress est installé ! On peut cliquer sur le bouton "Se connecter". Sur la page de connexion qui apparaît, avec le compte admin que nous venons de créer "wnd_admin_wp_preprod".
 
 
 	Avant d'aller plus loin, nous pouvons pour retourner sur notre console Linux et réaliser deux petites opérations. Tout d'abord pour supprimer le fichier "wp-config-sample.php", car il n'a plus d'intérêt (nous avons notre fichier wp-config.php définitif).
