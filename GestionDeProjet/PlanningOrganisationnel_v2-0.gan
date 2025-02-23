@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Planning Wizards &amp; Dices" company="" webLink="http://" view-date="2024-12-01" view-index="0" gantt-divider-location="564" resource-divider-location="424" version="3.3.3312" locale="fr_FR">
+<?xml version="1.0" encoding="UTF-8"?><project name="Planning Wizards &amp; Dices" company="" webLink="http://" view-date="2024-12-01" view-index="1" gantt-divider-location="550" resource-divider-location="424" version="3.3.3312" locale="fr_FR">
     <description/>
     <view zooming-state="default:8" id="gantt-chart">
-        <field id="tpd3" name="Nom" width="301" order="0"/>
-        <field id="tpd4" name="Date de début" width="80" order="1"/>
-        <field id="tpd5" name="Date de fin" width="84" order="2"/>
-        <field id="tpd1" name="Priorité" width="83" order="3"/>
+        <field id="tpd3" name="Nom" width="293" order="0"/>
+        <field id="tpd4" name="Date de début" width="78" order="1"/>
+        <field id="tpd5" name="Date de fin" width="82" order="2"/>
+        <field id="tpd1" name="Priorité" width="81" order="3"/>
         <option id="filter.completedTasks" value="false"/>
         <option id="filter.dueTodayTasks" value="false"/>
         <option id="filter.overdueTasks" value="false"/>
@@ -780,6 +780,7 @@ Loïs -> Esthétique]]></notes>
         <vacation start="2024-11-30" end="2024-12-01" resourceid="0"/>
         <vacation start="2025-02-01" end="2025-02-02" resourceid="0"/>
         <vacation start="2025-02-23" end="2025-03-03" resourceid="0"/>
+        <vacation start="2025-02-25" end="2025-03-06" resourceid="1"/>
         <vacation start="2025-02-15" end="2025-02-16" resourceid="3"/>
     </vacations>
     <previous/>
