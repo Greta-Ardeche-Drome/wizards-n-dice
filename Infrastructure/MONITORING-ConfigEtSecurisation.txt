@@ -140,3 +140,7 @@ On peut rajouter :
 
 De manière générale, regarder les permissions des fichiers selon l'utilisateur qui utilise le service.
 
+
+Changement du port par défaut pour Grafana et accès web : port 3000 vers (Voir revue de sécurité)
+	=> Faire le changement dans le fichier de configuration.
+
