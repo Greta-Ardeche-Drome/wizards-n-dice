@@ -165,7 +165,7 @@ Pour les autres configurations basiques : Configuration des utilisateurs pour qu
 Nous l'avons déja effectué dans le déploiement du serveur de BDD. Donc nous n'avons pas besoin de l'effectuer ici.
 
 
-Nous laissons dans le fichier de conf "50-server.cnf" l'utilisateur "mariadb" executer le service de MariaDB pour la BDD car c'est un utilisateur système dédié à l'exécution du service, ce qui limite les risques de sécurité.
+Nous laissons dans le fichier de conf "50-server.cnf" l'utilisateur "mariadb" executer le service de MariaDB pour la BDD car c'est un utilisateur système dédié à l'exécution du service, ce qui limite les risques de sécurité. Donc le user avec le commentaire peut etre laissé.
 
 Toujours dans le meme fichier de conf : 
 
