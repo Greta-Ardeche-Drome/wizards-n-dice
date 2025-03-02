@@ -15,7 +15,8 @@
 
 ----------------------- Configuration et sécurisation du serveur web prod ----------------------- 
 
-Sources :
+Sources : https://artheodoc.wordpress.com/wp-content/uploads/2022/01/1-serveur_web_apache_debian_11_pour_wordpress_nom_de_domaine_-https.pdf
+		https://les-enovateurs.com/debian-vps-apache-mysql-php-wordpress
 
 
 Actions effectuées dans la VM : 

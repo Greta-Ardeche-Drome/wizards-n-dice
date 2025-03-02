@@ -15,7 +15,8 @@
 
 ----------------------- Configuration et sécurisation du serveur de base de données prod ----------------------- 
 
-Sources :
+Sources : https://www.val-r.fr/geek/os/linux/installer-un-serveur-linux-sous-debian/installation-et-configuration-du-serveur-mysql-mariadb/
+		
 
 
 Actions effectuées dans la VM : 
@@ -141,3 +142,118 @@ On peut rajouter :
 
 
 De manière générale, regarder les permissions des fichiers selon l'utilisateur qui utilise le service.
+
+
+Lorsque on se connecte sur mariaDB, on peut voir que on peut toujours se connecter avec le root sans entrer de MDP.
+Ce qui n'est pas du tout bon pour la sécurisation et configuration du serveur de BDD.
+
+Pour ce faire, se connecter a mariadb : 
+
+	=> Vérifier que mariadb utilise le plugin "mysql_native_password" comme plugin et pas "unix_socket" pour l'authentification.
+	=> La commande pour vérifier est : SELECT user, host, plugin FROM mysql.user WHERE user='root';
+	=> Après le bon plugin, entrer la commande suivante : ALTER USER 'root'@'localhost' IDENTIFIED VIA mysql_native_password USING PASSWORD('LEMDPCHOISIETDISPOSURBITWARDEN');
+	=> FLUSH PRIVILEGES; (Pas obligatoire)
+
+Tester la connexion après modification
+
+	=> Exit
+	=> mariadb -u root -p sans entrer de MDP. => Access denied ....
+	=> Maintenant il faudra obligatoirment le mdp du root pour accéder à MariaDB.
+	=> Biensur dans notre cas on pourra aussi accéder a mariaDB avec l'utilisateur créer pour la BDD de wordpress plus tot, avec son MDP aussi.
+
+Pour les autres configurations basiques : Configuration des utilisateurs pour qu’ils puissent se connecter depuis l’extérieur, Configuration du serveur pour accepter les connexions extérieures et connexion au serveur web vers bdd etc...
+Nous l'avons déja effectué dans le déploiement du serveur de BDD. Donc nous n'avons pas besoin de l'effectuer ici.
+
+
+Nous laissons dans le fichier de conf "50-server.cnf" l'utilisateur "mariadb" executer le service de MariaDB pour la BDD car c'est un utilisateur système dédié à l'exécution du service, ce qui limite les risques de sécurité.
+
+Toujours dans le meme fichier de conf : 
+
+	=> ajouter les lignes : 
+		=> max_connections = 100 # Limite le nombre de connexions simultanées
+		=> local-infile=0 # Désactive l'importation de fichiers (évite certaines injections)
+		=> skip-symbolic-links # Évite les liens symboliques dangereux
+		=> query_cache_size=64M # Active le cache des requêtes SQL.
+		=> query_cache_limit=2M
+
+	=> Décommenter les lignes :
+
+		=> general_log_file = /var/log/mysql/mysql.log
+		=> general_log = 1
+		=> log_error = /var/log/mysql/error.log
+		=> log_slow_query_file = /var/log/mysql/mariadb-slow.log
+		=> log_slow_query_file = 10
+		=> log_slow_verbosity = query_plan,explain
+		=> log-queries-not-using-indexes
+		=> log_slow_min_examined_row_limit = 1000
+		=> server-id = 1 et mettre "2 pour AARD" et "laisser 1 pour DRYN"
+		=> log_bin = /var/log/mysql/mysql-bin.log
+		=> expire_logs_days = 10
+		=> max_binlog_size = 100M
+		=> innodb_buffer_pool_size = 128M	Détermine combien de mémoire MariaDB utilise pour stocker les données les plus fréquemment utilisées.
+		=> innodb_log_file_size = 64M	        Définit la taille des logs de transactions pour améliorer les performances.
+
+	=> Créer le répertoire pour les logs de MariaDB et attribuer les droits
+	
+		=> Dans /var/log : 
+			=> mkdir /var/log/mysql
+			=> chmod -R 750 /var/log/mysql
+			=> chown -R mysql:adm /var/log/mysql
+			=> usermod -aG mysql prod
+
+	=> on peut restart mariadb
+	=> Cela nous sert a voir les logs liés a mariadb sur grafana
+
+
+Des paramètres pourraient être ajoutés pour la configuration voir sécu du serveur, mais étant dans une conf maquette, nous n'avons énormement de RAM alloués au serveur et d'espace de stockage. Donc voici des lignes que l'on aurait pu ajouté mais que nous n'avons pas tous mis :
+
+	=> innodb_flush_method	Définit comment MariaDB écrit sur le disque.
+	=> innodb_flush_log_at_trx_commit	Définit quand les transactions sont écrites sur le disque.
+
+Mais une dernière chose reste a configurer pour la lecture des logs depuis GRAFANA.
+Il faut ajouter un job qui va chercher les fichier .log de mysql explicitement.
+
+Donc il faut modifier et ajouter dans le fichier promtail-config.yaml : 
+
+--------------------------------------------------------------------------------------------
+
+server:
+  http_listen_port: 9080
+  grpc_listen_port: 0
+
+positions:
+  filename: /var/lib/promtail/positions.yaml
+
+clients:
+  - url: http://192.168.7.133:3100/loki/api/v1/push  # Utilisation de l'IP du serveur Loki
+
+scrape_configs:
+  - job_name: system
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: varlogs
+          host: SRV-BDD-PROD-AARD
+          stream: stdout
+          __path__: /var/log/*
+
+  - job_name: mariadb_logs
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: mariadb_prod
+          host: SRV-BDD-PROD-AARD
+          stream: stdout
+          service: mysql
+          __path__: /var/log/mysql/*
+
+--------------------------------------------------------------------------------------------
+
+On restart les services de la suite GRAFANA (Loki, promtail, grafana).
+
+Maintenant sur GRAFANA, on pourra voir le nom du job qui ira chercher les fichiers logs de mysql.
+
+
+La partie SSL et autres (dossier emplacement des BDD ou FW hote ?) sera fait dans la partie plus "Sécurisation" en dessous.
