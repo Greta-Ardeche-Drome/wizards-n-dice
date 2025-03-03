@@ -142,3 +142,69 @@ On peut rajouter :
 
 
 De manière générale, regarder les permissions des fichiers selon l'utilisateur qui utilise le service.
+
+
+Configurer les logs pour qu'ils soient visibles dans GRAFANA : 
+
+	=> Les logs d'apache se trouvent dans le répertoire : /var/log/apache2
+	=> On donne les droits pour pouvoir les récupérer et envoyer vers LOKI et GRAFANA 
+		=> chown -R webpreprod:adm /var/log/apache2
+	=> Le répertoire et tout les fichiers .log donne le droit à promtail donc de les récuperer.
+
+Nous devons maintenant configurer le fichier promtail-config.yaml :
+
+--------------------------------------------------------------------------------------------
+
+server:
+  http_listen_port: 9080
+  grpc_listen_port: 0
+
+positions:
+  filename: /var/lib/promtail/positions.yaml
+
+clients:
+  - url: http://192.168.7.133:3100/loki/api/v1/push  # Utilisation de l'IP du serveur Loki
+
+scrape_configs:
+  - job_name: system
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: varlogs
+          host: SRV-BDD-PREPROD-AARD
+          stream: stdout
+          __path__: /var/log/*
+
+  - job_name: apache2_logs
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: apache2_webpreprod
+          host: SRV-WEB-PREPROD-AARD
+          stream: stdout
+          __path__: /var/log/apache2/*.log
+
+--------------------------------------------------------------------------------------------
+
+Nous pouvons recharger promtail puis s'apercevoir la réception des logs dans GRAFANA.
+
+Maintenant nous voulons aussi les logs mais de Wordpress.
+Pour cela, nous installons le plugin directement sur le wordpress admin, intitulé "WP Activity Log", l'activons et suivons le tuto d'install.
+
+Une fois mis en place, on a un menu pour les logs sur wordpress.
+Pour compléter le monitoring des logs de WP, il faut dans le menu du plugin installé, dans 'Réglages', puis 'Modif de fichiers', installé Melapress.
+
+Pour la config de melapress, la freq. d'analyse est hebdomadaire et à 2h00 le lundi. La config de base déja coché est laissé et effectué. La purge des evenements se fera tout les 10 scans.
+La config se termine pour MelaPress. Les changements de paramètres pour Melapress est a gauche dans le menu "File Monitoring".
+
+Des notifs via emails peuvent etre envoyés pour des rapport des ce logs par exemple. Nous autorisons sur le FW l'envoi de mail et nous pouvons normalement recevoir sur les boites mails.
+Nous configurons aussi des filtres et étiquettes pour la réception de ces mails.
+
+Nous avons donc maintenant pour WordPress le monitoring des logs sur WordPress directement. Il faudrait faire des configurations plus "avancées" pour pouvoir avoir les logs sur GRAFANA.
+
+
+Après cette phase de config des logs / monitoring, on peut passer au configs suivantes.
+
+Config en cmd mais aussi voir sur Wordpress direct (secu, add compte (ldap) etc ..., mettre plus tard wordpress derriere un rproxy)
