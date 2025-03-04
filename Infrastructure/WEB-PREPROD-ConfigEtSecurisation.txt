@@ -192,6 +192,7 @@ Nous pouvons recharger promtail puis s'apercevoir la réception des logs dans GR
 
 Maintenant nous voulons aussi les logs mais de Wordpress.
 Pour cela, nous installons le plugin directement sur le wordpress admin, intitulé "WP Activity Log", l'activons et suivons le tuto d'install.
+Nous modifions ce que nous avons mis comme MAIL a la base pour l'admin du WP. wizardsndice@outlook.fr => svg.wizardsndice@gmail.com
 
 Une fois mis en place, on a un menu pour les logs sur wordpress.
 Pour compléter le monitoring des logs de WP, il faut dans le menu du plugin installé, dans 'Réglages', puis 'Modif de fichiers', installé Melapress.
@@ -199,12 +200,30 @@ Pour compléter le monitoring des logs de WP, il faut dans le menu du plugin ins
 Pour la config de melapress, la freq. d'analyse est hebdomadaire et à 2h00 le lundi. La config de base déja coché est laissé et effectué. La purge des evenements se fera tout les 10 scans.
 La config se termine pour MelaPress. Les changements de paramètres pour Melapress est a gauche dans le menu "File Monitoring".
 
-Des notifs via emails peuvent etre envoyés pour des rapport des ce logs par exemple. Nous autorisons sur le FW l'envoi de mail et nous pouvons normalement recevoir sur les boites mails.
-Nous configurons aussi des filtres et étiquettes pour la réception de ces mails.
+Des notifs via emails peuvent être envoyés pour des rapport des ce logs par exemple. Nous autorisons sur le FW l'envoi de mail et nous pouvons normalement recevoir sur les boites mails. Nous enverrons les mails sur la boite 'svg.wizardsndice@gmail.com' donc nous avons paramétré les plugins afin qu'ils envoient sur notre boite mail SVG.
 
-Nous avons donc maintenant pour WordPress le monitoring des logs sur WordPress directement. Il faudrait faire des configurations plus "avancées" pour pouvoir avoir les logs sur GRAFANA.
+Pour l'envoi des mails, nous installons un plugin / client smtp sur wordpress. 'WP Mail SMTP' est le nom du plugin.
+Nous ne suivons pas l'assistant de config : on choisit d'aller dans les réglages de WP mail SMTP, et de choisir dans les services d'envoi, l'option "Autre SMTP"
+Nous pouvons ainsi ici configurer notre compte GMAIL "SVG" pour pouvoir envoyer des mails depuis wordpress.
+
+La config est simple : 
+
+	=> Hébergeur SMTP : smtp.gmail.com
+	=> Cryptage : TLS
+	=> Port : 587
+	=> Authentification activé
+	=> ID SMTP : svg.wizardsndice@gmail.com
+	=> Mdp smtp : Le mot de passe d'application créer dans les paramètres de la boite mail SVG
+
+Sauvegarder ensuite, puis nous pouvons tester l'envoi de mail depuis les plugins installés, tout fonctionne normalement.
+Les plugins étant gratuit, ne donnent pas vraiment d'informations sur les logs dans le rapport, néanmoins ils pourraient être utile et plus largement détaillés avec une version payante.
+
+Nous configurons aussi des filtres et étiquettes pour la réception de ces mails sur la boite GMAIL SVG. Selon si c'est de DRYN ou AARD en fonction de l'ip source pour le moment.
+
+
+Nous avons donc maintenant pour WordPress le monitoring des logs sur WordPress directement. Il faudrait faire des configurations plus "avancées" pour pouvoir avoir ces logs sur GRAFANA, mais demande plus d'investigation. Néanmoins les logs d'apache sont bien dispo sur GRAFANA.
 
 
 Après cette phase de config des logs / monitoring, on peut passer au configs suivantes.
 
-Config en cmd mais aussi voir sur Wordpress direct (secu, add compte (ldap) etc ..., mettre plus tard wordpress derriere un rproxy)
+Config en cmd mais aussi voir sur Wordpress direct (secu, add compte (ldap) etc ..., mettre plus tard wordpress derrière un rproxy)
