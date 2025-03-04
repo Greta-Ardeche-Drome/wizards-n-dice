@@ -227,4 +227,85 @@ Nous avons donc maintenant pour WordPress le monitoring des logs sur WordPress d
 
 Après cette phase de config des logs / monitoring, on peut passer au configs suivantes.
 
-Config en cmd mais aussi voir sur Wordpress direct (secu, add compte (ldap) etc ..., mettre plus tard wordpress derrière un rproxy)
+
+Nous allons ajouter la possibilité de pouvoir se connecter avec des identifiant ldap sur le wordpress.
+Pour cela, nous installons le plugin "Active Directory / LDAP Intergration".
+
+Il faut aussi ajouter l'extension PHP LDAP.
+
+
+	=> Étape 1
+		Pour Ubuntu/Debian, la commande d'installation serait sudo apt-get -y install php-Idap.
+		Recherchez extension=php_ldap.so dans le fichier /etc/php/8.2/apache2/php.ini. Décommentez cette ligne, si elle n'est pas présente, ajoutez cette ligne dans le fichier et enregistrez le fichier
+		Dans notre cas, on ajoute cette ligne.
+		
+	Étape 3
+	Redémarrez le serveur. Ensuite, actualisez la page de configuration du plugin LDAP/AD
+
+On peut passer ensuite a la config : 
+
+	=> On ouvre les ports 389 du SRV DC vers le serveur WEBPREPROD
+	=> On créer un compte LDAP pour la liaison : wordpress.wp (MDP sur bitwarden)
+	=> Service Account Username : wordpress.wp@wnd.local
+	=> Teste la liaison : OK
+	=> Search Base : dc=wnd,dc=local
+	=> SAMAccountName = wnd.local\user
+	=> On peut tester avec nos user : OK donc config de base FINI
+
+Après on peut personnaliser les rôles etc ...
+	=> faire du role mapping (Le mappage de rôles permet d'attribuer un rôle WordPress en fonction du groupe LDAP auquel appartient un utilisateur sur le serveur LDAP). 
+	=> Néanmoins, comme nous avons la version gratuite, nous pourrons pas le faire.
+	=> Donc par défaut nos comptes LDAP sont des abonnées du WP. Nous pourrons modifier nos rôles a nous une fois connecté une fois sur WP pour etre admin.
+
+Dans le menu "Attribute Mapping", 
+
+	=> Infos sur cette partie : https://faq.miniorange.com/knowledgebase/configure-attribute-mapping-in-ldap/
+	=> nous laissons "username@email_domain" dans la premiere case, rien dans la 2eme et les autres rien car abonnement gratuit
+
+Ensuite dans le dernier menu, nous autorisons tous ce que nous pouvons jusqu'aux options au abonnés.
+
+Nous pouvons tester le ldap sur la page d'accueil de connexion => Ca fonctionne
+Mais nous sommes juste lecteur, donc avec le compte "superadmin", nous pouvons modifier le role et mettre admin dans le menu des comptes.
+Il faut obligatoirment mettre un mail aux users, j'ai inventé pour le moment.
+
+Voila pour le LDAP intégré sur Wordpress.
+
+
+Nous pouvons suivre les recommendés de WP dans "l'état de santé du site" dans le menu "tableau de bord" qui permet de savoir au niveau conf perf,sécu ce que nous pouvons faire.
+Au niveau des conf performances, nous mettre en place les modules PHP importants qui ne sont pas forcément présent mais qui servent pour faire tourner le site.
+
+Les modules nécessaires sont : 
+	=> imagick
+	=> intl
+
+Nous installons donc ces modules sur le serveur web : 
+	=> apt install php-imagick -y
+	=> apt install php-intl -y
+
+Puis on restart le service apache2.
+Les modules sont installés et serviront pour plus tard.
+
+Il faut aussi voir la mise en cache des pages web/wordpress.
+(Elles permettent l'upgrade de la vitesse et perf du site en servant des pages statiques au client au lieu de tout le temps générer dynamiquement à chaque visite)
+
+Pour cela, nous installons un plugin : "W3 Super Cache"
+Après l'installation, il va falloir autoriser plus de droits sur le serveur WEB et notamment le fichier wp-config.php (Actuellement en 400)
+
+	=> chmod 600 /var/www/html/wp-config.php
+	=> chmod -R 777 /var/www/html/wp-content
+Attention : Ce 2ème réglage est temporaire. Une fois WP Super Cache configuré, il faudra remettre des permissions plus sécurisées.
+
+Puis restart du service apache2, rafraichir la page WP sur le web.
+Maintenant on repasse à des droits plus restrictifs : 
+
+	=> chmod -R 755 /var/www/html/wp-content
+
+Apres restart encore du service apache2 et page admin web de WP
+On voit que la page réglage est enlevé au final apres nos parametrages. L'installation est ainsi finit.
+Maintenant il faut continuer à configurer ce plugin. Mais nous le ferons dans un autre temps.
+
+Voila pour les reco de WP mais il pourrait en avoir d'autres bien sur.
+
+Woocommerce
+Config en cmd mais aussi voir sur Wordpress direct 
+(partie sécu (par le site, le plugin pour le cache, autres), mettre plus tard wordpress derrière un rproxy)
