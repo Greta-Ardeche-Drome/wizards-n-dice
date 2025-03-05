@@ -306,6 +306,32 @@ Maintenant il faut continuer à configurer ce plugin. Mais nous le ferons dans u
 
 Voila pour les reco de WP mais il pourrait en avoir d'autres bien sur.
 
-Woocommerce
+
+Pour mettre en place Woocommerce, il nous faudrais les prérequis suivant : 
+
+	=> Un nom de domaine (Pas encore obtenue / wizardsndice.fr)
+	=> Hébergement Web (obtenue)
+	=> Téléchargement de WordPress (obtenue)
+	=> Installation d'un certificat SSL (obtenue, c'est le reverse proxy qui s'occupe du certificat SSL)
+
+Donc comme nous n'avons pas tout sous la main pour l'instant, nous installons et configurons au maximum WooCommerce pour le moment. Cela fonctionne quand meme, meme sans le nom de domaine. c'est juste que la config à 100% ne sera pas faite.
+
+Pour cela, nous installons le plugin Woocommerce sur WP :
+	=> Puis nous commençons l'installation avec l'assistance
+		=> Nous mettons l'adresse wizardsndice@outlook.com
+		=> Vêtements et accessoires
+		=> On laisse cocher les fonctionnalités sauf pour l'IA
+
+Maintenant c'est que de la config qu'il faut faire, par exemple : 
+	=> Il y a parfois des configs vraiment obligatoire, par exemple le fait que le site soit juste privé, il faut configuré le module jetpack de WooCommerce etc …
+	=> On supprime le plugin MailPoet qui pour l'instant ne servira dans les extensions
+
+Nous allons juste faire en sorte que des gens peuvent s'authentifier / créer des comptes.
+	=> Il faut juste dans les paramètres/réglages de WooCommerce => puis le menu 'comptes et condidentialité' , on peut activer la création de compte.
+
+Mais voila, a partir de la et comme tout a l'heure, il faut juste continuer à configurer WooCommerce. Donc on a un déploiement et une configuration vraiment légère.
+Il faudrait voir plus tard comment enlever la page d'authentification de Wordpress d'origine pour éviter que client accède dessus. (surement enlever le wp-admin.php)
+
+
 Config en cmd mais aussi voir sur Wordpress direct 
 (partie sécu (par le site, le plugin pour le cache, autres), mettre plus tard wordpress derrière un rproxy)
