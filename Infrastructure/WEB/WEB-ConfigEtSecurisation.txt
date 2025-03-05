@@ -15,7 +15,8 @@
 
 ----------------------- Configuration et sécurisation du serveur web prod ----------------------- 
 
-Sources :
+Sources : https://artheodoc.wordpress.com/wp-content/uploads/2022/01/1-serveur_web_apache_debian_11_pour_wordpress_nom_de_domaine_-https.pdf
+		https://les-enovateurs.com/debian-vps-apache-mysql-php-wordpress
 
 
 Actions effectuées dans la VM : 
@@ -142,3 +143,169 @@ On peut rajouter :
 
 
 De manière générale, regarder les permissions des fichiers selon l'utilisateur qui utilise le service.
+
+
+Configurer les logs pour qu'ils soient visibles dans GRAFANA : 
+
+	=> Les logs d'apache se trouvent dans le répertoire : /var/log/apache2
+	=> On donne les droits pour pouvoir les récupérer et envoyer vers LOKI et GRAFANA 
+		=> chown -R web:adm /var/log/apache2
+	=> Le répertoire et tout les fichiers .log donne le droit à promtail donc de les récuperer.
+
+Nous devons maintenant configurer le fichier promtail-config.yaml :
+
+--------------------------------------------------------------------------------------------
+
+server:
+  http_listen_port: 9080
+  grpc_listen_port: 0
+
+positions:
+  filename: /var/lib/promtail/positions.yaml
+
+clients:
+  - url: http://192.168.7.133:3100/loki/api/v1/push  # Utilisation de l'IP du serveur Loki
+
+scrape_configs:
+  - job_name: system
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: varlogs
+          host: SRV-BDD-PROD-AARD
+          stream: stdout
+          __path__: /var/log/*
+
+  - job_name: apache2_logs
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: apache2_webprod
+          host: SRV-WEB-PROD-AARD
+          stream: stdout
+          __path__: /var/log/apache2/*.log
+
+--------------------------------------------------------------------------------------------
+
+Nous pouvons recharger promtail puis s'apercevoir la réception des logs dans GRAFANA.
+
+Maintenant nous voulons aussi les logs mais de Wordpress.
+Pour cela, nous installons le plugin directement sur le wordpress admin, intitulé "WP Activity Log", l'activons et suivons le tuto d'install.
+Nous modifions ce que nous avons mis comme MAIL a la base pour l'admin du WP. wizardsndice@outlook.fr => svg.wizardsndice@gmail.com
+
+Une fois mis en place, on a un menu pour les logs sur wordpress.
+Pour compléter le monitoring des logs de WP, il faut dans le menu du plugin installé, dans 'Réglages', puis 'Modif de fichiers', installé Melapress.
+
+Pour la config de melapress, la freq. d'analyse est hebdomadaire et à 2h00 le lundi. La config de base déja coché est laissé et effectué. La purge des evenements se fera tout les 10 scans.
+La config se termine pour MelaPress. Les changements de paramètres pour Melapress est a gauche dans le menu "File Monitoring".
+
+Des notifs via emails peuvent être envoyés pour des rapport des ce logs par exemple. Nous autorisons sur le FW l'envoi de mail et nous pouvons normalement recevoir sur les boites mails. Nous enverrons les mails sur la boite 'svg.wizardsndice@gmail.com' donc nous avons paramétré les plugins afin qu'ils envoient sur notre boite mail SVG.
+
+Pour l'envoi des mails, nous installons un plugin / client smtp sur wordpress. 'WP Mail SMTP' est le nom du plugin.
+Nous ne suivons pas l'assistant de config : on choisit d'aller dans les réglages de WP mail SMTP, et de choisir dans les services d'envoi, l'option "Autre SMTP"
+Nous pouvons ainsi ici configurer notre compte GMAIL "SVG" pour pouvoir envoyer des mails depuis wordpress.
+
+La config est simple : 
+
+	=> Hébergeur SMTP : smtp.gmail.com
+	=> Cryptage : TLS
+	=> Port : 587
+	=> Authentification activé
+	=> ID SMTP : svg.wizardsndice@gmail.com
+	=> Mdp smtp : Le mot de passe d'application créer dans les paramètres de la boite mail SVG
+
+Sauvegarder ensuite, puis nous pouvons tester l'envoi de mail depuis les plugins installés, tout fonctionne normalement.
+Les plugins étant gratuit, ne donnent pas vraiment d'informations sur les logs dans le rapport, néanmoins ils pourraient être utile et plus largement détaillés avec une version payante.
+
+Nous configurons aussi des filtres et étiquettes pour la réception de ces mails sur la boite GMAIL SVG. Selon si c'est de DRYN ou AARD en fonction de l'ip source pour le moment.
+
+
+Nous avons donc maintenant pour WordPress le monitoring des logs sur WordPress directement. Il faudrait faire des configurations plus "avancées" pour pouvoir avoir ces logs sur GRAFANA, mais demande plus d'investigation. Néanmoins les logs d'apache sont bien dispo sur GRAFANA.
+
+
+Après cette phase de config des logs / monitoring, on peut passer au configs suivantes.
+
+
+Nous allons ajouter la possibilité de pouvoir se connecter avec des identifiant ldap sur le wordpress.
+Pour cela, nous installons le plugin "Active Directory / LDAP Intergration".
+
+Il faut aussi ajouter l'extension PHP LDAP.
+
+
+	=> Étape 1
+		Pour Ubuntu/Debian, la commande d'installation serait sudo apt-get -y install php-Idap.
+		Recherchez extension=php_ldap.so dans le fichier /etc/php/8.2/apache2/php.ini. Décommentez cette ligne, si elle n'est pas présente, ajoutez cette ligne dans le fichier et enregistrez le fichier
+		Dans notre cas, on ajoute cette ligne.
+		
+	Étape 3
+	Redémarrez le serveur. Ensuite, actualisez la page de configuration du plugin LDAP/AD
+
+On peut passer ensuite a la config : 
+
+	=> On ouvre les ports 389 du SRV DC vers le serveur WEBPREPROD
+	=> On créer un compte LDAP pour la liaison : wordpress.wp (MDP sur bitwarden)
+	=> Service Account Username : wordpress.wp@wnd.local
+	=> Teste la liaison : OK
+	=> Search Base : dc=wnd,dc=local
+	=> SAMAccountName = wnd.local\user
+	=> On peut tester avec nos user : OK donc config de base FINI
+
+Après on peut personnaliser les rôles etc ...
+	=> faire du role mapping (Le mappage de rôles permet d'attribuer un rôle WordPress en fonction du groupe LDAP auquel appartient un utilisateur sur le serveur LDAP). 
+	=> Néanmoins, comme nous avons la version gratuite, nous pourrons pas le faire.
+	=> Donc par défaut nos comptes LDAP sont des abonnées du WP. Nous pourrons modifier nos rôles a nous une fois connecté une fois sur WP pour etre admin.
+
+Dans le menu "Attribute Mapping", 
+
+	=> Infos sur cette partie : https://faq.miniorange.com/knowledgebase/configure-attribute-mapping-in-ldap/
+	=> nous laissons "username@email_domain" dans la premiere case, rien dans la 2eme et les autres rien car abonnement gratuit
+
+Ensuite dans le dernier menu, nous autorisons tous ce que nous pouvons jusqu'aux options au abonnés.
+
+Nous pouvons tester le ldap sur la page d'accueil de connexion => Ca fonctionne
+Mais nous sommes juste lecteur, donc avec le compte "superadmin", nous pouvons modifier le role et mettre admin dans le menu des comptes.
+Il faut obligatoirment mettre un mail aux users, j'ai inventé pour le moment.
+
+Voila pour le LDAP intégré sur Wordpress.
+
+
+Nous pouvons suivre les recommendés de WP dans "l'état de santé du site" dans le menu "tableau de bord" qui permet de savoir au niveau conf perf,sécu ce que nous pouvons faire.
+Au niveau des conf performances, nous mettre en place les modules PHP importants qui ne sont pas forcément présent mais qui servent pour faire tourner le site.
+
+Les modules nécessaires sont : 
+	=> imagick
+	=> intl
+
+Nous installons donc ces modules sur le serveur web : 
+	=> apt install php-imagick -y
+	=> apt install php-intl -y
+
+Puis on restart le service apache2.
+Les modules sont installés et serviront pour plus tard.
+
+Il faut aussi voir la mise en cache des pages web/wordpress.
+(Elles permettent l'upgrade de la vitesse et perf du site en servant des pages statiques au client au lieu de tout le temps générer dynamiquement à chaque visite)
+
+Pour cela, nous installons un plugin : "W3 Super Cache"
+Après l'installation, il va falloir autoriser plus de droits sur le serveur WEB et notamment le fichier wp-config.php (Actuellement en 400)
+
+	=> chmod 600 /var/www/html/wp-config.php
+	=> chmod -R 777 /var/www/html/wp-content
+Attention : Ce 2ème réglage est temporaire. Une fois WP Super Cache configuré, il faudra remettre des permissions plus sécurisées.
+
+Puis restart du service apache2, rafraichir la page WP sur le web.
+Maintenant on repasse à des droits plus restrictifs : 
+
+	=> chmod -R 755 /var/www/html/wp-content
+
+Apres restart encore du service apache2 et page admin web de WP
+On voit que la page réglage est enlevé au final apres nos parametrages. L'installation est ainsi finit.
+Maintenant il faut continuer à configurer ce plugin. Mais nous le ferons dans un autre temps.
+
+Voila pour les reco de WP mais il pourrait en avoir d'autres bien sur.
+
+Woocommerce
+Config en cmd mais aussi voir sur Wordpress direct 
+(partie sécu (par le site, le plugin pour le cache, autres), mettre plus tard wordpress derrière un rproxy)
