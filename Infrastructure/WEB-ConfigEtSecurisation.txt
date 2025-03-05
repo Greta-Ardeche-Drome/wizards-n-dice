@@ -330,8 +330,157 @@ Nous allons juste faire en sorte que des gens peuvent s'authentifier / créer de
 	=> Il faut juste dans les paramètres/réglages de WooCommerce => puis le menu 'comptes et condidentialité' , on peut activer la création de compte.
 
 Mais voila, a partir de la et comme tout a l'heure, il faut juste continuer à configurer WooCommerce. Donc on a un déploiement et une configuration vraiment légère.
-Il faudrait voir plus tard comment enlever la page d'authentification de Wordpress d'origine pour éviter que client accède dessus. (surement enlever le wp-admin.php)
 
 
-Config en cmd mais aussi voir sur Wordpress direct 
+=> Il faudrait voir plus tard comment enlever la page d'authentification de Wordpress d'origine pour éviter que client accède dessus. (surement enlever le wp-admin.php)
+
+	Avant de passer aux fichiers de configs apache ou php sur le serveur directement, nous devrons installer un autre plugin qui permettra la redirection de la page "wp-login.php" vers la page web classique, pour permettre l'authentification dessus et pas depuis la page "wp-login.php"
+	De même pour la page "wp-admin" qui les redirige autre part si ils n'ont pas le droit ou veulent y acceder directement.
+
+	Donc cette partie qui serait plus dans la partie sécu, sera à pensé lorsque tout sera mis en place sur les 2 sites.
+
+
+
+On repasse maintenant coté serveur pour faire un tour de la configuration APACHE/PHP : 
+
+	=> Vérification des modules Apache activés
+		=> a2enmod rewrite headers expires
+		=> systemctl restart apache2
+			- rewrite : Nécessaire pour les permaliens WordPress.
+			- headers : Utile pour la sécurité et les réglages de cache.
+			- expires : Aide à la gestion du cache des ressources statiques.
+
+Après cela, on va faire en sorte d'utiliser un virtualhost différent de celui-par défaut
+	Celui qu'on utilise est le 000...
+		=> on peut le voir avec la commande : ls -l /etc/apache2/sites-enabled/
+
+Il sera pas si différent mais au moins on aura un "personnalisé"
+	on copie le virtualhost de base vers un autre fichier : 
+		=> cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/wizardsndice.conf
+
+Maintenant on peut le personnaliser "wizardsndice.conf" : 
+
+------------------------------------------------------------------------------
+
+<VirtualHost *:80>
+    ServerName wizardsndice.fr
+    ServerAlias 172.16.7.1 wizardsndice.wnd.local
+    ServerAdmin svg.wizardsndice@gmail.com
+    DocumentRoot /var/www/html
+
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+    <Directory /var/www/html>
+        AllowOverride All
+        Require all granted
+    </Directory>
+
+    # Empêcher l’exécution de scripts PHP dans /uploads et /wp-includes
+    <Directory "/var/www/html/wp-content/uploads">
+        Require all denied
+    </Directory>
+
+    <Directory "/var/www/html/wp-includes">
+        Require all denied
+    </Directory>
+
+    # Bloquer l’accès aux fichiers sensibles
+    <FilesMatch "(wp-config.php|xmlrpc.php|.htaccess|.htpasswd)">
+        Require all denied
+    </FilesMatch>
+
+    # Empêcher l'affichage des fichiers d'un dossier (évite de voir la liste des fichiers)
+    Options -Indexes
+
+    # Headers utiles pour la sécurité et la compatibilité avec le reverse proxy
+    Header set X-Forwarded-Proto "https"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+    Header set X-Content-Type-Options "nosniff"
+
+</VirtualHost>
+
+
+------------------------------------------------------------------------------
+
+Ensuite on regarde la config de "/var/www/html/.htaccess" si elle est bien configuré : 
+
+	=> nano /var/www/html/.htaccess
+
+Il faut qu'elle soit comme ceci : 
+
+------------------------------------------
+
+# BEGIN WordPress
+# Les directives (lignes) entre     BEGIN WordPress     et     END WordPress     sont g  n  r  es
+# dynamiquement, et doivent   tre modifi  es uniquement via les filtres WordPress.
+# Toute modification des directives situ  es entre ces marqueurs sera surcharg  e.
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+# END WordPress
+
+-------------------------------------------
+
+Puis, on s'assure que le fichier a les bonnes permissions :
+
+	=> sudo chown www-data:www-data /var/www/html/.htaccess
+	=> sudo chmod 644 /var/www/html/.htaccess
+
+Enfin on restart le service apache et charge le nouvelle hote virtuel "wizardsndice.conf" : 
+	=> a2ensite /etc/apache2/sites-available/wizardsndice.conf (se mettre dans le bon répertoire)
+	=> systemctl restart apache2
+	=> a2dissite 000-default.conf
+
+On peut aussi vérif quels sites sont activés avec : => apachectl -S
+
+Normalement cela utilise maintenant notre config créer plus tot sur le site web.
+
+
+Autre configurations que l'on va faire meme si on pourrait le mettre dans la partie "Sécu" : 
+
+	=> Cacher les informations de version d’Apache et Debian sur les pages d’erreur
+		=> Éditer le fichier /etc/apache2/conf-available/security.conf :
+			=> Ajoute ou modifie ces lignes :
+				=> ServerTokens Prod
+				=> ServerSignature Off
+	=> on restart apache
+
+Pour finir la partie configuration (qui pourrait être encore plus longue), on personnaliser le fichier /etc/apache2/apache2.conf :
+
+	=> Timeout 30
+	=> Ligne à ajouter : 
+		=> <IfModule mod_deflate.c>
+    	       	       AddOutputFilterByType DEFLATE text/plain text/css text/javascript application/javascript text/xml application/xml application/json
+	   	   </IfModule>
+	=> Modif de la ligne : <FilesMatch "^\.ht"> PAR <FilesMatch "(^\.ht|\.git|\.env|composer.json|composer.lock)">
+
+	=> Puis dans cette partie : 
+
+<Directory /var/www/>
+    Options Indexes FollowSymLinks
+    AllowOverride All
+    Require all granted
+</Directory>
+
+AVEC
+
+<Directory /var/www/>
+    Options -Indexes +FollowSymLinks
+    AllowOverride All
+    Require all granted
+</Directory>
+
+	=> La suite dans ce fichier de conf pourra se faire dans la partie "Sécu" avec les .htaccess. etc ... et plus si besoin.
+ 
+Voila pour la partie configuration. Comme dit plus tot, il pourrait y avoir encore plein de configuration possible, mais ceci demanderait plus de temps et de reflexion.
+
 (partie sécu (par le site, le plugin pour le cache, autres), mettre plus tard wordpress derrière un rproxy)
