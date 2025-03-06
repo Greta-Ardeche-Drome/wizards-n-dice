@@ -325,6 +325,7 @@ Maintenant c'est que de la config qu'il faut faire, par exemple :
 
 Nous allons juste faire en sorte que des gens peuvent s'authentifier / créer des comptes.
 	=> Il faut juste dans les paramètres/réglages de WooCommerce => puis le menu 'comptes et condidentialité' , on peut activer la création de compte.
+	=> Néanmoins, la création fonctionne mais lorsque nous nous déconnectons de l'utilisateur et que nous voulons nous reconnecter avec, celui-ci ne fonctionne plus alors qu'il est toujours bel et bien présent dans la BDD. Je ne sais pas l'erreur actuelle mais elle est peut être lié au fait que n'avons pas fini à l'heure actuelle, de configurer WooCommerce ou Wordpress de manière générale.
 
 Mais voila, a partir de la et comme tout a l'heure, il faut juste continuer à configurer WooCommerce. Donc on a un déploiement et une configuration vraiment légère.
 
