@@ -96,4 +96,6 @@ server {
 }
 
 
-A CONTINUER
+### Valider les changements
+nginx -t
+systemctl reload nginx.service
