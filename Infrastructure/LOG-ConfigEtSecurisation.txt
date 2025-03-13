@@ -1,0 +1,48 @@
+#################################################################
+#								#
+#	Créateur : Arthur YANG - Responsable Documentation 	#
+#				 & Administratif		#
+			
+#	Date de création : 13/03/2025				#
+#								#
+#	Dernier modificateur : Arthur YANG			#
+#	Date de modification : 13/03/2025			#
+#								#
+#		Version actuelle : 1.0				#
+#								#
+#################################################################
+
+
+----------------------- Configuration et sécurisation du serveur de logs ----------------------- 
+
+Sources : 
+
+Activer les alertes dans Grafana
+Si un service commence à générer trop d'erreurs , nous pouvons configurer des alertes dans Grafana via Alertmanager .
+
+Nous pouvons ajouter cette ligne dans Loki pour activer Alertmanager :
+
+=> ruler:
+     alertmanager_url: http://192.168.7.134:9093
+
+Grafana pourra maintenant déclencher des alertes sur les logs.
+
+
+Surveiller les logs avec Loki Canary
+Loki Canary est un service qui vérifie que Loki fonctionne bien.
+
+📌 Ajoute loki-canary sur le serveur de logs :
+
+bash
+Copier
+Modifier
+wget https://github.com/grafana/loki/releases/download/v3.4.2/loki-canary-linux-amd64
+chmod +x loki-canary-linux-amd64
+mv loki-canary-linux-amd64 /usr/local/bin/loki-canary
+📌 Lance-le pour tester Loki en continu :
+
+bash
+Copier
+Modifier
+loki-canary -loki-url=http://192.168.7.135:3100
+✅ Si un problème survient, il remontera une alerte dans Grafana.
