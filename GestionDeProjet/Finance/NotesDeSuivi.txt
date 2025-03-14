@@ -1,0 +1,21 @@
+#################################################################
+#								#
+#	Créateur : Axel MOURILLON - Chef de projet 		#
+#	Date de création : 21/02/2025				#
+#								#
+#	Dernier modificateur : <Prénom NOM> - <Rôle>		#
+#	Date de modification : JJ/MM/AAAA			#
+#								#
+#		Version actuelle : 1.0				#
+#								#
+#################################################################
+
+
+Éléments documentaires manquants : (opération effectués mais pas de traces enregistrés hors Tricount)
+- Remboursement des capes - Part Hugo
+- Remboursement des capes - Part Loïs 
+- Remboursement des éléments du NAS (baie, disques internes/externes) - Part Loïs 
+- Facture (ou preuve d'achats) pour les disques externes - Hugo
+
+Opérations non-effectués
+- Remboursement des éléments du NAS (baie, disques internes/externes) - Part Loïs 

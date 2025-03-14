@@ -1,0 +1,146 @@
+#################################################################
+#								#
+#	Créateur : Arthur YANG - Responsable Documentation 	#
+#				 & Administratif		#
+			
+#	Date de création : 18/02/2025				#
+#								#
+#	Dernier modificateur : Arthur YANG			#
+#	Date de modification : 18/02/2025			#
+#								#
+#		Version actuelle : 1.0				#
+#								#
+#################################################################
+
+
+----------------------- Configuration et sécurisation du serveur de monitoring ----------------------- 
+
+Sources : 
+
+
+Actions effectuées dans le conteneur : 
+
+   => Connexion via root / mot de passe
+   => apt install unzip
+   => Installation de l'agent promtail
+
+	Installation de Promtail
+  		 => Téléchargement et installation :
+		On se place dans le chemin : /usr/local/bin/
+		On télécharge le fichier zip de Promtail : wget https://github.com/grafana/loki/releases/download/v3.4.2/promtail-linux-amd64.zip
+		Nous pouvons ensuite l'unzip : unzip (nom du fichier)
+		C'est un fichier executable que l'on a.
+
+	=> Configuration de Promtail :
+
+	Nous devons ici, avoir un fichier nommé "promtail-config.yaml" pour la configuration de Promtail.
+	Nous pouvons télécharger un modèle pré-existant : wget https://github.com/grafana/loki/blob/main/clients/cmd/promtail/promtail-local-config.yaml ou le créer nous même.
+	Cela télécharge un modèle que l'on peut renommer comme nous le voulions.
+
+
+=> Config .yaml personnalisé que nous effectuons :
+
+--------------------------------------------------------------------------------------------
+
+server:
+  http_listen_port: 9080
+  grpc_listen_port: 0
+
+positions:
+  filename: /var/lib/promtail/positions.yaml
+
+clients:
+  - url: http://192.168.7.133:3100/loki/api/v1/push  # Utilisation de l'IP du serveur Loki
+
+scrape_configs:
+  - job_name: system
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: varlogs
+          host: SRV-MONITORING-AARD
+          stream: stdout
+          __path__: /var/log/*
+
+--------------------------------------------------------------------------------------------
+
+
+=> Créer un dossier /var/lib/promtail/ : mkdir -p /var/lib/promtail
+		=> chown -R monitoring:monitoring /var/lib/promtail
+		=> chmod -R 750 /var/lib/promtail
+
+	=> Nous mettons l'utilisateur créée plus tôt "monitoring" en tant que propriétaire et propriétaire groupe des fichiers de config de Loki.
+	
+		=> chown -R monitoring:monitoring promtail-config.yaml promtail-linux-amd64
+		=> chmod 755 promtail-linux-amd64
+		=> chmod 640 promtail-config.yaml
+
+
+	=> Création du fichier : /etc/systemd/system/promtail.service
+
+--------------------------------------------------------------------------------------------
+
+[Unit]
+Description=Promtail Loki
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=monitoring
+Group=monitoring
+ExecStart=/usr/local/bin/promtail-linux-amd64 -config.file=/usr/local/bin/promtail-config.yaml
+
+SyslogIdentifier=monitoring
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
+--------------------------------------------------------------------------------------------
+
+
+Commandes système et visualisation des logs en direct :
+
+		=> systemctl enable promtail.service 
+		=> systemctl start promtail.service
+		=> systemctl status promtail.service
+		=> journalctl -f -u promtail.service
+
+	Normalement le service promtail est lancé.
+
+
+Dans nos conteneurs LXC Debian, les logs semblent être dans le "journald" et non le syslog.
+
+On installe "rsyslog" pour qu'ils puissent etre visible dans "syslog"
+
+	=> apt install rsyslog -y
+	=> systemctl enable rsyslog --now
+	=> tail -f /var/log/syslog
+
+Pour que notre utilisateur "monitoring" puissent avoir les droits de lecture de logs, on va lui ajouter dans le groupe adm : 
+
+	=> usermod -aG adm monitoring
+	=> systemctl restart promtail.service
+
+En effet, Un problèmes d’accès aux fichiers /var/log/auth.log, /var/log/cron.log et /var/log/user.log par Grafana sera présent par le fait que l'on a paramétré le service promtail avec l'utilisateur "monitoring".
+
+Faire de même avec le fichier "syslog" : 
+
+	=> chown monitoring:root /var/log/syslog
+	=> chmod 640 /var/log/syslog
+	=> systemctl restart promtail.service
+
+On peut rajouter : 
+
+	=> chown monitoring:utmp /var/log/btmp
+
+
+
+De manière générale, regarder les permissions des fichiers selon l'utilisateur qui utilise le service.
+
+
+Changement du port par défaut pour Grafana et accès web : port 3000 vers (Voir revue de sécurité)
+	=> Faire le changement dans le fichier de configuration.
+

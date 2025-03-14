@@ -1,0 +1,101 @@
+# Mettre à jour le système
+apt update && apt upgrade -y
+
+# Installer NGINX et ses dépendances
+apt install nginx libnginx-mod-http-modsecurity -y
+
+# Installer ModSecurity et OWASP CRS
+apt install modsecurity-crs -y
+
+
+# Modifier /etc/nginx/nginx.conf et ajouter le contenu suivant dans le bloc http {}
+modsecurity on;
+modsecurity_rules_file /etc/nginx/modsecurity.conf;
+
+
+# Modifier ou créer ces lignes dans /etc/nginx/modsecurity.conf (WAF en mode IDS) :
+SecRuleEngine DetectionOnly
+SecAuditEngine RelevantOnly
+SecAuditLog /var/log/nginx/modsec_audit.log
+SecRequestBodyAccess On
+SecRule ARGS:sqli "@rx select|union|insert|update|delete|drop" "id:100000,phase:2,deny,status:403,msg:'SQL Injection detected'"
+
+
+# Création du reverse proxy :
+## Créer un fichier /etc/nginx/sites-available/site-wnd :
+server {
+    listen 80;
+    server_name www.wizardsndice.fr srv-rproxy-aard.wnd.local;
+
+    location / {
+        proxy_pass http://172.16.7.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        modsecurity_rules_file /etc/nginx/modsec-rules/main-rules.conf;
+    }
+}
+
+## Activer la configuration
+ln -s /etc/nginx/sites-available/wordpress /etc/nginx/sites-enabled/
+nginx -t
+systemctl reload nginx
+
+## Passer en HTTPS
+### Créer le certificat : s'assurer d'abord que le reverse proxy répond en HTTP depuis internet (faire une règle de redirection de ports sur le FW)
+apt install certbot python3-certbot-nginx -y
+certbot --nginx -d www.wizardsndice.fr
+
+### Modifier /etc/nginx/sites-available/site-wnd
+server {
+    if ($host = www.wizardsndice.fr) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+    listen 80;
+    server_name www.wizardsndice.fr 172.16.7.129 srv-rproxy-aard.wnd.local;
+    return 301 https://$host$request_uri;
+
+
+}
+
+server {
+    listen 443 ssl;
+    server_name www.wizardsndice.fr 172.16.7.129 srv-rproxy-aard.wnd.local;
+    ssl_certificate /etc/letsencrypt/live/wizardsndice.fr/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/wizardsndice.fr/privkey.pem; # managed by Certbot
+
+    modsecurity on;
+    modsecurity_rules_file /etc/nginx/modsecurity.conf;
+
+    location / {
+        proxy_pass http://172.16.7.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+
+        proxy_connect_timeout 10s;
+        proxy_send_timeout 30s;
+        proxy_read_timeout 30s;
+
+        proxy_buffering off;
+    }
+    location /wp-admin {
+    deny all;
+    return 444;
+    }
+
+    location ~* /wp-login.php {
+    deny all;
+    return 444;
+    }
+
+}
+
+
+### Valider les changements
+nginx -t
+systemctl reload nginx.service

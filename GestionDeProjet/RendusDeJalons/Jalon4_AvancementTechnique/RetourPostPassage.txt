@@ -1,0 +1,26 @@
+========================= RESSENTIE DE L'EQUIPE ========================= 
+
+- Mauvaise gestion du temps 
+	=> Trop long et mauvaise structure par rapport à la consigne
+	=> Trop imprécision
+	--> Un état des lieux aurait plus appropriée ; par couches OSI
+- Pas assez d'éléments visuels (tableaux, visuels) 
+	--> Faire des tableaux : date d'avancements par VMs/conteneur 
+	--> Faire des schémas : flux (qui va où, par quels chemins), topologies
+- Manque de préparation (pour les questions notamment)
+- Manque de structure sur l'organisation du script
+=> Vérifier la structure du script plus précisément et plus en avance
+
+============================ CONSEIL DU PROF ============================ 
+Un point technique réussi c'est :
+- À quoi sert le projet
+- Par qui il est destiné (dimension)
+- Architecture physique : avec des schémas
+- Choix de solutions : avantages et limites ; comparaison des solutions envisageable
+- Architecture logique : pont entre l'architecture physique et les solutions choisies
+- Storyline des utilisations 
+- Point sur la sécurité
+- Illustration des flux périmétriques : montre les flux en fonction des utilisateurs
+- Parcours de l'utilisateur
+- Schéma de sécurité des flux
+
