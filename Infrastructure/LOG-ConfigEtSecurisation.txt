@@ -20,29 +20,16 @@ Sources :
 Activer les alertes dans Grafana
 Si un service commence à générer trop d'erreurs , nous pouvons configurer des alertes dans Grafana via Alertmanager .
 
-Nous pouvons ajouter cette ligne dans Loki pour activer Alertmanager :
+Nous pouvons ajouter cette ligne dans la config de Loki pour activer Alertmanager :
 
 => ruler:
-     alertmanager_url: http://192.168.7.134:9093
+     alertmanager_url: http://192.168.7.134:XXXXXXX (Voir conf sur le serveur pour voir le port)
 
 Grafana pourra maintenant déclencher des alertes sur les logs.
 
 
-Surveiller les logs avec Loki Canary
-Loki Canary est un service qui vérifie que Loki fonctionne bien.
+=> Ouverture du port 9093 depuis le serveur de monitoring vers serveurs ( et autres VLAN sur stormshield ) 
+	=> Ajout comme rappel a faire comme règle dans le fichier EXCEL des règles sur le FW pour plus tard
 
-📌 Ajoute loki-canary sur le serveur de logs :
 
-bash
-Copier
-Modifier
-wget https://github.com/grafana/loki/releases/download/v3.4.2/loki-canary-linux-amd64
-chmod +x loki-canary-linux-amd64
-mv loki-canary-linux-amd64 /usr/local/bin/loki-canary
-📌 Lance-le pour tester Loki en continu :
-
-bash
-Copier
-Modifier
-loki-canary -loki-url=http://192.168.7.135:3100
-✅ Si un problème survient, il remontera une alerte dans Grafana.
+Partie sécurisation : 
