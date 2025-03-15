@@ -1,16 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Planning Wizards &amp; Dices" company="" webLink="http://" view-date="2024-12-01" view-index="0" gantt-divider-location="549" resource-divider-location="424" version="3.3.3312" locale="fr_FR">
+<?xml version="1.0" encoding="UTF-8"?><project name="Planning Wizards &amp; Dices" company="" webLink="http://" view-date="2024-12-01" view-index="0" gantt-divider-location="535" resource-divider-location="424" version="3.3.3312" locale="fr_FR">
     <description/>
     <view zooming-state="default:8" id="gantt-chart">
-        <field id="tpd3" name="Nom" width="300" order="0"/>
-        <field id="tpd4" name="Date de début" width="85" order="1"/>
-        <field id="tpd5" name="Date de fin" width="83" order="2"/>
-        <field id="tpd1" name="Priorité" width="65" order="3"/>
+        <field id="tpd3" name="Nom" width="291" order="0"/>
+        <field id="tpd4" name="Date de début" width="84" order="1"/>
+        <field id="tpd5" name="Date de fin" width="81" order="2"/>
+        <field id="tpd1" name="Priorité" width="63" order="3"/>
         <option id="filter.completedTasks" value="false"/>
         <option id="filter.dueTodayTasks" value="false"/>
         <option id="filter.overdueTasks" value="false"/>
         <option id="filter.inProgressTodayTasks" value="false"/>
         <timeline><![CDATA[465]]></timeline>
-        <option id="color.recent"><![CDATA[#ea7500 #666666 #00a933 #f4f4f4 #55308d #2a6099 #d60be4 #f10d0c]]></option>
+        <option id="color.recent"><![CDATA[#666666 #55308d #f4f4f4 #00a933 #ea7500 #2a6099 #d60be4 #f10d0c]]></option>
     </view>
     <view id="resource-table">
         <field id="0" name="Nom" width="158" order="0"/>
@@ -136,7 +136,7 @@ Lien vers Moodle de dépôts : https://cours.univ-grenoble-alpes.fr/mod/assign/v
                 <task id="394" uid="66dfa55bb45e488391426945b74c97f9" name="Débriefer des jalons 7 à 9" color="#666666" meeting="true" start="2025-06-07" duration="0" complete="0" expand="true"/>
             </task>
         </task>
-        <task id="0" uid="1e2188cfd5a746838d03251ca51480d7" name="Documentation, recherches et définition des aspects inconnus" color="#55308d" meeting="false" start="2024-09-07" duration="207" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="false">
+        <task id="0" uid="1e2188cfd5a746838d03251ca51480d7" name="Documentation, recherches et définition des aspects inconnus" color="#55308d" meeting="false" start="2024-09-07" duration="207" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="true">
             <task id="433" uid="1350ccfd5d4643fda5e4a8a1fb533d79" name="Recherches documentaires" color="#55308d" meeting="false" start="2024-09-07" duration="144" complete="0" expand="false">
                 <task id="12" uid="7f54f040ed1e4477adbeffe314a11531" name="Définir le degré de liberté vis-à-vis des contraintes GRETA/IUT" color="#00a933" meeting="false" start="2024-09-07" duration="50" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" priority="2" expand="true"/>
                 <task id="408" uid="4415b78a23894861b7008330f74b0ce2" name="Plannification détaillé du projet" color="#00a933" meeting="false" start="2024-11-17" duration="29" complete="0" priority="2" expand="true"/>
@@ -192,7 +192,7 @@ Trie et réagencement de l'arborescence]]></notes>
                     <notes><![CDATA[Inclus la préparation de template pour les documents de l'équipe]]></notes>
                 </task>
             </task>
-            <task id="422" uid="966f39cc2c4141d6a4c4a25e55265961" name="Documentation juridique" color="#55308d" meeting="false" start="2025-01-26" duration="70" complete="0" expand="false">
+            <task id="422" uid="966f39cc2c4141d6a4c4a25e55265961" name="Documentation juridique" color="#55308d" meeting="false" start="2025-01-26" duration="70" complete="0" expand="true">
                 <task id="423" uid="d3d3640375b9490f9a60ce532bd92f5d" name="Rédiger les mentions légales du site" color="#00a933" meeting="false" start="2025-01-26" duration="7" complete="0" priority="2" expand="true">
                     <notes><![CDATA[Devra figurer sur le site]]></notes>
                     <depend id="432" type="2" difference="0" hardness="Strong"/>
@@ -222,7 +222,7 @@ Trie et réagencement de l'arborescence]]></notes>
 - comprendre les avantages et bénéfices / inconvénients
 - voir comment l'adapter et où souscire si cas réel pour notre entreprise]]></notes>
                 </task>
-                <task id="428" uid="e99f7335020a432494a4bf1652efc1e5" name="Rédiger la charte d'utilisation et de modération de forum" color="#666666" meeting="false" start="2025-03-16" duration="14" complete="0" priority="2" expand="true">
+                <task id="428" uid="e99f7335020a432494a4bf1652efc1e5" name="Rédiger la charte d'utilisation et de modération de forum" color="#666666" meeting="false" start="2025-03-16" duration="14" complete="0" expand="true">
                     <notes><![CDATA[Devra être signer pour accéder au forum]]></notes>
                 </task>
                 <task id="430" uid="b6df9b4737ec4a1896bac9720e5a0144" name="Revoir la conformité des documents comptables" color="#666666" meeting="false" start="2025-03-30" duration="7" complete="0" priority="0" expand="true">
@@ -264,7 +264,7 @@ Trie et réagencement de l'arborescence]]></notes>
                     <notes><![CDATA[Problablement un tableur
 Peut-être fait en mode "dégrader" avec seulement quelques commandes factices]]></notes>
                 </task>
-                <task id="211" uid="f9ef73f7234942efb87e38896b2793d1" name="Proposer des mesures de sécurité des stocks" color="#ea7500" meeting="false" start="2025-03-09" duration="14" complete="0" expand="true"/>
+                <task id="211" uid="f9ef73f7234942efb87e38896b2793d1" name="Proposer des mesures de sécurité des stocks" color="#00a933" meeting="false" start="2025-03-09" duration="14" complete="0" expand="true"/>
             </task>
             <task id="440" uid="22010442c8e947efb92dcba231a16fc6" name="Préparer un registre des sous-traitants" color="#00a933" meeting="false" start="2025-02-09" duration="7" complete="0" expand="true">
                 <notes><![CDATA[Peut-être fait en mode "dégrader" avec seulement quelques sous-traitants factices]]></notes>
@@ -276,6 +276,7 @@ Peut-être fait en mode "dégrader" avec seulement quelques commandes factices]]
             <task id="33" uid="a7f961bf91e948e0b9b6e06ec64a1e26" name="Se fournir en échantillons" color="#ea7500" meeting="false" start="2025-02-23" duration="49" complete="0" priority="2" expand="true">
                 <depend id="30" type="2" difference="0" hardness="Strong"/>
             </task>
+            <task id="509" uid="a455b863aff347beab1e31f22f703724" name="Préparer des cartes de visites" color="#666666" meeting="false" start="2025-03-30" duration="14" complete="0" expand="true"/>
             <task id="30" uid="88682bec513a48a192956138d34093e4" name="Revoir les points de conformité des produits et des services" color="#666666" meeting="false" start="2025-04-13" duration="7" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" priority="3" expand="true">
                 <depend id="337" type="2" difference="0" hardness="Strong"/>
             </task>
@@ -344,7 +345,6 @@ Potentiellement un tableur excel ]]></notes>
                 <notes><![CDATA[Inclus sans restreindre :
 - Rédiger les procédures de supervision du sites (market, sécurité, etc)
 - Outils techniques]]></notes>
-                <depend id="496" type="2" difference="0" hardness="Strong"/>
             </task>
             <task id="442" uid="fd8ce6339eab40dfb6b82eedd7932cda" name="Configurer l'infrastructure réseau et applicative" color="#55308d" meeting="false" start="2025-02-23" duration="42" complete="0" priority="2" expand="true">
                 <depend id="473" type="2" difference="0" hardness="Strong"/>
@@ -356,11 +356,15 @@ Potentiellement un tableur excel ]]></notes>
                 <task id="453" uid="3cd994c7bfdb48e69334b641430c27ee" name="Serveur Web" color="#00a933" meeting="false" start="2025-03-02" duration="7" complete="0" expand="true"/>
                 <task id="454" uid="4dc4c6d071c849a5aed1fa95f2e49bcb" name="Serveurs de BDD" color="#00a933" meeting="false" start="2025-03-02" duration="7" complete="0" expand="true"/>
                 <task id="444" uid="a0e93a769d6f4088bdb56f16ee9aef08" name="Proxmox" color="#ea7500" meeting="false" start="2025-02-23" duration="14" complete="0" priority="0" expand="true"/>
-                <task id="489" uid="ca7b9ec3687241e1b479718a8471652c" name="Serveur Windows AD DNS" color="#ea7500" meeting="false" start="2025-03-02" duration="14" complete="0" expand="true"/>
-                <task id="445" uid="cbe82ff3c0bb4cb2b500ccf4185f09fe" name="Serveur de log" color="#ea7500" meeting="false" start="2025-03-09" duration="14" complete="0" expand="true"/>
+                <task id="445" uid="cbe82ff3c0bb4cb2b500ccf4185f09fe" name="Serveur de log" color="#00a933" meeting="false" start="2025-03-09" duration="7" complete="0" expand="true"/>
                 <task id="450" uid="92858fddca17435e86f315a5409972a9" name="Serveur de test" color="#666666" meeting="false" start="2025-03-16" duration="7" complete="0" expand="true"/>
-                <task id="468" uid="b9512d842cfc409a9fb60c871397dec8" name="Services transverses" color="#666666" meeting="false" start="2025-03-16" duration="14" complete="0" expand="true"/>
-                <task id="496" uid="ecd0c2fddaed4bfa8f73eed0963536bc" name="Monitoring" color="#55308d" meeting="false" start="2025-03-23" duration="14" complete="0" expand="false">
+                <task id="489" uid="ca7b9ec3687241e1b479718a8471652c" name="Serveur Windows AD DNS" color="#55308d" meeting="false" start="2025-03-02" duration="28" complete="0" expand="true">
+                    <task id="508" uid="0db6cdb9243d4c2a9ba94a3cbb2f46dc" name="Début de la configuration avancée" color="#00a933" meeting="false" start="2025-03-02" duration="14" complete="0" expand="true"/>
+                    <task id="506" uid="deabcc2b25ba49cda0d0c5410b34a039" name="LDAPS" color="#ea7500" meeting="false" start="2025-03-16" duration="7" complete="0" expand="true"/>
+                    <task id="507" uid="d1cb1ca88638448e8d65cc47ab84496a" name="HardenAD" color="#666666" meeting="false" start="2025-03-23" duration="7" complete="0" expand="true"/>
+                </task>
+                <task id="496" uid="ecd0c2fddaed4bfa8f73eed0963536bc" name="Monitoring" color="#55308d" meeting="false" start="2025-03-16" duration="21" complete="0" expand="true">
+                    <task id="505" uid="48277e76cbc548ce86b4209efc5ff7e9" name="Serveur de monitoring" color="#ea7500" meeting="false" start="2025-03-16" duration="14" complete="0" expand="true"/>
                     <task id="381" uid="b3b8477159be4f8eb427f4d4a2324467" name="Mettre en oeuvre les méthodes et outils de supervision" color="#666666" meeting="false" start="2025-03-23" duration="14" complete="0" expand="true">
                         <notes><![CDATA[Intégration de Brad Pitch]]></notes>
                     </task>
@@ -388,7 +392,7 @@ Potentiellement un tableur excel ]]></notes>
             </task>
             <task id="58" uid="c9ba7c5e1f8740c19011738c41d4838c" name="Vérifier l'application des normes sur le numérique (RGPD, etc)" color="#666666" meeting="false" start="2025-05-25" duration="7" complete="0" priority="0" expand="true"/>
             <task id="402" uid="c629d98325a44f5d866c731186c738c3" name="Point d'étape : niveau de sécurité et respect des normes et de l’environnement" color="#d60be4" meeting="true" start="2025-05-17" duration="0" complete="0" expand="true"/>
-            <task id="473" uid="889631bf249144009a57a64a7380276c" name="Sécuriser l'infrastructure réseau et applicative" color="#55308d" meeting="false" start="2025-04-06" duration="54" complete="0" priority="4" expand="false">
+            <task id="473" uid="889631bf249144009a57a64a7380276c" name="Sécuriser l'infrastructure réseau et applicative" color="#55308d" meeting="false" start="2025-04-06" duration="54" complete="0" priority="4" expand="true">
                 <depend id="503" type="2" difference="0" hardness="Strong"/>
                 <task id="477" uid="f910b7362e7d4b2387e05b3d7391e9b1" name="Firewall" color="#666666" meeting="false" start="2025-04-06" duration="14" complete="0" expand="true">
                     <notes><![CDATA[Fichiers de configuration à jour (post hardening)
@@ -465,14 +469,14 @@ Potentiellement un tableur excel ]]></notes>
                 <task id="40" uid="f2ea02f241c44d208610e71fbc397a79" name="Designer le site : esthétisme et ergonomie" color="#00a933" meeting="false" start="2025-02-23" duration="14" complete="0" priority="4" expand="true">
                     <notes><![CDATA[Dialogue : Axel -> Lois -> Axel ->  ...]]></notes>
                 </task>
-                <task id="47" uid="535e42ba9765439691b3b14f67d43154" name="Fonctionnalités de base : navigation, pages, etc" color="#ea7500" meeting="false" start="2025-03-02" duration="14" complete="0" expand="true"/>
-                <task id="49" uid="80206196a2544fa5af13459d4b1b612a" name="Intégrer des services tests au site" color="#ea7500" meeting="false" start="2025-03-02" duration="14" complete="0" expand="true">
+                <task id="47" uid="535e42ba9765439691b3b14f67d43154" name="Fonctionnalités de base : navigation, pages, etc" color="#ea7500" meeting="false" start="2025-03-09" duration="14" complete="0" expand="true"/>
+                <task id="49" uid="80206196a2544fa5af13459d4b1b612a" name="Intégrer des services tests au site" color="#ea7500" meeting="false" start="2025-03-09" duration="14" complete="0" expand="true">
                     <depend id="497" type="2" difference="0" hardness="Strong"/>
                 </task>
-                <task id="48" uid="8ada8d1655dd457ba8d68a2c8e9e0b22" name="Intégrer des produits tests au site" color="#666666" meeting="false" start="2025-03-16" duration="7" complete="0" expand="true"/>
                 <task id="50" uid="989f90e6db3449b2ae9bf4213db7becc" name="Intégrer les différents moyens de paiement" color="#666666" meeting="false" start="2025-03-16" duration="14" complete="0" expand="true">
                     <depend id="497" type="2" difference="0" hardness="Strong"/>
                 </task>
+                <task id="48" uid="8ada8d1655dd457ba8d68a2c8e9e0b22" name="Intégrer des produits tests au site" color="#666666" meeting="false" start="2025-03-23" duration="7" complete="0" expand="true"/>
             </task>
             <task id="378" uid="7adfc7c70086404daad27debbd978053" name="Point d'étape : fonctionnement des essentiels du site" color="#d60be4" meeting="true" start="2025-03-29" duration="0" complete="0" expand="true"/>
             <task id="497" uid="efcd46bfe8a8449c89ddde5ddababb49" name="Améliorer le site" color="#55308d" meeting="false" start="2025-04-06" duration="41" complete="0" priority="0" expand="false">
@@ -559,6 +563,7 @@ Loïs -> Esthétique]]></notes>
         <allocation task-id="497" resource-id="0" function="Default:1" responsible="false" load="100.0"/>
         <allocation task-id="40" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
         <allocation task-id="47" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="509" resource-id="0" function="Default:1" responsible="false" load="100.0"/>
         <allocation task-id="342" resource-id="1" function="3" responsible="true" load="100.0"/>
         <allocation task-id="341" resource-id="1" function="3" responsible="false" load="100.0"/>
         <allocation task-id="340" resource-id="1" function="3" responsible="false" load="100.0"/>
@@ -672,7 +677,6 @@ Loïs -> Esthétique]]></notes>
         <allocation task-id="442" resource-id="2" function="1" responsible="true" load="100.0"/>
         <allocation task-id="455" resource-id="2" function="1" responsible="true" load="100.0"/>
         <allocation task-id="473" resource-id="2" function="1" responsible="true" load="100.0"/>
-        <allocation task-id="211" resource-id="2" function="1" responsible="true" load="100.0"/>
         <allocation task-id="424" resource-id="2" function="1" responsible="true" load="100.0"/>
         <allocation task-id="29" resource-id="2" function="1" responsible="false" load="100.0"/>
         <allocation task-id="62" resource-id="2" function="1" responsible="false" load="100.0"/>
@@ -698,6 +702,9 @@ Loïs -> Esthétique]]></notes>
         <allocation task-id="444" resource-id="2" function="1" responsible="true" load="100.0"/>
         <allocation task-id="447" resource-id="2" function="1" responsible="true" load="100.0"/>
         <allocation task-id="465" resource-id="2" function="1" responsible="true" load="100.0"/>
+        <allocation task-id="506" resource-id="2" function="1" responsible="true" load="100.0"/>
+        <allocation task-id="507" resource-id="2" function="1" responsible="true" load="100.0"/>
+        <allocation task-id="508" resource-id="2" function="1" responsible="true" load="100.0"/>
         <allocation task-id="338" resource-id="3" function="2" responsible="true" load="100.0"/>
         <allocation task-id="342" resource-id="3" function="2" responsible="true" load="100.0"/>
         <allocation task-id="341" resource-id="3" function="2" responsible="false" load="100.0"/>
@@ -780,6 +787,7 @@ Loïs -> Esthétique]]></notes>
         <allocation task-id="453" resource-id="3" function="2" responsible="true" load="100.0"/>
         <allocation task-id="446" resource-id="3" function="2" responsible="true" load="100.0"/>
         <allocation task-id="448" resource-id="3" function="2" responsible="true" load="100.0"/>
+        <allocation task-id="211" resource-id="3" function="2" responsible="true" load="100.0"/>
     </allocations>
     <vacations>
         <vacation start="2024-11-30" end="2024-12-01" resourceid="0"/>
