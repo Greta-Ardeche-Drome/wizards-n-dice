@@ -1,0 +1,35 @@
+#################################################################
+#								#
+#	Créateur : Arthur YANG - Responsable Documentation 	#
+#				 & Administratif		#
+			
+#	Date de création : 13/03/2025				#
+#								#
+#	Dernier modificateur : Arthur YANG			#
+#	Date de modification : 13/03/2025			#
+#								#
+#		Version actuelle : 1.0				#
+#								#
+#################################################################
+
+
+----------------------- Configuration et sécurisation du serveur de logs ----------------------- 
+
+Sources : 
+
+Activer les alertes dans Grafana
+Si un service commence à générer trop d'erreurs , nous pouvons configurer des alertes dans Grafana via Alertmanager .
+
+Nous pouvons ajouter cette ligne dans la config de Loki pour activer Alertmanager :
+
+=> ruler:
+     alertmanager_url: http://192.168.7.134:XXXXXXX (Voir conf sur le serveur pour voir le port)
+
+Grafana pourra maintenant déclencher des alertes sur les logs.
+
+
+=> Ouverture du port 9093 depuis le serveur de monitoring vers serveurs ( et autres VLAN sur stormshield ) 
+	=> Ajout comme rappel a faire comme règle dans le fichier EXCEL des règles sur le FW pour plus tard
+
+
+Partie sécurisation : 
