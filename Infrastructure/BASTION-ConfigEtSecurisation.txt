@@ -144,3 +144,5 @@ On peut rajouter :
 
 
 De manière générale, regarder les permissions des fichiers selon l'utilisateur qui utilise le service.
+
+Les logs de Guacamole meme si ont leur propres fichiers de logs, sont quand meme bien envoyé vers le syslog qui luit envoyé vers le serveur LOKI.
