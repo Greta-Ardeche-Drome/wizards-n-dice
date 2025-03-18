@@ -144,3 +144,14 @@ De manière générale, regarder les permissions des fichiers selon l'utilisateu
 Changement du port par défaut pour Grafana et accès web : port 3000 vers (Voir revue de sécurité)
 	=> Faire le changement dans le fichier de configuration.
 
+
+On va modifier quelques lignes pour la configuration des logs de grafana : 
+
+	=> Dans le fichier /etc/grafana/grafana.ini
+
+		=> # Directory where grafana can store logs
+		   ;logs = /var/log/grafana
+
+	=> On décommente (enlève le point virgule) la ligne ci-dessus
+
+Puis on relance le service, et on peut observer l'enregistrement des logs dans le syslog.
