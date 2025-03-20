@@ -438,7 +438,7 @@ Puis, on s'assure que le fichier a les bonnes permissions :
 	=> sudo chmod 644 /var/www/html/.htaccess
 
 Enfin on restart le service apache et charge le nouvelle hote virtuel "wizardsndice.conf" : 
-	=> a2ensite /etc/apache2/sites-available/wizardsndice.conf (se mettre dans le bon répertoire)
+	=> a2ensite wizardsndice.conf (se mettre dans le bon répertoire)
 	=> systemctl restart apache2
 	=> a2dissite 000-default.conf
 
@@ -484,5 +484,14 @@ AVEC
 	=> La suite dans ce fichier de conf pourra se faire dans la partie "Sécu" avec les .htaccess. etc ... et plus si besoin.
  
 Voila pour la partie configuration. Comme dit plus tot, il pourrait y avoir encore plein de configuration possible, mais ceci demanderait plus de temps et de reflexion.
+
+
+UPDATE : 
+
+=> On a remis le 000-defaut.conf comme hote virtuel pour le sites-enable.
+	=> Le fichier conf "wizardsndice.conf" est pas bon car il n'affiche rien lorsque on créer les pages on modifie des pages etc...
+
+De plus, on quasiment tout uninstall les plugins sur WP, donc il faudra les remettre de nouveau.
+
 
 (partie sécu (par le site, le plugin pour le cache, autres), mettre plus tard wordpress derrière un rproxy)
