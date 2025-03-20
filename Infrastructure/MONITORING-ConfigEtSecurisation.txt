@@ -154,4 +154,6 @@ On va modifier quelques lignes pour la configuration des logs de grafana :
 
 	=> On décommente (enlève le point virgule) la ligne ci-dessus
 
+Pour configurer des DASHBOARDS ou utiliser grafana, une vidéo sera disponible en privé sur la chaine YT.
+
 Puis on relance le service, et on peut observer l'enregistrement des logs dans le syslog.
