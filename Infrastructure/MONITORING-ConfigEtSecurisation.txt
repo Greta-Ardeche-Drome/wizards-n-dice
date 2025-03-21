@@ -154,6 +154,63 @@ On va modifier quelques lignes pour la configuration des logs de grafana :
 
 	=> On décommente (enlève le point virgule) la ligne ci-dessus
 
-Pour configurer des DASHBOARDS ou utiliser grafana, une vidéo sera disponible en privé sur la chaine YT.
-
 Puis on relance le service, et on peut observer l'enregistrement des logs dans le syslog.
+
+
+On va config l'envoi des mails depuis grafana, dans le fichier /etc/grafana/grafana.ini : 
+On utilise l'adresse : svg.wizardsndice@gmail.com et ne pas oublier de créer un mot de passe application
+
+--------------------------------------------------------------------------------------------------------
+
+################################### SMTP / Emailing ##########################
+[smtp]
+enabled = true
+host = smtp.gmail.com:587
+user = svg.wizardsndice@gmail.com
+password = lfjz fdys rnha czul
+;cert_file =
+;key_file =
+skip_verify = false
+from_address = svg.wizardsndice@gmail.com
+from_name = Grafana Monitoring
+;ehlo_identity = dashboard.example.com
+startTLS_policy = MandatoryStartTLS
+# Enable trace propagation in e-mail headers, using the 'traceparent', 'tracestate' and (optionally) 'baggage' fields (defaults to false)
+;enable_tracing = false
+
+--------------------------------------------------------------------------------------------------------
+
+La config est faite, on redemarre le service grafana.
+Je créée les libellés sur la boite gmail pour les mails de grafana.
+Les mails arrivent sur la boite mail.
+
+Maintenant on peut config les alertes sur GRAFANA.
+Voir sur grafana les alertes et leur config.
+
+
+On va configurer LDAP pour Grafana, afin de pouvoir s'authentifier avec les id ldap.
+Dans le fichier grafana.ini, on a la config suivante : 
+
+-------------------------------------------------------------------------------------------
+
+[auth.ldap]
+enabled = true
+config_file = /etc/grafana/ldap.toml
+allow_sign_up = true
+# prevent synchronizing ldap users organization roles
+skip_org_role_sync = false
+
+--------------------------------------------------------------------------------------------
+
+On peut restart le service, mais pour réellement config LDAPS sur le grafana, tout se passe dans le fichier : /etc/grafana/ldap.toml
+
+Nous allons le config de la manière suivante : 
+
+
+---------------------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------------------
+
+
+Pour configurer des DASHBOARDS ou utiliser grafana, une vidéo sera disponible en privé sur la chaine YT.
