@@ -3,31 +3,27 @@
 #	Créateur : Arthur YANG - Responsable Documentation 	#
 #				 & Administratif		#
 			
-#	Date de création : 19/02/2025				#
+#	Date de création : 16/03/2025				#
 #								#
 #	Dernier modificateur : Arthur YANG			#
-#	Date de modification : 19/02/2025			#
+#	Date de modification : 16/03/2025			#
 #								#
 #		Version actuelle : 1.0				#
 #								#
 #################################################################
 
 
------------------------ Configuration et sécurisation du serveur bastion ----------------------- 
+----------------------- Configuration et sécurisation du serveur RPROXY ----------------------- 
 
-Sources :
+Sources : 
 
 
-Actions effectuées dans la VM : 
+Actions effectuées dans le conteneur : 
 
    => Connexion via root / mot de passe
-   => apt update
-   => apt upgrade
    => apt install unzip
-   => Création d'un user "bastion" et son groupe sans accès interactif. (useradd --system --no-create-home --home /nonexistent --shell /usr/sbin/nologin bastion)
-
-	
-Installation de l'agent promtail (en root) :
+   => Installation de l'agent promtail
+   => Création d'un user "rproxy" et son groupe sans accès interactif. (useradd --system --no-create-home --home /nonexistent --shell /usr/sbin/nologin rproxy)
 
 	Installation de Promtail
   		 => Téléchargement et installation :
@@ -64,7 +60,7 @@ scrape_configs:
           - localhost
         labels:
           job: varlogs
-          host: SRV-WEB-AARD
+          host: SRV-RPROXY-AARD
           stream: stdout
           __path__: /var/log/*
 
@@ -72,17 +68,24 @@ scrape_configs:
 
 
 => Créer un dossier /var/lib/promtail/ : mkdir -p /var/lib/promtail
-		=> chown -R bastion:bastion /var/lib/promtail
+		=> chown -R rproxy:rproxy /var/lib/promtail
 		=> chmod -R 750 /var/lib/promtail
 
-	=> Nous mettons l'utilisateur créée plus tôt "bastion" en tant que propriétaire et propriétaire groupe des fichiers de config de Loki.
+	=> Nous mettons l'utilisateur créée plus tôt "rproxy" en tant que propriétaire et propriétaire groupe des fichiers de config de Loki.
 	
-		=> chown -R bastion:bastion promtail-config.yaml promtail-linux-amd64
+		=> chown -R rproxy:rproxy promtail-config.yaml promtail-linux-amd64
 		=> chmod 755 promtail-linux-amd64
 		=> chmod 640 promtail-config.yaml
 
 
 	=> Création du fichier : /etc/systemd/system/promtail.service
+
+
+Pour ce serveur qui a un problème de CPU et RAM avec promtail, nous limitions le service afin qu'il ne consomme pas trop.
+
+	=> Limite mémoire à 50 Mo
+	=> Limite CPU à 10%
+	=> Processus avec priorité basse (Nice=10)
 
 --------------------------------------------------------------------------------------------
 
@@ -93,11 +96,14 @@ After=network-online.target
 
 [Service]
 Type=simple
-User=bastion
-Group=bastion
+User=rproxy
+Group=rproxy
+MemoryLimit=50M
+CPUQuota=10%
+Nice=10
 ExecStart=/usr/local/bin/promtail-linux-amd64 -config.file=/usr/local/bin/promtail-config.yaml
 
-SyslogIdentifier=bastion
+SyslogIdentifier=rproxy
 Restart=always
 
 [Install]
@@ -124,25 +130,82 @@ On installe "rsyslog" pour qu'ils puissent etre visible dans "syslog"
 	=> systemctl enable rsyslog --now
 	=> tail -f /var/log/syslog
 
-Pour que notre utilisateur "bastion" puissent avoir les droits de lecture de logs, on va lui ajouter dans le groupe adm : 
+Pour que notre utilisateur "rproxy" puissent avoir les droits de lecture de logs, on va lui ajouter dans le groupe adm : 
 
-	=> usermod -aG adm bastion
+	=> usermod -aG adm rproxy
 	=> systemctl restart promtail.service
 
-En effet, Un problèmes d’accès aux fichiers /var/log/auth.log, /var/log/cron.log et /var/log/user.log par Grafana sera présent par le fait que l'on a paramétré le service promtail avec l'utilisateur "bastion".
+En effet, Un problèmes d’accès aux fichiers /var/log/auth.log, /var/log/cron.log et /var/log/user.log par Grafana sera présent par le fait que l'on a paramétré le service promtail avec l'utilisateur "rproxy".
 
 Faire de même avec le fichier "syslog" : 
 
-	=> chown bastion:root /var/log/syslog
+	=> chown rproxy:root /var/log/syslog
 	=> chmod 640 /var/log/syslog
 	=> systemctl restart promtail.service
 
-
 On peut rajouter : 
 
-	=> chown bastion:utmp /var/log/btmp
+	=> chown rproxy:utmp /var/log/btmp
+
 
 
 De manière générale, regarder les permissions des fichiers selon l'utilisateur qui utilise le service.
 
-Les logs de Guacamole meme si ont leur propres fichiers de logs, sont quand meme bien envoyé vers le syslog qui luit envoyé vers le serveur LOKI.
+Promtail récupère donc les logs globaux de la machine mais pas de NGINX et LetsEncrypt.
+
+Il faut ajouter 2 jobs qui vont chercher les fichier .log de NGINX et de LetsEncrypt explicitement.
+
+On modifie le groupe de "Letsencrypt" : chgrp -R adm /var/log/letsencrypt et chmod -R 750 /var/log/letsencrypt + chown -R rproxy /var/log/letsencrypt
+Pour "nginx" =>  chgrp -R adm /var/log/nginx puis chmod -R 750 /var/log/nginx
+
+Donc il faut modifier et ajouter dans le fichier promtail-config.yaml : 
+
+--------------------------------------------------------------------------------------------
+
+server:
+  http_listen_port: 9080
+  grpc_listen_port: 0
+
+positions:
+  filename: /var/lib/promtail/positions.yaml
+
+clients:
+  - url: http://192.168.7.133:3100/loki/api/v1/push  # Utilisation de l'IP du serveur Loki
+
+scrape_configs:
+  - job_name: system
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: varlogs
+          host: SRV-RPROXY-AARD
+          stream: stdout
+          __path__: /var/log/*
+
+  - job_name: nginx_logs
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: nginx
+          host: SRV-RPROXY-AARD
+          stream: stdout
+          __path__: /var/log/nginx/*
+
+  - job_name: letsencrypt_logs
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: letsencrypt
+          host: SRV-RPROXY-AARD
+          stream: stdout
+          __path__: /var/log/letsencrypt/*.log
+
+--------------------------------------------------------------------------------------------
+
+On restart les services de la suite GRAFANA (Loki, promtail, grafana).
+
+
+Maintenant sur GRAFANA, on pourra voir les noms des jobs qui iront chercher les fichiers logs de nginx et letsencrypt.
