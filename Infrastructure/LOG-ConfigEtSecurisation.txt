@@ -33,7 +33,7 @@ Grafana pourra maintenant déclencher des alertes sur les logs.
 
 On va essayer de surveiller l'état du FW avec SNMP avec logs textuels et non par des métriques comme avec Prometheus.
 J'ai décidé de ne pas installer Prometheus car nous avons loki pour les logs, meme si Prometheus serait pour le métriques.
-Ca nous forcerait a utiliser encore une techno et comme nous sommes sous format maquette, je me suis dit que c'était pas nécessaire.
+Ca nous forcerait a utiliser encore une techno et comme nous sommes sous format maquette, je me suis dit que c'était pas nécessaire. Surtout qu'il faut allouer des ressouces en plus, or nous sommes limités.
 
 	=> On active SNMP sur FW (SNMPV2C) voir config sur le FW
 	=> Autorisation du passage des infos snmp en autorisant le port SNMP et SNMPTRAP depuis le FW vers SRV LOG
