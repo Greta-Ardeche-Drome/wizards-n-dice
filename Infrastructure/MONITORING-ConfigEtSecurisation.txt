@@ -220,8 +220,8 @@ Voir sur grafana les alertes et leur config.
 
 On va configurer LDAP pour Grafana, afin de pouvoir s'authentifier avec les id ldap.
 
-	=> On créer le user pour link grafana et l'ad.
-	=> On importe les certifs ldaps sur le srv monitoring (MDP : Raven621!) => Dans /usr/local/share/ca-certificates/
+	=> On créer le user pour link grafana et l'ad (grafanalink).
+	=> On importe les certifs ldaps sur le srv monitoring (MDP : Meme que le compte "grafanalink" que j'ai mis pour ouvrir les certifs) => Dans /usr/local/share/ca-certificates/
 
 Dans le fichier grafana.ini, on a la config suivante : 
 On doit activer LDAP ici pour que sur le ui web LDAP apparaisse.
@@ -272,9 +272,8 @@ root_ca_cert = "/usr/local/share/ca-certificates/cert_intermediate.crt"
 bind_dn = "cn=Grafana Link,ou=Utilisateurs,ou=WND,dc=wnd,dc=local"
 # Search user bind password
 # If the password contains # or ; you have to wrap it with triple quotes. Ex """#password;"""
-bind_password = "Voir bitwarden"
 # We recommend using variable expansion for the bind_password, for more info https://grafana.com/docs/grafana/latest/setup-grafana/configure-grafana/#var>
-# bind_password = '$__env{LDAP_BIND_PASSWORD}'
+bind_password = '$__env{LDAP_BIND_PASSWORD}'
 
 # Timeout in seconds (applies to each host specified in the 'host' entry (space separated))
 timeout = 10
@@ -328,7 +327,42 @@ Maintenant je config dans le fichier /etc/grafana/ldap.toml
 	=> Le fait d'attribuer les bon groupes aux personnes, cacher le mdp dedans etc.. , en gros de la config
 	=> Les groupes sont fait, mais qu'avec un GL et non DL
 
+Il faut que l'on cache le mot de passe qui lie le serveur DC avec le serveur monitoring, car dans la conf : /etc/grafana/ldap.toml, on voit qu'il est en clair (Le compte "grafana link" en gros).
 
+On va donc créer une unité systemd avec variable cachée dans le fichier "override" du service GRAFANA.
+
+	=> mkdir -p /etc/systemd/system/grafana-server.service.d
+	=> nano /etc/systemd/system/grafana-server.service.d/override.conf
+
+Puis on colle ceci dans le fichier :
+
+	=> [Service]
+	   Environment="LDAP_BIND_PASSWORD=MDP"
+
+	=> On sauvegarde et quitte (Ctrl+O, Entrée, Ctrl+X)
+	=> On change les droits pour plus de sécurité : chmod root:root 600 /etc/systemd/system/grafana-server.service.d/override.conf
+
+
+On recharge systemd + restart Grafana
+
+	=> systemctl daemon-reexec
+	=> systemctl restart grafana-server
+
+
+On peut vérifier que tout est bon :
+
+	=> systemctl show grafana-server | grep LDAP_BIND_PASSWORD
+
+
+On doit voir : Environment=LDAP_BIND_PASSWORD=MDP
+
+
+Et dans ldap.toml, on doit bien avoir :
+
+	=> bind_password = '$__env{LDAP_BIND_PASSWORD}'
+
+On peut restart encore une fois les services, mais maintenant on plus le MDP en clair dans le fichier CONF de LDAP venant de GRAFANA.
+Le LDAPS doit fonctionner en se connectant avec les comptes ADMINS.
 
 
 Pour configurer des DASHBOARDS ou utiliser grafana, une vidéo sera disponible en privé sur la chaine YT.
