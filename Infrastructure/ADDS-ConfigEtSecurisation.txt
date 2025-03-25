@@ -62,8 +62,133 @@ scrape_configs:
 
 --------------------------------------------------------------------------------------------
 
+Ajout de droits lecture dans le job : WDEFENDER sur le serveur.
+	=> "Sécurité puis ajouter utilisateurs en lecture.
 
 Le service est lancé sur Windows et on peut le voir sur Grafana.
 
 Maintenant il faut continuer à configurer le fichier ymal : 
 
+
+La nouvelle configuration est la suivante (promtail-config.yaml dans C:\Windows\System32) : 
+
+--------------------------------------------------------------------------------------------
+
+server:
+  http_listen_port: 9080
+  grpc_listen_port: 0
+
+positions:
+  filename: C:\\ProgramData\\Promtail\\positions.yaml
+
+clients:
+  - url: http://192.168.7.133:3100/loki/api/v1/push
+
+scrape_configs:
+
+  - job_name: SRV-DC-AARD-CBS
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: DC-AARD-CBS
+          host: SRV-DC-AARD
+          stream: stdout
+          __path__: C:\\Windows\\Logs\\CBS\\*.log
+
+  - job_name: SRV-DC-AARD-DISM
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: DC-AARD-DISM
+          host: SRV-DC-AARD
+          stream: stdout
+          __path__: C:\\Windows\\Logs\\DISM\\*.log
+
+  - job_name: SRV-DC-AARD-WDEFENDER
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: DC-AARD-WDEFENDER
+          host: SRV-DC-AARD
+          stream: stdout
+          __path__: C:\\ProgramData\\Microsoft\\Windows Defender\\Support\\*.log
+
+  - job_name: SRV-DC-AARD-HTTPERR
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: DC-AARD-HTTPERR
+          host: SRV-DC-AARD
+          stream: stdout
+          __path__: C:\\Windows\\System32\\LogFiles\\HTTPERR\\*.log
+
+  - job_name: SRV-DC-AARD-SECURITE-LOG
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: DC-AARD-SECURITE-LOG
+          host: SRV-DC-AARD
+          stream: stdout
+          __path__: C:\\Windows\\Logs\\Evenements\\security_*.log
+
+  - job_name: SRV-DC-AARD-SYSTEME-LOG
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: DC-AARD-SYSTEME-LOG
+          host: SRV-DC-AARD
+          stream: stdout
+          __path__: C:\\Windows\\Logs\\Evenements\\system_*.log
+
+  - job_name: SRV-DC-AARD-APPLICATION-LOG
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: DC-AARD-APPLICATION-LOG
+          host: SRV-DC-AARD
+          stream: stdout
+          __path__: C:\\Windows\\Logs\\Evenements\\application_*.log
+
+--------------------------------------------------------------------------------------------
+
+Il faut ajouter en conséquences, les droits des fichiers ou répertoires mais il n'y avait pas grand chose à faire.
+
+
+Je vais faire une tâche planifiée pour créer des fichiers .txt des événements de windows, car ceux ci sont dans un format non .txt donc impossible pour Loki de lire.
+Donc une tâche qui envoi dans un fichier textes les evenements de windows (app, systeme et sécurité).
+
+
+Script pour l'extraction (Event vers log.ps1 dans C:\Windows\Logs) :
+
+--------------------------------------------------------------------------------------------
+
+#Dossier de sortie 
+$logDir "C:\Windows\Logs\Evenements" 
+If (!(Test-Path $logDir)) {
+    New-Item ItemType Directory Path $logDir
+}
+
+#Date pour fichier unique
+$date = Get-Date -Format "dd-MM-yyyy HH-mm"
+
+#Export des journaux.
+Get-WinEvent -LogName System -MaxEvents 10000 | Where-Object { $_ } | Out-File "$logDir\system_$date.log"
+Get-WinEvent -LogName Application -MaxEvents 10000 | Where-Object { $_ } | Out-File "$logDir\application_$date.log" 
+Get-WinEvent -Logllame Security -MaxEvents 10000 | Where-Object { $_ } | Out-File "$logDir\security_$date.log"
+
+#Supprimer les logs de plus de 7 jours
+Get-ChildItem $logDir -Filter *.log | Where-Object { $_.LastWriteTime -lt (Get-Date).AddDays(-7) } Remove-Item
+
+--------------------------------------------------------------------------------------------
+
+
+Puis dans le plannificateur de tâches, (voir sur le serveur, nom : Export LOG vers TXT), je l'execute tous les jours vers 23h00 pour récupérer des logs.
+
+Ainsi, nous pouvons redemarrer le service promtail et observé la récupération des infos sur Grafana.
