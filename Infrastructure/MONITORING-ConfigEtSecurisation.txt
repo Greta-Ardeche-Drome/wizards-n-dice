@@ -227,6 +227,9 @@ Dans le fichier grafana.ini, on a la config suivante :
 On doit activer LDAP ici pour que sur le ui web LDAP apparaisse.
 -------------------------------------------------------------------------------------------
 
+# The public facing domain name used to access grafana from a browser
+domain = wnd.local
+
 [auth.ldap]
 enabled = true
 config_file = /etc/grafana/ldap.toml

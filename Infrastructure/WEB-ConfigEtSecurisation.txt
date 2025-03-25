@@ -190,6 +190,7 @@ Configurer les logs pour qu'ils soient visibles dans GRAFANA :
 	=> Les logs d'apache se trouvent dans le répertoire : /var/log/apache2
 	=> On donne les droits pour pouvoir les récupérer et envoyer vers LOKI et GRAFANA 
 		=> chown -R web:adm /var/log/apache2
+		=> chmod -R 750 /var/log/apache2
 	=> Le répertoire et tout les fichiers .log donne le droit à promtail donc de les récuperer.
 
 Nous devons maintenant configurer le fichier promtail-config.yaml :
