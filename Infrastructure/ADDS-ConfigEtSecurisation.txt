@@ -156,6 +156,57 @@ scrape_configs:
           stream: stdout
           __path__: C:\\Windows\\Logs\\Evenements\\application_*.log
 
+  - job_name: SRV-DC-AARD-GPO
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: DC-AARD-GPO
+          host: SRV-DC-AARD
+          stream: stdout
+          __path__: C:\\Windows\\Logs\\Evenements\\group_policy_*.log
+
+  - job_name: SRV-DC-AARD-TASKS
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: DC-AARD-TASKS
+          host: SRV-DC-AARD
+          stream: stdout
+          __path__: C:\\Windows\\Logs\\Evenements\\scheduled_tasks_*.log
+
+  - job_name: SRV-DC-AARD-POWERSHELL
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: DC-AARD-POWERSHELL
+          host: SRV-DC-AARD
+          stream: stdout
+          __path__: C:\\Windows\\Logs\\Evenements\\powershell_*.log
+
+  - job_name: SRV-DC-AARD-SETUP
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: DC-AARD-SETUP
+          host: SRV-DC-AARD
+          stream: stdout
+          __path__: C:\\Windows\\Logs\\Evenements\\setup_*.log
+
+  - job_name: SRV-DC-AARD-DEFENDER
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: DC-AARD-DEFENDER
+          host: SRV-DC-AARD
+          stream: stdout
+          __path__: C:\\Windows\\Logs\\Evenements\\defender_*.log
+
+
 --------------------------------------------------------------------------------------------
 
 Il faut ajouter en conséquences, les droits des fichiers ou répertoires mais il n'y avait pas grand chose à faire.
@@ -182,6 +233,11 @@ $date = Get-Date -Format "dd-MM-yyyy HH-mm"
 Get-WinEvent -LogName System -MaxEvents 10000 | Where-Object { $_ } | Out-File "$logDir\system_$date.log"
 Get-WinEvent -LogName Application -MaxEvents 10000 | Where-Object { $_ } | Out-File "$logDir\application_$date.log" 
 Get-WinEvent -Logllame Security -MaxEvents 10000 | Where-Object { $_ } | Out-File "$logDir\security_$date.log"
+Get-WinEvent -LogName "Microsoft-Windows-GroupPolicy/Operational" -MaxEvents 1000 | Where-Object { $_ } | Out-File "$logDir\group_policy_$date.log"
+Get-WinEvent -LogName "Microsoft-Windows-TaskScheduler/Operational" -MaxEvents 1000 | Where-Object { $_ } | Out-File "$logDir\scheduled_tasks_$date.log"
+Get-WinEvent -LogName "Windows PowerShell" -MaxEvents 1000 | Where-Object { $_ } | Out-File "$logDir\powershell_$date.log"
+Get-WinEvent -LogName "Setup" -MaxEvents 1000 | Where-Object { $_ } | Out-File "$logDir\setup_$date.log"
+Get-WinEvent -LogName "Microsoft-Windows-Windows Defender/Operational" -MaxEvents 1000 | Where-Object { $_ } | Out-File "$logDir\defender_$date.log"
 
 #Supprimer les logs de plus de 7 jours
 Get-ChildItem $logDir -Filter *.log | Where-Object { $_.LastWriteTime -lt (Get-Date).AddDays(-7) } Remove-Item
