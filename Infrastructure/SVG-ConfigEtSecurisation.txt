@@ -114,26 +114,6 @@ scrape_configs:
           stream: stdout
           __path__: /var/log/kern.log
 
-  - job_name: SRV-SVG-AARD-SAMBA
-    static_configs:
-      - targets:
-          - localhost
-        labels:
-          job: SAMBA-AARD-SVG
-          host: SRV-SVG-AARD
-          stream: stdout
-          __path__: /var/log/samba/*
-
-  - job_name: SRV-SVG-AARD-PBS
-    static_configs:
-      - targets:
-          - localhost
-        labels:
-          job: PBS-AARD-SVG
-          host: SRV-SVG-AARD
-          stream: stdout
-          __path__: /var/log/proxmox-backup/api/*.log
-
 --------------------------------------------------------------------------------------------
 
 On change les droits du répertoire "samba" : 
@@ -141,7 +121,7 @@ On change les droits du répertoire "samba" :
 	=> chgrp -R adm /var/log/proxmox-backup ("Root" comme proprio au debut pour le rep : proxmox-backup et les sous dossier avec "backup" comme proprio et grp.)
 	=> chmod -R 770 /var/log/proxmox-backup
 
-UPDATE : J'ai remis comme auparavant les droits sur le repertoire et sous repertoires, avec "backup".
+UPDATE : Au final, je ne prendrais pas avec les logs les repertoires "samba" et "proxmox-backup" par soucis rencontrés.
 
 
 => Créer un dossier /var/lib/promtail/ : mkdir -p /var/lib/promtail
@@ -168,6 +148,9 @@ After=network-online.target
 Type=simple
 User=svg
 Group=svg
+MemoryLimit=50M
+CPUQuota=10%
+Nice=10
 ExecStart=/usr/local/bin/promtail-linux-amd64 -config.file=/usr/local/bin/promtail-config.yaml
 
 SyslogIdentifier=svg
