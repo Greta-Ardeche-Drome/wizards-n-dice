@@ -127,9 +127,6 @@ pattern_ingester:
   metric_aggregation:
     loki_address: 192.168.7.135:3100  # Mets l'IP du serveur de logs
 
-ruler:
-  alertmanager_url: http://192.168.7.134:9093  # Si tu as un Alertmanager sur le serveur de monitoring
-
 frontend:
   encoding: protobuf
 

@@ -368,4 +368,86 @@ On peut restart encore une fois les services, mais maintenant on plus le MDP en 
 Le LDAPS doit fonctionner en se connectant avec les comptes ADMINS.
 
 
+On va avant de faire les dashboards, installer Prometheus. Cela nous permettra de récupérer des métriques sur le Stormshield par exemple, et voir quelques autres serveurs.
+
+	=> Pour rester simple, on continuera d'utiliser l'utilisateur général "monitoring" créer exprès pour ce serveur. Pas besoin de créer un user pour Prometheus exclusivement.
+	
+	=> Créer un dossier /var/lib/prometheus : mkdir -p /var/lib/prometheus
+		=> chown -R monitoring:monitoring /var/lib/prometheus
+		=> chmod -R 750 /var/lib/prometheus
+		
+		=> mkdir /etc/prometheus
+		=> chown -R monitoring /etc/prometheus
+		=> chmod -R 750 /etc/prometheus
+
+	=> Installation de Prometheus
+
+  		=> Téléchargement et installation :
+		On se place dans le chemin : /usr/local/bin/
+		On télécharge le fichier zip de Prometheus : wget https://github.com/prometheus/prometheus/releases/download/v3.2.1/prometheus-3.2.1.linux-amd64.tar.gz
+		Nous pouvons ensuite l'unzip : tar -xvf (nom du fichier)
+
+
+	=> Configuration de Prometheus :
+
+	Nous avons ici le répertoire Prometheus, on nous allons récupérer les applications "prometheus" et "promtool" dans /usr/local/bin
+
+		=> mv prometheus-3.2.1.linux-amd64/prometheus /usr/local/bin/
+		=> mv prometheus-3.2.1.linux-amd64/promtool /usr/local/bin/
+	
+	Puis le fichier "yaml" dans /etc/prometheus
+	
+		=> mv prometheus-3.2.1.linux-amd64/prometheus.yml /etc/prometheus
+
+	On peut supprimer le repertoire "prometheus-3.2.1.linux-amd64"
+
+		=> rm -r /usr/local/bin/prometheus-3.2.1.linux-amd64/
+
+	On donne les bon droits pour tout les fichiers et répertoires : 
+
+		=> chown -R monitoring:monitoring /usr/local/bin/prometheus /usr/local/bin/promtool
+		=> chmod 755 /usr/local/bin/prometheus /usr/local/bin/promtool
+		=> chmod 640 /etc/prometheus/prometheus.yml
+		=> chown -R monitoring:monitoring /etc/prometheus/prometheus.yml
+
+
+=> Création du fichier : nano /etc/systemd/system/prometheus.service
+
+--------------------------------------------------------------------------------------------
+
+[Unit]
+Description=Prometheus Monitoring
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=monitoring
+Group=monitoring
+ExecStart=/usr/local/bin/prometheus \
+  --config.file=/etc/prometheus/prometheus.yml \
+  --storage.tsdb.path=/var/lib/prometheus/
+
+SyslogIdentifier=monitoring
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
+--------------------------------------------------------------------------------------------
+
+
+Commandes système et visualisation des logs en direct :
+
+		=> systemctl daemon-reexec
+		=> systemctl daemon-reload
+		=> systemctl enable prometheus.service 
+		=> systemctl start prometheus.service
+		=> systemctl status prometheus.service
+		=> journalctl -f -u prometheus.service
+
+	Normalement le service prometheus est lancé.	
+
+Prometheus est maintenant installé, il faut maintenant le config. Sur grafana ça fonctionne bien.
+
 Pour configurer des DASHBOARDS ou utiliser grafana, une vidéo sera disponible en privé sur la chaine YT.

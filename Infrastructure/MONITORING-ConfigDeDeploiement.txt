@@ -69,13 +69,13 @@ Actions pour Grafana et son installation (avec le compte en root) :
    => Tester l'accès HTTP avec curl : curl -I http://localhost:3000 OU dans une barre de recherche : http://@IP:3000
    => Facultatif (sécurité), modifier les paramètres du serveur Grafana via fichier de configuration : /etc/grafana/grafana.ini
 
-Sur la page de connexion (http://192.168.7.134:3000) depuis un poste, nous pouvons entrer par défaut "admin" pour le nom d'utilisateur et le mot de passe (voir bitwarden).
+Sur la page de connexion (http://192.168.7.134:XXXX(VOIR NOUVEAU PORT)) depuis un poste, nous pouvons entrer par défaut "admin" pour le nom d'utilisateur et le mot de passe (voir bitwarden).
 
 Cela nous authentifie, et nous arrivons sur la page Web de Grafana.
 
 Nous pouvons aller dans "ajouter votre première source de donnée" pour configurer Grafana avec Loki.
 
-	=> URL : http://192.168.7.133:3100
+	=> URL : http://192.168.7.133:XXXX (Voir FW ou document pour récupérer le port)
 	=> Save & test pour voir si la communication du SRV-MONITORING-AARD communique avec SRV-LOG-AARD
 
 Mise en place d'un DASHBOARD pour tester : 
