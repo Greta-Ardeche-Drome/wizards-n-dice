@@ -1,4 +1,4 @@
-#################################################################
+cd #################################################################
 #								#
 #	Créateur : Arthur YANG - Responsable Documentation 	#
 #				 & Administratif		#
@@ -141,6 +141,8 @@ On change les droits du répertoire "samba" :
 	=> chgrp -R adm /var/log/proxmox-backup ("Root" comme proprio au debut pour le rep : proxmox-backup et les sous dossier avec "backup" comme proprio et grp.)
 	=> chmod -R 770 /var/log/proxmox-backup
 
+UPDATE : J'ai remis comme auparavant les droits sur le repertoire et sous repertoires, avec "backup".
+
 
 => Créer un dossier /var/lib/promtail/ : mkdir -p /var/lib/promtail
 		=> chown -R svg:svg /var/lib/promtail
@@ -216,3 +218,5 @@ On peut rajouter :
 
 De manière générale, regarder les permissions des fichiers selon l'utilisateur qui utilise le service.
 
+
+Je désactive le promtail sur le serveur SVG lorsqu'il sera de nouveau allumé.
