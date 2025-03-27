@@ -450,4 +450,18 @@ Commandes système et visualisation des logs en direct :
 
 Prometheus est maintenant installé, il faut maintenant le config. Sur grafana ça fonctionne bien.
 
+	=> On autorisera si besoin, l'écoute du port PROMETHEUS vers d'autres serveurs. Même si il n'y a pas besoin.
+	=> Ce sera surtout les ports des "exporters" où il faudra autoriser sur le FW.
+	=> Utilisation d'un port différent de celui par défaut. (Voir FW ou DOC de Sécu)
+
+
+On va essayer de surveiller l'état du FW avec SNMP et Prometheus.
+
+	=> On active SNMP sur FW (SNMPV2C) voir config sur le FW
+	=> Autorisation du passage des infos snmp en autorisant le port SNMP et SNMPTRAP depuis le FW vers SRV MONITORING
+	=> Sur le SRV MONITORING : apt install snmp
+	=> On peut tester de récup des infos depuis le serveur via SNMP sur le FW : snmpwalk -v2c -c wnd -r 1 192.168.7.142
+
+
+
 Pour configurer des DASHBOARDS ou utiliser grafana, une vidéo sera disponible en privé sur la chaine YT.

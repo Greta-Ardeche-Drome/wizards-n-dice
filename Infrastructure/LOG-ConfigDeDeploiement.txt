@@ -248,16 +248,6 @@ scrape_configs:
           stream: stdout
           __path__: /var/log/cron.log
 
-  - job_name: SRV-LOG-AARD-STORM
-    static_configs:
-      - targets:
-          - localhost
-        labels:
-          job: STORM-AARD-LOG
-          host: SRV-LOG-AARD
-          stream: stdout
-          __path__: /var/log/stormshield_snmp.log
-
 --------------------------------------------------------------------------------------------
 
 => Créer un dossier /var/lib/promtail/ : mkdir -p /var/lib/promtail
