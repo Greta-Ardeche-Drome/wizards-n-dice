@@ -536,19 +536,25 @@ On a ajouter le bloc "job_name" dans le fichier /etc/prometheus/prometheus.yml :
 
 -------------------------------------------------
 
-- job_name: 'stormshield'
-  metrics_path: /snmp
-  params:
-    module: [stormshield]
-  static_configs:
-    - targets: ['192.168.7.142']
-  relabel_configs:
-    - source_labels: [__address__]
-      target_label: __param_target
-    - source_labels: [__param_target]
-      target_label: instance
-    - target_label: __address__
-      replacement: 127.0.0.1:XXXX
+  - job_name: 'stormshield'
+#   scrape_interval: 3000s
+    static_configs:
+      - targets:
+          - 192.168.7.142   # IP du firewall SNS
+    metrics_path: /snmp
+    params:
+      auth: [wnd_v2c]
+      module: [stormshield]
+
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+
+      - source_labels: [__param_target]
+        target_label: instance
+
+      - target_label: __address__
+        replacement: 192.168.7.134:XXXX
 
 --------------------------------------------------
 
@@ -559,28 +565,34 @@ On personnalise le fichier /etc/prometheus/snmp.yml
 
 -----------------------------------------------------------------
 
+auths:
+  wnd_v2c:
+    community: wnd
+    version: 2
+
 modules:
   stormshield:
-    version: 2
-    auth:
-      community: wnd
     walk:
-      - 1.3.6.1.2.1.1
-      - 1.3.6.1.2.1.2
-      - 1.3.6.1.2.1.25
-      - 1.3.6.1.2.1.4
-      - 1.3.6.1.2.1.5
-      - 1.3.6.1.2.1.6
-      - 1.3.6.1.2.1.7
-      - 1.3.6.1.2.1.31
-      - 1.3.6.1.4.1.11256.1.1.1.1
-      - 1.3.6.1.4.1.11256.1.1.5.1
-      - 1.3.6.1.4.1.11256.1.1.7.1
+      - 1.3.6.1.2.1.1          # system
+      - 1.3.6.1.2.1.2          # interfaces
+      - 1.3.6.1.2.1.25         # host resources
+      - 1.3.6.1.2.1.4          # IP
+      - 1.3.6.1.2.1.5          # ICMP
+      - 1.3.6.1.2.1.6          # TCP
+      - 1.3.6.1.2.1.7          # UDP
+      - 1.3.6.1.2.1.31         # ifXTable
+      - 1.3.6.1.4.1.11256.1.1.1.1  # Stormshield system
+#      - 1.3.6.1.4.1.11256.1.1.5.1  # VPN
+#      - 1.3.6.1.4.1.11256.1.1.7.1  # Sessions
+#      - 1.3.6.1.4.1.11256.1.1.1.2       # Uptime
+#      - 1.3.6.1.4.1.11256.1.1.1.3       # Mem
+#      - 1.3.6.1.4.1.11256.1.1.10.7.1.2  # CPU Temp
+#      - 1.3.6.1.4.1.11256.1.1.10.8.1.5  # Bypass runtime
 
 -----------------------------------------------------------------
 
-Il semble avoir un problème de lancement du service SNMP EXPORTER qui dit avoir un probleme de parsing.
-Cela viendrait du fichier snmp.yml, (meme en réinstallant) qui causerait le problème.
+Maintenant le service se lance, donc SNMP EXPORTER fonctionne, mais il faut faire de la configuration maintenant.
+(c'est pas facile et sur d'autres appareils)
 
 
 
