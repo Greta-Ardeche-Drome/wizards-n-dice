@@ -15,7 +15,7 @@
 
 ----------------------- Configuration et sécurisation du serveur de monitoring ----------------------- 
 
-Sources : 
+Sources : https://shape.host/resources/comment-installer-prometheus-sur-debian-12
 
 
 Actions effectuées dans le conteneur : 
@@ -426,7 +426,11 @@ User=monitoring
 Group=monitoring
 ExecStart=/usr/local/bin/prometheus \
   --config.file=/etc/prometheus/prometheus.yml \
-  --storage.tsdb.path=/var/lib/prometheus/
+  --storage.tsdb.path=/var/lib/prometheus \
+  --web.listen-address=0.0.0.0:XXXX
+  --storage.tsdb.retention.time=7d \
+  --storage.tsdb.min-block-duration=2h \
+  --storage.tsdb.max-block-duration=2h
 
 SyslogIdentifier=monitoring
 Restart=always
@@ -436,6 +440,8 @@ WantedBy=multi-user.target
 
 --------------------------------------------------------------------------------------------
 
+On a changé ici le port d'écoute de Promotheus ici, dans le fichier du service. Ca ne se fait pas dans le .yml .
+Et d'autres paramètres sont présent pour de l'optimisation.
 
 Commandes système et visualisation des logs en direct :
 
@@ -451,9 +457,22 @@ Commandes système et visualisation des logs en direct :
 Prometheus est maintenant installé, il faut maintenant le config. Sur grafana ça fonctionne bien.
 
 	=> On autorisera si besoin, l'écoute du port PROMETHEUS vers d'autres serveurs. Même si il n'y a pas besoin.
-	=> Ce sera surtout les ports des "exporters" où il faudra autoriser sur le FW.
-	=> Utilisation d'un port différent de celui par défaut. (Voir FW ou DOC de Sécu)
+	=> Ce sera surtout les ports des "exporters" où il faudra autoriser sur le FW, depuis autre serveur surement.
+	=> Utilisation d'un port différent de celui par défaut pour PROMETHEUS. (Voir FW ou DOC de Sécu)
+	=> Utilisation d'un port différent de celui par défaut pour SNMP EXPORTER (Voir FW ou DOC de Sécu)
 
+
+J'ai ajouté des lignes dans le fichier /etc/prometheus/prometheus.yml :
+
+	=> global:
+ 	     scrape_interval: 15s # Set the scrape interval to every 15 seconds. Default is every 1 minute.
+             evaluation_interval: 15s # Evaluate rules every 15 seconds. The default is every 1 minute.
+             # scrape_timeout is set to the global default (10s).
+             external_labels:
+    	       environment: "production"
+               instance: "SRV-MONITORING-AARD"
+
+Ces lignes pourront être modifiées plus tard.
 
 On va essayer de surveiller l'état du FW avec SNMP et Prometheus.
 
@@ -461,6 +480,107 @@ On va essayer de surveiller l'état du FW avec SNMP et Prometheus.
 	=> Autorisation du passage des infos snmp en autorisant le port SNMP et SNMPTRAP depuis le FW vers SRV MONITORING
 	=> Sur le SRV MONITORING : apt install snmp
 	=> On peut tester de récup des infos depuis le serveur via SNMP sur le FW : snmpwalk -v2c -c wnd -r 1 192.168.7.142
+
+	=> Dans /usr/local/bin/ , on télécharge SNMP Exporter qui va nous servir à récupérer les métriques de Stormshield ici.
+
+		=> wget https://github.com/prometheus/snmp_exporter/releases/download/v0.28.0/snmp_exporter-0.28.0.linux-amd64.tar.gz
+		=> tar -xvzf snmp_exporter-0.28.0.linux-amd64.tar.gz
+		=> rm snmp_exporter-0.28.0.linux-amd64.tar.gz
+		=> mv /usr/local/bin/snmp_exporter-0.28.0.linux-amd64/snmp_exporter /usr/local/bin/
+		=> mv /usr/local/bin/snmp_exporter-0.28.0.linux-amd64/snmp.yml /etc/prometheus
+		=> chown -R monitoring:monitoring /usr/local/bin/snmp_exporter
+		=> chmod 755 /usr/local/bin/snmp_exporter
+		=> chmod 640 /etc/prometheus/snmp.yml
+		=> chown -R monitoring:monitoring /etc/prometheus/snmp.yml
+		=> rm -r /usr/local/bin/snmp_exporter-0.28.0.linux-amd64/
+
+
+=> Création du fichier : nano /etc/systemd/system/snmp_exporter.service
+
+--------------------------------------------------------------------------------------------
+
+[Unit]
+Description=Prometheus SNMP Exporter
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=monitoring
+Group=monitoring
+ExecStart=/usr/local/bin/snmp_exporter \
+  --config.file=/etc/prometheus/snmp.yml \
+  --web.listen-address=0.0.0.0:XXXX
+
+SyslogIdentifier=monitoring
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
+--------------------------------------------------------------------------------------------
+
+On a changé ici le port d'écoute de SNMP EXPORTER de Prometheus ici, dans le fichier du service. Ca ne se fait pas dans le .yml .
+
+Commandes système et visualisation des logs en direct :
+
+		=> systemctl daemon-reexec
+		=> systemctl daemon-reload
+		=> systemctl enable snmp_exporter.service 
+		=> systemctl start snmp_exporter.service
+		=> systemctl status snmp_exporter.service
+		=> journalctl -f -u snmp_exporter.service
+
+
+On a ajouter le bloc "job_name" dans le fichier /etc/prometheus/prometheus.yml : 
+
+-------------------------------------------------
+
+- job_name: 'stormshield'
+  metrics_path: /snmp
+  params:
+    module: [stormshield]
+  static_configs:
+    - targets: ['192.168.7.142']
+  relabel_configs:
+    - source_labels: [__address__]
+      target_label: __param_target
+    - source_labels: [__param_target]
+      target_label: instance
+    - target_label: __address__
+      replacement: 127.0.0.1:XXXX
+
+--------------------------------------------------
+
+Création au cas ou, de l'objet PORT pour SNMP EXPORTER.
+
+
+On personnalise le fichier /etc/prometheus/snmp.yml
+
+-----------------------------------------------------------------
+
+modules:
+  stormshield:
+    version: 2
+    auth:
+      community: wnd
+    walk:
+      - 1.3.6.1.2.1.1
+      - 1.3.6.1.2.1.2
+      - 1.3.6.1.2.1.25
+      - 1.3.6.1.2.1.4
+      - 1.3.6.1.2.1.5
+      - 1.3.6.1.2.1.6
+      - 1.3.6.1.2.1.7
+      - 1.3.6.1.2.1.31
+      - 1.3.6.1.4.1.11256.1.1.1.1
+      - 1.3.6.1.4.1.11256.1.1.5.1
+      - 1.3.6.1.4.1.11256.1.1.7.1
+
+-----------------------------------------------------------------
+
+Il semble avoir un problème de lancement du service SNMP EXPORTER qui dit avoir un probleme de parsing.
+Cela viendrait du fichier snmp.yml, (meme en réinstallant) qui causerait le problème.
 
 
 
