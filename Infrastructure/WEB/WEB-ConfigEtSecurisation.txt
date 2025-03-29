@@ -57,15 +57,55 @@ clients:
   - url: http://192.168.7.133:3100/loki/api/v1/push  # Utilisation de l'IP du serveur Loki
 
 scrape_configs:
-  - job_name: system
+  - job_name: SRV-WEB-AARD-SYSLOG
     static_configs:
       - targets:
           - localhost
         labels:
-          job: varlogs
+          job: SYSLOG-AARD-WEB
           host: SRV-WEB-AARD
           stream: stdout
-          __path__: /var/log/*
+          __path__: /var/log/syslog
+
+  - job_name: SRV-WEB-AARD-MAIL
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: MAIL-AARD-WEB
+          host: SRV-WEB-AARD
+          stream: stdout
+          __path__: /var/log/mail.log
+
+  - job_name: SRV-WEB-AARD-CRON
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: CRON-AARD-WEB
+          host: SRV-WEB-AARD
+          stream: stdout
+          __path__: /var/log/cron.log
+
+  - job_name: SRV-WEB-AARD-AUTHLOG
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: AUTHLOG-AARD-WEB
+          host: SRV-WEB-AARD
+          stream: stdout
+          __path__: /var/log/auth.log
+
+  - job_name: SRV-WEB-AARD-APACHE2_LOGS
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: APACHE2_LOGS-SRV-WEB-AARD
+          host: SRV-WEB-AARD
+          stream: stdout
+          __path__: /var/log/apache2/*.log
 
 --------------------------------------------------------------------------------------------
 
@@ -150,6 +190,7 @@ Configurer les logs pour qu'ils soient visibles dans GRAFANA :
 	=> Les logs d'apache se trouvent dans le répertoire : /var/log/apache2
 	=> On donne les droits pour pouvoir les récupérer et envoyer vers LOKI et GRAFANA 
 		=> chown -R web:adm /var/log/apache2
+		=> chmod -R 750 /var/log/apache2
 	=> Le répertoire et tout les fichiers .log donne le droit à promtail donc de les récuperer.
 
 Nous devons maintenant configurer le fichier promtail-config.yaml :
@@ -167,23 +208,53 @@ clients:
   - url: http://192.168.7.133:3100/loki/api/v1/push  # Utilisation de l'IP du serveur Loki
 
 scrape_configs:
-  - job_name: system
+  - job_name: SRV-WEB-AARD-SYSLOG
     static_configs:
       - targets:
           - localhost
         labels:
-          job: varlogs
-          host: SRV-BDD-PROD-AARD
+          job: SYSLOG-AARD-WEB
+          host: SRV-WEB-AARD
           stream: stdout
-          __path__: /var/log/*
+          __path__: /var/log/syslog
 
-  - job_name: apache2_logs
+  - job_name: SRV-WEB-AARD-MAIL
     static_configs:
       - targets:
           - localhost
         labels:
-          job: apache2_webprod
-          host: SRV-WEB-PROD-AARD
+          job: MAIL-AARD-WEB
+          host: SRV-WEB-AARD
+          stream: stdout
+          __path__: /var/log/mail.log
+
+  - job_name: SRV-WEB-AARD-CRON
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: CRON-AARD-WEB
+          host: SRV-WEB-AARD
+          stream: stdout
+          __path__: /var/log/cron.log
+
+  - job_name: SRV-WEB-AARD-AUTHLOG
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: AUTHLOG-AARD-WEB
+          host: SRV-WEB-AARD
+          stream: stdout
+          __path__: /var/log/auth.log
+
+  - job_name: SRV-WEB-AARD-APACHE2_LOGS
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: APACHE2_LOGS-SRV-WEB-AARD
+          host: SRV-WEB-AARD
           stream: stdout
           __path__: /var/log/apache2/*.log
 

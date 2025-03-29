@@ -54,15 +54,66 @@ clients:
   - url: http://192.168.7.133:3100/loki/api/v1/push  # Utilisation de l'IP du serveur Loki
 
 scrape_configs:
-  - job_name: system
+  - job_name: SRV-RPROXY-AARD-SYSLOG
     static_configs:
       - targets:
           - localhost
         labels:
-          job: varlogs
+          job: SYSLOG-AARD-RPROXY
           host: SRV-RPROXY-AARD
           stream: stdout
-          __path__: /var/log/*
+          __path__: /var/log/syslog
+
+  - job_name: SRV-RPROXY-AARD-NGINX
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: NGINX-AARD-RPROXY
+          host: SRV-RPROXY-AARD
+          stream: stdout
+          __path__: /var/log/nginx/*
+
+  - job_name: SRV-RPROXY-AARD-ENCRYPT
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: ENCRYPT-AARD-RPROXY
+          host: SRV-RPROXY-AARD
+          stream: stdout
+          __path__: /var/log/letsencrypt/*.log
+
+  - job_name: SRV-RPROXY-AARD-MAIL
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: MAIL-AARD-RPROXY
+          host: SRV-RPROXY-AARD
+          stream: stdout
+          __path__: /var/log/mail.log
+
+  - job_name: SRV-RPROXY-AARD-CRON
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: CRON-AARD-RPROXY
+          host: SRV-RPROXY-AARD
+          stream: stdout
+          __path__: /var/log/cron.log
+
+  - job_name: SRV-RPROXY-AARD-AUTHLOG
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: AUTHLOG-AARD-RPROXY
+          host: SRV-RPROXY-AARD
+          stream: stdout
+          __path__: /var/log/auth.log
+
 
 --------------------------------------------------------------------------------------------
 
@@ -155,8 +206,8 @@ Promtail récupère donc les logs globaux de la machine mais pas de NGINX et Let
 
 Il faut ajouter 2 jobs qui vont chercher les fichier .log de NGINX et de LetsEncrypt explicitement.
 
-On modifie le groupe de "Letsencrypt" : chgrp -R adm /var/log/letsencrypt et chmod -R 750 /var/log/letsencrypt + chown -R rproxy /var/log/letsencrypt
-Pour "nginx" =>  chgrp -R adm /var/log/nginx puis chmod -R 750 /var/log/nginx
+On modifie le groupe de "Letsencrypt" : chgrp -R adm /var/log/letsencrypt et chmod -R 770 /var/log/letsencrypt + chown -R rproxy /var/log/letsencrypt
+Pour "nginx" =>  chgrp -R adm /var/log/nginx puis chmod -R 770 /var/log/nginx
 
 Donc il faut modifier et ajouter dans le fichier promtail-config.yaml : 
 

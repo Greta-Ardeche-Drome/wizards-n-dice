@@ -127,9 +127,6 @@ pattern_ingester:
   metric_aggregation:
     loki_address: 192.168.7.135:3100  # Mets l'IP du serveur de logs
 
-ruler:
-  alertmanager_url: http://192.168.7.134:9093  # Si tu as un Alertmanager sur le serveur de monitoring
-
 frontend:
   encoding: protobuf
 
@@ -211,15 +208,45 @@ clients:
   - url: http://192.168.7.133:3100/loki/api/v1/push  # Utilisation de l'IP du serveur Loki
 
 scrape_configs:
-  - job_name: system
+  - job_name: SRV-LOG-AARD-SYSLOG
     static_configs:
       - targets:
           - localhost
         labels:
-          job: varlogs
-          host: srv-log-aard
+          job: SYSLOG-AARD-LOG
+          host: SRV-LOG-AARD
           stream: stdout
-          __path__: /var/log/*
+          __path__: /var/log/syslog
+
+  - job_name: SRV-LOG-AARD-MAIL
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: MAIL-AARD-LOG
+          host: SRV-LOG-AARD
+          stream: stdout
+          __path__: /var/log/mail.log
+
+  - job_name: SRV-LOG-AARD-AUTHLOG
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: AUTHLOG-AARD-LOG
+          host: SRV-LOG-AARD
+          stream: stdout
+          __path__: /var/log/auth.log
+
+  - job_name: SRV-LOG-AARD-CRON
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: CRON-AARD-LOG
+          host: SRV-LOG-AARD
+          stream: stdout
+          __path__: /var/log/cron.log
 
 --------------------------------------------------------------------------------------------
 

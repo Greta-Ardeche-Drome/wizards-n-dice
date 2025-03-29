@@ -56,17 +56,61 @@ clients:
   - url: http://192.168.7.133:3100/loki/api/v1/push  # Utilisation de l'IP du serveur Loki
 
 scrape_configs:
-  - job_name: system
+  - job_name: SRV-BDD-PREPROD-AARD-SYSLOG
     static_configs:
       - targets:
           - localhost
         labels:
-          job: varlogs
+          job: SYSLOG-AARD-BDD-PREPROD
           host: SRV-BDD-PREPROD-AARD
           stream: stdout
-          __path__: /var/log/*
+          __path__: /var/log/syslog
+
+  - job_name: SRV-BDD-PREPROD-AARD-CRON
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: CRON-AARD-BDD-PREPROD
+          host: SRV-BDD-PREPROD-AARD
+          stream: stdout
+          __path__: /var/log/cron.log
+
+  - job_name: SRV-BDD-PREPROD-AARD-AUTHLOG
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: AUTHLOG-AARD-BDD-PREPROD
+          host: SRV-BDD-PREPROD-AARD
+          stream: stdout
+          __path__: /var/log/auth.log
+
+  - job_name: SRV-BDD-PREPROD-AARD-KERNLOG
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: KERNLOG-AARD-BDD-PREPROD
+          host: SRV-BDD-PREPROD-AARD
+          stream: stdout
+          __path__: /var/log/kern.log
+
+  - job_name: SRV-BDD-PREPROD-AARD-MYSQL
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: MYSQL-AARD-BDD-PREPROD
+          host: SRV-BDD-PREPROD-AARD
+          stream: stdout
+          __path__: /var/log/mysql/*.log
 
 --------------------------------------------------------------------------------------------
+
+On modifie les droits pour "MySQL" : 
+	=> chmod -R 770 /var/log/mysql
+	=> chgrp -R adm /var/log/mysql
 
 
 => Créer un dossier /var/lib/promtail/ : mkdir -p /var/lib/promtail
