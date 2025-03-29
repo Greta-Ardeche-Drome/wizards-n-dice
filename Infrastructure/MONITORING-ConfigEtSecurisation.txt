@@ -582,18 +582,70 @@ modules:
       - 1.3.6.1.2.1.7          # UDP
       - 1.3.6.1.2.1.31         # ifXTable
       - 1.3.6.1.4.1.11256.1.1.1.1  # Stormshield system
-#      - 1.3.6.1.4.1.11256.1.1.5.1  # VPN
-#      - 1.3.6.1.4.1.11256.1.1.7.1  # Sessions
-#      - 1.3.6.1.4.1.11256.1.1.1.2       # Uptime
-#      - 1.3.6.1.4.1.11256.1.1.1.3       # Mem
-#      - 1.3.6.1.4.1.11256.1.1.10.7.1.2  # CPU Temp
-#      - 1.3.6.1.4.1.11256.1.1.10.8.1.5  # Bypass runtime
+      - 1.3.6.1.4.1.11256.1.1.7  # Sessions
+      - 1.3.6.1.4.1.2021 #Infos
+      - 1.3.6.1.2.1.1.3.0        # sysUpTimeInstance
+      - 1.3.6.1.2.1.1.4.0        # sysContact
+      - 1.3.6.1.2.1.1.5.0        # sysName
+      - 1.3.6.1.4.1.2021.4       # Memory stats
+      - 1.3.6.1.4.1.2021.10      # CPU Load
+      - 1.3.6.1.4.1.2021.10.1.3.1
+      - 1.3.6.1.4.1.2021.10.1.3.2
+      - 1.3.6.1.4.1.2021.10.1.3.3
+
+    metrics:
+      - name: sysUpTimeInstance
+        oid: 1.3.6.1.2.1.1.3.0
+        type: gauge
+        help: Uptime du systeme
+
+      - name: sysContact
+        oid: 1.3.6.1.2.1.1.4.0
+        type: DisplayString
+        help: Contact information
+
+      - name: sysName
+        oid: 1.3.6.1.2.1.1.5.0
+        type: DisplayString
+        help: Hostname du firewall
+
+      - name: memTotalReal
+        oid: 1.3.6.1.4.1.2021.4.5.0
+        type: gauge
+        help: Total RAM physique en KB
+
+      - name: memAvailReal
+        oid: 1.3.6.1.4.1.2021.4.6.0
+        type: gauge
+        help: RAM physique disponible en KB
+
+      - name: memBuffer
+        oid: 1.3.6.1.4.1.2021.4.14.0
+        type: gauge
+        help: RAM buffered en KB
+
+      - name: cpuLoad1
+        oid: 1.3.6.1.4.1.2021.10.1.3.1
+        type: gauge
+        help: Charge CPU sur 1 min
+
+      - name: cpuLoad5
+        oid: 1.3.6.1.4.1.2021.10.1.3.2
+        type: gauge
+        help: Charge CPU sur 5 min
+
+      - name: cpuLoad15
+        oid: 1.3.6.1.4.1.2021.10.1.3.3
+        type: gauge
+        help: Charge CPU sur 15 min
 
 -----------------------------------------------------------------
 
 Maintenant le service se lance, donc SNMP EXPORTER fonctionne, mais il faut faire de la configuration maintenant.
 (c'est pas facile et sur d'autres appareils)
 
+Dont notamment pour récupérer des métriques. C'est de la config dans le snmp.yml.
 
+Je ne pense pas installé d'autres modules avec Prometheus autre que SNMP EXPORTER. Etant en maquette, il nous faut juste quelques exemples.
 
 Pour configurer des DASHBOARDS ou utiliser grafana, une vidéo sera disponible en privé sur la chaine YT.
