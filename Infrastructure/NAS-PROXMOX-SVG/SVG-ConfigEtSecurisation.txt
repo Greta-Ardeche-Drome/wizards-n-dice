@@ -1,4 +1,4 @@
-#################################################################
+cd #################################################################
 #								#
 #	Créateur : Arthur YANG - Responsable Documentation 	#
 #				 & Administratif		#
@@ -54,17 +54,74 @@ clients:
   - url: http://192.168.7.133:3100/loki/api/v1/push  # Utilisation de l'IP du serveur Loki
 
 scrape_configs:
-  - job_name: system
+  - job_name: SRV-SVG-AARD-SYSLOG
     static_configs:
       - targets:
           - localhost
         labels:
-          job: varlogs
+          job: SYSLOG-AARD-SVG
           host: SRV-SVG-AARD
           stream: stdout
-          __path__: /var/log/*
+          __path__: /var/log/syslog
+
+  - job_name: SRV-SVG-AARD-MAIL
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: MAIL-AARD-SVG
+          host: SRV-SVG-AARD
+          stream: stdout
+          __path__: /var/log/mail.log
+
+  - job_name: SRV-SVG-AARD-CRON
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: CRON-AARD-SVG
+          host: SRV-SVG-AARD
+          stream: stdout
+          __path__: /var/log/cron.log
+
+  - job_name: SRV-SVG-AARD-AUTHLOG
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: AUTHLOG-AARD-SVG
+          host: SRV-SVG-AARD
+          stream: stdout
+          __path__: /var/log/auth.log
+
+  - job_name: SRV-SVG-AARD-USERLOG
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: USERLOG-AARD-SVG
+          host: SRV-SVG-AARD
+          stream: stdout
+          __path__: /var/log/user.log
+
+  - job_name: SRV-SVG-AARD-KERNLOG
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: KERNLOG-AARD-SVG
+          host: SRV-SVG-AARD
+          stream: stdout
+          __path__: /var/log/kern.log
 
 --------------------------------------------------------------------------------------------
+
+On change les droits du répertoire "samba" : 
+	=> chmod -R 770 /var/log/samba
+	=> chgrp -R adm /var/log/proxmox-backup ("Root" comme proprio au debut pour le rep : proxmox-backup et les sous dossier avec "backup" comme proprio et grp.)
+	=> chmod -R 770 /var/log/proxmox-backup
+
+UPDATE : Au final, je ne prendrais pas avec les logs les repertoires "samba" et "proxmox-backup" par soucis rencontrés.
 
 
 => Créer un dossier /var/lib/promtail/ : mkdir -p /var/lib/promtail
@@ -91,6 +148,9 @@ After=network-online.target
 Type=simple
 User=svg
 Group=svg
+MemoryLimit=50M
+CPUQuota=10%
+Nice=10
 ExecStart=/usr/local/bin/promtail-linux-amd64 -config.file=/usr/local/bin/promtail-config.yaml
 
 SyslogIdentifier=svg
@@ -141,3 +201,5 @@ On peut rajouter :
 
 De manière générale, regarder les permissions des fichiers selon l'utilisateur qui utilise le service.
 
+
+Je désactive le promtail sur le serveur SVG lorsqu'il sera de nouveau allumé.

@@ -56,15 +56,55 @@ clients:
   - url: http://192.168.7.133:3100/loki/api/v1/push  # Utilisation de l'IP du serveur Loki
 
 scrape_configs:
-  - job_name: system
+  - job_name: SRV-WEB-PREPROD-AARD-SYSLOG
     static_configs:
       - targets:
           - localhost
         labels:
-          job: varlogs
-          host: SRV-WEB-AARD
+          job: SYSLOG-AARD-WEB-PREPROD
+          host: SRV-WEB-PREPROD-AARD
           stream: stdout
-          __path__: /var/log/*
+          __path__: /var/log/syslog
+
+  - job_name: SRV-WEB-PREPROD-AARD-MAIL
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: MAIL-AARD-WEB-PREPROD
+          host: SRV-WEB-PREPROD-AARD
+          stream: stdout
+          __path__: /var/log/mail.log
+
+  - job_name: SRV-WEB-PREPROD-AARD-CRON
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: CRON-AARD-WEB-PREPROD
+          host: SRV-WEB-PREPROD-AARD
+          stream: stdout
+          __path__: /var/log/cron.log
+
+  - job_name: SRV-WEB-PREPROD-AARD-AUTHLOG
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: AUTHLOG-AARD-WEB-PREPROD
+          host: SRV-WEB-PREPROD-AARD
+          stream: stdout
+          __path__: /var/log/auth.log
+
+  - job_name: SRV-WEB-PREPROD-AARD-APACHE2_LOGS
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: APACHE2_LOGS-SRV-WEB-PREPROD-AARD
+          host: SRV-WEB-PREPROD-AARD
+          stream: stdout
+          __path__: /var/log/apache2/*.log
 
 --------------------------------------------------------------------------------------------
 
@@ -149,6 +189,7 @@ Configurer les logs pour qu'ils soient visibles dans GRAFANA :
 	=> Les logs d'apache se trouvent dans le répertoire : /var/log/apache2
 	=> On donne les droits pour pouvoir les récupérer et envoyer vers LOKI et GRAFANA 
 		=> chown -R webpreprod:adm /var/log/apache2
+		=> chmod -R 750 /var/log/apache2
 	=> Le répertoire et tout les fichiers .log donne le droit à promtail donc de les récuperer.
 
 Nous devons maintenant configurer le fichier promtail-config.yaml :
@@ -479,5 +520,13 @@ AVEC
 	=> La suite dans ce fichier de conf pourra se faire dans la partie "Sécu" avec les .htaccess. etc ... et plus si besoin.
  
 Voila pour la partie configuration. Comme dit plus tot, il pourrait y avoir encore plein de configuration possible, mais ceci demanderait plus de temps et de reflexion.
+
+
+UPDATE : 
+
+=> On a remis le 000-defaut.conf comme hote virtuel pour le sites-enable comme pour le serveur web.
+	=> Le fichier conf "wizardsndice.conf" est pas bon car il n'affiche rien lorsque on créer les pages on modifie des pages etc...
+
+On a pas enlevé les plugins comme on savit le probleme, mais il faudra le résoudre.
 
 (partie sécu (par le site, le plugin pour le cache, le fait de pouvoir acceder au wp-config etc... du site à enlever important, enlever les infos debian ou apache lors d'une page erreur 403), mettre plus tard wordpress derrière un rproxy)

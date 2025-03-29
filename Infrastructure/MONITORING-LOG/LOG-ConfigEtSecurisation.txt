@@ -18,108 +18,14 @@
 Sources : 
 
 Activer les alertes dans Grafana
-Si un service commence à générer trop d'erreurs , nous pouvons configurer des alertes dans Grafana via Alertmanager .
-
-Nous pouvons ajouter cette ligne dans la config de Loki pour activer Alertmanager :
-
-=> ruler:
-     alertmanager_url: http://192.168.7.134:XXXXXXX (Voir conf sur le serveur pour voir le port)
-
-Grafana pourra maintenant déclencher des alertes sur les logs.
+Si un service commence à générer trop d'erreurs , nous pouvons configurer des alertes dans Grafana via le menu Alert dans GRAFANA.
 
 
-=> Ouverture du port 9093 depuis le serveur de monitoring vers serveurs ( et autres VLAN sur stormshield ) 
-	=> Ajout comme rappel a faire comme règle dans le fichier EXCEL des règles sur le FW pour plus tard
-
-On va essayer de surveiller l'état du FW avec SNMP avec logs textuels et non par des métriques comme avec Prometheus.
-J'ai décidé de ne pas installer Prometheus car nous avons loki pour les logs, meme si Prometheus serait pour le métriques.
-Ca nous forcerait a utiliser encore une techno et comme nous sommes sous format maquette, je me suis dit que c'était pas nécessaire.
-
-	=> On active SNMP sur FW (SNMPV2C) voir config sur le FW
-	=> Autorisation du passage des infos snmp en autorisant le port SNMP et SNMPTRAP depuis le FW vers SRV LOG
-	=> On peut tester de récup des infos depuis le serveur via SNMP sur le FW : snmpwalk -v2c -c wnd -r 1 192.168.7.142
-
-On va créer un script bash pour récupérer les métriques SNMP et les stocker en logs : 
-On le stock dans le /usr/local/bin/stormshield_snmp.sh
-
----------------------------------------------------------------------------------------------------------
-
-#!/bin/bash
-
-# Variables
-FW_IP="192.168.7.142"  # Remplace STORMSHIELD_IP par l'IP réelle de ton firewall
-SNMP_COMMUNITY="wnd"
-LOG_FILE="/var/log/stormshield_snmp.log"
-
-# Vérification et création du fichier log si inexistant
-if [ ! -f "$LOG_FILE" ]; then
-    touch "$LOG_FILE"
-    chmod 640 "$LOG_FILE"
-    chown log:root /var/log/stormshield_snmp.log
-fi
-
-# Récupération des métriques SNMP (avec gestion des erreurs)
-get_snmp_value() {
-    VALUE=$(snmpget -v2c -c "$SNMP_COMMUNITY" "$FW_IP" "$1" | awk '{print $4}')
-    if [[ -z "$VALUE" ]]; then
-        echo "N/A"
-    else
-        echo "$VALUE"
-    fi
-}
-
-# Liste des OIDs SNMP
-CPU_USAGE=$(get_snmp_value .1.3.6.1.4.1.2021.11.9.0)   # Utilisation CPU (%)
-RAM_USAGE=$(get_snmp_value .1.3.6.1.4.1.2021.4.6.0)   # RAM utilisée (KB)
-NET_IN=$(get_snmp_value .1.3.6.1.2.1.2.2.1.10.2)      # Octets reçus
-NET_OUT=$(get_snmp_value .1.3.6.1.2.1.2.2.1.16.2)     # Octets envoyés
-UPTIME=$(get_snmp_value .1.3.6.1.2.1.1.3.0)  # Uptime du firewall
-
-# Formatage et écriture dans le log
-LOG_ENTRY="$(date '+%d-%m-%Y %H:%M:%S') | CPU: $CPU_USAGE% | RAM: $RAM_USAGE KB | In: $NET_IN B | Out: $NET_OUT B | Uptime: $UPTIME s"
-echo "$LOG_ENTRY" >> "$LOG_FILE"
-
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Pour la conf du serveur, on fera pas plus.
 
 
-=> Nous mettons l'utilisateur créée plus tôt "log" en tant que propriétaire et propriétaire groupe du script pour le snmp du FW.
-	
-		=> chown log:log /usr/local/bin/stormshield_snmp.sh
-		=> chmod 740 /usr/local/bin/stormshield_snmp.sh
+Pour promtail, on a déja une config qui récupère les fichiers log.
 
-=> Création du fichier : /etc/systemd/system/stormshield_snmp.service
 
---------------------------------------------------------------------------------------------
-
-[Unit]
-Description=Stormshield SNMP
-Wants=network-online.target
-After=network-online.target
-
-[Service]
-Type=simple
-User=log
-Group=log
-ExecStart=/usr/local/bin/stormshield_snmp.sh
-
-SyslogIdentifier=log
-Restart=always
-RestartSec=604800
-
-[Install]
-WantedBy=multi-user.target
-
---------------------------------------------------------------------------------------------
-
-Commandes système et visualisation des logs en direct :
-
-		=> systemctl enable stormshield_snmp.service 
-		=> systemctl start stormshield_snmp.service
-		=> systemctl status stormshield_snmp.service
-		=> journalctl -f -u stormshield_snmp.service
-
-	Normalement le service storm_snmp est lancé. Et se relance tout les 7j.
-
-Pour promtail, on a déja une config qui récupère le fichier log. Il faut maintenant juste faire de la personalisation/configuration sur les infos récup depuis le stormshield.
 
 Partie sécurisation : 

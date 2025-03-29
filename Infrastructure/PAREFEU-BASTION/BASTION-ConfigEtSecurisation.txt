@@ -58,17 +58,68 @@ clients:
   - url: http://192.168.7.133:3100/loki/api/v1/push  # Utilisation de l'IP du serveur Loki
 
 scrape_configs:
-  - job_name: system
+  - job_name: SRV-BASTION-AARD-SYSLOG
     static_configs:
       - targets:
           - localhost
         labels:
-          job: varlogs
-          host: SRV-WEB-AARD
+          job: SYSLOG-AARD-BASTION
+          host: SRV-BASTION-AARD
           stream: stdout
-          __path__: /var/log/*
+          __path__: /var/log/syslog
+
+  - job_name: SRV-BASTION-AARD-MAIL
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: MAIL-AARD-BASTION
+          host: SRV-BASTION-AARD
+          stream: stdout
+          __path__: /var/log/mail.log
+
+  - job_name: SRV-BASTION-AARD-CRON
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: CRON-AARD-BASTION
+          host: SRV-BASTION-AARD
+          stream: stdout
+          __path__: /var/log/cron.log
+
+  - job_name: SRV-BASTION-AARD-AUTHLOG
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: AUTHLOG-AARD-BASTION
+          host: SRV-BASTION-AARD
+          stream: stdout
+          __path__: /var/log/auth.log
+
+  - job_name: SRV-BASTION-AARD-APACHE2_LOGS
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: APACHE2_LOGS-SRV-BASTION-AARD
+          host: SRV-BASTION-AARD
+          stream: stdout
+          __path__: /var/log/apache2/*.log
 
 --------------------------------------------------------------------------------------------
+
+Avant de créer le repertoire PROMTAIL :
+On va configurer les logs de Apache2 pour qu'ils soient visibles dans GRAFANA : 
+
+	=> Les logs d'apache se trouvent dans le répertoire : /var/log/apache2
+	=> On donne les droits pour pouvoir les récupérer et envoyer vers LOKI et GRAFANA 
+		=> chown -R bastion:adm /var/log/apache2
+		=> chmod -R 750 /var/log/apache2
+	=> Le répertoire et tout les fichiers .log donne le droit à promtail donc de les récuperer.
+
+
 
 
 => Créer un dossier /var/lib/promtail/ : mkdir -p /var/lib/promtail

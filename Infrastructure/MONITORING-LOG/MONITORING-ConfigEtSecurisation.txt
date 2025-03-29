@@ -15,7 +15,7 @@
 
 ----------------------- Configuration et sécurisation du serveur de monitoring ----------------------- 
 
-Sources : 
+Sources : https://shape.host/resources/comment-installer-prometheus-sur-debian-12
 
 
 Actions effectuées dans le conteneur : 
@@ -53,15 +53,45 @@ clients:
   - url: http://192.168.7.133:3100/loki/api/v1/push  # Utilisation de l'IP du serveur Loki
 
 scrape_configs:
-  - job_name: system
+  - job_name: SRV-MONITORING-AARD-SYSLOG
     static_configs:
       - targets:
           - localhost
         labels:
-          job: varlogs
+          job: SYSLOG-AARD-MONITORING
           host: SRV-MONITORING-AARD
           stream: stdout
-          __path__: /var/log/*
+          __path__: /var/log/syslog
+
+  - job_name: SRV-MONITORING-AARD-MAIL
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: MAIL-AARD-MONITORING
+          host: SRV-MONITORING-AARD
+          stream: stdout
+          __path__: /var/log/mail.log
+
+  - job_name: SRV-MONITORING-AARD-AUTHLOG
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: AUTHLOG-AARD-MONITORING
+          host: SRV-MONITORING-AARD
+          stream: stdout
+          __path__: /var/log/auth.log
+
+  - job_name: SRV-MONITORING-AARD-CRON
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: CRON-AARD-MONITORING
+          host: SRV-MONITORING-AARD
+          stream: stdout
+          __path__: /var/log/cron.log
 
 --------------------------------------------------------------------------------------------
 
@@ -189,9 +219,16 @@ Voir sur grafana les alertes et leur config.
 
 
 On va configurer LDAP pour Grafana, afin de pouvoir s'authentifier avec les id ldap.
-Dans le fichier grafana.ini, on a la config suivante : 
 
+	=> On créer le user pour link grafana et l'ad (grafanalink).
+	=> On importe les certifs ldaps sur le srv monitoring (MDP : Meme que le compte "grafanalink" que j'ai mis pour ouvrir les certifs) => Dans /usr/local/share/ca-certificates/
+
+Dans le fichier grafana.ini, on a la config suivante : 
+On doit activer LDAP ici pour que sur le ui web LDAP apparaisse.
 -------------------------------------------------------------------------------------------
+
+# The public facing domain name used to access grafana from a browser
+domain = wnd.local
 
 [auth.ldap]
 enabled = true
@@ -202,15 +239,413 @@ skip_org_role_sync = false
 
 --------------------------------------------------------------------------------------------
 
+
 On peut restart le service, mais pour réellement config LDAPS sur le grafana, tout se passe dans le fichier : /etc/grafana/ldap.toml
 
-Nous allons le config de la manière suivante : 
+-------------------------------------------------------------------------------------------
+
+# To troubleshoot and get more log info enable ldap debug logging in grafana.ini
+# [log]
+# filters = ldap:debug
+
+[[servers]]
+# Ldap server host (specify multiple hosts space separated)
+host = "SRV-DC-AARD.wnd.local"
+# Default port is 389 or 636 if use_ssl = true
+port = 636
+# Set to true if LDAP server should use an encrypted TLS connection (either with STARTTLS or LDAPS)
+use_ssl = true
+# If set to true, use LDAP with STARTTLS instead of LDAPS
+start_tls = false
+# The value of an accepted TLS cipher. By default, this value is empty. Example value: ["TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384"])
+# For a complete list of supported ciphers and TLS versions, refer to: https://go.dev/src/crypto/tls/cipher_suites.go
+# Starting with Grafana v11.0 only ciphers with ECDHE support are accepted for TLS 1.2 connections.
+tls_ciphers = []
+# This is the minimum TLS version allowed. By default, this value is empty. Accepted values are: TLS1.1 (only for Grafana v10.4 or older), TLS1.2, TLS1.3.
+min_tls_version = ""
+# set to true if you want to skip ssl cert validation
+ssl_skip_verify = false
+# set to the path to your root CA certificate or leave unset to use system defaults
+root_ca_cert = "/usr/local/share/ca-certificates/cert_intermediate.crt"
+# Authentication against LDAP servers requiring client certificates
+# client_cert = "/path/to/client.crt"
+# client_key = "/path/to/client.key"
+
+# Search user bind dn
+bind_dn = "cn=Grafana Link,ou=Utilisateurs,ou=WND,dc=wnd,dc=local"
+# Search user bind password
+# If the password contains # or ; you have to wrap it with triple quotes. Ex """#password;"""
+# We recommend using variable expansion for the bind_password, for more info https://grafana.com/docs/grafana/latest/setup-grafana/configure-grafana/#var>
+bind_password = '$__env{LDAP_BIND_PASSWORD}'
+
+# Timeout in seconds (applies to each host specified in the 'host' entry (space separated))
+timeout = 10
+
+# User search filter, for example "(cn=%s)" or "(sAMAccountName=%s)" or "(uid=%s)"
+search_filter = "(sAMAccountName=%s)"
+
+# An array of base dns to search through
+search_base_dns = ["dc=wnd,dc=local"]
+
+## For Posix or LDAP setups that does not support member_of attribute you can define the below settings
+## Please check grafana LDAP docs for examples
+#group_search_filter = "(&(objectClass=group)(member=%s))"
+#group_search_base_dns = ["dc=wnd,dc=local"]
+#group_search_filter_user_attribute = "distinguishedName"
+
+# Specify names of the ldap attributes your ldap uses
+[servers.attributes]
+name = "givenName"
+surname = "sn"
+username = "sAMAccountName"
+member_of = "memberOf"
+email = "UserPrincipalName"
+
+# Map ldap groups to grafana org roles
+[[servers.group_mappings]]
+group_dn = "cn=GL_Admins,ou=Services,ou=Groupes,ou=WND,dc=wnd,dc=local"
+org_role = "Admin"
+# To make user an instance admin  (Grafana Admin) uncomment line below
+grafana_admin = true
+# The Grafana organization database id, optional, if left out the default org (id 1) will be used
+# org_id = 1
+
+[[servers.group_mappings]]
+group_dn = "cn=GL_Admins,ou=Services,ou=Groupes,ou=WND,dc=wnd,dc=local"
+org_role = "Editor"
+
+#[[servers.group_mappings]]
+# If you want to match all (or no ldap groups) then you can use wildcard
+#group_dn = "*"
+#org_role = "Viewer"
+
+-------------------------------------------------------------------------------------------
+
+Sur le web ui, on essaye de config LDAPS : 
+
+	=> On voit que c'est connecté sur le port 636 depuis le srv moni au srv dc
+	=> Le test ne marche pas, mais j'arrive a me connecter avec mon compte "arthury", 
+
+Maintenant je config dans le fichier /etc/grafana/ldap.toml
+	=> Le fait d'attribuer les bon groupes aux personnes, cacher le mdp dedans etc.. , en gros de la config
+	=> Les groupes sont fait, mais qu'avec un GL et non DL
+
+Il faut que l'on cache le mot de passe qui lie le serveur DC avec le serveur monitoring, car dans la conf : /etc/grafana/ldap.toml, on voit qu'il est en clair (Le compte "grafana link" en gros).
+
+On va donc créer une unité systemd avec variable cachée dans le fichier "override" du service GRAFANA.
+
+	=> mkdir -p /etc/systemd/system/grafana-server.service.d
+	=> nano /etc/systemd/system/grafana-server.service.d/override.conf
+
+Puis on colle ceci dans le fichier :
+
+	=> [Service]
+	   Environment="LDAP_BIND_PASSWORD=MDP"
+
+	=> On sauvegarde et quitte (Ctrl+O, Entrée, Ctrl+X)
+	=> On change les droits pour plus de sécurité : chmod root:root 600 /etc/systemd/system/grafana-server.service.d/override.conf
 
 
----------------------------------------------------------------------------------------------
+On recharge systemd + restart Grafana
+
+	=> systemctl daemon-reexec
+	=> systemctl restart grafana-server
 
 
----------------------------------------------------------------------------------------------
+On peut vérifier que tout est bon :
 
+	=> systemctl show grafana-server | grep LDAP_BIND_PASSWORD
+
+
+On doit voir : Environment=LDAP_BIND_PASSWORD=MDP
+
+
+Et dans ldap.toml, on doit bien avoir :
+
+	=> bind_password = '$__env{LDAP_BIND_PASSWORD}'
+
+On peut restart encore une fois les services, mais maintenant on plus le MDP en clair dans le fichier CONF de LDAP venant de GRAFANA.
+Le LDAPS doit fonctionner en se connectant avec les comptes ADMINS.
+
+
+On va avant de faire les dashboards, installer Prometheus. Cela nous permettra de récupérer des métriques sur le Stormshield par exemple, et voir quelques autres serveurs.
+
+	=> Pour rester simple, on continuera d'utiliser l'utilisateur général "monitoring" créer exprès pour ce serveur. Pas besoin de créer un user pour Prometheus exclusivement.
+	
+	=> Créer un dossier /var/lib/prometheus : mkdir -p /var/lib/prometheus
+		=> chown -R monitoring:monitoring /var/lib/prometheus
+		=> chmod -R 750 /var/lib/prometheus
+		
+		=> mkdir /etc/prometheus
+		=> chown -R monitoring /etc/prometheus
+		=> chmod -R 750 /etc/prometheus
+
+	=> Installation de Prometheus
+
+  		=> Téléchargement et installation :
+		On se place dans le chemin : /usr/local/bin/
+		On télécharge le fichier zip de Prometheus : wget https://github.com/prometheus/prometheus/releases/download/v3.2.1/prometheus-3.2.1.linux-amd64.tar.gz
+		Nous pouvons ensuite l'unzip : tar -xvf (nom du fichier)
+
+
+	=> Configuration de Prometheus :
+
+	Nous avons ici le répertoire Prometheus, on nous allons récupérer les applications "prometheus" et "promtool" dans /usr/local/bin
+
+		=> mv prometheus-3.2.1.linux-amd64/prometheus /usr/local/bin/
+		=> mv prometheus-3.2.1.linux-amd64/promtool /usr/local/bin/
+	
+	Puis le fichier "yaml" dans /etc/prometheus
+	
+		=> mv prometheus-3.2.1.linux-amd64/prometheus.yml /etc/prometheus
+
+	On peut supprimer le repertoire "prometheus-3.2.1.linux-amd64"
+
+		=> rm -r /usr/local/bin/prometheus-3.2.1.linux-amd64/
+
+	On donne les bon droits pour tout les fichiers et répertoires : 
+
+		=> chown -R monitoring:monitoring /usr/local/bin/prometheus /usr/local/bin/promtool
+		=> chmod 755 /usr/local/bin/prometheus /usr/local/bin/promtool
+		=> chmod 640 /etc/prometheus/prometheus.yml
+		=> chown -R monitoring:monitoring /etc/prometheus/prometheus.yml
+
+
+=> Création du fichier : nano /etc/systemd/system/prometheus.service
+
+--------------------------------------------------------------------------------------------
+
+[Unit]
+Description=Prometheus Monitoring
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=monitoring
+Group=monitoring
+ExecStart=/usr/local/bin/prometheus \
+  --config.file=/etc/prometheus/prometheus.yml \
+  --storage.tsdb.path=/var/lib/prometheus \
+  --web.listen-address=0.0.0.0:XXXX
+  --storage.tsdb.retention.time=7d \
+  --storage.tsdb.min-block-duration=2h \
+  --storage.tsdb.max-block-duration=2h
+
+SyslogIdentifier=monitoring
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
+--------------------------------------------------------------------------------------------
+
+On a changé ici le port d'écoute de Promotheus ici, dans le fichier du service. Ca ne se fait pas dans le .yml .
+Et d'autres paramètres sont présent pour de l'optimisation.
+
+Commandes système et visualisation des logs en direct :
+
+		=> systemctl daemon-reexec
+		=> systemctl daemon-reload
+		=> systemctl enable prometheus.service 
+		=> systemctl start prometheus.service
+		=> systemctl status prometheus.service
+		=> journalctl -f -u prometheus.service
+
+	Normalement le service prometheus est lancé.	
+
+Prometheus est maintenant installé, il faut maintenant le config. Sur grafana ça fonctionne bien.
+
+	=> On autorisera si besoin, l'écoute du port PROMETHEUS vers d'autres serveurs. Même si il n'y a pas besoin.
+	=> Ce sera surtout les ports des "exporters" où il faudra autoriser sur le FW, depuis autre serveur surement.
+	=> Utilisation d'un port différent de celui par défaut pour PROMETHEUS. (Voir FW ou DOC de Sécu)
+	=> Utilisation d'un port différent de celui par défaut pour SNMP EXPORTER (Voir FW ou DOC de Sécu)
+
+
+J'ai ajouté des lignes dans le fichier /etc/prometheus/prometheus.yml :
+
+	=> global:
+ 	     scrape_interval: 15s # Set the scrape interval to every 15 seconds. Default is every 1 minute.
+             evaluation_interval: 15s # Evaluate rules every 15 seconds. The default is every 1 minute.
+             # scrape_timeout is set to the global default (10s).
+             external_labels:
+    	       environment: "production"
+               instance: "SRV-MONITORING-AARD"
+
+Ces lignes pourront être modifiées plus tard.
+
+On va essayer de surveiller l'état du FW avec SNMP et Prometheus.
+
+	=> On active SNMP sur FW (SNMPV2C) voir config sur le FW
+	=> Autorisation du passage des infos snmp en autorisant le port SNMP et SNMPTRAP depuis le FW vers SRV MONITORING
+	=> Sur le SRV MONITORING : apt install snmp
+	=> On peut tester de récup des infos depuis le serveur via SNMP sur le FW : snmpwalk -v2c -c wnd -r 1 192.168.7.142
+
+	=> Dans /usr/local/bin/ , on télécharge SNMP Exporter qui va nous servir à récupérer les métriques de Stormshield ici.
+
+		=> wget https://github.com/prometheus/snmp_exporter/releases/download/v0.28.0/snmp_exporter-0.28.0.linux-amd64.tar.gz
+		=> tar -xvzf snmp_exporter-0.28.0.linux-amd64.tar.gz
+		=> rm snmp_exporter-0.28.0.linux-amd64.tar.gz
+		=> mv /usr/local/bin/snmp_exporter-0.28.0.linux-amd64/snmp_exporter /usr/local/bin/
+		=> mv /usr/local/bin/snmp_exporter-0.28.0.linux-amd64/snmp.yml /etc/prometheus
+		=> chown -R monitoring:monitoring /usr/local/bin/snmp_exporter
+		=> chmod 755 /usr/local/bin/snmp_exporter
+		=> chmod 640 /etc/prometheus/snmp.yml
+		=> chown -R monitoring:monitoring /etc/prometheus/snmp.yml
+		=> rm -r /usr/local/bin/snmp_exporter-0.28.0.linux-amd64/
+
+
+=> Création du fichier : nano /etc/systemd/system/snmp_exporter.service
+
+--------------------------------------------------------------------------------------------
+
+[Unit]
+Description=Prometheus SNMP Exporter
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=monitoring
+Group=monitoring
+ExecStart=/usr/local/bin/snmp_exporter \
+  --config.file=/etc/prometheus/snmp.yml \
+  --web.listen-address=0.0.0.0:XXXX
+
+SyslogIdentifier=monitoring
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
+--------------------------------------------------------------------------------------------
+
+On a changé ici le port d'écoute de SNMP EXPORTER de Prometheus ici, dans le fichier du service. Ca ne se fait pas dans le .yml .
+
+Commandes système et visualisation des logs en direct :
+
+		=> systemctl daemon-reexec
+		=> systemctl daemon-reload
+		=> systemctl enable snmp_exporter.service 
+		=> systemctl start snmp_exporter.service
+		=> systemctl status snmp_exporter.service
+		=> journalctl -f -u snmp_exporter.service
+
+
+On a ajouter le bloc "job_name" dans le fichier /etc/prometheus/prometheus.yml : 
+
+-------------------------------------------------
+
+  - job_name: 'stormshield'
+#   scrape_interval: 3000s
+    static_configs:
+      - targets:
+          - 192.168.7.142   # IP du firewall SNS
+    metrics_path: /snmp
+    params:
+      auth: [wnd_v2c]
+      module: [stormshield]
+
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+
+      - source_labels: [__param_target]
+        target_label: instance
+
+      - target_label: __address__
+        replacement: 192.168.7.134:XXXX
+
+--------------------------------------------------
+
+Création au cas ou, de l'objet PORT pour SNMP EXPORTER.
+
+
+On personnalise le fichier /etc/prometheus/snmp.yml
+
+-----------------------------------------------------------------
+
+auths:
+  wnd_v2c:
+    community: wnd
+    version: 2
+
+modules:
+  stormshield:
+    walk:
+      - 1.3.6.1.2.1.1          # system
+      - 1.3.6.1.2.1.2          # interfaces
+      - 1.3.6.1.2.1.25         # host resources
+      - 1.3.6.1.2.1.4          # IP
+      - 1.3.6.1.2.1.5          # ICMP
+      - 1.3.6.1.2.1.6          # TCP
+      - 1.3.6.1.2.1.7          # UDP
+      - 1.3.6.1.2.1.31         # ifXTable
+      - 1.3.6.1.4.1.11256.1.1.1.1  # Stormshield system
+      - 1.3.6.1.4.1.11256.1.1.7  # Sessions
+      - 1.3.6.1.4.1.2021 #Infos
+      - 1.3.6.1.2.1.1.3.0        # sysUpTimeInstance
+      - 1.3.6.1.2.1.1.4.0        # sysContact
+      - 1.3.6.1.2.1.1.5.0        # sysName
+      - 1.3.6.1.4.1.2021.4       # Memory stats
+      - 1.3.6.1.4.1.2021.10      # CPU Load
+      - 1.3.6.1.4.1.2021.10.1.3.1
+      - 1.3.6.1.4.1.2021.10.1.3.2
+      - 1.3.6.1.4.1.2021.10.1.3.3
+
+    metrics:
+      - name: sysUpTimeInstance
+        oid: 1.3.6.1.2.1.1.3.0
+        type: gauge
+        help: Uptime du systeme
+
+      - name: sysContact
+        oid: 1.3.6.1.2.1.1.4.0
+        type: DisplayString
+        help: Contact information
+
+      - name: sysName
+        oid: 1.3.6.1.2.1.1.5.0
+        type: DisplayString
+        help: Hostname du firewall
+
+      - name: memTotalReal
+        oid: 1.3.6.1.4.1.2021.4.5.0
+        type: gauge
+        help: Total RAM physique en KB
+
+      - name: memAvailReal
+        oid: 1.3.6.1.4.1.2021.4.6.0
+        type: gauge
+        help: RAM physique disponible en KB
+
+      - name: memBuffer
+        oid: 1.3.6.1.4.1.2021.4.14.0
+        type: gauge
+        help: RAM buffered en KB
+
+      - name: cpuLoad1
+        oid: 1.3.6.1.4.1.2021.10.1.3.1
+        type: gauge
+        help: Charge CPU sur 1 min
+
+      - name: cpuLoad5
+        oid: 1.3.6.1.4.1.2021.10.1.3.2
+        type: gauge
+        help: Charge CPU sur 5 min
+
+      - name: cpuLoad15
+        oid: 1.3.6.1.4.1.2021.10.1.3.3
+        type: gauge
+        help: Charge CPU sur 15 min
+
+-----------------------------------------------------------------
+
+Maintenant le service se lance, donc SNMP EXPORTER fonctionne, mais il faut faire de la configuration maintenant.
+(c'est pas facile et sur d'autres appareils)
+
+Dont notamment pour récupérer des métriques. C'est de la config dans le snmp.yml.
+
+Je ne pense pas installé d'autres modules avec Prometheus autre que SNMP EXPORTER. Etant en maquette, il nous faut juste quelques exemples.
 
 Pour configurer des DASHBOARDS ou utiliser grafana, une vidéo sera disponible en privé sur la chaine YT.
