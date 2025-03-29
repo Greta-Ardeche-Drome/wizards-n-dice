@@ -1,16 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Planning Wizards &amp; Dices" company="" webLink="http://" view-date="2024-12-01" view-index="0" gantt-divider-location="521" resource-divider-location="424" version="3.3.3312" locale="fr_FR">
+<?xml version="1.0" encoding="UTF-8"?><project name="Planning Wizards &amp; Dices" company="" webLink="http://" view-date="2024-10-01" view-index="0" gantt-divider-location="507" resource-divider-location="424" version="3.3.3312" locale="fr_FR">
     <description/>
     <view zooming-state="default:8" id="gantt-chart">
-        <field id="tpd3" name="Nom" width="283" order="0"/>
-        <field id="tpd4" name="Date de début" width="82" order="1"/>
-        <field id="tpd5" name="Date de fin" width="79" order="2"/>
-        <field id="tpd1" name="Priorité" width="61" order="3"/>
+        <field id="tpd3" name="Nom" width="275" order="0"/>
+        <field id="tpd4" name="Date de début" width="80" order="1"/>
+        <field id="tpd5" name="Date de fin" width="77" order="2"/>
+        <field id="tpd1" name="Priorité" width="59" order="3"/>
         <option id="filter.completedTasks" value="false"/>
         <option id="filter.dueTodayTasks" value="false"/>
         <option id="filter.overdueTasks" value="false"/>
         <option id="filter.inProgressTodayTasks" value="false"/>
         <timeline><![CDATA[465]]></timeline>
-        <option id="color.recent"><![CDATA[#666666 #ea7500 #00a933 #55308d #f4f4f4 #2a6099 #d60be4 #f10d0c]]></option>
+        <option id="color.recent"><![CDATA[#ea7500 #666666 #2a6099 #00a933 #55308d #f4f4f4 #d60be4 #f10d0c]]></option>
     </view>
     <view id="resource-table">
         <field id="0" name="Nom" width="158" order="0"/>
@@ -104,7 +104,7 @@ Lien vers Moodle de dépôts : https://cours.univ-grenoble-alpes.fr/mod/assign/v
                 <task id="351" uid="a268fe97469d47cc8ff687cce275abb4" name="Présentation de l'avancement technique" color="#f10d0c" meeting="true" start="2025-02-17" duration="0" complete="0" priority="4" expand="true"/>
                 <task id="405" uid="b0857c989d704087b6dd4dea4b0f3646" name="Débriefer le déroulé du jalon 4" color="#00a933" meeting="true" start="2025-02-17" duration="0" complete="0" expand="true"/>
             </task>
-            <task id="97" uid="eab22041fe6a4a7caa3e35646d19a89d" name="Jalon 5 et 6" color="#f10d0c" meeting="false" start="2025-04-13" duration="32" complete="0" priority="4" expand="false">
+            <task id="97" uid="eab22041fe6a4a7caa3e35646d19a89d" name="Jalon 5 et 6" color="#f10d0c" meeting="false" start="2025-04-13" duration="32" complete="0" priority="4" expand="true">
                 <task id="363" uid="a4b928af716a4875bbe63bff8d16637c" name="Rédaction de l'analyse de risque" color="#666666" meeting="false" start="2025-04-13" duration="19" complete="0" expand="true"/>
                 <task id="364" uid="83efe65da07d4064a6a1aad1ec95436d" name="Analyse de risques : prête" color="#f10d0c" meeting="true" start="2025-05-03" duration="0" complete="0" expand="true"/>
                 <task id="409" uid="f466bfaa9a894d9aa7e4e6dd49270a32" name="Préparer le script de présentation des processus projet" color="#666666" meeting="false" start="2025-04-27" duration="10" complete="0" expand="true"/>
@@ -222,7 +222,7 @@ Trie et réagencement de l'arborescence]]></notes>
 - comprendre les avantages et bénéfices / inconvénients
 - voir comment l'adapter et où souscire si cas réel pour notre entreprise]]></notes>
                 </task>
-                <task id="428" uid="e99f7335020a432494a4bf1652efc1e5" name="Rédiger la charte d'utilisation et de modération de forum" color="#666666" meeting="false" start="2025-03-16" duration="14" complete="0" expand="true">
+                <task id="428" uid="e99f7335020a432494a4bf1652efc1e5" name="Rédiger la charte d'utilisation et de modération de forum" color="#ea7500" meeting="false" start="2025-03-16" duration="14" complete="0" expand="true">
                     <notes><![CDATA[Devra être signer pour accéder au forum]]></notes>
                 </task>
                 <task id="430" uid="b6df9b4737ec4a1896bac9720e5a0144" name="Revoir la conformité des documents comptables" color="#666666" meeting="false" start="2025-03-30" duration="7" complete="0" priority="0" expand="true">
@@ -334,19 +334,19 @@ Externe = communication externe, pub, etc
 Procédure de déploiement (à minima niveau 0 de rédaction)]]></notes>
                 </task>
             </task>
-            <task id="470" uid="b5d4181719ed462394c649268b991c72" name="Revoir les fichiers de configurations - 1ere fois" color="#666666" meeting="false" start="2025-02-23" duration="7" complete="0" priority="0" expand="true">
+            <task id="470" uid="b5d4181719ed462394c649268b991c72" name="Revoir les fichiers de configurations - 1ere fois" color="#2a6099" meeting="false" start="2025-02-23" duration="7" complete="0" priority="0" expand="true">
                 <notes><![CDATA[Présence + à jour
 Potentiellement un tableur excel ]]></notes>
             </task>
             <task id="465" uid="8178cae94ea440b9b6cee0f13c82445e" name="Déploiement Reverce Proxy / WAF" color="#00a933" meeting="false" start="2025-02-23" duration="14" complete="0" priority="4" expand="true">
                 <notes><![CDATA[Procédure de déploiement (à minima niveau 0 de rédaction)]]></notes>
             </task>
-            <task id="61" uid="8e57dd9f74ed4eada2dbcfc274ef2709" name="Préparer des méthodes de supervision du site" color="#666666" meeting="false" start="2025-03-16" duration="7" complete="0" priority="0" expand="true">
+            <task id="61" uid="8e57dd9f74ed4eada2dbcfc274ef2709" name="Préparer des méthodes de supervision du site" color="#ea7500" meeting="false" start="2025-03-16" duration="7" complete="0" priority="0" expand="true">
                 <notes><![CDATA[Inclus sans restreindre :
 - Rédiger les procédures de supervision du sites (market, sécurité, etc)
 - Outils techniques]]></notes>
             </task>
-            <task id="442" uid="fd8ce6339eab40dfb6b82eedd7932cda" name="Configurer l'infrastructure réseau et applicative" color="#55308d" meeting="false" start="2025-02-23" duration="42" complete="0" priority="2" expand="false">
+            <task id="442" uid="fd8ce6339eab40dfb6b82eedd7932cda" name="Configurer l'infrastructure réseau et applicative" color="#55308d" meeting="false" start="2025-02-23" duration="42" complete="0" priority="2" expand="true">
                 <depend id="473" type="2" difference="0" hardness="Strong"/>
                 <depend id="495" type="2" difference="0" hardness="Strong"/>
                 <task id="448" uid="efa9214dd0b94abeb896afd887f55585" name="NAS" color="#00a933" meeting="false" start="2025-02-23" duration="7" complete="0" expand="true"/>
@@ -355,15 +355,17 @@ Potentiellement un tableur excel ]]></notes>
                 <task id="452" uid="bd2055dc4adc4e6aa8b732cd1dc84117" name="Reverce Proxy / WAF" color="#00a933" meeting="false" start="2025-03-02" duration="7" complete="0" expand="true"/>
                 <task id="453" uid="3cd994c7bfdb48e69334b641430c27ee" name="Serveur Web" color="#00a933" meeting="false" start="2025-03-02" duration="7" complete="0" expand="true"/>
                 <task id="454" uid="4dc4c6d071c849a5aed1fa95f2e49bcb" name="Serveurs de BDD" color="#00a933" meeting="false" start="2025-03-02" duration="7" complete="0" expand="true"/>
-                <task id="444" uid="a0e93a769d6f4088bdb56f16ee9aef08" name="Proxmox" color="#ea7500" meeting="false" start="2025-02-23" duration="14" complete="0" priority="0" expand="true"/>
+                <task id="444" uid="a0e93a769d6f4088bdb56f16ee9aef08" name="Proxmox" color="#2a6099" meeting="false" start="2025-02-23" duration="14" complete="0" priority="0" expand="true">
+                    <notes><![CDATA[Documentation inachevé]]></notes>
+                </task>
                 <task id="445" uid="cbe82ff3c0bb4cb2b500ccf4185f09fe" name="Serveur de log" color="#00a933" meeting="false" start="2025-03-09" duration="7" complete="0" expand="true"/>
                 <task id="450" uid="92858fddca17435e86f315a5409972a9" name="Serveur de test" color="#00a933" meeting="false" start="2025-03-16" duration="7" complete="0" expand="true"/>
-                <task id="489" uid="ca7b9ec3687241e1b479718a8471652c" name="Serveur Windows AD DNS" color="#55308d" meeting="false" start="2025-03-02" duration="35" complete="0" expand="false">
+                <task id="489" uid="ca7b9ec3687241e1b479718a8471652c" name="Serveur Windows AD DNS" color="#55308d" meeting="false" start="2025-03-02" duration="35" complete="0" expand="true">
                     <task id="508" uid="0db6cdb9243d4c2a9ba94a3cbb2f46dc" name="Début de la configuration avancée" color="#00a933" meeting="false" start="2025-03-02" duration="14" complete="0" expand="true"/>
                     <task id="506" uid="deabcc2b25ba49cda0d0c5410b34a039" name="LDAPS" color="#00a933" meeting="false" start="2025-03-16" duration="7" complete="0" expand="true"/>
                     <task id="507" uid="d1cb1ca88638448e8d65cc47ab84496a" name="HardenAD" color="#ea7500" meeting="false" start="2025-03-23" duration="14" complete="0" expand="true"/>
                 </task>
-                <task id="496" uid="ecd0c2fddaed4bfa8f73eed0963536bc" name="Monitoring" color="#55308d" meeting="false" start="2025-03-16" duration="21" complete="0" expand="false">
+                <task id="496" uid="ecd0c2fddaed4bfa8f73eed0963536bc" name="Monitoring" color="#55308d" meeting="false" start="2025-03-16" duration="21" complete="0" expand="true">
                     <task id="505" uid="48277e76cbc548ce86b4209efc5ff7e9" name="Serveur de monitoring" color="#ea7500" meeting="false" start="2025-03-16" duration="14" complete="0" expand="true"/>
                     <task id="381" uid="b3b8477159be4f8eb427f4d4a2324467" name="Mettre en oeuvre les méthodes et outils de supervision" color="#ea7500" meeting="false" start="2025-03-23" duration="14" complete="0" expand="true">
                         <notes><![CDATA[Intégration de Brad Pitch]]></notes>
