@@ -646,6 +646,90 @@ Maintenant le service se lance, donc SNMP EXPORTER fonctionne, mais il faut fair
 
 Dont notamment pour récupérer des métriques. C'est de la config dans le snmp.yml.
 
-Je ne pense pas installé d'autres modules avec Prometheus autre que SNMP EXPORTER. Etant en maquette, il nous faut juste quelques exemples.
+Pour la configuration des dashboard dont ici pour le FW, pour un panneau, j'ai ajouter un module dans le menu "Transformations" pour dire que la requete qui est effectué, eh bas on la remplace ici par le nom du FW.
+	=> Ce qui fait que c'est à 75% automatique mais que 25% ne l'est pas car si le nom du FW venait à changer (meme si ça reste quand meme rare), il faudrait aussi changer sur GRAFANA le nom que l'on veut afficher.
+
+
+Je ne pense pas installé d'autres modules avec Prometheus autre que SNMP EXPORTER et ALERT MANAGER. Etant en maquette, il nous faut juste quelques exemples.
+
+
+Install de ALERT MANAGER : 
+
+	> Dans /usr/local/bin/ , on télécharge Alert Manager qui va nous servir à alerte si un problème survenait.
+
+		=> wget https://github.com/prometheus/alertmanager/releases/download/v0.28.1/alertmanager-0.28.1.linux-amd64.tar.gz
+		=> tar -xvzf alertmanager-0.28.1.linux-amd64.tar.gz
+		=> rm alertmanager-0.28.1.linux-amd64.tar.gz
+		=> mv /usr/local/bin/alertmanager-0.28.1.linux-amd64/alertmanager /usr/local/bin/
+		=> mv /usr/local/bin/alertmanager-0.28.1.linux-amd64/amtool /usr/local/bin/
+		=> mv /usr/local/bin/alertmanager-0.28.1.linux-amd64/alertmanager.yml /etc/prometheus
+		=> chown -R monitoring:monitoring /usr/local/bin/alertmanager /usr/local/bin/amtool
+		=> chmod 755 /usr/local/bin/alertmanager /usr/local/bin/amtool
+		=> chmod 640 /etc/prometheus/alertmanager.yml
+		=> chown -R monitoring:monitoring /etc/prometheus/alertmanager.yml
+		=> rm -r /usr/local/bin/alertmanager-0.28.1.linux-amd64/
+
+=> Créer un dossier /var/lib/alertmanager : mkdir -p /var/lib/alertmanager
+		=> chown -R monitoring:monitoring /var/lib/alertmanager
+		=> chmod -R 750 /var/lib/alertmanager
+
+
+
+On a modifier le bloc "alerting" dans le fichier /etc/prometheus/prometheus.yml :
+
+-------------------------------------------------
+
+# Alertmanager configuration
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets:
+           - alertmanager:XXXX
+
+--------------------------------------------------
+
+
+
+=> Création du fichier : nano /etc/systemd/system/alertmanager.service
+
+--------------------------------------------------------------------------------------------
+
+[Unit]
+Description=Prometheus AlertManager
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=monitoring
+Group=monitoring
+ExecStart=/usr/local/bin/alertmanager \
+  --config.file=/etc/prometheus/alertmanager.yml \
+  --web.listen-address=0.0.0.0:XXXX \
+  --storage.path=/var/lib/alertmanager
+
+SyslogIdentifier=monitoring
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
+--------------------------------------------------------------------------------------------
+
+Commandes système et visualisation des logs en direct :
+
+		=> systemctl daemon-reexec
+		=> systemctl daemon-reload
+		=> systemctl enable alertmanager.service 
+		=> systemctl start alertmanager.service
+		=> systemctl status alertmanager.service
+		=> journalctl -f -u alertmanager.service
+
+
+On a changé ici le port d'écoute de Alert Manager de Prometheus ici, dans le fichier du service. Ca ne se fait pas dans le .yml . (Voir DOC DE SECU, sur le FW ou le SERVEUR pour savoir le port)
+Création au cas ou, de l'objet PORT pour Alert Manager.
+
+Voila pour l'installation de AlertManager, maintenant il faudrait configurer des règles en créant un fichier "alert.rules.yml" par exemple avec les règles dedans et activer le bloc "rule_files" dans le prometheus.yml . (Voir chatgpt)
+
 
 Pour configurer des DASHBOARDS ou utiliser grafana, une vidéo sera disponible en privé sur la chaine YT.
