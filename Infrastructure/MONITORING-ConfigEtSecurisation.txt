@@ -589,9 +589,12 @@ modules:
       - 1.3.6.1.2.1.1.5.0        # sysName
       - 1.3.6.1.4.1.2021.4       # Memory stats
       - 1.3.6.1.4.1.2021.10      # CPU Load
-      - 1.3.6.1.4.1.2021.10.1.3.1
-      - 1.3.6.1.4.1.2021.10.1.3.2
-      - 1.3.6.1.4.1.2021.10.1.3.3
+      - 1.3.6.1.4.1.2021.10.1.6.1
+      - 1.3.6.1.4.1.2021.10.1.6.2
+      - 1.3.6.1.4.1.2021.10.1.6.3
+      - 1.3.6.1.2.1.25.1.1.0
+      - 1.3.6.1.2.1.2.2.1.2
+      - 1.3.6.1.2.1.25.3.3.1.2.196608
 
     metrics:
       - name: sysUpTimeInstance
@@ -639,6 +642,15 @@ modules:
         type: gauge
         help: Charge CPU sur 15 min
 
+      - name: ListeIntStorm
+        oid: 1.3.6.1.2.1.2.2.1.2
+        type: DisplayString
+        help: Liste des interfaces sur le Firewall
+
+      - name: Utilisation_CPU_moyen
+        oid: 1.3.6.1.2.1.25.3.3.1.2.196608
+        type: gauge
+        help: Utilisation moyenne du CPU (en %) sur 1m
 -----------------------------------------------------------------
 
 Maintenant le service se lance, donc SNMP EXPORTER fonctionne, mais il faut faire de la configuration maintenant.
@@ -646,11 +658,9 @@ Maintenant le service se lance, donc SNMP EXPORTER fonctionne, mais il faut fair
 
 Dont notamment pour récupérer des métriques. C'est de la config dans le snmp.yml.
 
-Pour la configuration des dashboard dont ici pour le FW, pour un panneau, j'ai ajouter un module dans le menu "Transformations" pour dire que la requete qui est effectué, eh bas on la remplace ici par le nom du FW.
-	=> Ce qui fait que c'est à 75% automatique mais que 25% ne l'est pas car si le nom du FW venait à changer (meme si ça reste quand meme rare), il faudrait aussi changer sur GRAFANA le nom que l'on veut afficher.
+Pour la configuration des dashboard dont ici pour le FW, pour un panneau, j'ai ajouter un module dans le menu "Transformations" pour dire que dès la requete en question est effectué, eh bas on remplace le résultat ici par le nom du FW.
+	=> Ce qui fait que c'est à 75% automatique mais que 25% ne l'est pas car si le nom du FW venait à changer (meme si ça reste quand meme rare), il faudrait aussi changer sur GRAFANA le nom que l'on veut afficher. Mais bon c'est le moyen le plus simple de le faire.
 
-
-Je ne pense pas installé d'autres modules avec Prometheus autre que SNMP EXPORTER et ALERT MANAGER. Etant en maquette, il nous faut juste quelques exemples.
 
 
 Install de ALERT MANAGER : 
@@ -731,5 +741,97 @@ Création au cas ou, de l'objet PORT pour Alert Manager.
 
 Voila pour l'installation de AlertManager, maintenant il faudrait configurer des règles en créant un fichier "alert.rules.yml" par exemple avec les règles dedans et activer le bloc "rule_files" dans le prometheus.yml . (Voir chatgpt)
 
+
+
+On va installer pour la fin, NODE EXPORTER pour récupérer des informations plus précises que avec SNMP, qui surveillera les serveurs directs et non les équipements réseaux.
+
+	=> Dans /usr/local/bin/ , on télécharge NODE Exporter qui va nous servir à récupérer les métriques du serveur de monitoring ici.
+
+		=> wget https://github.com/prometheus/node_exporter/releases/download/v1.9.0/node_exporter-1.9.0.linux-amd64.tar.gz
+		=> tar -xvzf node_exporter-1.9.0.linux-amd64.tar.gz
+		=> rm node_exporter-1.9.0.linux-amd64.tar.gz
+		=> mv /usr/local/bin/node_exporter-1.9.0.linux-amd64/node_exporter /usr/local/bin/
+		=> chown -R monitoring:monitoring /usr/local/bin/node_exporter
+		=> chmod 755 /usr/local/bin/node_exporter
+		=> rm -r /usr/local/bin/node_exporter-1.9.0.linux-amd64/
+
+
+=> Création du fichier : nano /etc/systemd/system/node_exporter.service
+
+--------------------------------------------------------------------------------------------
+
+[Unit]
+Description=Prometheus NODE Exporter
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=monitoring
+Group=monitoring
+ExecStart=/usr/local/bin/node_exporter \
+  --web.listen-address=0.0.0.0:XXXX \
+  --collector.systemd \
+  --collector.processes
+
+SyslogIdentifier=monitoring
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
+--------------------------------------------------------------------------------------------
+
+On a changé ici le port d'écoute de SNMP EXPORTER de Prometheus ici, dans le fichier du service. Ca ne se fait pas dans le .yml car il n'y pas de fichier .yml pour NODE Exporter .
+
+Commandes système et visualisation des logs en direct :
+
+		=> systemctl daemon-reexec
+		=> systemctl daemon-reload
+		=> systemctl enable node_exporter.service 
+		=> systemctl start node_exporter.service 
+		=> systemctl status node_exporter.service 
+		=> journalctl -f -u node_exporter.service 
+
+
+On a ajouter le bloc "job_name" dans le fichier /etc/prometheus/prometheus.yml : 
+
+-------------------------------------------------
+
+  - job_name: 'NODE-SRV-MONITORING-AARD'
+    static_configs:
+      - targets: ['localhost:XXXX']
+
+  - job_name: 'NODE-SRV-LOG-AARD'
+    static_configs:
+      - targets: ['192.168.7.133:XXXX']
+
+  - job_name: 'NODE-SRV-WEB-AARD'
+    static_configs:
+      - targets: ['172.16.7.1:59051']
+
+  - job_name: 'NODE-SRV-BASTION-AARD'
+    static_configs:
+      - targets: ['172.16.14.1:59051']
+
+  - job_name: 'NODE-SRV-RPROXY-AARD'
+    static_configs:
+      - targets: ['172.16.7.129:59051']
+
+  - job_name: 'NODE-TNAS-F4-423'
+    static_configs:
+      - targets: ['192.168.7.130:59051']
+
+--------------------------------------------------
+
+Création au cas ou, de l'objet PORT pour NODE EXPORTER.
+
+Voila pour l'installation de NODE EXPORTER.
+
+	=> On installe node exporter sur toute les machines sauf la windows car celle-ci ne sera plus présente.
+
+Je ne pense pas installé d'autres modules avec Prometheus autre que SNMP EXPORTER et ALERT MANAGER et NODE EXPORTER. Etant en maquette, il nous faut juste quelques exemples.
+
+Je fais une règle pour autoriser l'envoi des infos pour les métriques de toutes les machines comme fait avec loki.
 
 Pour configurer des DASHBOARDS ou utiliser grafana, une vidéo sera disponible en privé sur la chaine YT.
