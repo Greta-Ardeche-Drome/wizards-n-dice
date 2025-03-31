@@ -1,0 +1,234 @@
+#################################################################
+#								#
+#	Créateur : Arthur YANG - Responsable Documentation 	#
+#				 & Administratif		#
+			
+#	Date de création : 31/03/2025				#
+#								#
+#	Dernier modificateur : Arthur YANG			#
+#	Date de modification : 31/03/2025			#
+#								#
+#		Version actuelle : 1.0				#
+#								#
+#################################################################
+
+
+----------------------- Configuration et sécurisation du serveur UCS ----------------------- 
+
+
+Sources :
+
+
+Actions effectuées dans la VM : 
+
+   => Connexion via root / mot de passe
+   => apt update
+   => apt upgrade
+   => apt install unzip
+   => Création d'un user "ucs" et son groupe sans accès interactif. (useradd --system --no-create-home --home /nonexistent --shell /usr/sbin/nologin ucs)
+
+	
+Installation de l'agent promtail (en root) :
+
+	Installation de Promtail
+  		 => Téléchargement et installation :
+		On se place dans le chemin : /usr/local/bin/
+		On télécharge le fichier zip de Promtail : wget https://github.com/grafana/loki/releases/download/v3.4.2/promtail-linux-amd64.zip
+		Nous pouvons ensuite l'unzip : unzip (nom du fichier)
+		C'est un fichier executable que l'on a.
+
+	=> Configuration de Promtail :
+
+	Nous devons ici, avoir un fichier nommé "promtail-config.yaml" pour la configuration de Promtail.
+	Nous pouvons télécharger un modèle pré-existant : wget https://github.com/grafana/loki/blob/main/clients/cmd/promtail/promtail-local-config.yaml ou le créer nous même.
+	Cela télécharge un modèle que l'on peut renommer comme nous le voulions.
+
+
+=> Config .yaml personnalisé que nous effectuons :
+
+--------------------------------------------------------------------------------------------
+
+server:
+  http_listen_port: 9080
+  grpc_listen_port: 0
+
+positions:
+  filename: /var/lib/promtail/positions.yaml
+
+clients:
+  - url: http://192.168.7.133:3100/loki/api/v1/push  # Utilisation de l'IP du serveur Loki
+
+scrape_configs:
+  - job_name: TNAS-F4-423-SYSLOG
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: SYSLOG-TNAS-F4-423
+          host: TNAS-F4-423
+          stream: stdout
+          __path__: /var/log/syslog
+
+  - job_name: TNAS-F4-423-MAIL
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: MAIL-TNAS-F4-423
+          host: TNAS-F4-423
+          stream: stdout
+          __path__: /var/log/mail.log
+
+  - job_name: TNAS-F4-423-CRON
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: CRON-TNAS-F4-423
+          host: TNAS-F4-423
+          stream: stdout
+          __path__: /var/log/cron.log
+
+  - job_name: TNAS-F4-423-AUTHLOG
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: AUTHLOG-TNAS-F4-423
+          host: TNAS-F4-423
+          stream: stdout
+          __path__: /var/log/auth.log
+
+--------------------------------------------------------------------------------------------
+
+
+=> Créer un dossier /var/lib/promtail/ : mkdir -p /var/lib/promtail
+		=> chown -R ucs:ucs /var/lib/promtail
+		=> chmod -R 750 /var/lib/promtail
+
+	=> Nous mettons l'utilisateur créée plus tôt "ucs" en tant que propriétaire et propriétaire groupe des fichiers de config de Loki.
+	
+		=> chown -R ucs:ucs promtail-config.yaml promtail-linux-amd64
+		=> chmod 755 promtail-linux-amd64
+		=> chmod 640 promtail-config.yaml
+
+
+	=> Création du fichier : /etc/systemd/system/promtail.service
+
+--------------------------------------------------------------------------------------------
+
+[Unit]
+Description=Promtail Loki
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=ucs
+Group=ucs
+ExecStart=/usr/local/bin/promtail-linux-amd64 -config.file=/usr/local/bin/promtail-config.yaml
+
+SyslogIdentifier=ucs
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
+--------------------------------------------------------------------------------------------
+
+
+Commandes système et visualisation des logs en direct :
+
+		=> systemctl enable promtail.service 
+		=> systemctl start promtail.service
+		=> systemctl status promtail.service
+		=> journalctl -f -u promtail.service
+
+	Normalement le service promtail est lancé.
+
+
+Dans nos conteneurs LXC Debian, les logs semblent être dans le "journald" et non le syslog.
+
+On installe "rsyslog" pour qu'ils puissent etre visible dans "syslog"
+
+	=> apt install rsyslog -y
+	=> systemctl enable rsyslog --now
+	=> tail -f /var/log/syslog
+
+Pour que notre utilisateur "ucs" puissent avoir les droits de lecture de logs, on va lui ajouter dans le groupe adm : 
+
+	=> usermod -aG adm ucs
+	=> systemctl restart promtail.service
+
+En effet, Un problèmes d’accès aux fichiers /var/log/auth.log, /var/log/cron.log et /var/log/user.log par Grafana sera présent par le fait que l'on a paramétré le service promtail avec l'utilisateur "ucs".
+
+Faire de même avec le fichier "syslog" : 
+
+	=> chown ucs:root /var/log/syslog
+	=> chmod 640 /var/log/syslog
+	=> systemctl restart promtail.service
+
+
+On peut rajouter : 
+
+	=> chown ucs:utmp /var/log/btmp
+
+
+De manière générale, regarder les permissions des fichiers selon l'utilisateur qui utilise le service.
+Je ne fais pas d'autre fichier texte pour le NAS, mais j'ai mis Promtail aussi pour le NAS avec le même genre de config (Pas complet car le rsyslog marche pas pour l'instant).
+
+
+On va installer pour la fin, NODE EXPORTER pour récupérer des informations plus précises que avec SNMP, qui surveillera les serveurs directs et non les équipements réseaux.
+
+	=> Dans /usr/local/bin/ , on télécharge NODE Exporter qui va nous servir à récupérer les métriques du serveur UCS ici.
+
+		=> wget https://github.com/prometheus/node_exporter/releases/download/v1.9.0/node_exporter-1.9.0.linux-amd64.tar.gz
+		=> tar -xvzf node_exporter-1.9.0.linux-amd64.tar.gz
+		=> rm node_exporter-1.9.0.linux-amd64.tar.gz
+		=> mv /usr/local/bin/node_exporter-1.9.0.linux-amd64/node_exporter /usr/local/bin/
+		=> chown -R ucs:ucs /usr/local/bin/node_exporter
+		=> chmod 755 /usr/local/bin/node_exporter
+		=> rm -r /usr/local/bin/node_exporter-1.9.0.linux-amd64/
+
+
+=> Création du fichier : nano /etc/systemd/system/node_exporter.service
+
+--------------------------------------------------------------------------------------------
+
+[Unit]
+Description=Prometheus NODE Exporter
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=ucs
+Group=ucs
+ExecStart=/usr/local/bin/node_exporter \
+  --web.listen-address=0.0.0.0:XXXX \
+  --collector.systemd \
+  --collector.processes
+
+SyslogIdentifier=ucs
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
+--------------------------------------------------------------------------------------------
+
+On a changé ici le port d'écoute de SNMP EXPORTER de Prometheus ici, dans le fichier du service. Ca ne se fait pas dans le .yml car il n'y pas de fichier .yml pour NODE Exporter .
+
+Commandes système et visualisation des logs en direct :
+
+		=> systemctl daemon-reexec
+		=> systemctl daemon-reload
+		=> systemctl enable node_exporter.service 
+		=> systemctl start node_exporter.service 
+		=> systemctl status node_exporter.service 
+		=> journalctl -f -u node_exporter.service
+
+Voila pour l'installation de NODE EXPORTER.
+
+
+Partie sécurisation : 
