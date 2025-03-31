@@ -808,19 +808,39 @@ On a ajouter le bloc "job_name" dans le fichier /etc/prometheus/prometheus.yml :
 
   - job_name: 'NODE-SRV-WEB-AARD'
     static_configs:
-      - targets: ['172.16.7.1:59051']
+      - targets: ['172.16.7.1:XXXX']
 
   - job_name: 'NODE-SRV-BASTION-AARD'
     static_configs:
-      - targets: ['172.16.14.1:59051']
+      - targets: ['172.16.14.1:XXXX']
 
   - job_name: 'NODE-SRV-RPROXY-AARD'
     static_configs:
-      - targets: ['172.16.7.129:59051']
+      - targets: ['172.16.7.129:XXXX']
 
   - job_name: 'NODE-TNAS-F4-423'
     static_configs:
-      - targets: ['192.168.7.130:59051']
+      - targets: ['192.168.7.130:XXXX']
+
+  - job_name: 'NODE-SRV-RDS-AARD'
+    static_configs:
+      - targets: ['192.168.7.132:XXXX']
+ 
+  - job_name: 'NODE-SRV-BDD-PROD-AARD'
+    static_configs:
+      - targets: ['192.168.7.145:XXXX']
+
+  - job_name: 'NODE-SRV-SVG-AARD'
+    static_configs:
+      - targets: ['192.168.7.131:XXXX']
+
+  - job_name: 'NODE-SRV-BDD-PREPROD-AARD'
+    static_configs:
+      - targets: ['192.168.7.146:XXXX']
+
+  - job_name: 'NODE-SRV-WEB-PREPROD-AARD'
+    static_configs:
+      - targets: ['172.16.7.2:XXXX']
 
 --------------------------------------------------
 

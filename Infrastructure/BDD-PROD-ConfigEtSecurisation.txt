@@ -300,4 +300,54 @@ On restart les services de la suite GRAFANA (Loki, promtail, grafana).
 Maintenant sur GRAFANA, on pourra voir le nom du job qui ira chercher les fichiers logs de mysql.
 
 
+On va installer pour la fin, NODE EXPORTER pour récupérer des informations plus précises que avec SNMP, qui surveillera les serveurs directs et non les équipements réseaux.
+
+	=> Dans /usr/local/bin/ , on télécharge NODE Exporter qui va nous servir à récupérer les métriques du serveur BDD PROD ici.
+
+		=> wget https://github.com/prometheus/node_exporter/releases/download/v1.9.0/node_exporter-1.9.0.linux-amd64.tar.gz
+		=> tar -xvzf node_exporter-1.9.0.linux-amd64.tar.gz
+		=> rm node_exporter-1.9.0.linux-amd64.tar.gz
+		=> mv /usr/local/bin/node_exporter-1.9.0.linux-amd64/node_exporter /usr/local/bin/
+		=> chown -R prod:prod /usr/local/bin/node_exporter
+		=> chmod 755 /usr/local/bin/node_exporter
+		=> rm -r /usr/local/bin/node_exporter-1.9.0.linux-amd64/
+
+
+=> Création du fichier : nano /etc/systemd/system/node_exporter.service
+
+--------------------------------------------------------------------------------------------
+
+[Unit]
+Description=Prometheus NODE Exporter
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=prod
+Group=prod
+ExecStart=/usr/local/bin/node_exporter --web.listen-address=0.0.0.0:XXXX --collector.systemd --collector.processes
+
+SyslogIdentifier=prod
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
+--------------------------------------------------------------------------------------------
+
+On a changé ici le port d'écoute de SNMP EXPORTER de Prometheus ici, dans le fichier du service. Ca ne se fait pas dans le .yml car il n'y pas de fichier .yml pour NODE Exporter .
+
+Commandes système et visualisation des logs en direct :
+
+		=> systemctl daemon-reexec
+		=> systemctl daemon-reload
+		=> systemctl enable node_exporter.service 
+		=> systemctl start node_exporter.service 
+		=> systemctl status node_exporter.service 
+		=> journalctl -f -u node_exporter.service
+
+Voila pour l'installation de NODE EXPORTER.
+
+
 La partie SSL et autres (dossier emplacement des BDD ou FW hote ?) sera fait dans la partie plus "Sécurisation" en dessous.
