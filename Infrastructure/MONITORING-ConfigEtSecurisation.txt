@@ -842,6 +842,10 @@ On a ajouter le bloc "job_name" dans le fichier /etc/prometheus/prometheus.yml :
     static_configs:
       - targets: ['172.16.7.2:XXXX']
 
+  - job_name: 'PROMTAIL-VERSION-SRV-MONITORING-AARD'
+    static_configs:
+      - targets: ['localhost:9080']
+
 --------------------------------------------------
 
 Création au cas ou, de l'objet PORT pour NODE EXPORTER.
