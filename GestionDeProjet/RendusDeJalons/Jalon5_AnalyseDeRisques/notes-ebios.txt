@@ -1,0 +1,132 @@
+EBIOS RM :
+- Plusieurs ateliers (phases) pour cadrer et analyser les sources de risques pour les traiter
+=> analyse qui prend du temps
+
+Atelier 1 : définition du cadre et du périmètre
+Valeur métier : composante importante pour le projet -> information ou processus
+Biens de supports : Composante du SI sur laquelle repose une ou plusieurs valeurs métier. Nature numérique, physique ou organisationnelle
+Evénements redoutés : associé à une VM et porte atteinte à l'un des besoins de sécu. Évalué en terme de gravité. Pas encore une attaque mais un résultat non désiré (ex : perte d'une donnée client)
+
+
+Atelier 2 : Étude des sources de risque et des objectifs des attaquants. On identifie les parties prenantes malveillantes, leurs objectifs (par rapport aux valeurs métier), leurs capacités (ressources, compétences, accès), et leurs intentions.
+
+Atelier 3 : Création de scénarios stratégiques : quelles sont les menaces et les parties prenantes (quoi, qui)  ²²²²²²²²²²²²²²²²²²²²
+
+Atelier 4 : Création de scénarios opérationnels : quelles sont les vulnérabilités et la vraisemblance qu'elles soient exploitées (comment, dans quel contexte)
+
+Atelier 5 : Traitement du risque et réalisation d'un tableau de comparaison entre niveau de risque initial et niveau de risque résiduel, quelles mesures de sécurité appliquées...
+
+
+Niveau de risque = gravité * vraisemblance
+
+Cadrage & socle
+Choix du socle :
+- Choix d'un référentiels
+=> Ce choix de référentiel définit le socle de sécurité
+
+REUNION
+
+Référentiels pertinents par ordre de pertinence: RGPD OU PCI-DSS OU Référentiel applicatif de l'ANSSI
+
+Périmètre :
+- Site web + forum
+- Infra
+- Emplacement des machines physiques
+- Git
+- Bitwarden
+- Réseaux sociaux / mails
+
+
+Valeurs métier :
+- Vente de produits
+- Plateforme de discussion (forum)
+- Comptes clients
+- Relation client
+- Stock de produits
+
+
+Biens supports :
+- Site web -> vente de produits, plateforme de discussion, comptes clients, relation client
+- PVE -> vente de produits, plateforme de discussion, comptes clients, relaton client
+- BDD -> vente de produits, plateforme de discussion, comptes clients, stock de produits
+- Gestion des stocks -> vente de produits, comptes clients, Stock de produits
+- Dépôt des stocks -> Stock de produits
+- Réseaux sociaux / mail -> Relation client (si le temps)
+
+Évènements redoutés :
+1 :
+- Usurpation d'identité
+- Blocage des ventes
+- pertes des données de commandes
+- modif frauduleuse (ex: changement prix)w
+
+2:
+- Perte d'une donnée cli    ent
+- usurpation d'identité
+
+3:
+- Blocage de la plateforme
+- publication de contenu interdit
+
+4:
+- Diffamation / atteinte à l'image
+- fraude (au sav par ex)
+- perte des comptes (réseaux sociaux)
+
+5:
+- Dégradation ou vol des produits en stock
+- indispo de la geestion des stocks
+
+
+Source de risque // objectif visé
+- concurrent // *mauvaise image* ; *bloquer le site* ; espionnage (récup client)
+- vengeur : *client mécontent* // arnaque ou fraude ; mauvaise image ; changement prix / quantité
+- hacker // *argent (engagé ou rançon)* ; amusement ; éthique
+- voleur // argent (vol de produit / matériel)
+- étatique // manoeuvre d'états "ennemis"
+
+
+Parties prenantes
+Paire source de risque :
+A : concurrent <=> bloquer le site
+B : concurrent <=> mauvaise image
+C : vengeur <=> arnaque / fraude
+D : hacker <=> argent
+
+parties prenantes :
+A & B = concurrent
+Tous = W & D (nous)
+A,C = client
+D = hacker
+C = fournisseur paiement
+A = fournisseur DNS
+A,B,D = Bitwarden
+A = FAI / Internet
+D = stormshield & autres technos
+
+Scénarios stratégiques
+PAS PRÉVU PAR LES RÉFÉRENTIELS
+concurrent :
+- DDOS
+- Sabotage fournisseur
+- vulnérabilité
+- ingénieurie sociale
+- usurpation d'ip publique
+=> bloquer le site
+- faux posts / commentaires
+- usurpation d'identité
+=> mauvaise image
+
+vengeur :
+- fausse réclamation
+- modification commande
+=> arnaque / fraude
+
+
+hacker :
+- ingénierie social
+- vulnérabilité (malware)
+=> argent
+
+
+
