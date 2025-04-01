@@ -10,7 +10,7 @@ Evénements redoutés : associé à une VM et porte atteinte à l'un des besoins
 
 Atelier 2 : Étude des sources de risque et des objectifs des attaquants. On identifie les parties prenantes malveillantes, leurs objectifs (par rapport aux valeurs métier), leurs capacités (ressources, compétences, accès), et leurs intentions.
 
-Atelier 3 : Création de scénarios stratégiques : quelles sont les menaces et les parties prenantes (quoi, qui)  ²²²²²²²²²²²²²²²²²²²²
+Atelier 3 : Création de scénarios stratégiques : quelles sont les menaces et les parties prenantes (quoi, qui) 
 
 Atelier 4 : Création de scénarios opérationnels : quelles sont les vulnérabilités et la vraisemblance qu'elles soient exploitées (comment, dans quel contexte)
 
