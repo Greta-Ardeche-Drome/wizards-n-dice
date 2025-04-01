@@ -54,46 +54,42 @@ Biens supports :
 - Réseaux sociaux / mail -> Relation client (si le temps)
 
 Évènements redoutés :
-1 :
-- Usurpation d'identité
-- Blocage des ventes
-- pertes des données de commandes
-- modif frauduleuse (ex: changement prix)w
-
-2:
-- Perte d'une donnée cli    ent
-- usurpation d'identité
-
-3:
-- Blocage de la plateforme
-- publication de contenu interdit
-
-4:
-- Diffamation / atteinte à l'image
-- fraude (au sav par ex)
-- perte des comptes (réseaux sociaux)
-
-5:
-- Dégradation ou vol des produits en stock
-- indispo de la geestion des stocks
+Valeurs métier 1 :
+	- Usurpation d'identité
+	- Blocage des ventes
+	- Pertes des données de commandes
+	- Modif frauduleuse (ex: changement prix)
+Valeurs métier 2:
+	- Perte d'une donnée client
+	- Usurpation d'identité
+Valeurs métier 3:
+	- Blocage de la plateforme
+	- Publication de contenu interdit
+Valeurs métier 4:
+	- Diffamation / atteinte à l'image
+	- Fraude (au sav par ex)
+	- Perte des comptes (réseaux sociaux)
+Valeurs métier 5:
+	- Dégradation ou vol des produits en stock
+	- Indispo de la gestion des stocks
 
 
-Source de risque // objectif visé
-- concurrent // *mauvaise image* ; *bloquer le site* ; espionnage (récup client)
-- vengeur : *client mécontent* // arnaque ou fraude ; mauvaise image ; changement prix / quantité
-- hacker // *argent (engagé ou rançon)* ; amusement ; éthique
-- voleur // argent (vol de produit / matériel)
-- étatique // manoeuvre d'états "ennemis"
+Couple source de risque <-> objectif visé
+- concurrent : mauvaise image ; bloquer le sitz ; espionnage (récup client)
+- vengeur : client mécontent // arnaque ou fraude ; mauvaise image ; changement prix / quantité
+- hacker : argent (engagé ou rançon) ; amusement ; éthique
+- voleur : argent (vol de produit / matériel)
+- étatique : manoeuvre d'états "ennemis"
 
 
-Parties prenantes
-Paire source de risque :
+Paires retenus comme "à traiter" :
 A : concurrent <=> bloquer le site
 B : concurrent <=> mauvaise image
 C : vengeur <=> arnaque / fraude
 D : hacker <=> argent
 
-parties prenantes :
+
+Parties prenantes :
 A & B = concurrent
 Tous = W & D (nous)
 A,C = client
