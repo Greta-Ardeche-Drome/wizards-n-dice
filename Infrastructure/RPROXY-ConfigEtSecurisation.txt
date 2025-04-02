@@ -114,6 +114,15 @@ scrape_configs:
           stream: stdout
           __path__: /var/log/auth.log
 
+  - job_name: SRV-RPROXY-AARD-MODSEC
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: MODSEC-AARD-RPROXY
+          host: SRV-RPROXY-AARD
+          stream: stdout
+          __path__: /var/log/nginx/modsec_audit.log
 
 --------------------------------------------------------------------------------------------
 
