@@ -59,45 +59,76 @@ clients:
   - url: http://192.168.7.133:3100/loki/api/v1/push  # Utilisation de l'IP du serveur Loki
 
 scrape_configs:
-  - job_name: TNAS-F4-423-SYSLOG
+  - job_name: SRV-UCS-AARD-SYSLOG
     static_configs:
       - targets:
           - localhost
         labels:
-          job: SYSLOG-TNAS-F4-423
-          host: TNAS-F4-423
+          job: SYSLOG-SRV-UCS-AARD
+          host: SRV-UCS-AARD
           stream: stdout
           __path__: /var/log/syslog
 
-  - job_name: TNAS-F4-423-MAIL
+  - job_name: SRV-UCS-AARD-MAIL
     static_configs:
       - targets:
           - localhost
         labels:
-          job: MAIL-TNAS-F4-423
-          host: TNAS-F4-423
+          job: MAIL-SRV-UCS-AARD
+          host: SRV-UCS-AARD
           stream: stdout
           __path__: /var/log/mail.log
 
-  - job_name: TNAS-F4-423-CRON
+  - job_name: SRV-UCS-AARD-CRON
     static_configs:
       - targets:
           - localhost
         labels:
-          job: CRON-TNAS-F4-423
-          host: TNAS-F4-423
+          job: CRON-SRV-UCS-AARD
+          host: SRV-UCS-AARD
           stream: stdout
           __path__: /var/log/cron.log
 
-  - job_name: TNAS-F4-423-AUTHLOG
+  - job_name: SRV-UCS-AARD-AUTHLOG
     static_configs:
       - targets:
           - localhost
         labels:
-          job: AUTHLOG-TNAS-F4-423
-          host: TNAS-F4-423
+          job: AUTHLOG-SRV-UCS-AARD
+          host: SRV-UCS-AARD
           stream: stdout
           __path__: /var/log/auth.log
+
+  - job_name: SRV-UCS-AARD-USER
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: USER-SRV-UCS-AARD
+          host: SRV-UCS-AARD
+          stream: stdout
+          __path__: /var/log/user.log
+
+  - job_name: SRV-UCS-AARD-KERN
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: KERN-SRV-UCS-AARD
+          host: SRV-UCS-AARD
+          stream: stdout
+          __path__: /var/log/kern.log
+
+  - job_name: SRV-UCS-AARD-ALTERNATIVES
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: ALTERNATIVES-SRV-UCS-AARD
+          host: SRV-UCS-AARD
+          stream: stdout
+          __path__: /var/log/alternatives.log
+
 
 --------------------------------------------------------------------------------------------
 
@@ -147,14 +178,6 @@ Commandes système et visualisation des logs en direct :
 	Normalement le service promtail est lancé.
 
 
-Dans nos conteneurs LXC Debian, les logs semblent être dans le "journald" et non le syslog.
-
-On installe "rsyslog" pour qu'ils puissent etre visible dans "syslog"
-
-	=> apt install rsyslog -y
-	=> systemctl enable rsyslog --now
-	=> tail -f /var/log/syslog
-
 Pour que notre utilisateur "ucs" puissent avoir les droits de lecture de logs, on va lui ajouter dans le groupe adm : 
 
 	=> usermod -aG adm ucs
@@ -164,14 +187,9 @@ En effet, Un problèmes d’accès aux fichiers /var/log/auth.log, /var/log/cron
 
 Faire de même avec le fichier "syslog" : 
 
-	=> chown ucs:root /var/log/syslog
-	=> chmod 640 /var/log/syslog
+	=> chmod 660 /var/log/syslog
 	=> systemctl restart promtail.service
 
-
-On peut rajouter : 
-
-	=> chown ucs:utmp /var/log/btmp
 
 
 De manière générale, regarder les permissions des fichiers selon l'utilisateur qui utilise le service.
