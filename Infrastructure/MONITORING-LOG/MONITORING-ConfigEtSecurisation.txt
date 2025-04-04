@@ -197,7 +197,7 @@ On utilise l'adresse : svg.wizardsndice@gmail.com et ne pas oublier de créer un
 enabled = true
 host = smtp.gmail.com:587
 user = svg.wizardsndice@gmail.com
-password = lfjz fdys rnha czul
+password = XXXXX
 ;cert_file =
 ;key_file =
 skip_verify = false
@@ -366,6 +366,92 @@ Et dans ldap.toml, on doit bien avoir :
 
 On peut restart encore une fois les services, mais maintenant on plus le MDP en clair dans le fichier CONF de LDAP venant de GRAFANA.
 Le LDAPS doit fonctionner en se connectant avec les comptes ADMINS.
+
+
+
+Ayant changé de serveur LDAP (AD => UCS); voici la nouvelle configuration du fichier ldap.toml : 
+
+-------------------------------------------------------------------------------------------
+
+# To troubleshoot and get more log info enable ldap debug logging in grafana.ini
+# [log]
+# filters = ldap:debug
+
+[[servers]]
+# Ldap server host (specify multiple hosts space separated)
+host = "SRV-UCS-AARD.wnd.local"
+# Default port is 389 or 636 if use_ssl = true
+port = 636
+# Set to true if LDAP server should use an encrypted TLS connection (either with STARTTLS or LDAPS)
+use_ssl = true
+# If set to true, use LDAP with STARTTLS instead of LDAPS
+start_tls = false
+# The value of an accepted TLS cipher. By default, this value is empty. Example value: ["TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384"])
+# For a complete list of supported ciphers and TLS versions, refer to: https://go.dev/src/crypto/tls/cipher_suites.go
+# Starting with Grafana v11.0 only ciphers with ECDHE support are accepted for TLS 1.2 connections.
+tls_ciphers = []
+# This is the minimum TLS version allowed. By default, this value is empty. Accepted values are: TLS1.1 (only for Grafana v10.4 or older), TLS1.2, TLS1.3.
+min_tls_version = ""
+# set to true if you want to skip ssl cert validation
+ssl_skip_verify = false
+# set to the path to your root CA certificate or leave unset to use system defaults
+root_ca_cert = "/usr/local/share/ca-certificates/ucs-root-ca.crt"
+# Authentication against LDAP servers requiring client certificates
+# client_cert = "/path/to/client.crt"
+# client_key = "/path/to/client.key"
+
+# Search user bind dn
+bind_dn = "cn=grafanalink,ou=Utilisateurs,ou=WND,dc=wnd,dc=local"
+# Search user bind password
+# If the password contains # or ; you have to wrap it with triple quotes. Ex """#password;"""
+# We recommend using variable expansion for the bind_password, for more info https://grafana.com/docs/grafana/latest/setup-grafana/configure-grafana/#var>
+bind_password = '$__env{LDAP_BIND_PASSWORD}'
+
+# Timeout in seconds (applies to each host specified in the 'host' entry (space separated))
+timeout = 10
+
+# User search filter, for example "(cn=%s)" or "(sAMAccountName=%s)" or "(uid=%s)"
+search_filter = "(cn=%s)"
+
+# An array of base dns to search through
+search_base_dns = ["ou=Utilisateurs,ou=WND,dc=wnd,dc=local"]
+
+## For Posix or LDAP setups that does not support member_of attribute you can define the below settings
+## Please check grafana LDAP docs for examples
+#group_search_filter = "(&(objectClass=group)(member=%s))"
+#group_search_base_dns = ["dc=wnd,dc=local"]
+#group_search_filter_user_attribute = "distinguishedName"
+
+# Specify names of the ldap attributes your ldap uses
+[servers.attributes]
+name = "givenName"
+surname = "sn"
+username = "cn"
+member_of = "memberOf"
+email = "mail"
+
+# Map ldap groups to grafana org roles
+[[servers.group_mappings]]
+group_dn = "cn=GL_Admins,ou=Services,ou=Groupes,ou=WND,dc=wnd,dc=local"
+org_role = "Admin"
+# To make user an instance admin  (Grafana Admin) uncomment line below
+grafana_admin = true
+# The Grafana organization database id, optional, if left out the default org (id 1) will be used
+# org_id = 1
+
+[[servers.group_mappings]]
+group_dn = "cn=GL_Admins,ou=Services,ou=Groupes,ou=WND,dc=wnd,dc=local"
+org_role = "Editor"
+
+#[[servers.group_mappings]]
+# If you want to match all (or no ldap groups) then you can use wildcard
+#group_dn = "*"
+#org_role = "Viewer"
+
+-------------------------------------------------------------------------------------------
+
+Bien sur, il fallait importer le nouveau certificat root du nouveau serveur LDAP sur le serveur actuelle. Et update les certificats.
+
 
 
 On va avant de faire les dashboards, installer Prometheus. Cela nous permettra de récupérer des métriques sur le Stormshield par exemple, et voir quelques autres serveurs.
@@ -589,9 +675,12 @@ modules:
       - 1.3.6.1.2.1.1.5.0        # sysName
       - 1.3.6.1.4.1.2021.4       # Memory stats
       - 1.3.6.1.4.1.2021.10      # CPU Load
-      - 1.3.6.1.4.1.2021.10.1.3.1
-      - 1.3.6.1.4.1.2021.10.1.3.2
-      - 1.3.6.1.4.1.2021.10.1.3.3
+      - 1.3.6.1.4.1.2021.10.1.6.1
+      - 1.3.6.1.4.1.2021.10.1.6.2
+      - 1.3.6.1.4.1.2021.10.1.6.3
+      - 1.3.6.1.2.1.25.1.1.0
+      - 1.3.6.1.2.1.2.2.1.2
+      - 1.3.6.1.2.1.25.3.3.1.2.196608
 
     metrics:
       - name: sysUpTimeInstance
@@ -639,6 +728,15 @@ modules:
         type: gauge
         help: Charge CPU sur 15 min
 
+      - name: ListeIntStorm
+        oid: 1.3.6.1.2.1.2.2.1.2
+        type: DisplayString
+        help: Liste des interfaces sur le Firewall
+
+      - name: Utilisation_CPU_moyen
+        oid: 1.3.6.1.2.1.25.3.3.1.2.196608
+        type: gauge
+        help: Utilisation moyenne du CPU (en %) sur 1m
 -----------------------------------------------------------------
 
 Maintenant le service se lance, donc SNMP EXPORTER fonctionne, mais il faut faire de la configuration maintenant.
@@ -646,6 +744,209 @@ Maintenant le service se lance, donc SNMP EXPORTER fonctionne, mais il faut fair
 
 Dont notamment pour récupérer des métriques. C'est de la config dans le snmp.yml.
 
-Je ne pense pas installé d'autres modules avec Prometheus autre que SNMP EXPORTER. Etant en maquette, il nous faut juste quelques exemples.
+Pour la configuration des dashboard dont ici pour le FW, pour un panneau, j'ai ajouter un module dans le menu "Transformations" pour dire que dès la requete en question est effectué, eh bas on remplace le résultat ici par le nom du FW.
+	=> Ce qui fait que c'est à 75% automatique mais que 25% ne l'est pas car si le nom du FW venait à changer (meme si ça reste quand meme rare), il faudrait aussi changer sur GRAFANA le nom que l'on veut afficher. Mais bon c'est le moyen le plus simple de le faire.
+	=> Config de beaucoup de dashboard et alerts, voir vidéo pour savoir comment faire rapidement.
+	=> Pour les alertes sur GRAFANA, je n'ai pas de règle pour chaque serveur de manière individuelle, car sinon ce serait vraiment trop long (jusqu'a 100 règles). Nous sommes en maquettes donc j'ai fait 2 règles individuelles + une générale pour chaque thème.
+
+
+Install de ALERT MANAGER : 
+
+	> Dans /usr/local/bin/ , on télécharge Alert Manager qui va nous servir à alerte si un problème survenait.
+
+		=> wget https://github.com/prometheus/alertmanager/releases/download/v0.28.1/alertmanager-0.28.1.linux-amd64.tar.gz
+		=> tar -xvzf alertmanager-0.28.1.linux-amd64.tar.gz
+		=> rm alertmanager-0.28.1.linux-amd64.tar.gz
+		=> mv /usr/local/bin/alertmanager-0.28.1.linux-amd64/alertmanager /usr/local/bin/
+		=> mv /usr/local/bin/alertmanager-0.28.1.linux-amd64/amtool /usr/local/bin/
+		=> mv /usr/local/bin/alertmanager-0.28.1.linux-amd64/alertmanager.yml /etc/prometheus
+		=> chown -R monitoring:monitoring /usr/local/bin/alertmanager /usr/local/bin/amtool
+		=> chmod 755 /usr/local/bin/alertmanager /usr/local/bin/amtool
+		=> chmod 640 /etc/prometheus/alertmanager.yml
+		=> chown -R monitoring:monitoring /etc/prometheus/alertmanager.yml
+		=> rm -r /usr/local/bin/alertmanager-0.28.1.linux-amd64/
+
+=> Créer un dossier /var/lib/alertmanager : mkdir -p /var/lib/alertmanager
+		=> chown -R monitoring:monitoring /var/lib/alertmanager
+		=> chmod -R 750 /var/lib/alertmanager
+
+
+
+On a modifier le bloc "alerting" dans le fichier /etc/prometheus/prometheus.yml :
+
+-------------------------------------------------
+
+# Alertmanager configuration
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets:
+           - alertmanager:XXXX
+
+--------------------------------------------------
+
+
+
+=> Création du fichier : nano /etc/systemd/system/alertmanager.service
+
+--------------------------------------------------------------------------------------------
+
+[Unit]
+Description=Prometheus AlertManager
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=monitoring
+Group=monitoring
+ExecStart=/usr/local/bin/alertmanager \
+  --config.file=/etc/prometheus/alertmanager.yml \
+  --web.listen-address=0.0.0.0:XXXX \
+  --storage.path=/var/lib/alertmanager
+
+SyslogIdentifier=monitoring
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
+--------------------------------------------------------------------------------------------
+
+Commandes système et visualisation des logs en direct :
+
+		=> systemctl daemon-reexec
+		=> systemctl daemon-reload
+		=> systemctl enable alertmanager.service 
+		=> systemctl start alertmanager.service
+		=> systemctl status alertmanager.service
+		=> journalctl -f -u alertmanager.service
+
+
+On a changé ici le port d'écoute de Alert Manager de Prometheus ici, dans le fichier du service. Ca ne se fait pas dans le .yml . (Voir DOC DE SECU, sur le FW ou le SERVEUR pour savoir le port)
+Création au cas ou, de l'objet PORT pour Alert Manager.
+
+Voila pour l'installation de AlertManager, maintenant il faudrait configurer des règles en créant un fichier "alert.rules.yml" par exemple avec les règles dedans et activer le bloc "rule_files" dans le prometheus.yml . (Voir chatgpt)
+
+
+
+On va installer pour la fin, NODE EXPORTER pour récupérer des informations plus précises que avec SNMP, qui surveillera les serveurs directs et non les équipements réseaux.
+
+	=> Dans /usr/local/bin/ , on télécharge NODE Exporter qui va nous servir à récupérer les métriques du serveur de monitoring ici.
+
+		=> wget https://github.com/prometheus/node_exporter/releases/download/v1.9.0/node_exporter-1.9.0.linux-amd64.tar.gz
+		=> tar -xvzf node_exporter-1.9.0.linux-amd64.tar.gz
+		=> rm node_exporter-1.9.0.linux-amd64.tar.gz
+		=> mv /usr/local/bin/node_exporter-1.9.0.linux-amd64/node_exporter /usr/local/bin/
+		=> chown -R monitoring:monitoring /usr/local/bin/node_exporter
+		=> chmod 755 /usr/local/bin/node_exporter
+		=> rm -r /usr/local/bin/node_exporter-1.9.0.linux-amd64/
+
+
+=> Création du fichier : nano /etc/systemd/system/node_exporter.service
+
+--------------------------------------------------------------------------------------------
+
+[Unit]
+Description=Prometheus NODE Exporter
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=monitoring
+Group=monitoring
+ExecStart=/usr/local/bin/node_exporter \
+  --web.listen-address=0.0.0.0:XXXX \
+  --collector.systemd \
+  --collector.processes
+
+SyslogIdentifier=monitoring
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
+--------------------------------------------------------------------------------------------
+
+On a changé ici le port d'écoute de SNMP EXPORTER de Prometheus ici, dans le fichier du service. Ca ne se fait pas dans le .yml car il n'y pas de fichier .yml pour NODE Exporter .
+
+Commandes système et visualisation des logs en direct :
+
+		=> systemctl daemon-reexec
+		=> systemctl daemon-reload
+		=> systemctl enable node_exporter.service 
+		=> systemctl start node_exporter.service 
+		=> systemctl status node_exporter.service 
+		=> journalctl -f -u node_exporter.service 
+
+
+On a ajouter le bloc "job_name" dans le fichier /etc/prometheus/prometheus.yml : 
+
+-------------------------------------------------
+
+  - job_name: 'NODE-SRV-MONITORING-AARD'
+    static_configs:
+      - targets: ['localhost:XXXX']
+
+  - job_name: 'NODE-SRV-LOG-AARD'
+    static_configs:
+      - targets: ['192.168.7.133:XXXX']
+
+  - job_name: 'NODE-SRV-WEB-AARD'
+    static_configs:
+      - targets: ['172.16.7.1:XXXX']
+
+  - job_name: 'NODE-SRV-BASTION-AARD'
+    static_configs:
+      - targets: ['172.16.14.1:XXXX']
+
+  - job_name: 'NODE-SRV-RPROXY-AARD'
+    static_configs:
+      - targets: ['172.16.7.129:XXXX']
+
+  - job_name: 'NODE-TNAS-F4-423'
+    static_configs:
+      - targets: ['192.168.7.130:XXXX']
+
+  - job_name: 'NODE-SRV-RDS-AARD'
+    static_configs:
+      - targets: ['192.168.7.132:XXXX']
+ 
+  - job_name: 'NODE-SRV-BDD-PROD-AARD'
+    static_configs:
+      - targets: ['192.168.7.145:XXXX']
+
+  - job_name: 'NODE-SRV-SVG-AARD'
+    static_configs:
+      - targets: ['192.168.7.131:XXXX']
+
+  - job_name: 'NODE-SRV-BDD-PREPROD-AARD'
+    static_configs:
+      - targets: ['192.168.7.146:XXXX']
+
+  - job_name: 'NODE-SRV-WEB-PREPROD-AARD'
+    static_configs:
+      - targets: ['172.16.7.2:XXXX']
+
+  - job_name: 'PROMTAIL-VERSION-SRV-MONITORING-AARD'
+    static_configs:
+      - targets: ['localhost:9080']
+
+  - job_name: 'NODE-SRV-UCS-AARD'
+    static_configs:
+      - targets: ['192.168.7.140:59051']
+
+--------------------------------------------------
+
+Création au cas ou, de l'objet PORT pour NODE EXPORTER.
+
+Voila pour l'installation de NODE EXPORTER.
+
+	=> On installe node exporter sur toute les machines sauf la windows car celle-ci ne sera plus présente.
+
+Je ne pense pas installé d'autres modules avec Prometheus autre que SNMP EXPORTER et ALERT MANAGER et NODE EXPORTER. Etant en maquette, il nous faut juste quelques exemples.
+
+Je fais une règle pour autoriser l'envoi des infos pour les métriques de toutes les machines comme fait avec loki.
 
 Pour configurer des DASHBOARDS ou utiliser grafana, une vidéo sera disponible en privé sur la chaine YT.

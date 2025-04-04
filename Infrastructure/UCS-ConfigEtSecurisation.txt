@@ -1,29 +1,34 @@
-cd #################################################################
+#################################################################
 #								#
 #	Créateur : Arthur YANG - Responsable Documentation 	#
 #				 & Administratif		#
 			
-#	Date de création : 18/02/2025				#
+#	Date de création : 31/03/2025				#
 #								#
 #	Dernier modificateur : Arthur YANG			#
-#	Date de modification : 18/02/2025			#
+#	Date de modification : 31/03/2025			#
 #								#
 #		Version actuelle : 1.0				#
 #								#
 #################################################################
 
 
------------------------ Configuration et sécurisation du serveur de sauvegarde ----------------------- 
-
-Sources : 
+----------------------- Configuration et sécurisation du serveur UCS ----------------------- 
 
 
-Actions effectuées dans le conteneur : 
+Sources :
+
+
+Actions effectuées dans la VM : 
 
    => Connexion via root / mot de passe
+   => apt update
+   => apt upgrade
    => apt install unzip
-   => Installation de l'agent promtail
-   => Création d'un user "svg" et son groupe sans accès interactif. (useradd --system --no-create-home --home /nonexistent --shell /usr/sbin/nologin svg)
+   => Création d'un user "ucs" et son groupe sans accès interactif. (useradd --system --no-create-home --home /nonexistent --shell /usr/sbin/nologin ucs)
+
+	
+Installation de l'agent promtail (en root) :
 
 	Installation de Promtail
   		 => Téléchargement et installation :
@@ -54,83 +59,87 @@ clients:
   - url: http://192.168.7.133:3100/loki/api/v1/push  # Utilisation de l'IP du serveur Loki
 
 scrape_configs:
-  - job_name: SRV-SVG-AARD-SYSLOG
+  - job_name: SRV-UCS-AARD-SYSLOG
     static_configs:
       - targets:
           - localhost
         labels:
-          job: SYSLOG-AARD-SVG
-          host: SRV-SVG-AARD
+          job: SYSLOG-SRV-UCS-AARD
+          host: SRV-UCS-AARD
           stream: stdout
           __path__: /var/log/syslog
 
-  - job_name: SRV-SVG-AARD-MAIL
+  - job_name: SRV-UCS-AARD-MAIL
     static_configs:
       - targets:
           - localhost
         labels:
-          job: MAIL-AARD-SVG
-          host: SRV-SVG-AARD
+          job: MAIL-SRV-UCS-AARD
+          host: SRV-UCS-AARD
           stream: stdout
           __path__: /var/log/mail.log
 
-  - job_name: SRV-SVG-AARD-CRON
+  - job_name: SRV-UCS-AARD-CRON
     static_configs:
       - targets:
           - localhost
         labels:
-          job: CRON-AARD-SVG
-          host: SRV-SVG-AARD
+          job: CRON-SRV-UCS-AARD
+          host: SRV-UCS-AARD
           stream: stdout
           __path__: /var/log/cron.log
 
-  - job_name: SRV-SVG-AARD-AUTHLOG
+  - job_name: SRV-UCS-AARD-AUTHLOG
     static_configs:
       - targets:
           - localhost
         labels:
-          job: AUTHLOG-AARD-SVG
-          host: SRV-SVG-AARD
+          job: AUTHLOG-SRV-UCS-AARD
+          host: SRV-UCS-AARD
           stream: stdout
           __path__: /var/log/auth.log
 
-  - job_name: SRV-SVG-AARD-USERLOG
+  - job_name: SRV-UCS-AARD-USER
     static_configs:
       - targets:
           - localhost
         labels:
-          job: USERLOG-AARD-SVG
-          host: SRV-SVG-AARD
+          job: USER-SRV-UCS-AARD
+          host: SRV-UCS-AARD
           stream: stdout
           __path__: /var/log/user.log
 
-  - job_name: SRV-SVG-AARD-KERNLOG
+  - job_name: SRV-UCS-AARD-KERN
     static_configs:
       - targets:
           - localhost
         labels:
-          job: KERNLOG-AARD-SVG
-          host: SRV-SVG-AARD
+          job: KERN-SRV-UCS-AARD
+          host: SRV-UCS-AARD
           stream: stdout
           __path__: /var/log/kern.log
 
+  - job_name: SRV-UCS-AARD-ALTERNATIVES
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: ALTERNATIVES-SRV-UCS-AARD
+          host: SRV-UCS-AARD
+          stream: stdout
+          __path__: /var/log/alternatives.log
+
+
 --------------------------------------------------------------------------------------------
-
-On change les droits du répertoire "samba" : 
-	=> chmod -R 770 /var/log/samba
-	=> chgrp -R adm /var/log/proxmox-backup ("Root" comme proprio au debut pour le rep : proxmox-backup et les sous dossier avec "backup" comme proprio et grp.)
-	=> chmod -R 770 /var/log/proxmox-backup
-
-UPDATE : Au final, je ne prendrais pas avec les logs les repertoires "samba" et "proxmox-backup" par soucis rencontrés.
 
 
 => Créer un dossier /var/lib/promtail/ : mkdir -p /var/lib/promtail
-		=> chown -R svg:svg /var/lib/promtail
+		=> chown -R ucs:ucs /var/lib/promtail
 		=> chmod -R 750 /var/lib/promtail
 
-	=> Nous mettons l'utilisateur créée plus tôt "svg" en tant que propriétaire et propriétaire groupe des fichiers de config de Loki.
+	=> Nous mettons l'utilisateur créée plus tôt "ucs" en tant que propriétaire et propriétaire groupe des fichiers de config de Loki.
 	
-		=> chown -R svg:svg promtail-config.yaml promtail-linux-amd64
+		=> chown -R ucs:ucs promtail-config.yaml promtail-linux-amd64
 		=> chmod 755 promtail-linux-amd64
 		=> chmod 640 promtail-config.yaml
 
@@ -146,14 +155,11 @@ After=network-online.target
 
 [Service]
 Type=simple
-User=svg
-Group=svg
-MemoryLimit=50M
-CPUQuota=10%
-Nice=10
+User=ucs
+Group=ucs
 ExecStart=/usr/local/bin/promtail-linux-amd64 -config.file=/usr/local/bin/promtail-config.yaml
 
-SyslogIdentifier=svg
+SyslogIdentifier=ucs
 Restart=always
 
 [Install]
@@ -172,44 +178,33 @@ Commandes système et visualisation des logs en direct :
 	Normalement le service promtail est lancé.
 
 
-Dans nos conteneurs LXC Debian, les logs semblent être dans le "journald" et non le syslog.
+Pour que notre utilisateur "ucs" puissent avoir les droits de lecture de logs, on va lui ajouter dans le groupe adm : 
 
-On installe "rsyslog" pour qu'ils puissent etre visible dans "syslog"
-
-	=> apt install rsyslog -y
-	=> systemctl enable rsyslog --now
-	=> tail -f /var/log/syslog
-
-Pour que notre utilisateur "monitoring" puissent avoir les droits de lecture de logs, on va lui ajouter dans le groupe adm : 
-
-	=> usermod -aG adm svg
+	=> usermod -aG adm ucs
 	=> systemctl restart promtail.service
 
-En effet, Un problèmes d’accès aux fichiers /var/log/auth.log, /var/log/cron.log et /var/log/user.log par Grafana sera présent par le fait que l'on a paramétré le service promtail avec l'utilisateur "svg".
+En effet, Un problèmes d’accès aux fichiers /var/log/auth.log, /var/log/cron.log et /var/log/user.log par Grafana sera présent par le fait que l'on a paramétré le service promtail avec l'utilisateur "ucs".
 
 Faire de même avec le fichier "syslog" : 
 
-	=> chown svg:root /var/log/syslog
-	=> chmod 640 /var/log/syslog
+	=> chmod 660 /var/log/syslog
 	=> systemctl restart promtail.service
 
-On peut rajouter : 
-
-	=> chown svg:utmp /var/log/btmp
 
 
 De manière générale, regarder les permissions des fichiers selon l'utilisateur qui utilise le service.
+Je ne fais pas d'autre fichier texte pour le NAS, mais j'ai mis Promtail aussi pour le NAS avec le même genre de config (Pas complet car le rsyslog marche pas pour l'instant).
 
 
-On va installer, NODE EXPORTER pour récupérer des informations plus précises que avec SNMP, qui surveillera les serveurs directs et non les équipements réseaux.
+On va installer pour la fin, NODE EXPORTER pour récupérer des informations plus précises que avec SNMP, qui surveillera les serveurs directs et non les équipements réseaux.
 
-	=> Dans /usr/local/bin/ , on télécharge NODE Exporter qui va nous servir à récupérer les métriques du serveur SVG ici.
+	=> Dans /usr/local/bin/ , on télécharge NODE Exporter qui va nous servir à récupérer les métriques du serveur UCS ici.
 
 		=> wget https://github.com/prometheus/node_exporter/releases/download/v1.9.0/node_exporter-1.9.0.linux-amd64.tar.gz
 		=> tar -xvzf node_exporter-1.9.0.linux-amd64.tar.gz
 		=> rm node_exporter-1.9.0.linux-amd64.tar.gz
 		=> mv /usr/local/bin/node_exporter-1.9.0.linux-amd64/node_exporter /usr/local/bin/
-		=> chown -R svg:svg /usr/local/bin/node_exporter
+		=> chown -R ucs:ucs /usr/local/bin/node_exporter
 		=> chmod 755 /usr/local/bin/node_exporter
 		=> rm -r /usr/local/bin/node_exporter-1.9.0.linux-amd64/
 
@@ -225,11 +220,14 @@ After=network-online.target
 
 [Service]
 Type=simple
-User=svg
-Group=svg
-ExecStart=/usr/local/bin/node_exporter --web.listen-address=0.0.0.0:XXXX --collector.systemd --collector.processes
+User=ucs
+Group=ucs
+ExecStart=/usr/local/bin/node_exporter \
+  --web.listen-address=0.0.0.0:XXXX \
+  --collector.systemd \
+  --collector.processes
 
-SyslogIdentifier=svg
+SyslogIdentifier=ucs
 Restart=always
 
 [Install]
@@ -249,3 +247,6 @@ Commandes système et visualisation des logs en direct :
 		=> journalctl -f -u node_exporter.service
 
 Voila pour l'installation de NODE EXPORTER.
+
+
+Partie sécurisation : 
