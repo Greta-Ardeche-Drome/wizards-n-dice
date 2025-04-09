@@ -59,7 +59,7 @@ Valeurs métier 1 :
 	- Blocage des ventes
 	- Pertes des données de commandes
 	- Modif frauduleuse (ex: changement prix)
-Valeurs métier 2:
+Valeur  s métier 2:
 	- Perte d'une donnée client
 	- Usurpation d'identité
 Valeurs métier 3:
@@ -75,7 +75,7 @@ Valeurs métier 5:
 
 
 Couple source de risque <-> objectif visé
-- concurrent : mauvaise image ; bloquer le sitz ; espionnage (récup client)
+- concurrent : mauvaise image ; bloquer le site ; espionnage (récup client)
 - vengeur : client mécontent // arnaque ou fraude ; mauvaise image ; changement prix / quantité
 - hacker : argent (engagé ou rançon) ; amusement ; éthique
 - voleur : argent (vol de produit / matériel)
