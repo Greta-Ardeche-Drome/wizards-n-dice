@@ -1,16 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Planning Wizards &amp; Dices" company="" webLink="http://" view-date="2024-12-23" view-index="0" gantt-divider-location="619" resource-divider-location="424" version="3.3.3312" locale="fr_FR">
+<?xml version="1.0" encoding="UTF-8"?><project name="Planning Wizards &amp; Dices" company="" webLink="http://" view-date="2024-12-16" view-index="0" gantt-divider-location="604" resource-divider-location="424" version="3.3.3312" locale="fr_FR">
     <description/>
     <view zooming-state="default:7" id="gantt-chart">
-        <field id="tpd3" name="Nom" width="350" order="0"/>
-        <field id="tpd4" name="Date de début" width="86" order="1"/>
-        <field id="tpd5" name="Date de fin" width="96" order="2"/>
-        <field id="tpd1" name="Priorité" width="71" order="3"/>
+        <field id="tpd3" name="Nom" width="341" order="0"/>
+        <field id="tpd4" name="Date de début" width="84" order="1"/>
+        <field id="tpd5" name="Date de fin" width="94" order="2"/>
+        <field id="tpd1" name="Priorité" width="69" order="3"/>
         <option id="filter.completedTasks" value="false"/>
         <option id="filter.dueTodayTasks" value="false"/>
         <option id="filter.overdueTasks" value="false"/>
         <option id="filter.inProgressTodayTasks" value="false"/>
         <timeline><![CDATA[465]]></timeline>
-        <option id="color.recent"><![CDATA[#2a6099 #ea7500 #666666 #55308d #00a933 #f10d0c #f4f4f4 #d60be4]]></option>
+        <option id="color.recent"><![CDATA[#666666 #ea7500 #00a933 #2a6099 #55308d #f10d0c #f4f4f4 #d60be4]]></option>
     </view>
     <view id="resource-table">
         <field id="0" name="Nom" width="158" order="0"/>
@@ -104,18 +104,18 @@ Lien vers Moodle de dépôts : https://cours.univ-grenoble-alpes.fr/mod/assign/v
                 <task id="351" uid="a268fe97469d47cc8ff687cce275abb4" name="Présentation de l'avancement technique" color="#f10d0c" meeting="true" start="2025-02-17" duration="0" complete="0" priority="4" expand="true"/>
                 <task id="405" uid="b0857c989d704087b6dd4dea4b0f3646" name="Débriefer le déroulé du jalon 4" color="#00a933" meeting="true" start="2025-02-17" duration="0" complete="0" expand="true"/>
             </task>
-            <task id="97" uid="eab22041fe6a4a7caa3e35646d19a89d" name="Jalon 5" color="#f10d0c" meeting="false" start="2025-03-31" duration="33" complete="0" priority="4" expand="false">
+            <task id="97" uid="eab22041fe6a4a7caa3e35646d19a89d" name="Jalon 5" color="#f10d0c" meeting="false" start="2025-03-31" duration="33" complete="0" priority="4" expand="true">
                 <task id="363" uid="a4b928af716a4875bbe63bff8d16637c" name="Réunion de travail sur l'analyse de risque" color="#00a933" meeting="true" start="2025-03-31" duration="0" complete="0" expand="true"/>
                 <task id="510" uid="f66cc2819be14c1094a115bd6fcffcdd" name="Préparer un tableau pertinence &lt;-&gt; gravité" color="#00a933" meeting="false" start="2025-04-01" duration="5" complete="0" expand="true"/>
                 <task id="511" uid="2b3d4807ac1a4f7facfe8af88108f83a" name="Préparer un visuel pour les valeurs métiers et les biens supports" color="#00a933" meeting="false" start="2025-04-01" duration="5" complete="0" expand="true"/>
-                <task id="513" uid="ff2eabd80acf4db99bebae382ad4ee77" name="Analyser les parties prenantes" color="#ea7500" meeting="false" start="2025-04-01" duration="5" complete="0" expand="true"/>
-                <task id="512" uid="013ff0528fa449a8a9f083a2ff80313b" name="Développer les évènements redoutés" color="#ea7500" meeting="false" start="2025-04-01" duration="5" complete="0" expand="true"/>
-                <task id="516" uid="448449cfc6fd4529b2971bd540174495" name="Faire (développer + visuel) les 2 scenarii opérationnels" color="#ea7500" meeting="false" start="2025-04-01" duration="12" complete="0" expand="true"/>
-                <task id="515" uid="536d20bf73dc44ed96a29e25e6301500" name="Préparer un visuel pour les paires de sources de risques &lt;=&gt; objectifs visés" color="#ea7500" meeting="false" start="2025-04-01" duration="12" complete="0" expand="true"/>
-                <task id="514" uid="1c9c0cec5b3343a1bbd2d50e8d66e2b3" name="Développer et préparer un visuel pour les scenarii stratégiques" color="#ea7500" meeting="false" start="2025-04-06" duration="7" complete="0" expand="true"/>
-                <task id="517" uid="d70371ef39f7407eb6d29404cad7e806" name="Atelier 5 (remédiation)" color="#ea7500" meeting="false" start="2025-04-06" duration="7" complete="0" expand="true"/>
-                <task id="519" uid="6e915df249914010ab71d10b831d4369" name="Assemblages en un document" color="#ea7500" meeting="false" start="2025-04-06" duration="7" complete="0" expand="true"/>
-                <task id="518" uid="d0b2c691290644279a780eba4c63c799" name="Vérification des éléments" color="#666666" meeting="false" start="2025-04-06" duration="7" complete="0" expand="true"/>
+                <task id="513" uid="ff2eabd80acf4db99bebae382ad4ee77" name="Analyser les parties prenantes" color="#00a933" meeting="false" start="2025-04-01" duration="5" complete="0" expand="true"/>
+                <task id="512" uid="013ff0528fa449a8a9f083a2ff80313b" name="Développer les évènements redoutés" color="#00a933" meeting="false" start="2025-04-01" duration="5" complete="0" expand="true"/>
+                <task id="516" uid="448449cfc6fd4529b2971bd540174495" name="Développe les scenarii stratégiques et opérationnels" color="#00a933" meeting="false" start="2025-04-01" duration="12" complete="0" expand="true"/>
+                <task id="515" uid="536d20bf73dc44ed96a29e25e6301500" name="Préparer un visuel pour les paires de sources de risques &lt;=&gt; objectifs visés" color="#00a933" meeting="false" start="2025-04-01" duration="12" complete="0" expand="true"/>
+                <task id="514" uid="1c9c0cec5b3343a1bbd2d50e8d66e2b3" name="Préparer un visuel pour les scenarii stratégiques et opérationnels" color="#ea7500" meeting="false" start="2025-04-13" duration="7" complete="0" expand="true"/>
+                <task id="517" uid="d70371ef39f7407eb6d29404cad7e806" name="Atelier 5 - Remédiation" color="#ea7500" meeting="false" start="2025-04-13" duration="7" complete="0" expand="true"/>
+                <task id="519" uid="6e915df249914010ab71d10b831d4369" name="Assemblages en un document" color="#ea7500" meeting="false" start="2025-04-13" duration="7" complete="0" expand="true"/>
+                <task id="518" uid="d0b2c691290644279a780eba4c63c799" name="Vérification des éléments" color="#666666" meeting="false" start="2025-04-13" duration="7" complete="0" expand="true"/>
                 <task id="520" uid="e78201d759d442a0839921f54d031710" name="Finir l'analyse de risques" color="#f10d0c" meeting="true" start="2025-04-19" duration="0" complete="0" expand="true"/>
                 <task id="524" uid="04c3c52453fc44ca917deef6e9fd65e0" name="Débriefer le déroulé du jalon 5" color="#666666" meeting="true" start="2025-05-03" duration="0" complete="0" expand="true"/>
                 <task id="364" uid="83efe65da07d4064a6a1aad1ec95436d" name="J5 - Analyse de risques : prête" color="#f10d0c" meeting="true" start="2025-05-04" duration="0" complete="0" expand="true">
@@ -295,16 +295,17 @@ Peut-être fait en mode "dégrader" avec seulement quelques commandes factices]]
                 <notes><![CDATA[Peut-être fait en mode "dégrader" avec seulement quelques sous-traitants factices]]></notes>
             </task>
             <task id="28" uid="ab03b49db023436bb87005b93adb0bf6" name="Établir les prix de ventes des produits et services" color="#00a933" meeting="false" start="2025-03-02" duration="7" complete="0" priority="2" expand="true"/>
-            <task id="34" uid="8bbed02de4d44241a17852a500aebd7a" name="Designer des produits originaux" color="#ea7500" meeting="false" start="2025-03-02" duration="42" complete="0" expand="true">
+            <task id="34" uid="8bbed02de4d44241a17852a500aebd7a" name="Designer des produits originaux" color="#00a933" meeting="false" start="2025-03-02" duration="42" complete="0" expand="true">
                 <depend id="30" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="33" uid="a7f961bf91e948e0b9b6e06ec64a1e26" name="Se fournir en échantillons" color="#ea7500" meeting="false" start="2025-02-23" duration="49" complete="0" priority="2" expand="true">
+            <task id="33" uid="a7f961bf91e948e0b9b6e06ec64a1e26" name="Se fournir en échantillons" color="#00a933" meeting="false" start="2025-02-23" duration="49" complete="0" priority="2" expand="true">
                 <depend id="30" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="509" uid="a455b863aff347beab1e31f22f703724" name="Préparer des cartes de visites" color="#ea7500" meeting="false" start="2025-03-30" duration="14" complete="0" expand="true"/>
-            <task id="30" uid="88682bec513a48a192956138d34093e4" name="Revoir les points de conformité des produits et des services" color="#666666" meeting="false" start="2025-04-13" duration="7" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" priority="3" expand="true">
+            <task id="509" uid="a455b863aff347beab1e31f22f703724" name="Préparer des cartes de visites" color="#00a933" meeting="false" start="2025-03-30" duration="14" complete="0" expand="true"/>
+            <task id="30" uid="88682bec513a48a192956138d34093e4" name="Revoir les points de conformité des produits et des services" color="#2a6099" meeting="false" start="2025-04-13" duration="7" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" priority="3" expand="true">
                 <depend id="337" type="2" difference="0" hardness="Strong"/>
             </task>
+            <task id="531" uid="3b4dd4ceb4204ba3b5d0d21fb000bc28" name="Commander les cartes de visites" color="#ea7500" meeting="false" start="2025-04-13" duration="7" complete="0" expand="true"/>
             <task id="396" uid="2e5df6144e71487eb5967e11471bf3f6" name="Point d'étape : propositions de prestation" color="#d60be4" meeting="true" start="2025-04-19" duration="0" complete="0" expand="true"/>
             <task id="337" uid="12f824dedb0f4489bdf833199310cf9a" name="Promouvoir nos produits et services : interne et externe" color="#666666" meeting="false" start="2025-04-20" duration="7" complete="0" priority="3" expand="true">
                 <notes><![CDATA[Interne = visibilité dans le site, article à la une, etc
@@ -403,7 +404,7 @@ Potentiellement un tableur excel ]]></notes>
                 <notes><![CDATA[Présence + à jour
 Potentiellement un tableur excel ]]></notes>
             </task>
-            <task id="55" uid="c19ee01603ee438a96c2c03a95c320c8" name="Optimiser la consommation d'énergie de l'infrastructure" color="#666666" meeting="false" start="2025-04-13" duration="14" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" priority="3" expand="true">
+            <task id="55" uid="c19ee01603ee438a96c2c03a95c320c8" name="Optimiser la consommation d'énergie de l'infrastructure" color="#2a6099" meeting="false" start="2025-04-13" duration="14" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" priority="3" expand="true">
                 <depend id="57" type="2" difference="0" hardness="Strong"/>
             </task>
             <task id="57" uid="fcc21636c62947ad9f16d02c6fdd7812" name="Communiquer sur nos mesures réduisant l'impact environ." color="#666666" meeting="false" start="2025-04-27" duration="7" complete="0" priority="3" expand="true"/>
@@ -430,7 +431,7 @@ Potentiellement un tableur excel ]]></notes>
                 <task id="484" uid="55b6435800b64202b9bc744b21a4f1c1" name="Reverse Proxy / WAF" color="#ea7500" meeting="false" start="2025-04-06" duration="14" complete="0" priority="2" expand="true">
                     <notes><![CDATA[Configuration de UP Armor]]></notes>
                 </task>
-                <task id="476" uid="099d74f2d6124315aa7a929740a14c6b" name="Bastion" color="#666666" meeting="false" start="2025-04-13" duration="14" complete="0" priority="2" expand="true">
+                <task id="476" uid="099d74f2d6124315aa7a929740a14c6b" name="Bastion" color="#ea7500" meeting="false" start="2025-04-13" duration="14" complete="0" priority="2" expand="true">
                     <notes><![CDATA[Configuration de UP Armor]]></notes>
                 </task>
                 <task id="475" uid="8a12e571dc9b41a7998f8cb3045d1ce2" name="NAS" color="#666666" meeting="false" start="2025-04-20" duration="7" complete="0" expand="true">
@@ -482,11 +483,11 @@ Potentiellement un tableur excel ]]></notes>
                 <task id="47" uid="535e42ba9765439691b3b14f67d43154" name="Prise en main de WordPress et d'Elementor" color="#00a933" meeting="false" start="2025-03-09" duration="28" complete="0" expand="true">
                     <depend id="525" type="2" difference="0" hardness="Strong"/>
                 </task>
-                <task id="525" uid="4b85bcbacfb349a5ba81b55cd672dcbd" name="Construction d'une base pour le site" color="#ea7500" meeting="false" start="2025-04-06" duration="7" complete="0" expand="true">
+                <task id="525" uid="4b85bcbacfb349a5ba81b55cd672dcbd" name="Construction d'une base pour le site" color="#00a933" meeting="false" start="2025-04-06" duration="7" complete="0" expand="true">
                     <notes><![CDATA[structure des pages, débuts des tests comptes/produits/post]]></notes>
                     <depend id="526" type="2" difference="0" hardness="Strong"/>
                 </task>
-                <task id="526" uid="a1dd87c5de2e4483a2c2c4562e015dfc" name="Implémentation des fonctionnalités principales du site" color="#666666" meeting="false" start="2025-04-13" duration="7" complete="0" expand="true">
+                <task id="526" uid="a1dd87c5de2e4483a2c2c4562e015dfc" name="Implémentation des fonctionnalités principales du site" color="#ea7500" meeting="false" start="2025-04-13" duration="7" complete="0" expand="true">
                     <notes><![CDATA[Suite des tests comptes/produits/post]]></notes>
                 </task>
             </task>
@@ -558,7 +559,6 @@ Loïs -> Esthétique]]></notes>
         <allocation task-id="472" resource-id="0" function="Default:1" responsible="false" load="100.0"/>
         <allocation task-id="29" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
         <allocation task-id="425" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
-        <allocation task-id="430" resource-id="0" function="Default:1" responsible="false" load="100.0"/>
         <allocation task-id="428" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
         <allocation task-id="34" resource-id="0" function="Default:1" responsible="false" load="100.0"/>
         <allocation task-id="486" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
@@ -567,7 +567,6 @@ Loïs -> Esthétique]]></notes>
         <allocation task-id="488" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
         <allocation task-id="491" resource-id="0" function="Default:1" responsible="false" load="100.0"/>
         <allocation task-id="503" resource-id="0" function="Default:1" responsible="false" load="100.0"/>
-        <allocation task-id="495" resource-id="0" function="Default:1" responsible="false" load="100.0"/>
         <allocation task-id="55" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
         <allocation task-id="414" resource-id="0" function="Default:1" responsible="false" load="100.0"/>
         <allocation task-id="58" resource-id="0" function="Default:1" responsible="false" load="100.0"/>
@@ -575,7 +574,6 @@ Loïs -> Esthétique]]></notes>
         <allocation task-id="497" resource-id="0" function="Default:1" responsible="false" load="100.0"/>
         <allocation task-id="40" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
         <allocation task-id="47" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
-        <allocation task-id="509" resource-id="0" function="Default:1" responsible="false" load="100.0"/>
         <allocation task-id="510" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
         <allocation task-id="511" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
         <allocation task-id="520" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
@@ -646,7 +644,6 @@ Loïs -> Esthétique]]></notes>
         <allocation task-id="486" resource-id="1" function="3" responsible="false" load="100.0"/>
         <allocation task-id="463" resource-id="1" function="3" responsible="true" load="100.0"/>
         <allocation task-id="491" resource-id="1" function="3" responsible="false" load="100.0"/>
-        <allocation task-id="470" resource-id="1" function="3" responsible="false" load="100.0"/>
         <allocation task-id="503" resource-id="1" function="3" responsible="false" load="100.0"/>
         <allocation task-id="46" resource-id="1" function="3" responsible="true" load="100.0"/>
         <allocation task-id="497" resource-id="1" function="3" responsible="true" load="100.0"/>
@@ -660,6 +657,8 @@ Loïs -> Esthétique]]></notes>
         <allocation task-id="517" resource-id="1" function="3" responsible="true" load="100.0"/>
         <allocation task-id="523" resource-id="1" function="3" responsible="false" load="100.0"/>
         <allocation task-id="524" resource-id="1" function="3" responsible="false" load="100.0"/>
+        <allocation task-id="531" resource-id="1" function="3" responsible="true" load="100.0"/>
+        <allocation task-id="509" resource-id="1" function="3" responsible="true" load="100.0"/>
         <allocation task-id="2" resource-id="2" function="1" responsible="true" load="100.0"/>
         <allocation task-id="342" resource-id="2" function="1" responsible="false" load="100.0"/>
         <allocation task-id="341" resource-id="2" function="1" responsible="false" load="100.0"/>
@@ -719,9 +718,7 @@ Loïs -> Esthétique]]></notes>
         <allocation task-id="467" resource-id="2" function="1" responsible="true" load="100.0"/>
         <allocation task-id="466" resource-id="2" function="1" responsible="false" load="100.0"/>
         <allocation task-id="461" resource-id="2" function="1" responsible="false" load="100.0"/>
-        <allocation task-id="470" resource-id="2" function="1" responsible="true" load="100.0"/>
         <allocation task-id="503" resource-id="2" function="1" responsible="true" load="100.0"/>
-        <allocation task-id="495" resource-id="2" function="1" responsible="true" load="100.0"/>
         <allocation task-id="414" resource-id="2" function="1" responsible="true" load="100.0"/>
         <allocation task-id="417" resource-id="2" function="1" responsible="false" load="100.0"/>
         <allocation task-id="416" resource-id="2" function="1" responsible="false" load="100.0"/>
@@ -763,7 +760,6 @@ Loïs -> Esthétique]]></notes>
         <allocation task-id="400" resource-id="3" function="2" responsible="false" load="100.0"/>
         <allocation task-id="62" resource-id="3" function="2" responsible="true" load="100.0"/>
         <allocation task-id="376" resource-id="3" function="2" responsible="false" load="100.0"/>
-        <allocation task-id="30" resource-id="3" function="2" responsible="true" load="100.0"/>
         <allocation task-id="396" resource-id="3" function="2" responsible="false" load="100.0"/>
         <allocation task-id="378" resource-id="3" function="2" responsible="false" load="100.0"/>
         <allocation task-id="401" resource-id="3" function="2" responsible="false" load="100.0"/>
@@ -794,7 +790,6 @@ Loïs -> Esthétique]]></notes>
         <allocation task-id="429" resource-id="3" function="2" responsible="true" load="100.0"/>
         <allocation task-id="431" resource-id="3" function="2" responsible="true" load="100.0"/>
         <allocation task-id="440" resource-id="3" function="2" responsible="true" load="100.0"/>
-        <allocation task-id="430" resource-id="3" function="2" responsible="true" load="100.0"/>
         <allocation task-id="435" resource-id="3" function="2" responsible="true" load="100.0"/>
         <allocation task-id="422" resource-id="3" function="2" responsible="true" load="100.0"/>
         <allocation task-id="26" resource-id="3" function="2" responsible="true" load="100.0"/>
@@ -808,9 +803,7 @@ Loïs -> Esthétique]]></notes>
         <allocation task-id="461" resource-id="3" function="2" responsible="true" load="100.0"/>
         <allocation task-id="466" resource-id="3" function="2" responsible="true" load="100.0"/>
         <allocation task-id="463" resource-id="3" function="2" responsible="false" load="100.0"/>
-        <allocation task-id="470" resource-id="3" function="2" responsible="false" load="100.0"/>
         <allocation task-id="503" resource-id="3" function="2" responsible="false" load="100.0"/>
-        <allocation task-id="495" resource-id="3" function="2" responsible="false" load="100.0"/>
         <allocation task-id="61" resource-id="3" function="2" responsible="true" load="100.0"/>
         <allocation task-id="416" resource-id="3" function="2" responsible="true" load="100.0"/>
         <allocation task-id="417" resource-id="3" function="2" responsible="true" load="100.0"/>
@@ -826,7 +819,6 @@ Loïs -> Esthétique]]></notes>
         <allocation task-id="513" resource-id="3" function="2" responsible="true" load="100.0"/>
         <allocation task-id="516" resource-id="3" function="2" responsible="false" load="100.0"/>
         <allocation task-id="520" resource-id="3" function="2" responsible="false" load="100.0"/>
-        <allocation task-id="518" resource-id="3" function="2" responsible="true" load="100.0"/>
         <allocation task-id="477" resource-id="3" function="2" responsible="true" load="100.0"/>
         <allocation task-id="523" resource-id="3" function="2" responsible="false" load="100.0"/>
         <allocation task-id="524" resource-id="3" function="2" responsible="false" load="100.0"/>
@@ -840,7 +832,9 @@ Loïs -> Esthétique]]></notes>
         <vacation start="2025-02-01" end="2025-02-02" resourceid="0"/>
         <vacation start="2025-02-23" end="2025-03-03" resourceid="0"/>
         <vacation start="2025-02-25" end="2025-03-06" resourceid="1"/>
+        <vacation start="2025-04-12" end="2025-04-13" resourceid="1"/>
         <vacation start="2025-02-15" end="2025-02-16" resourceid="3"/>
+        <vacation start="2025-04-05" end="2025-04-06" resourceid="3"/>
     </vacations>
     <previous/>
     <roles roleset-name="Default"/>
