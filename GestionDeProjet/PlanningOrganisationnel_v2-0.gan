@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <?xml version="1.0" encoding="UTF-8"?><project name="Planning Wizards &amp; Dices" company="" webLink="http://" view-date="2024-12-16" view-index="0" gantt-divider-location="604" resource-divider-location="424" version="3.3.3312" locale="fr_FR">
     <description/>
     <view zooming-state="default:7" id="gantt-chart">
@@ -5,12 +6,39 @@
         <field id="tpd4" name="Date de début" width="84" order="1"/>
         <field id="tpd5" name="Date de fin" width="94" order="2"/>
         <field id="tpd1" name="Priorité" width="69" order="3"/>
+=======
+<<<<<<< Updated upstream
+<?xml version="1.0" encoding="UTF-8"?><project name="Planning Wizards &amp; Dices" company="" webLink="http://" view-date="2024-12-01" view-index="0" gantt-divider-location="649" resource-divider-location="424" version="3.3.3312" locale="fr_FR">
+    <description/>
+    <view zooming-state="default:8" id="gantt-chart">
+        <field id="tpd3" name="Nom" width="347" order="0"/>
+        <field id="tpd4" name="Date de début" width="111" order="1"/>
+        <field id="tpd5" name="Date de fin" width="100" order="2"/>
+        <field id="tpd1" name="Priorité" width="75" order="3"/>
+=======
+<?xml version="1.0" encoding="UTF-8"?><project name="Planning Wizards &amp; Dices" company="" webLink="http://" view-date="2025-02-24" view-index="0" gantt-divider-location="595" resource-divider-location="424" version="3.3.3312" locale="fr_FR">
+    <description/>
+    <view zooming-state="default:7" id="gantt-chart">
+        <field id="tpd3" name="Nom" width="335" order="0"/>
+        <field id="tpd4" name="Date de début" width="83" order="1"/>
+        <field id="tpd5" name="Date de fin" width="83" order="2"/>
+        <field id="tpd1" name="Priorité" width="78" order="3"/>
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
         <option id="filter.completedTasks" value="false"/>
         <option id="filter.dueTodayTasks" value="false"/>
         <option id="filter.overdueTasks" value="false"/>
         <option id="filter.inProgressTodayTasks" value="false"/>
         <timeline><![CDATA[465]]></timeline>
+<<<<<<< Updated upstream
         <option id="color.recent"><![CDATA[#666666 #ea7500 #00a933 #2a6099 #55308d #f10d0c #f4f4f4 #d60be4]]></option>
+=======
+<<<<<<< Updated upstream
+        <option id="color.recent"><![CDATA[#666666 #00a933 #ea7500 #2a6099 #55308d #f4f4f4 #d60be4 #f10d0c]]></option>
+=======
+        <option id="color.recent"><![CDATA[#2a6099 #00a933 #ea7500 #666666 #55308d #f10d0c #f4f4f4 #d60be4]]></option>
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
     </view>
     <view id="resource-table">
         <field id="0" name="Nom" width="158" order="0"/>
@@ -104,14 +132,40 @@ Lien vers Moodle de dépôts : https://cours.univ-grenoble-alpes.fr/mod/assign/v
                 <task id="351" uid="a268fe97469d47cc8ff687cce275abb4" name="Présentation de l'avancement technique" color="#f10d0c" meeting="true" start="2025-02-17" duration="0" complete="0" priority="4" expand="true"/>
                 <task id="405" uid="b0857c989d704087b6dd4dea4b0f3646" name="Débriefer le déroulé du jalon 4" color="#00a933" meeting="true" start="2025-02-17" duration="0" complete="0" expand="true"/>
             </task>
+<<<<<<< Updated upstream
             <task id="97" uid="eab22041fe6a4a7caa3e35646d19a89d" name="Jalon 5" color="#f10d0c" meeting="false" start="2025-03-31" duration="33" complete="0" priority="4" expand="true">
                 <task id="363" uid="a4b928af716a4875bbe63bff8d16637c" name="Réunion de travail sur l'analyse de risque" color="#00a933" meeting="true" start="2025-03-31" duration="0" complete="0" expand="true"/>
+=======
+<<<<<<< Updated upstream
+            <task id="97" uid="eab22041fe6a4a7caa3e35646d19a89d" name="Jalon 5 et 6" color="#f10d0c" meeting="false" start="2025-03-31" duration="45" complete="0" priority="4" expand="true">
+                <task id="363" uid="a4b928af716a4875bbe63bff8d16637c" name="Réunion de travail sur l'analyse de risque" color="#00a933" meeting="true" start="2025-03-31" duration="0" complete="0" expand="true"/>
+                <task id="510" uid="f66cc2819be14c1094a115bd6fcffcdd" name="Préparer un tableau pertinence &lt;-&gt; gravité" color="#ea7500" meeting="false" start="2025-04-01" duration="5" complete="0" expand="true"/>
+                <task id="511" uid="2b3d4807ac1a4f7facfe8af88108f83a" name="Préparer un visuel pour les valeurs métiers et les biens supports" color="#ea7500" meeting="false" start="2025-04-01" duration="5" complete="0" expand="true"/>
+                <task id="512" uid="013ff0528fa449a8a9f083a2ff80313b" name="Développer les évènements redoutés" color="#ea7500" meeting="false" start="2025-04-01" duration="5" complete="0" expand="true"/>
+                <task id="515" uid="536d20bf73dc44ed96a29e25e6301500" name="Préparer un visuel pour les paires de sources de risques &lt;=&gt; objectifs visés" color="#ea7500" meeting="false" start="2025-04-01" duration="5" complete="0" expand="true"/>
+                <task id="514" uid="1c9c0cec5b3343a1bbd2d50e8d66e2b3" name="Développer et préparer un visuel pour les scenarii stratégiques" color="#ea7500" meeting="false" start="2025-04-01" duration="5" complete="0" expand="true"/>
+                <task id="513" uid="ff2eabd80acf4db99bebae382ad4ee77" name="Analyser les parties prenantes" color="#ea7500" meeting="false" start="2025-04-01" duration="5" complete="0" expand="true"/>
+                <task id="516" uid="448449cfc6fd4529b2971bd540174495" name="Faire (développer + visuel) les 2 scenarii opérationnels" color="#ea7500" meeting="false" start="2025-04-01" duration="5" complete="0" expand="true"/>
+                <task id="517" uid="d70371ef39f7407eb6d29404cad7e806" name="Atelier 5 (remédiation)" color="#666666" meeting="false" start="2025-04-06" duration="7" complete="0" expand="true"/>
+                <task id="518" uid="d0b2c691290644279a780eba4c63c799" name="Vérification des éléments" color="#666666" meeting="false" start="2025-04-06" duration="7" complete="0" expand="true"/>
+                <task id="519" uid="6e915df249914010ab71d10b831d4369" name="Assemblages en un document" color="#666666" meeting="false" start="2025-04-06" duration="7" complete="0" expand="true"/>
+                <task id="520" uid="e78201d759d442a0839921f54d031710" name="Finir l'analyse de risques" color="#f10d0c" meeting="true" start="2025-04-12" duration="0" complete="0" expand="true"/>
+                <task id="364" uid="83efe65da07d4064a6a1aad1ec95436d" name="J5 - Analyse de risques : prête" color="#f10d0c" meeting="true" start="2025-05-04" duration="0" complete="0" expand="true"/>
+                <task id="409" uid="f466bfaa9a894d9aa7e4e6dd49270a32" name="Préparer le script de présentation des processus projet" color="#666666" meeting="false" start="2025-04-27" duration="10" complete="0" expand="true"/>
+                <task id="410" uid="98397b23ee9c427188e0cd9fab58d476" name="Préparer le support de diapositives de la présentation" color="#666666" meeting="false" start="2025-05-04" duration="6" complete="0" expand="true"/>
+                <task id="365" uid="e4ae00a74ea044488b149708b79d6326" name="J6 - Présentation du processus projet : prêt" color="#f10d0c" meeting="true" start="2025-05-12" duration="0" complete="0" priority="4" expand="true"/>
+                <task id="393" uid="4a6da4c4c9214f60bafd8575f609394a" name="Débriefer le déroulé des jalons 5 et 6" color="#666666" meeting="true" start="2025-05-17" duration="0" complete="0" expand="true"/>
+=======
+            <task id="97" uid="eab22041fe6a4a7caa3e35646d19a89d" name="Jalon 5" color="#f10d0c" meeting="false" start="2025-03-31" duration="34" complete="0" priority="4" expand="true">
+                <task id="363" uid="a4b928af716a4875bbe63bff8d16637c" name="Réunion de travail sur l'analyse de risque" color="#00a933" meeting="true" start="2025-03-31" duration="0" complete="0" expand="true"/>
+>>>>>>> Stashed changes
                 <task id="510" uid="f66cc2819be14c1094a115bd6fcffcdd" name="Préparer un tableau pertinence &lt;-&gt; gravité" color="#00a933" meeting="false" start="2025-04-01" duration="5" complete="0" expand="true"/>
                 <task id="511" uid="2b3d4807ac1a4f7facfe8af88108f83a" name="Préparer un visuel pour les valeurs métiers et les biens supports" color="#00a933" meeting="false" start="2025-04-01" duration="5" complete="0" expand="true"/>
                 <task id="513" uid="ff2eabd80acf4db99bebae382ad4ee77" name="Analyser les parties prenantes" color="#00a933" meeting="false" start="2025-04-01" duration="5" complete="0" expand="true"/>
                 <task id="512" uid="013ff0528fa449a8a9f083a2ff80313b" name="Développer les évènements redoutés" color="#00a933" meeting="false" start="2025-04-01" duration="5" complete="0" expand="true"/>
                 <task id="516" uid="448449cfc6fd4529b2971bd540174495" name="Développe les scenarii stratégiques et opérationnels" color="#00a933" meeting="false" start="2025-04-01" duration="12" complete="0" expand="true"/>
                 <task id="515" uid="536d20bf73dc44ed96a29e25e6301500" name="Préparer un visuel pour les paires de sources de risques &lt;=&gt; objectifs visés" color="#00a933" meeting="false" start="2025-04-01" duration="12" complete="0" expand="true"/>
+<<<<<<< Updated upstream
                 <task id="514" uid="1c9c0cec5b3343a1bbd2d50e8d66e2b3" name="Préparer un visuel pour les scenarii stratégiques et opérationnels" color="#ea7500" meeting="false" start="2025-04-13" duration="7" complete="0" expand="true"/>
                 <task id="517" uid="d70371ef39f7407eb6d29404cad7e806" name="Atelier 5 - Remédiation" color="#ea7500" meeting="false" start="2025-04-13" duration="7" complete="0" expand="true"/>
                 <task id="519" uid="6e915df249914010ab71d10b831d4369" name="Assemblages en un document" color="#ea7500" meeting="false" start="2025-04-13" duration="7" complete="0" expand="true"/>
@@ -138,7 +192,36 @@ Lien vers Moodle de dépôts : https://cours.univ-grenoble-alpes.fr/mod/assign/v
                 <task id="393" uid="4a6da4c4c9214f60bafd8575f609394a" name="Débriefer le déroulé du jalon 6" color="#666666" meeting="true" start="2025-05-17" duration="0" complete="0" expand="true"/>
             </task>
             <task id="101" uid="09681227ca1a47cd97613dd6bebcdcff" name="Jalon 7 à 9" color="#f10d0c" meeting="false" start="2025-05-04" duration="33" complete="0" priority="4" expand="false">
+=======
+                <task id="514" uid="1c9c0cec5b3343a1bbd2d50e8d66e2b3" name="Préparer un visuel pour les scenarii stratégiques et opérationnels" color="#00a933" meeting="false" start="2025-04-13" duration="7" complete="0" expand="true"/>
+                <task id="517" uid="d70371ef39f7407eb6d29404cad7e806" name="Atelier 5 - Remédiation" color="#ea7500" meeting="false" start="2025-04-13" duration="10" complete="0" expand="true"/>
+                <task id="519" uid="6e915df249914010ab71d10b831d4369" name="Assemblages en un document" color="#ea7500" meeting="false" start="2025-04-13" duration="10" complete="0" expand="true"/>
+                <task id="518" uid="d0b2c691290644279a780eba4c63c799" name="Vérification des éléments" color="#ea7500" meeting="false" start="2025-04-13" duration="10" complete="0" expand="true"/>
+                <task id="520" uid="e78201d759d442a0839921f54d031710" name="Finir l'analyse de risques" color="#f10d0c" meeting="true" start="2025-04-21" duration="0" complete="0" expand="true"/>
+                <task id="524" uid="04c3c52453fc44ca917deef6e9fd65e0" name="Débriefer le déroulé du jalon 5" color="#666666" meeting="true" start="2025-05-05" duration="0" complete="0" expand="true"/>
+                <task id="364" uid="83efe65da07d4064a6a1aad1ec95436d" name="J5 - Analyse de risques : prête" color="#f10d0c" meeting="true" start="2025-05-04" duration="0" complete="0" expand="true">
+                    <notes><![CDATA[Rendu maximal à 23:59]]></notes>
+                </task>
+>>>>>>> Stashed changes
                 <task id="390" uid="4a9a16ba87694ddb97888c813008736d" name="J5 - Livrer l'analyse de risque" color="#f10d0c" meeting="true" start="2025-05-05" duration="0" complete="0" priority="4" expand="true"/>
+            </task>
+            <task id="521" uid="df38745692234d29bcdebc40c4be1b2a" name="Jalon 6" color="#f10d0c" meeting="false" start="2025-04-20" duration="25" complete="0" priority="4" expand="true">
+                <task id="409" uid="f466bfaa9a894d9aa7e4e6dd49270a32" name="Préparer des GANTT fictifs" color="#ea7500" meeting="false" start="2025-04-20" duration="7" complete="0" expand="true">
+                    <depend id="410" type="2" difference="0" hardness="Strong"/>
+                    <depend id="522" type="2" difference="0" hardness="Strong"/>
+                </task>
+                <task id="522" uid="7ff7d15339944c2face5f8dd2014ebb6" name="Préparer un script de présentation" color="#666666" meeting="false" start="2025-04-27" duration="6" complete="0" expand="true">
+                    <depend id="523" type="2" difference="0" hardness="Strong"/>
+                </task>
+                <task id="410" uid="98397b23ee9c427188e0cd9fab58d476" name="Préparer le support de diapositives de la présentation" color="#666666" meeting="false" start="2025-04-27" duration="6" complete="0" expand="true"/>
+                <task id="523" uid="8cd54c4b359b47b5b040903d85c04b44" name="Répéter la présentation" color="#666666" meeting="false" start="2025-05-04" duration="6" complete="0" expand="true"/>
+                <task id="365" uid="e4ae00a74ea044488b149708b79d6326" name="J6 - Présentation du processus projet : prêt" color="#f10d0c" meeting="true" start="2025-05-12" duration="0" complete="0" priority="4" expand="true">
+                    <notes><![CDATA[Passage entre 13h30 à 17h00]]></notes>
+                </task>
+                <task id="393" uid="4a6da4c4c9214f60bafd8575f609394a" name="Débriefer le déroulé du jalon 6" color="#666666" meeting="true" start="2025-05-17" duration="0" complete="0" expand="true"/>
+>>>>>>> Stashed changes
+            </task>
+            <task id="101" uid="09681227ca1a47cd97613dd6bebcdcff" name="Jalon 7 à 9" color="#f10d0c" meeting="false" start="2025-05-04" duration="33" complete="0" priority="4" expand="true">
                 <task id="382" uid="f3530ab9f6524679b08c377ade1f8e11" name="Rédaction du mémoire de projet" color="#666666" meeting="false" start="2025-05-04" duration="26" complete="0" expand="true"/>
                 <task id="369" uid="36c2e1c1f7274f9e9f0135bb8f5603c4" name="Mémoire de projet : prêt" color="#f10d0c" meeting="true" start="2025-05-31" duration="0" complete="0" expand="true"/>
                 <task id="360" uid="1f43ee2eb5cc4749b84cce756fcdfbcd" name="J7 - Livrer le mémoire de projet" color="#f10d0c" meeting="true" start="2025-06-02" duration="0" complete="0" priority="4" expand="true"/>
@@ -161,7 +244,7 @@ Lien vers Moodle de dépôts : https://cours.univ-grenoble-alpes.fr/mod/assign/v
                 <task id="394" uid="66dfa55bb45e488391426945b74c97f9" name="Débriefer des jalons 7 à 9" color="#666666" meeting="true" start="2025-06-07" duration="0" complete="0" expand="true"/>
             </task>
         </task>
-        <task id="0" uid="1e2188cfd5a746838d03251ca51480d7" name="Documentation, recherches et définition des aspects inconnus" color="#55308d" meeting="false" start="2024-09-07" duration="207" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="true">
+        <task id="0" uid="1e2188cfd5a746838d03251ca51480d7" name="Documentation, recherches et définition des aspects inconnus" color="#55308d" meeting="false" start="2024-09-07" duration="207" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="false">
             <task id="433" uid="1350ccfd5d4643fda5e4a8a1fb533d79" name="Recherches documentaires" color="#55308d" meeting="false" start="2024-09-07" duration="144" complete="0" expand="false">
                 <task id="12" uid="7f54f040ed1e4477adbeffe314a11531" name="Définir le degré de liberté vis-à-vis des contraintes GRETA/IUT" color="#00a933" meeting="false" start="2024-09-07" duration="50" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" priority="2" expand="true"/>
                 <task id="408" uid="4415b78a23894861b7008330f74b0ce2" name="Plannification détaillé du projet" color="#00a933" meeting="false" start="2024-11-17" duration="29" complete="0" priority="2" expand="true"/>
@@ -217,7 +300,7 @@ Trie et réagencement de l'arborescence]]></notes>
                     <notes><![CDATA[Inclus la préparation de template pour les documents de l'équipe]]></notes>
                 </task>
             </task>
-            <task id="422" uid="966f39cc2c4141d6a4c4a25e55265961" name="Documentation juridique" color="#55308d" meeting="false" start="2025-01-26" duration="70" complete="0" expand="true">
+            <task id="422" uid="966f39cc2c4141d6a4c4a25e55265961" name="Documentation juridique" color="#55308d" meeting="false" start="2025-01-26" duration="70" complete="0" expand="false">
                 <task id="423" uid="d3d3640375b9490f9a60ce532bd92f5d" name="Rédiger les mentions légales du site" color="#00a933" meeting="false" start="2025-01-26" duration="7" complete="0" priority="2" expand="true">
                     <notes><![CDATA[Devra figurer sur le site]]></notes>
                     <depend id="432" type="2" difference="0" hardness="Strong"/>
@@ -305,9 +388,16 @@ Peut-être fait en mode "dégrader" avec seulement quelques commandes factices]]
             <task id="30" uid="88682bec513a48a192956138d34093e4" name="Revoir les points de conformité des produits et des services" color="#2a6099" meeting="false" start="2025-04-13" duration="7" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" priority="3" expand="true">
                 <depend id="337" type="2" difference="0" hardness="Strong"/>
             </task>
+<<<<<<< Updated upstream
             <task id="531" uid="3b4dd4ceb4204ba3b5d0d21fb000bc28" name="Commander les cartes de visites" color="#ea7500" meeting="false" start="2025-04-13" duration="7" complete="0" expand="true"/>
+=======
+<<<<<<< Updated upstream
+=======
+            <task id="531" uid="3b4dd4ceb4204ba3b5d0d21fb000bc28" name="Commander les cartes de visites" color="#00a933" meeting="false" start="2025-04-13" duration="7" complete="0" expand="true"/>
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
             <task id="396" uid="2e5df6144e71487eb5967e11471bf3f6" name="Point d'étape : propositions de prestation" color="#d60be4" meeting="true" start="2025-04-19" duration="0" complete="0" expand="true"/>
-            <task id="337" uid="12f824dedb0f4489bdf833199310cf9a" name="Promouvoir nos produits et services : interne et externe" color="#666666" meeting="false" start="2025-04-20" duration="7" complete="0" priority="3" expand="true">
+            <task id="337" uid="12f824dedb0f4489bdf833199310cf9a" name="Promouvoir nos produits et services : interne et externe" color="#2a6099" meeting="false" start="2025-04-20" duration="7" complete="0" priority="3" expand="true">
                 <notes><![CDATA[Interne = visibilité dans le site, article à la une, etc
 Externe = communication externe, pub, etc
 ]]></notes>
@@ -407,7 +497,7 @@ Potentiellement un tableur excel ]]></notes>
             <task id="55" uid="c19ee01603ee438a96c2c03a95c320c8" name="Optimiser la consommation d'énergie de l'infrastructure" color="#2a6099" meeting="false" start="2025-04-13" duration="14" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" priority="3" expand="true">
                 <depend id="57" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="57" uid="fcc21636c62947ad9f16d02c6fdd7812" name="Communiquer sur nos mesures réduisant l'impact environ." color="#666666" meeting="false" start="2025-04-27" duration="7" complete="0" priority="3" expand="true"/>
+            <task id="57" uid="fcc21636c62947ad9f16d02c6fdd7812" name="Communiquer sur nos mesures réduisant l'impact environ." color="#666666" meeting="false" start="2025-04-27" duration="6" complete="0" priority="3" expand="true"/>
             <task id="414" uid="371adef3c6f94e41bb35daaea67b97b4" name="Proposer des changements hypothétiques améliorant l’infrastructure" color="#666666" meeting="false" start="2025-05-04" duration="6" complete="0" priority="0" expand="true">
                 <notes><![CDATA[Création d'une infrastructure idélisée]]></notes>
             </task>
@@ -422,18 +512,46 @@ Potentiellement un tableur excel ]]></notes>
             <task id="402" uid="c629d98325a44f5d866c731186c738c3" name="Point d'étape : niveau de sécurité et respect des normes et de l’environnement" color="#d60be4" meeting="true" start="2025-05-17" duration="0" complete="0" expand="true"/>
             <task id="473" uid="889631bf249144009a57a64a7380276c" name="Sécuriser l'infrastructure réseau et applicative" color="#55308d" meeting="false" start="2025-04-06" duration="54" complete="0" priority="4" expand="true">
                 <depend id="503" type="2" difference="0" hardness="Strong"/>
+<<<<<<< Updated upstream
                 <task id="477" uid="f910b7362e7d4b2387e05b3d7391e9b1" name="Firewall" color="#ea7500" meeting="false" start="2025-04-06" duration="14" complete="0" priority="2" expand="true">
                     <notes><![CDATA[Restriction des règles de traffic]]></notes>
+=======
+<<<<<<< Updated upstream
+                <task id="477" uid="f910b7362e7d4b2387e05b3d7391e9b1" name="Firewall" color="#666666" meeting="false" start="2025-04-06" duration="14" complete="0" expand="true">
+                    <notes><![CDATA[Fichiers de configuration à jour (post hardening)
++ Failles comblés 
++ Failles connues toujours présentes (à minima niveau 0 de rédaction)]]></notes>
+>>>>>>> Stashed changes
                 </task>
                 <task id="490" uid="f538187658024abe8bfe39b3293a4c9d" name="Solution UCS" color="#ea7500" meeting="false" start="2025-04-06" duration="14" complete="0" priority="2" expand="true">
                     <notes><![CDATA[Configuration de UP Armor]]></notes>
                 </task>
+<<<<<<< Updated upstream
                 <task id="484" uid="55b6435800b64202b9bc744b21a4f1c1" name="Reverse Proxy / WAF" color="#ea7500" meeting="false" start="2025-04-06" duration="14" complete="0" priority="2" expand="true">
                     <notes><![CDATA[Configuration de UP Armor]]></notes>
+=======
+                <task id="490" uid="f538187658024abe8bfe39b3293a4c9d" name="Serveur Windows AD DNS" color="#666666" meeting="false" start="2025-04-06" duration="14" complete="0" expand="true"/>
+                <task id="480" uid="067a9d8a5c894e099945e6bdf5e690ee" name="Services transverses" color="#666666" meeting="false" start="2025-04-13" duration="14" complete="0" expand="true">
+                    <notes><![CDATA[LDAP, NTP, etc
+Fichiers de configuration à jour (post hardening)
++ Failles comblés 
++ Failles connues toujours présentes (à minima niveau 0 de rédaction)]]></notes>
+=======
+                <task id="477" uid="f910b7362e7d4b2387e05b3d7391e9b1" name="Firewall" color="#ea7500" meeting="false" start="2025-04-06" duration="21" complete="0" priority="2" expand="true">
+                    <notes><![CDATA[Restriction des règles de traffic]]></notes>
+                </task>
+                <task id="490" uid="f538187658024abe8bfe39b3293a4c9d" name="Solution UCS" color="#ea7500" meeting="false" start="2025-04-06" duration="21" complete="0" priority="2" expand="true">
+                    <notes><![CDATA[Configuration de UP Armor]]></notes>
+                </task>
+                <task id="484" uid="55b6435800b64202b9bc744b21a4f1c1" name="Reverse Proxy / WAF" color="#ea7500" meeting="false" start="2025-04-06" duration="21" complete="0" priority="2" expand="true">
+                    <notes><![CDATA[Configuration de UP Armor]]></notes>
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
                 </task>
                 <task id="476" uid="099d74f2d6124315aa7a929740a14c6b" name="Bastion" color="#ea7500" meeting="false" start="2025-04-13" duration="14" complete="0" priority="2" expand="true">
                     <notes><![CDATA[Configuration de UP Armor]]></notes>
                 </task>
+<<<<<<< Updated upstream
                 <task id="475" uid="8a12e571dc9b41a7998f8cb3045d1ce2" name="NAS" color="#666666" meeting="false" start="2025-04-20" duration="7" complete="0" expand="true">
                     <notes><![CDATA[Configuration de UP Armor]]></notes>
                 </task>
@@ -444,7 +562,26 @@ Potentiellement un tableur excel ]]></notes>
                     <notes><![CDATA[Configuration de UP Armor]]></notes>
                 </task>
                 <task id="482" uid="1beaf9c39fbd4ed7b3816bf368596765" name="Serveurs de BDD" color="#666666" meeting="false" start="2025-04-20" duration="13" complete="0" expand="true">
+<<<<<<< Updated upstream
                     <notes><![CDATA[Configuration de UP Armor]]></notes>
+=======
+                    <notes><![CDATA[Fichiers de configuration à jour (post hardening)
++ Failles comblés 
++ Failles connues toujours présentes (à minima niveau 0 de rédaction)]]></notes>
+=======
+                <task id="475" uid="8a12e571dc9b41a7998f8cb3045d1ce2" name="NAS" color="#ea7500" meeting="false" start="2025-04-20" duration="13" complete="0" expand="true">
+                    <notes><![CDATA[Configuration de UP Armor]]></notes>
+                </task>
+                <task id="474" uid="1e0ff6fdec6b478e921305525e81f903" name="Proxmox" color="#ea7500" meeting="false" start="2025-04-20" duration="13" complete="0" expand="true">
+                    <notes><![CDATA[Configuration de UP Armor]]></notes>
+                </task>
+                <task id="483" uid="99c86c20b0384c1d8851e75cf3dff6f7" name="Serveur Web" color="#ea7500" meeting="false" start="2025-04-20" duration="13" complete="0" priority="2" expand="true">
+                    <notes><![CDATA[Configuration de UP Armor]]></notes>
+                </task>
+                <task id="482" uid="1beaf9c39fbd4ed7b3816bf368596765" name="Serveurs de BDD" color="#ea7500" meeting="false" start="2025-04-20" duration="13" complete="0" expand="true">
+                    <notes><![CDATA[Configuration de UP Armor]]></notes>
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
                 </task>
                 <task id="479" uid="37ef21a860a5417baf18b8af289440c3" name="Serveur de log" color="#666666" meeting="false" start="2025-04-27" duration="6" complete="0" expand="true">
                     <notes><![CDATA[Configuration de UP Armor]]></notes>
@@ -453,14 +590,29 @@ Potentiellement un tableur excel ]]></notes>
                     <notes><![CDATA[Configuration de UP Armor]]></notes>
                 </task>
                 <task id="504" uid="0254647e59b4410dbaceb3edb093db72" name="Monitoring" color="#666666" meeting="false" start="2025-04-27" duration="6" complete="0" expand="true">
+<<<<<<< Updated upstream
                     <notes><![CDATA[Configuration de UP Armor]]></notes>
                 </task>
                 <task id="527" uid="7e12212ab69e4be2941f4674dce372e9" name="Configuration de la redondance de site" color="#55308d" meeting="false" start="2025-04-27" duration="13" complete="0" priority="4" expand="false">
+=======
+<<<<<<< Updated upstream
+                    <notes><![CDATA[Fichiers de configuration à jour (post hardening)
++ Failles comblés 
++ Failles connues toujours présentes (à minima niveau 0 de rédaction)]]></notes>
+=======
+                    <notes><![CDATA[Configuration de UP Armor]]></notes>
+                </task>
+                <task id="527" uid="7e12212ab69e4be2941f4674dce372e9" name="Configuration de la redondance de site" color="#55308d" meeting="false" start="2025-04-27" duration="13" complete="0" priority="4" expand="true">
+>>>>>>> Stashed changes
                     <task id="528" uid="767d7bd8ddb44cbbab8b5423f6f5cd01" name="Bascule sur DRYN des machines sécurisés" color="#666666" meeting="false" start="2025-04-27" duration="6" complete="0" expand="true">
                         <depend id="529" type="2" difference="0" hardness="Strong"/>
                     </task>
                     <task id="530" uid="c47fc02d434f4401b5663912ad07e471" name="Bascule des machines sécurisées restantes" color="#666666" meeting="false" start="2025-04-27" duration="6" complete="0" expand="true"/>
                     <task id="529" uid="7ba3158f5ac84d2dbefecec022049e3e" name="Synchronisation des BDD et du site" color="#666666" meeting="false" start="2025-05-04" duration="7" complete="0" expand="true"/>
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
                 </task>
                 <task id="60" uid="94892b3184754304a7bfe146e4f26b5d" name="Relever un maximum de failles et de vulnérabilités" color="#666666" meeting="false" start="2025-05-04" duration="13" complete="0" priority="2" expand="true">
                     <depend id="379" type="2" difference="0" hardness="Strong"/>
@@ -475,14 +627,23 @@ Potentiellement un tableur excel ]]></notes>
                 <notes><![CDATA[Pas vraiment de première approche]]></notes>
                 <depend id="46" type="2" difference="0" hardness="Strong"/>
             </task>
+<<<<<<< Updated upstream
             <task id="46" uid="314f9b73ee1b496aa7dabdbdb246f936" name="Implémenter le site" color="#55308d" meeting="false" start="2025-02-23" duration="56" complete="0" priority="2" expand="true">
+=======
+<<<<<<< Updated upstream
+            <task id="46" uid="314f9b73ee1b496aa7dabdbdb246f936" name="Implémenter le site" color="#55308d" meeting="false" start="2025-02-23" duration="42" complete="0" priority="2" expand="true">
+>>>>>>> Stashed changes
                 <depend id="497" type="2" difference="0" hardness="Strong"/>
+=======
+            <task id="46" uid="314f9b73ee1b496aa7dabdbdb246f936" name="Implémenter le site" color="#55308d" meeting="false" start="2025-02-23" duration="63" complete="0" priority="2" expand="true">
+>>>>>>> Stashed changes
                 <task id="40" uid="f2ea02f241c44d208610e71fbc397a79" name="Designer le site : esthétisme et ergonomie" color="#00a933" meeting="false" start="2025-02-23" duration="14" complete="0" priority="4" expand="true">
                     <notes><![CDATA[Dialogue : Axel -> Lois -> Axel ->  ...]]></notes>
                 </task>
                 <task id="47" uid="535e42ba9765439691b3b14f67d43154" name="Prise en main de WordPress et d'Elementor" color="#00a933" meeting="false" start="2025-03-09" duration="28" complete="0" expand="true">
                     <depend id="525" type="2" difference="0" hardness="Strong"/>
                 </task>
+<<<<<<< Updated upstream
                 <task id="525" uid="4b85bcbacfb349a5ba81b55cd672dcbd" name="Construction d'une base pour le site" color="#00a933" meeting="false" start="2025-04-06" duration="7" complete="0" expand="true">
                     <notes><![CDATA[structure des pages, débuts des tests comptes/produits/post]]></notes>
                     <depend id="526" type="2" difference="0" hardness="Strong"/>
@@ -495,6 +656,31 @@ Potentiellement un tableur excel ]]></notes>
             <task id="497" uid="efcd46bfe8a8449c89ddde5ddababb49" name="Améliorer le site" color="#55308d" meeting="false" start="2025-04-20" duration="27" complete="0" priority="0" expand="true">
                 <task id="41" uid="f02e779f0f0745beb69e0b26a5e9cabe" name="Créer la carte servant à la navigation" color="#666666" meeting="false" start="2025-04-20" duration="7" complete="0" priority="0" expand="true"/>
                 <task id="53" uid="2ff86340776d49658527fe64f84d5457" name="Intégrer ou améliorer l'ergonomie et l'esthétisme" color="#666666" meeting="false" start="2025-04-20" duration="13" complete="0" priority="0" expand="true">
+=======
+<<<<<<< Updated upstream
+                <task id="50" uid="989f90e6db3449b2ae9bf4213db7becc" name="Intégrer les différents moyens de paiement" color="#ea7500" meeting="false" start="2025-03-30" duration="7" complete="0" expand="true">
+                    <depend id="497" type="2" difference="0" hardness="Strong"/>
+                </task>
+            </task>
+            <task id="378" uid="7adfc7c70086404daad27debbd978053" name="Point d'étape : fonctionnement des essentiels du site" color="#d60be4" meeting="true" start="2025-04-05" duration="0" complete="0" expand="true"/>
+            <task id="497" uid="efcd46bfe8a8449c89ddde5ddababb49" name="Améliorer le site" color="#55308d" meeting="false" start="2025-04-06" duration="41" complete="0" priority="0" expand="false">
+                <task id="41" uid="f02e779f0f0745beb69e0b26a5e9cabe" name="Créer la carte servant à la navigation" color="#666666" meeting="false" start="2025-04-06" duration="7" complete="0" priority="0" expand="true"/>
+                <task id="53" uid="2ff86340776d49658527fe64f84d5457" name="Intégrer ou améliorer l'ergonomie et l'esthétisme" color="#666666" meeting="false" start="2025-04-13" duration="13" complete="0" priority="0" expand="true">
+=======
+                <task id="525" uid="4b85bcbacfb349a5ba81b55cd672dcbd" name="Construction d'une base pour le site" color="#00a933" meeting="false" start="2025-04-06" duration="7" complete="0" expand="true">
+                    <notes><![CDATA[structure des pages, débuts des tests comptes/produits/post]]></notes>
+                    <depend id="526" type="2" difference="0" hardness="Strong"/>
+                </task>
+                <task id="526" uid="a1dd87c5de2e4483a2c2c4562e015dfc" name="Implémentation des fonctionnalités principales du site" color="#ea7500" meeting="false" start="2025-04-13" duration="14" complete="0" expand="true">
+                    <notes><![CDATA[Suite des tests comptes/produits/post]]></notes>
+                </task>
+            </task>
+            <task id="378" uid="7adfc7c70086404daad27debbd978053" name="Point d'étape : fonctionnement des essentiels du site" color="#d60be4" meeting="true" start="2025-04-05" duration="0" complete="0" expand="true"/>
+            <task id="497" uid="efcd46bfe8a8449c89ddde5ddababb49" name="Améliorer le site" color="#55308d" meeting="false" start="2025-04-20" duration="27" complete="0" priority="0" expand="true">
+                <task id="41" uid="f02e779f0f0745beb69e0b26a5e9cabe" name="Créer la carte servant à la navigation" color="#2a6099" meeting="false" start="2025-04-20" duration="7" complete="0" priority="0" expand="true"/>
+                <task id="53" uid="2ff86340776d49658527fe64f84d5457" name="Intégrer ou améliorer l'ergonomie et l'esthétisme" color="#666666" meeting="false" start="2025-04-27" duration="6" complete="0" priority="0" expand="true">
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
                     <notes><![CDATA[Axel -> Ergonomie
 Loïs -> Esthétique]]></notes>
                     <depend id="54" type="2" difference="0" hardness="Strong"/>
