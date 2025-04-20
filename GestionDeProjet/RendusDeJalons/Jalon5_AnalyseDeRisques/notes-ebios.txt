@@ -59,7 +59,7 @@ Valeurs métier 1 :
 	- Blocage des ventes
 	- Pertes des données de commandes
 	- Modif frauduleuse (ex: changement prix)
-Valeur  s métier 2:
+Valeurs métier 2:
 	- Perte d'une donnée client
 	- Usurpation d'identité
 Valeurs métier 3:
