@@ -1,0 +1,32 @@
+cd #################################################################
+#								#
+#	Créateur : Arthur YANG - Responsable Documentation 	#
+#				 & Administratif		#
+			
+#	Date de création : 24/04/2025				#
+#								#
+#	Dernier modificateur : Arthur YANG			#
+#	Date de modification : 24/04/2025			#
+#								#
+#		Version actuelle : 1.0				#
+#								#
+#################################################################
+
+
+----------------------- Configuration et sécurisation du NAS ----------------------- 
+
+Sources : 
+
+
+=> Ajout du MOTD personnalisé sur la VM du NAS.
+
+
+Wizards & Dice | Shell Access for Debian GNU/Linux
+
+***********************************************************************************************************************
+*							LEGAL NOTICE
+* This system is for authorized use only. All activities on this system may be * monitored and recorded. Unauthorized access or use is strictly prohibited * and may result in disciplinary action, criminal prosecution, or both. By * continuing to use and access this system, you consent to such monitoring.*
+***********************************************************************************************************************
+
+
+=> Ajout des éléments pour le monitoring des machines et de leurs MAJS.
