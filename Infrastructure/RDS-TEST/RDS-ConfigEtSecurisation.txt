@@ -285,3 +285,102 @@ Commandes système et visualisation des logs en direct :
 		=> journalctl -f -u node_exporter.service
 
 Voila pour l'installation de NODE EXPORTER.
+
+
+=> Ajout du MOTD personnalisé sur la VM (et toutes) du NAS.
+/etc/motd
+
+Wizards & Dice | Shell Access for Debian GNU/Linux
+
+***********************************************************************************************************************
+*							LEGAL NOTICE
+* This system is for authorized use only. All activities on this system may be * monitored and recorded. Unauthorized access or use is strictly prohibited * and may result in disciplinary action, criminal prosecution, or both. By * continuing to use and access this system, you consent to such monitoring.*
+
+***********************************************************************************************************************
+
+
+=> Ajout des éléments pour le monitoring des machines et de leurs MAJS.
+
+	=> wget https://raw.githubusercontent.com/labmonkeys-space/apt-prometheus/main/script/apt-metrics.sh -O /usr/local/bin/apt-metrics.sh
+	=> chmod 750 /usr/local/bin/apt-metrics.sh
+	=> chown test /usr/local/bin/apt-metrics.sh
+	=> Puis on change tout le fichier : 
+
+-------------------------------------------------------------------------------------------------------------------------
+
+#!/bin/bash
+
+OUT_FILE="/var/lib/node_exporter/textfile_collector/apt_updates.prom"
+
+# Total updates
+TOTAL_UPDATES=$(apt list --upgradeable 2>/dev/null | grep -v "Listing" | wc -l)
+
+# Security updates (si 'unattended-upgrades' est installé)
+SEC_UPDATES=$(apt list --upgradeable 2>/dev/null | grep security | wc -l)
+
+# Reboot required (flag fichier)
+if [ -f /var/run/reboot-required ]; then
+  REBOOT_NEEDED=1
+else
+  REBOOT_NEEDED=0
+fi
+
+# Export en format Prometheus
+echo "# HELP debian_apt_updates Nombre total de mises à jour APT" > "$OUT_FILE"
+echo "# TYPE debian_apt_updates gauge" >> "$OUT_FILE"
+echo "debian_apt_updates $TOTAL_UPDATES" >> "$OUT_FILE"
+
+echo "# HELP debian_security_updates Nombre de mises à jour de sécurité" >> "$OUT_FILE"
+echo "# TYPE debian_security_updates gauge" >> "$OUT_FILE"
+echo "debian_security_updates $SEC_UPDATES" >> "$OUT_FILE"
+
+echo "# HELP debian_reboot_required Système nécessite un redémarrage" >> "$OUT_FILE"
+echo "# TYPE debian_reboot_required gauge" >> "$OUT_FILE"
+echo "debian_reboot_required $REBOOT_NEEDED" >> "$OUT_FILE"
+
+-------------------------------------------------------------------------------------------------------------------------
+
+Dans le node_exporter.service
+
+-------------------------------------------------------------------------------------------------------------------------
+
+[Unit]
+Description=Prometheus NODE Exporter
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=test
+Group=test
+ExecStart=/usr/local/bin/node_exporter --web.listen-address=0.0.0.0:XXXX --collector.systemd --collector.processes --collector.textfile --collector.textfile.directory=/var/lib/node_exporter/textfile_collector
+
+SyslogIdentifier=rproxy
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
+-------------------------------------------------------------------------------------------------------------------------
+
+=> mkdir -p /var/lib/node_exporter/textfile_collector
+=> chown -R test:root /var/lib/node_exporter/textfile_collector
+=> chmod -R 770 /var/lib/node_exporter/textfile_collector
+
+		=> systemctl daemon-reexec
+		=> systemctl daemon-reload
+		=> systemctl restart node_exporter.service 
+		=> systemctl status node_exporter.service
+
+Il faut maintenant faire un cron, pour executer le script "apt-metrics.sh" régulièrement : 
+
+-------------------------------------------------------------------------------------------------------------------------
+=> crontab -e
+
+30 7 * * * /usr/local/bin/apt-metrics.sh
+
+=> systemctl restart cron.service
+
+-------------------------------------------------------------------------------------------------------------------------
+
+Maintenant il suffit sur grafana avec le dashboard, de regarder ce que nous voulons voir.
