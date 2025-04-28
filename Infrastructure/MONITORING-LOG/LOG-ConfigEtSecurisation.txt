@@ -202,4 +202,17 @@ Maintenant les règles précises :
 => ufw allow out 123/udp comment 'NTP'
 => ufw enabled
 
+Pour ajouter la possibilité de PING, il faut modifier le fichier /etc/ufw/before.rules et ajouter :
+
+----------------------------------------------------------------------------------
+
+# allow ICMP outbound (ping vers l'extérieur)
+-A ufw-before-output -p icmp --icmp-type echo-request -j ACCEPT
+-A ufw-before-output -p icmp --icmp-type destination-unreachable -j ACCEPT
+-A ufw-before-output -p icmp --icmp-type time-exceeded -j ACCEPT
+-A ufw-before-output -p icmp --icmp-type echo-reply -j ACCEPT
+
+----------------------------------------------------------------------------------
+
+
 Voila pour UFW, il faudra voir si d'autres problèmes sont présent, comme ça on ajoute ou enleve des règles.
