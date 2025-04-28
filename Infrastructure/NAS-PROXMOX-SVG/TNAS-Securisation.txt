@@ -114,38 +114,8 @@ Il faut maintenant faire un cron, pour executer le script "apt-metrics.sh" régu
 Maintenant il suffit sur grafana avec le dashboard, de regarder ce que nous voulons voir.
 
 
-Mise en place de UFW : 
+Pas de mise en place de UFW : 
 
-	=> apt install ufw
+	=> Au vu du temps, et la quantité de ports (je ne sais pas tout les ports non que ce soit en entrée ou sortie surtout), je ne met pas ici de UFW pour le NAS.
 
-Politique par défaut
-
-	=> ufw default deny incoming
-	=> ufw default deny outgoing
-
-Maintenant les règles précises : 
-
-=> ufw allow from 172.16.14.1 to any port 22 proto tcp comment 'SSH depuis bastion'
-=> ufw allow from 192.168.7.132 to any port 22 proto tcp comment 'SSH depuis SRV-RDS-AARD'
-=> ufw allow from 192.168.7.134 to any port 59051 proto tcp comment 'Prometheus avec node_exporter'
-=> ufw allow from 192.168.7.132 to any port 42621 proto tcp comment 'HTTPS depuis SRV-RDS-AARD'
-=> ufw allow out 80/tcp comment 'Sortie HTTP vers dépôts Linux'
-=> ufw allow out 443/tcp comment 'Sortie HTTPS vers dépôts Linux'
-=> ufw allow out to 192.168.7.140 port 53 proto udp comment 'Sortie DNS vers SRV-UCS-AARD'
-=> ufw allow out 123/udp comment 'NTP'
-=> ufw allow out 587/tcp comment 'Envoi de mails via NAS'
-=> ufw enable
-
-Pour ajouter la possibilité de PING, il faut modifier le fichier /etc/ufw/before.rules et ajouter :
-
-----------------------------------------------------------------------------------
-
-# allow ICMP outbound (ping vers l'extérieur)
--A ufw-before-output -p icmp --icmp-type echo-request -j ACCEPT
--A ufw-before-output -p icmp --icmp-type destination-unreachable -j ACCEPT
--A ufw-before-output -p icmp --icmp-type time-exceeded -j ACCEPT
--A ufw-before-output -p icmp --icmp-type echo-reply -j ACCEPT
-
-----------------------------------------------------------------------------------
-
-Voila pour UFW, il faudra voir si d'autres problèmes sont présent, comme ça on ajoute ou enleve des règles.
+J'ai quand même néanmoins changer le port SSH.

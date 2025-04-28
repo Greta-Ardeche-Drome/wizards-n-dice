@@ -190,8 +190,8 @@ Politique par défaut
 
 Maintenant les règles précises : 
 
-=> ufw allow from 172.16.14.1 to any port 22 proto tcp comment 'SSH depuis bastion'
-=> ufw allow from 192.168.7.132 to any port 22 proto tcp comment 'SSH depuis SRV-RDS-AARD'
+=> ufw allow from 172.16.14.1 to any port 14714 proto tcp comment 'SSH depuis bastion'
+=> ufw allow from 192.168.7.132 to any port 14714 proto tcp comment 'SSH depuis SRV-RDS-AARD'
 => ufw allow from 192.168.7.128/28 to any port 9080 proto tcp comment 'VUE WEB DES TARGETS PROMTAIL'
 => ufw allow from 192.168.7.128/28 to any port 9100 proto tcp comment 'VUE WEB DES TARGETS PROMTAIL'
 => ufw allow from 192.168.7.134 to any port 59051 proto tcp comment 'Prometheus avec node_exporter'
