@@ -448,3 +448,41 @@ Il faut maintenant faire un cron, pour executer le script "apt-metrics.sh" régu
 -------------------------------------------------------------------------------------------------------------------------
 
 Maintenant il suffit sur grafana avec le dashboard, de regarder ce que nous voulons voir.
+
+
+Mise en place de UFW : 
+
+	=> apt install ufw
+
+Politique par défaut
+
+	=> ufw default deny incoming
+	=> ufw default deny outgoing
+
+Maintenant les règles précises : 
+
+=> ufw allow from 172.16.14.1 to any port 22 proto tcp comment 'SSH depuis bastion'
+=> ufw allow from 192.168.7.132 to any port 22 proto tcp comment 'SSH depuis SRV-RDS-AARD'
+=> ufw allow from 192.168.7.128/28 to any port 9080 proto tcp comment 'VUE WEB DES TARGETS PROMTAIL'
+=> ufw allow from 192.168.7.134 to any port 59051 proto tcp comment 'Prometheus avec node_exporter'
+=> ufw allow from 172.16.7.1 to any port 29590 proto tcp comment 'Web vers BDD'
+=> ufw allow out to 192.168.7.133 port 3100 proto tcp comment "Accès à Loki pour logs"
+=> ufw allow out 80/tcp comment 'Sortie HTTP vers dépôts Linux'
+=> ufw allow out 443/tcp comment 'Sortie HTTPS vers dépôts Linux'
+=> ufw allow out to 192.168.7.140 port 53 proto udp comment 'Sortie DNS vers SRV-UCS-AARD'
+=> ufw allow out 123/udp comment 'NTP'
+=> ufw enable
+
+Pour ajouter la possibilité de PING, il faut modifier le fichier /etc/ufw/before.rules et ajouter :
+
+----------------------------------------------------------------------------------
+
+# allow ICMP outbound (ping vers l'extérieur)
+-A ufw-before-output -p icmp --icmp-type echo-request -j ACCEPT
+-A ufw-before-output -p icmp --icmp-type destination-unreachable -j ACCEPT
+-A ufw-before-output -p icmp --icmp-type time-exceeded -j ACCEPT
+-A ufw-before-output -p icmp --icmp-type echo-reply -j ACCEPT
+
+----------------------------------------------------------------------------------
+
+Voila pour UFW, il faudra voir si d'autres problèmes sont présent, comme ça on ajoute ou enleve des règles.

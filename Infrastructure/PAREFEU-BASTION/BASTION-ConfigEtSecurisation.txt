@@ -354,3 +354,15 @@ Maintenant il suffit sur grafana avec le dashboard, de regarder ce que nous voul
 
 Suite à l'ajout de UFW par Hugo, la règle pour les logs n'a pas été mise donc les logs ne passaient plus.
 	=> ufw allow out to 192.168.7.133 port 3100 proto tcp comment "Accès à Loki pour logs"
+
+Pour ajouter la possibilité de PING, il faut modifier le fichier /etc/ufw/before.rules et ajouter :
+
+----------------------------------------------------------------------------------
+
+# allow ICMP outbound (ping vers l'extérieur)
+-A ufw-before-output -p icmp --icmp-type echo-request -j ACCEPT
+-A ufw-before-output -p icmp --icmp-type destination-unreachable -j ACCEPT
+-A ufw-before-output -p icmp --icmp-type time-exceeded -j ACCEPT
+-A ufw-before-output -p icmp --icmp-type echo-reply -j ACCEPT
+
+----------------------------------------------------------------------------------
