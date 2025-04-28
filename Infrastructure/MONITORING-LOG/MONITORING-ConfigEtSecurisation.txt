@@ -1049,3 +1049,98 @@ Il faut maintenant faire un cron, pour executer le script "apt-metrics.sh" régu
 -------------------------------------------------------------------------------------------------------------------------
 
 Maintenant il suffit sur grafana avec le dashboard, de regarder ce que nous voulons voir.
+
+
+Passage en HTTPS pour le web GRAFANA : 
+
+
+1Créer le répertoire sur UCS (Vérifier les droits)
+
+	=> mkdir /etc/univention/ssl/SRV-MONITORING-AARD.wnd.local
+
+2️Générer la clé privée
+
+	=> openssl genrsa -out /etc/univention/ssl/SRV-MONITORING-AARD.wnd.local/private.key 2048
+
+3️Générer la demande de certificat (CSR)
+
+	=> openssl req -new -key /etc/univention/ssl/SRV-MONITORING-AARD.wnd.local/private.key -out /etc/univention/ssl/SRV-MONITORING-AARD.wnd.local/req.pem -subj "/CN=SRV-MONITORING-AARD.wnd.local"
+
+4Signer avec la CA UCS
+
+	=> univention-certificate new -name "SRV-MONITORING-AARD.wnd.local" -days 3650
+
+✅ Cela génère automatiquement :
+
+	=> /etc/univention/ssl/SRV-MONITORING-AARD.wnd.local/cert.pem
+
+	=> /etc/univention/ssl/SRV-MONITORING-AARD.wnd.local/private.key
+
+		=> signés par ucs-root-ca.
+
+Sur le serveur monitoring / Grafana
+
+	=> mkdir /etc/grafana/certs
+	=> chown -R root:grafana /etc/grafana/certs
+	=> chmod -R 750 /etc/grafana/certs
+
+5️Copier les clés sur le serveur monitoring 
+
+Depuis l'UCS, faire :
+
+	=> scp /etc/univention/ssl/SRV-MONITORING-AARD.wnd.local/cert.pem root@192.168.7.134:/etc/grafana/certs/grafana.crt
+	=> scp /etc/univention/ssl/SRV-MONITORING-AARD.wnd.local/private.key root@192.168.7.134:/etc/grafana/certs/grafana.key
+
+Sur serveur monitoring : 
+
+	=> chgrp grafana /etc/grafana/certs/grafana.crt /etc/grafana/certs/grafana.key
+
+
+6️Configurer Grafana /etc/grafana/grafana.ini
+
+Dans /etc/grafana/grafana.ini [server] :
+
+=> protocol = https
+=> http_port = 58272
+=> cert_file = /etc/grafana/certs/grafana.crt
+=> cert_key = /etc/grafana/certs/grafana.key
+
+7️⃣ Redémarrer Grafana
+
+	=> systemctl restart grafana-server
+
+Normalement il faut etre sur que le "ucs-root-ca.crt", soit présent sur le serveur /etc/local/share ... et de mettre l'exception à l'accès sur le site grafana pour du HTTPS sur Firefox dans "certificates" .... .
+
+
+Maintenant il suffit sur grafana avec le dashboard, de regarder ce que nous voulons voir.
+
+
+Mise en place de UFW : 
+
+	=> apt install ufw
+
+Politique par défaut
+
+	=> ufw default deny incoming
+	=> ufw default deny outgoing
+
+Maintenant les règles précises : 
+
+=> ufw allow from 172.16.14.1 to any port 22 proto tcp comment 'SSH depuis bastion'
+=> ufw allow from 192.168.7.132 to any port 22 proto tcp comment 'SSH depuis SRV-RDS-AARD'
+=> ufw allow from 192.168.7.128/28 to any port 9080 proto tcp comment 'VUE WEB DES TARGETS PROMTAIL'
+=> ufw allow from 192.168.7.128/28 to any port 47171 proto tcp comment 'VUE WEB DES ALERTMANAGER PROMETHEUS'
+=> ufw allow from 192.168.7.128/28 to any port 58419 proto tcp comment 'VUE WEB DES METRIQUES SNMP PROMETHEUS'
+=> ufw allow from 192.168.7.128/28 to any port 49080 proto tcp comment 'VUE WEB DES REQUETES PROMETHEUS'
+=> ufw allow from 192.168.7.134 to any port 59051 proto tcp comment 'Prometheus avec node_exporter'
+=> ufw allow from 192.168.7.128/28 to any port 58272 proto tcp comment 'HTTPS Grafana'
+=> ufw allow out 59051/tcp comment 'Scraping des métriques sur infrastructure'
+=> ufw allow out to 192.168.7.133 port 3100 proto tcp comment "Accès à Loki pour logs"
+=> ufw allow out 80/tcp comment 'Sortie HTTP vers dépôts Linux'
+=> ufw allow out 443/tcp comment 'Sortie HTTPS vers dépôts Linux'
+=> ufw allow out to 192.168.7.140 port 53 proto udp comment 'Sortie DNS vers SRV-UCS-AARD'
+=> ufw allow out 123/udp comment 'NTP'
+=> ufw allow out 587/tcp comment 'Envoi de mails via GRAFANA'
+=> ufw enabled
+
+Voila pour UFW, il faudra voir si d'autres problèmes sont présent, comme ça on ajoute ou enleve des règles.
