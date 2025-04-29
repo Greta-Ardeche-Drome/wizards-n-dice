@@ -1,0 +1,40 @@
+Evaluation du processus projet
+
+Objectif :
+	Vérifier les activités / actions initiées par notre équipe sur le projet depuis son démarrage.
+	Comprendre et assurer que le projet a été mis en place et réalisé en respectant le cadrage, les délais et les contraintes fixés.
+
+Attendu :
+	Éléments d’organisation interne mis en œuvre pour atteindre les objectifs du projet
+	Expliquer les progrès, les réussites et les difficultés rencontrés depuis le démarrage
+Jalon 6 sera réussi si :
+	- Nous avons parfaitement compris l’histoire de votre projet
+	- Nous avons parfaitement ses enjeux et ses objectifs 
+	- Nous avons parfaitement compris l’organisation et les moyens mis en place depuis le début
+	- Nous avons parfaitement compris ce qui était prévu, ce qui a été fait, et ce qu’il reste à faire
+	- Nous sommes rassurés sur votre maîtrise 
+	- Vous ne nous avez pas parlé technique pendant 75% du temps
+
+Deux évaluateurs : Pierre Petitjean et Michelle Bouvart
+	À considérer comme notre direction organisant une réunion et attendant un certain type de retour
+
+Passage : 30 minutes maximum - lundi 12 mai 2025 (après-midi)
+
+
+Liste (non exhaustive dans le désordre) de points attendus. À traiter dans l’ordre et sous la forme qui semble le plus approprié :
+	- Rappel de notre organisation : OBS / RACI / qui fait quoi
+	- Description du projet : à quels besoins entend répondre votre projet ? quels sont les résultats attendus ? quels sont les objectifs à atteindre ?
+	- Définition de la réussite du projet à court, moyen et long terme 
+	- Moyens mis en œuvre pour obtenir le résultat attendu
+	- Répartition des tâches
+	- Combien de réunions depuis le début du projet ? à quelle fréquence ? que font remonter les comptes rendus de réunions ? quelles actions ont été mise en place à l’issue de ces réunions
+	- Notes techniques => y a-t-il documentation du projet et sous quelle forme
+	- Justification des choix et prises de décisions
+	- Planning prévisionnel et ses ajustements / le projet avance en phase avec la vision initiale / diagramme de Gantt
+	- Problèmes rencontrés et solutions apportées
+	- Analyse et maîtrise des risques => force et faiblesse du projet => analyse SWOT
+	- Maîtrise des coûts => Evaluation des ressources financières et humaines, y a-t-il eu des effets de dépassement ?
+	- Respect des délais => Analyse des retards, qu’ils soient prévisibles ou non, et leur impact sur les objectifs.
+	- Indicateurs de performance => Tableau de bord KPI  
+	- De manière générale comparaison prévisionnel et réalisé (QCD)
+
