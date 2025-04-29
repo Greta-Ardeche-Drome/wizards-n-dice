@@ -389,3 +389,21 @@ Pas de mise en place de UFW :
 
 	=> Au vu du temps, et la quantité de ports (je ne sais pas tout les ports non que ce soit en entrée ou sortie surtout), je ne met pas ici de UFW pour le NAS.
 
+
+
+Installation Apparmor : 
+
+=> apt install apparmor apparmor-utils
+
+Vérifier que AppArmor est actif
+
+=> aa-status
+
+Activer AppArmor au démarrage
+
+=> systemctl enable apparmor
+
+Je laisse paramétrer automatiquement apparmor, car comme dit en bas : 
+
+Je ne ferai pas plus de choses, en soit apparmor est installé mais il faudrait précisément pour certains services, donc faire des profiles minutieux.
+Sauf que => Pas le temps.

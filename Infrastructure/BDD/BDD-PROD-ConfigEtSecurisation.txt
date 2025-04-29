@@ -486,3 +486,39 @@ Pour ajouter la possibilité de PING, il faut modifier le fichier /etc/ufw/befor
 ----------------------------------------------------------------------------------
 
 Voila pour UFW, il faudra voir si d'autres problèmes sont présent, comme ça on ajoute ou enleve des règles.
+
+
+Installation Apparmor : 
+
+=> apt install apparmor apparmor-utils
+
+Vérifier que AppArmor est actif
+
+=> aa-status
+
+Activer AppArmor au démarrage
+
+=> systemctl enable apparmor
+
+Dans => nano /etc/apparmor.d/usr.sbin.mariadbd
+
+----------------------------------------------
+
+/usr/sbin/mariadbd {
+  # Autorisations de lecture sur /var/log/
+  /var/log/ r,
+  /var/log/** rwk,
+}
+
+----------------------------------------------
+
+On recharge le profil
+
+=> apparmor_parser -r /etc/apparmor.d/usr.sbin.mariadbd
+
+Puis on met en mode complain : 
+
+=> aa-complain /etc/apparmor.d/usr.sbin.mariadbd
+
+Je ne ferai pas plus de choses, en soit apparmor est installé mais il faudrait précisément pour certains services, donc faire des profiles minutieux.
+Sauf que => Pas le temps.
