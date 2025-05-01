@@ -12,29 +12,34 @@ I- Intro
 	> Rappel jalon rapide 
 	> Présentation de l'équipe avec les rôles + chef de projet qui parle bcp mais c'est normal
 
-II- Histoire du projet, enjeux généraux et objectif
+II- Histoire et enjeux généraux du projet
 	### Utiliser et mentionner la fiche du jalon 1 si possible
-	> Evoquer l'histoire du projet
-	> Définition des besoins auxquels on répond : quels sont les résultats attendus ? quels sont les objectifs à atteindre ?
-	> Définition des objectifs : ce qu'on veut atteindre ; ce qui ferait la réussite à court, moyen et long terme 
-	> Définition des ressources : financières et humaines 
-	> Analyse et maîtrise des risques préalables : forces et faiblesses du projet dans une analyse SWOT
+	> Histoire derrière Wizards & Dice
+		> Mentionner le voyage en Italie
+		> Remarquer que les articles de JDR sont éparpillés de fou sur le web
+		> Volonté d’une action communautaire
+	> Enjeux et objectifs 
+		> Définition des besoins auxquels on répond : quels sont les résultats attendus ? quels sont les objectifs à atteindre ?
+		> Définition des objectifs : ce qu'on veut atteindre ; ce qui ferait la réussite à court, moyen et long terme 
+	> Contraintes et ressources au lancement 
+		> Définition des ressources : financières et humaines 
+		> Analyse et maîtrise des risques préalables : forces et faiblesses du projet dans une analyse SWOT
 
 III- Organisation du projet
-	> Plannification du projet 
+	> Planification du projet 
 		> Fonctionnement par phases, composées de tâches
-		> Priorisation des jalons, puis des tâches imporatantes, puis des tâches mineurs
-		> Présentaion de planning de GANTT : planning prévisionnel et organisationnel (comparaison et ajustements - QCD à définir)
+		> Priorisation des jalons, puis des tâches importantes, puis des tâches mineurs
+		> Présentation de planning de GANTT : planning prévisionnel et organisationnel (comparaison et ajustements - QCD à définir)
 		> Respect des délais : analyse des retards (prévisibles ou non) et leur impact sur les objectifs 
-	> Moyens mis en oeuvre pour obtenir le résultat attendu : 
+	> Moyens mis en oeuvre pour obtenir le résultat attendu
 		> Répartition des tâches : binômes, flexible, cohérente avec les tâches accomplies précédemment 
 		> Réunions : nombres ; fréquences ; utilités ; ce qui remonte des comptes rendus de réunions ; actions mise en place après les réunions
 		> Gestion des coûts: ressources financières (tricount, ok niveau finances mais mettre des chiffres) et humaines (pas trop s'étaler mais coup de moins bien) ; dépassement ?
-	> Document d'organisation
+	> Documents d'organisation
 		> Structure organisationnel de nos documents
 		> Notes techniques : documentation du projet ; forme de cette documentation
 
-IV- Difficulté majeurs, amélioration possibles et état d'esprit au cours du projet
+IV- Points d'achoppement du projet
 	> Difficulté majeurs
 		> Priorisation des tâches
 		> Gestion de la charge de travail
@@ -42,7 +47,7 @@ IV- Difficulté majeurs, amélioration possibles et état d'esprit au cours du p
 	> Améliorations possibles 
 		> Contexte PTUT
 		> Hors contexte PTUT
-	 > État d'esprit de l'équipe
+	> État d'esprit de l'équipe
 		> Début du projet 
 		> Vacances de noël 
 		> Hiver
@@ -55,8 +60,19 @@ V- Conclusion
 	> Question sur notre capacité a assuré un aussi bon travail que voulu, compte tenu de toute les contraintes extérieurs 
 
 ======================================
-Reste à intégrer et/ou définir :
-	- Rappel de notre organisation : OBS / RACI / qui fait quoi
-	- Indicateurs de performance => Tableau de bord KPI
+Élements à produire : 
+	> Schéma des rôles de l'équipe : reprendre les cartes de Lois
+	> Schéma RACI (répartition des rôles) : voir internet
+	> Visuel explicite des faux planning et des comparatifs*
+	> Schéma SWOT
+
+======================================
+Un peu partout :
 	- Justification des choix et prises de décisions
 	- Problèmes rencontrés et solutions apportées
+
+
+
+
+
+
