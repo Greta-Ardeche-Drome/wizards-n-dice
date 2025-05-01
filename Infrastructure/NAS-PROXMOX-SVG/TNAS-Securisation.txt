@@ -137,3 +137,41 @@ Je laisse paramétrer automatiquement apparmor, car comme dit en bas :
 
 Je ne ferai pas plus de choses, en soit apparmor est installé mais il faudrait précisément pour certains services, donc faire des profiles minutieux.
 Sauf que => Pas le temps.
+
+
+Installation lynis + fail2ban
+
+=> Executer lynis dans syslog : lynis audit system
+
+OU
+
+=> Executer le script dans /usr/local/bin/lynis-syslog.sh
+
+nano /usr/local/bin/lynis-syslog.sh
+
+Script : 
+
+--------------------------------------
+
+#!/bin/bash
+lynis audit system
+
+--------------------------------------
+
+=> chmod 750 /usr/local/bin/lynis-syslog.sh
+=> chown svgwnd /usr/local/bin/lynis-syslog.sh
+
+Pas de cron.
+
+On peut voir depuis GRAFANA dans les logs, le résultat.
+
+Fail2Ban NON : 
+
+
+
+Installation Clamav : 
+
+=> apt install clamav -y
+=> systemctl stop clamav-freshclam
+=> freshclam
+=> clamscan -r /home | logger -t clamav (pas obligatoire)

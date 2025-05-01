@@ -522,3 +522,66 @@ Puis on met en mode complain :
 
 Je ne ferai pas plus de choses, en soit apparmor est installé mais il faudrait précisément pour certains services, donc faire des profiles minutieux.
 Sauf que => Pas le temps.
+
+
+Installation lynis + fail2ban
+
+=> Executer lynis dans syslog : lynis audit system | logger -t lynis
+
+OU
+
+=> Executer le script dans /usr/local/bin/lynis-syslog.sh
+
+nano /usr/local/bin/lynis-syslog.sh
+
+Script : 
+
+--------------------------------------
+
+#!/bin/bash
+lynis audit system | logger -t lynis
+
+--------------------------------------
+
+=> chmod 750 /usr/local/bin/lynis-syslog.sh
+=> chown prod /usr/local/bin/lynis-syslog.sh
+
+Pas de cron.
+
+On peut voir depuis GRAFANA dans les logs, le résultat.
+
+Fail2Ban : 
+
+=> apt install fail2ban -y
+=> systemctl enable fail2ban
+=> systemctl start fail2ban
+
+On ne modifie jamais directement jail.conf. On crée un fichier jail.local :
+
+=> cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
+=> nano /etc/fail2ban/jail.local
+
+--------------------------
+
+[sshd]
+enabled = true
+port    = ssh
+logpath = %(sshd_log)s
+backend = %(sshd_backend)s
+maxretry = 5
+bantime = 500
+findtime = 600
+
+--------------------------
+
+=> systemctl restart fail2ban
+=> fail2ban-client status
+=> fail2ban-client status sshd
+
+
+Installation Clamav : 
+
+=> apt install clamav -y
+=> systemctl stop clamav-freshclam
+=> freshclam
+=> clamscan -r /home | logger -t clamav (pas obligatoire)

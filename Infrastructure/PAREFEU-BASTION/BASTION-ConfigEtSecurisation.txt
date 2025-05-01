@@ -366,3 +366,35 @@ Pour ajouter la possibilité de PING, il faut modifier le fichier /etc/ufw/befor
 -A ufw-before-output -p icmp --icmp-type echo-reply -j ACCEPT
 
 ----------------------------------------------------------------------------------
+
+
+
+Installation lynis + fail2ban
+
+
+=> Executer lynis dans syslog : lynis audit system | logger -t lynis
+
+OU
+
+=> Executer le script dans /usr/local/bin/lynis-syslog.sh
+
+nano /usr/local/bin/lynis-syslog.sh
+
+Script : 
+
+--------------------------------------
+
+#!/bin/bash
+lynis audit system | logger -t lynis
+
+--------------------------------------
+
+=> chmod 750 /usr/local/bin/lynis-syslog.sh
+=> chown bastion /usr/local/bin/lynis-syslog.sh
+
+Pas de cron.
+
+On peut voir depuis GRAFANA dans les logs, le résultat.
+
+
+Fail2Ban (installé par HUGO)

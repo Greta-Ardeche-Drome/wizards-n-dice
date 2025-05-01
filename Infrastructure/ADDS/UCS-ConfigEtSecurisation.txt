@@ -349,3 +349,35 @@ Il faut maintenant faire un cron, pour executer le script "apt-metrics.sh" régu
 -------------------------------------------------------------------------------------------------------------------------
 
 Maintenant il suffit sur grafana avec le dashboard, de regarder ce que nous voulons voir.
+
+
+Installation lynis + fail2ban
+
+=> Executer lynis dans syslog : lynis audit system | logger -t lynis
+
+OU
+
+=> Executer le script dans /usr/local/bin/lynis-syslog.sh
+
+nano /usr/local/bin/lynis-syslog.sh
+
+Script : 
+
+--------------------------------------
+
+#!/bin/bash
+lynis audit system | logger -t lynis
+
+--------------------------------------
+
+=> chmod 750 /usr/local/bin/lynis-syslog.sh
+=> chown ucs /usr/local/bin/lynis-syslog.sh
+
+Pas de cron.
+
+On peut voir depuis GRAFANA dans les logs, le résultat.
+
+Fail2Ban (installé par hugo) : 
+
+
+Installation Clamav (installé par hugo) : 
