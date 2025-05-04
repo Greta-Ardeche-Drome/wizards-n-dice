@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Planning Wizards &amp; Dices" company="" webLink="http://" view-date="2025-04-14" view-index="0" gantt-divider-location="858" resource-divider-location="424" version="3.3.3312" locale="fr_FR">
+<?xml version="1.0" encoding="UTF-8"?><project name="Planning Wizards &amp; Dices" company="" webLink="http://" view-date="2024-09-01" view-index="0" gantt-divider-location="745" resource-divider-location="424" version="3.3.3312" locale="fr_FR">
     <description/>
-    <view zooming-state="default:7" id="gantt-chart">
-        <field id="tpd3" name="Nom" width="521" order="0"/>
-        <field id="tpd4" name="Date de début" width="94" order="1"/>
-        <field id="tpd5" name="Date de fin" width="130" order="2"/>
-        <field id="tpd1" name="Priorité" width="112" order="3"/>
+    <view zooming-state="default:9" id="gantt-chart">
+        <field id="tpd3" name="Nom" width="452" order="0"/>
+        <field id="tpd4" name="Date de début" width="82" order="1"/>
+        <field id="tpd5" name="Date de fin" width="113" order="2"/>
+        <field id="tpd1" name="Priorité" width="97" order="3"/>
         <option id="filter.completedTasks" value="false"/>
         <option id="filter.dueTodayTasks" value="false"/>
         <option id="filter.overdueTasks" value="false"/>
@@ -231,7 +231,7 @@ Peut-être fait en mode "dégrader" avec seulement quelques commandes factices]]
             <task id="589" uid="6875fd5bc40f49a98be5b8881e873a4f" name="Conformité des produits et des services" color="#3399ff" meeting="false" start="2025-04-13" duration="7" complete="0" priority="3" expand="true">
                 <depend id="592" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="591" uid="5115506c816a421aa390eb713471bfb7" name="Prestation en produits et services" color="#d60be4" meeting="true" start="2025-04-19" duration="0" complete="0" expand="true"/>
+            <task id="591" uid="5115506c816a421aa390eb713471bfb7" name="Prestation en produits et services" color="#000000" meeting="true" start="2025-04-19" duration="0" complete="0" expand="true"/>
             <task id="592" uid="2a335538c52b464c8019a1c31221bfca" name="Promotion des produits et services" color="#3399ff" meeting="false" start="2025-04-20" duration="7" complete="0" priority="3" expand="true">
                 <notes><![CDATA[Interne = visibilité dans le site, article à la une, etc
 Externe = communication externe, pub, etc
@@ -253,7 +253,7 @@ Externe = communication externe, pub, etc
                 <notes><![CDATA[Rendu maximal à 23:59]]></notes>
             </task>
         </task>
-        <task id="593" uid="ad62b021b1ce478b9d9d14843bc5d414" name="Création du site" color="#3399ff" meeting="false" start="2025-01-05" duration="180" complete="0" expand="true">
+        <task id="593" uid="ad62b021b1ce478b9d9d14843bc5d414" name="Création du site" color="#3399ff" meeting="false" start="2025-01-05" duration="180" complete="0" expand="false">
             <task id="594" uid="a2412ea335b344b090d5f9ddfb3b6915" name="Matériel nécessaire" color="#00a933" meeting="false" start="2025-01-05" duration="21" complete="0" expand="true">
                 <depend id="596" type="2" difference="0" hardness="Strong"/>
             </task>
@@ -365,7 +365,7 @@ Potentiellement un tableur excel ]]></notes>
                 <notes><![CDATA[Présence + à jour
 Potentiellement un tableur excel ]]></notes>
             </task>
-            <task id="662" uid="a19246d2751746e39ac50e9f5e338c74" name="Développement du site" color="#3399ff" meeting="false" start="2025-02-16" duration="90" complete="0" priority="2" expand="false">
+            <task id="662" uid="a19246d2751746e39ac50e9f5e338c74" name="Développement du site" color="#3399ff" meeting="false" start="2025-02-16" duration="90" complete="0" priority="2" expand="true">
                 <task id="661" uid="38561e906faa4aa888ee39829825a331" name="Choix d'un CMS" color="#00a933" meeting="false" start="2025-02-16" duration="7" complete="0" priority="2" expand="true">
                     <notes><![CDATA[Pas vraiment de première approche]]></notes>
                     <depend id="663" type="2" difference="0" hardness="Strong"/>
