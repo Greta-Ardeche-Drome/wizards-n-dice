@@ -81,3 +81,195 @@ Voila pour l'installation de NODE EXPORTER.
 
 
 Partie sécurisation : 
+
+
+=> Ajout du MOTD personnalisé sur la VM (et toutes) du NAS.
+/etc/motd
+
+Wizards & Dice | Shell Access for Debian GNU/Linux
+
+***********************************************************************************************************************
+*							LEGAL NOTICE
+* This system is for authorized use only. All activities on this system may be * monitored and recorded. Unauthorized access or use is strictly prohibited * and may result in disciplinary action, criminal prosecution, or both. By * continuing to use and access this system, you consent to such monitoring.*
+
+***********************************************************************************************************************
+
+
+=> Ajout des éléments pour le monitoring des machines et de leurs MAJS.
+
+	=> wget https://raw.githubusercontent.com/labmonkeys-space/apt-prometheus/main/script/apt-metrics.sh -O /usr/local/bin/apt-metrics.sh
+	=> chmod 750 /usr/local/bin/apt-metrics.sh
+	=> chown log /usr/local/bin/apt-metrics.sh
+	=> Puis on change tout le fichier : 
+
+-------------------------------------------------------------------------------------------------------------------------
+
+#!/bin/bash
+
+OUT_FILE="/var/lib/node_exporter/textfile_collector/apt_updates.prom"
+
+# Total updates
+TOTAL_UPDATES=$(apt list --upgradeable 2>/dev/null | grep -v "Listing" | wc -l)
+
+# Security updates (si 'unattended-upgrades' est installé)
+SEC_UPDATES=$(apt list --upgradeable 2>/dev/null | grep security | wc -l)
+
+# Reboot required (flag fichier)
+if [ -f /var/run/reboot-required ]; then
+  REBOOT_NEEDED=1
+else
+  REBOOT_NEEDED=0
+fi
+
+# Export en format Prometheus
+echo "# HELP debian_apt_updates Nombre total de mises à jour APT" > "$OUT_FILE"
+echo "# TYPE debian_apt_updates gauge" >> "$OUT_FILE"
+echo "debian_apt_updates $TOTAL_UPDATES" >> "$OUT_FILE"
+
+echo "# HELP debian_security_updates Nombre de mises à jour de sécurité" >> "$OUT_FILE"
+echo "# TYPE debian_security_updates gauge" >> "$OUT_FILE"
+echo "debian_security_updates $SEC_UPDATES" >> "$OUT_FILE"
+
+echo "# HELP debian_reboot_required Système nécessite un redémarrage" >> "$OUT_FILE"
+echo "# TYPE debian_reboot_required gauge" >> "$OUT_FILE"
+echo "debian_reboot_required $REBOOT_NEEDED" >> "$OUT_FILE"
+
+-------------------------------------------------------------------------------------------------------------------------
+
+Dans le node_exporter.service
+
+-------------------------------------------------------------------------------------------------------------------------
+
+[Unit]
+Description=Prometheus NODE Exporter
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=log
+Group=log
+ExecStart=/usr/local/bin/node_exporter --web.listen-address=0.0.0.0:XXXX --collector.systemd --collector.processes --collector.textfile --collector.textfile.directory=/var/lib/node_exporter/textfile_collector
+
+SyslogIdentifier=log
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
+-------------------------------------------------------------------------------------------------------------------------
+
+=> mkdir -p /var/lib/node_exporter/textfile_collector
+=> chown -R log:root /var/lib/node_exporter/textfile_collector
+=> chmod -R 770 /var/lib/node_exporter/textfile_collector
+
+		=> systemctl daemon-reexec
+		=> systemctl daemon-reload
+		=> systemctl restart node_exporter.service 
+
+Il faut maintenant faire un cron, pour executer le script "apt-metrics.sh" régulièrement : 
+
+-------------------------------------------------------------------------------------------------------------------------
+=> crontab -e
+
+30 7 * * * /usr/local/bin/apt-metrics.sh
+
+-------------------------------------------------------------------------------------------------------------------------
+
+Maintenant il suffit sur grafana avec le dashboard, de regarder ce que nous voulons voir.
+
+
+Mise en place de UFW : 
+
+	=> apt install ufw
+
+Politique par défaut
+
+	=> ufw default deny incoming
+	=> ufw default deny outgoing
+
+Maintenant les règles précises : 
+
+=> ufw allow from 172.16.14.1 to any port 14714 proto tcp comment 'SSH depuis bastion'
+=> ufw allow from 192.168.7.132 to any port 14714 proto tcp comment 'SSH depuis SRV-RDS-AARD'
+=> ufw allow from 192.168.7.128/28 to any port 9080 proto tcp comment 'VUE WEB DES TARGETS PROMTAIL'
+=> ufw allow from 192.168.7.128/28 to any port 9100 proto tcp comment 'VUE WEB DES TARGETS PROMTAIL'
+=> ufw allow from 192.168.7.134 to any port 59051 proto tcp comment 'Prometheus avec node_exporter'
+=> ufw allow 3100/tcp comment 'Autorisation reception logs des serveurs'
+=> ufw allow out 80/tcp comment 'Sortie HTTP vers dépôts Linux'
+=> ufw allow out 443/tcp comment 'Sortie HTTPS vers dépôts Linux'
+=> ufw allow out to 192.168.7.140 port 53 proto udp comment 'Sortie DNS vers SRV-UCS-AARD'
+=> ufw allow out 123/udp comment 'NTP'
+=> ufw enabled
+
+Pour ajouter la possibilité de PING, il faut modifier le fichier /etc/ufw/before.rules et ajouter :
+
+----------------------------------------------------------------------------------
+
+# allow ICMP outbound (ping vers l'extérieur)
+-A ufw-before-output -p icmp --icmp-type echo-request -j ACCEPT
+-A ufw-before-output -p icmp --icmp-type destination-unreachable -j ACCEPT
+-A ufw-before-output -p icmp --icmp-type time-exceeded -j ACCEPT
+-A ufw-before-output -p icmp --icmp-type echo-reply -j ACCEPT
+
+----------------------------------------------------------------------------------
+
+
+Voila pour UFW, il faudra voir si d'autres problèmes sont présent, comme ça on ajoute ou enleve des règles.
+
+
+Installation lynis + fail2ban
+
+=> Executer lynis dans syslog : lynis audit system | logger -t lynis
+
+OU
+
+=> Executer le script dans /usr/local/bin/lynis-syslog.sh
+
+nano /usr/local/bin/lynis-syslog.sh
+
+Script : 
+
+--------------------------------------
+
+#!/bin/bash
+lynis audit system | logger -t lynis
+
+--------------------------------------
+
+=> chmod 750 /usr/local/bin/lynis-syslog.sh
+=> chown log /usr/local/bin/lynis-syslog.sh
+
+Pas de cron.
+
+On peut voir depuis GRAFANA dans les logs, le résultat.
+
+Fail2Ban : 
+
+=> apt install fail2ban -y
+=> systemctl enable fail2ban
+=> systemctl start fail2ban
+
+On ne modifie jamais directement jail.conf. On crée un fichier jail.local :
+
+=> cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
+=> nano /etc/fail2ban/jail.local
+
+--------------------------
+
+[sshd]
+enabled = true
+port    = ssh
+logpath = %(sshd_log)s
+backend = %(sshd_backend)s
+maxretry = 5
+bantime = 500
+findtime = 600
+
+--------------------------
+
+=> systemctl restart fail2ban
+=> fail2ban-client status
+=> fail2ban-client status sshd
+
+Fail2Ban lit les logs /var/log/auth.log (par défaut) pour détecter les tentatives SSH.
