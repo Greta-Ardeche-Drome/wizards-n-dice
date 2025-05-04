@@ -63,9 +63,10 @@ V- Conclusion
 Élements à produire : 
 	> Schéma des rôles de l'équipe : reprendre les cartes de Lois
 	> Schéma RACI (répartition des rôles) : voir internet
-	> Visuel explicite des faux planning et des comparatifs*
+	> Visuel explicite des faux planning et des comparatifs
 	> Schéma SWOT
 	> Intégration des collègues dans la présentation
+	> Screen de documents (document de synthèse, planning prévi/orga)
 
 ======================================
 Un peu partout :
