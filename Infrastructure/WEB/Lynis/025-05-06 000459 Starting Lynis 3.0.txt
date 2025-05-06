@@ -1,0 +1,732 @@
+025-05-06 00:04:59 Starting Lynis 3.0.8 with PID 278692, build date 2022-05-17
+2025-05-06 00:04:59 ====
+2025-05-06 00:04:59 ### 2007-2021, CISOfy - https://cisofy.com/lynis/ ###
+2025-05-06 00:04:59 Checking permissions of /usr/share/lynis/include/profiles
+2025-05-06 00:04:59 File permissions are OK
+2025-05-06 00:04:59 Reading profile/configuration /etc/lynis/default.prf
+2025-05-06 00:04:59 Action: created temporary file /tmp/lynis.uG8XJABssn
+2025-05-06 00:04:59 Language set via profile to ''
+2025-05-06 00:04:59 Plugin 'authentication' enabled according profile (/etc/lynis/default.prf)
+2025-05-06 00:04:59 Plugin 'compliance' enabled according profile (/etc/lynis/default.prf)
+2025-05-06 00:04:59 Plugin 'configuration' enabled according profile (/etc/lynis/default.prf)
+2025-05-06 00:04:59 Plugin 'control-panels' enabled according profile (/etc/lynis/default.prf)
+2025-05-06 00:04:59 Plugin 'crypto' enabled according profile (/etc/lynis/default.prf)
+2025-05-06 00:04:59 Plugin 'dns' enabled according profile (/etc/lynis/default.prf)
+2025-05-06 00:04:59 Plugin 'docker' enabled according profile (/etc/lynis/default.prf)
+2025-05-06 00:04:59 Plugin 'file-integrity' enabled according profile (/etc/lynis/default.prf)
+2025-05-06 00:04:59 Plugin 'file-systems' enabled according profile (/etc/lynis/default.prf)
+2025-05-06 00:04:59 Plugin 'firewalls' enabled according profile (/etc/lynis/default.prf)
+2025-05-06 00:04:59 Plugin 'forensics' enabled according profile (/etc/lynis/default.prf)
+2025-05-06 00:04:59 Plugin 'hardware' enabled according profile (/etc/lynis/default.prf)
+2025-05-06 00:04:59 Plugin 'intrusion-detection' enabled according profile (/etc/lynis/default.prf)
+2025-05-06 00:04:59 Plugin 'intrusion-prevention' enabled according profile (/etc/lynis/default.prf)
+2025-05-06 00:04:59 Plugin 'kernel' enabled according profile (/etc/lynis/default.prf)
+2025-05-06 00:04:59 Plugin 'malware' enabled according profile (/etc/lynis/default.prf)
+2025-05-06 00:04:59 Plugin 'memory' enabled according profile (/etc/lynis/default.prf)
+2025-05-06 00:04:59 Plugin 'nginx' enabled according profile (/etc/lynis/default.prf)
+2025-05-06 00:04:59 Plugin 'pam' enabled according profile (/etc/lynis/default.prf)
+2025-05-06 00:04:59 Plugin 'processes' enabled according profile (/etc/lynis/default.prf)
+2025-05-06 00:04:59 Plugin 'security-modules' enabled according profile (/etc/lynis/default.prf)
+2025-05-06 00:04:59 Plugin 'software' enabled according profile (/etc/lynis/default.prf)
+2025-05-06 00:04:59 Plugin 'system-integrity' enabled according profile (/etc/lynis/default.prf)
+2025-05-06 00:04:59 Plugin 'systemd' enabled according profile (/etc/lynis/default.prf)
+2025-05-06 00:04:59 Plugin 'users' enabled according profile (/etc/lynis/default.prf)
+2025-05-06 00:04:59 Plugin 'debian' enabled according profile (/etc/lynis/default.prf)
+2025-05-06 00:05:00 Set option to default value: NTPD_ROLE --> client
+2025-05-06 00:05:00 ====
+2025-05-06 00:05:00 EOL check: 255
+2025-05-06 00:05:00 Note: the end-of-life of 'Debian GNU/Linux 12 (bookworm)' could not be checked. Entry missing>
+2025-05-06 00:05:00 Program version:           3.0.8
+2025-05-06 00:05:00 Operating system:          Linux
+2025-05-06 00:05:00 Operating system name:     Debian
+2025-05-06 00:05:00 Operating system version:  12
+2025-05-06 00:05:00 Kernel version:            6.8.12
+2025-05-06 00:05:00 Kernel version (full):     6.8.12-8-pve
+2025-05-06 00:05:00 Hardware platform:         x86_64
+2025-05-06 00:05:00 -----------------------------------------------------
+2025-05-06 00:05:00 Hostname:                  SRV-WEB-AARD
+2025-05-06 00:05:00 Auditor:                   [Not Specified]
+2025-05-06 00:05:00 Profiles:                  /etc/lynis/default.prf
+2025-05-06 00:05:00 Work directory:            /
+2025-05-06 00:05:00 Include directory:         /usr/share/lynis/include
+2025-05-06 00:05:00 Plugin directory:          /etc/lynis/plugins
+2025-05-06 00:05:00 -----------------------------------------------------
+2025-05-06 00:05:00 Log file:                  /var/log/lynis.log
+2025-05-06 00:05:00 Report file:               /var/log/lynis-report.dat
+2025-05-06 00:05:00 Report version:            1.0
+2025-05-06 00:05:00 -----------------------------------------------------
+2025-05-06 00:05:00 Test category:             all
+2025-05-06 00:05:00 Test group:                all
+2025-05-06 00:05:00 BusyBox used:              0
+2025-05-06 00:05:00 ====
+2025-05-06 00:05:00 Test: Checking for program update...
+2025-05-06 00:05:00 Upgrade test skipped due profile option set (skip_upgrade_test)
+2025-05-06 00:05:00 Current installed version  : 308
+2025-05-06 00:05:00 Latest stable version      : 308
+2025-05-06 00:05:00 No Lynis update available.
+2025-05-06 00:05:00 Suggestion: This release is more than 4 months old. Check the website or GitHub to see if the>
+2025-05-06 00:05:00 ====
+2025-05-06 00:05:00 Checking permissions of /usr/share/lynis/include/binaries
+2025-05-06 00:05:00 File permissions are OK
+2025-05-06 00:05:00 ====
+2025-05-06 00:05:00 Action: Performing tests from category: System tools
+2025-05-06 00:05:00 Start scanning for available audit binaries and tools...
+2025-05-06 00:05:00 ====
+2025-05-06 00:05:00 Performing test ID CORE-1000 (Check all system binaries)
+2025-05-06 00:05:00 Status: Starting binary scan...
+2025-05-06 00:05:00 Test: Checking binaries in directory /bin
+2025-05-06 00:05:00 Result: directory exists, but is actually a symlink
+2025-05-06 00:05:00 Action: checking symlink for file /bin
+2025-05-06 00:05:00 Setting temporary readlinkbinary variable
+2025-05-06 00:05:00 Note: Using real readlink binary to determine symlink on /bin
+2025-05-06 00:05:00 Result: readlink shows /usr/bin as output
+2025-05-06 00:05:00 Result: symlink found, pointing to directory /usr/bin
+2025-05-06 00:05:00 Setting temporary readlinkbinary variable
+2025-05-06 00:05:00 Note: Using real readlink binary to determine symlink on /bin
+2025-05-06 00:05:00 Result: readlink shows /usr/bin as output
+2025-05-06 00:05:00 Result: symlink found, pointing to directory /usr/bin
+2025-05-06 00:05:00 Result: found the path behind this symlink (/bin --> /usr/bin)
+2025-05-06 00:05:00 Directory /usr/bin exists. Starting directory scanning...
+2025-05-06 00:05:00   Found known binary: apt (package manager) - /usr/bin/apt
+2025-05-06 00:05:00   Found known binary: awk (string tool) - /usr/bin/awk
+2025-05-06 00:05:00   Found known binary: base64 (encoding tool) - /usr/bin/base64
+2025-05-06 00:05:00   Found known binary: cat (generic file handling) - /usr/bin/cat
+2025-05-06 00:05:00   Found known binary: clamscan (AV scanner) - /usr/bin/clamscan
+2025-05-06 00:05:00   Found known binary: comm (file compare) - /usr/bin/comm
+2025-05-06 00:05:00   Found known binary: curl (browser, download utility) - /usr/bin/curl
+2025-05-06 00:05:00   Found known binary: cut (text stream editor) - /usr/bin/cut
+2025-05-06 00:05:00   Found known binary: dig (network/dns tool) - /usr/bin/dig
+2025-05-06 00:05:00   Found known binary: dnsdomainname (DNS domain) - /usr/bin/dnsdomainname
+2025-05-06 00:05:00   Found known binary: domainname (NIS domain) - /usr/bin/domainname
+2025-05-06 00:05:00   Found known binary: dpkg (package management) - /usr/bin/dpkg
+2025-05-06 00:05:00   Found known binary: egrep (text search) - /usr/bin/egrep
+2025-05-06 00:05:00   Found known binary: fail2ban (IPS tool) - /usr/bin/fail2ban-server
+2025-05-06 00:05:00   Found known binary: file (file type detection) - /usr/bin/file
+2025-05-06 00:05:00   Found known binary: find (search tool) - /usr/bin/find
+2025-05-06 00:05:00   Found known binary: getent (query tool for name service switch libraries) - /usr/bin/getent
+2025-05-06 00:05:00   Found known binary: grep (text search) - /usr/bin/grep
+2025-05-06 00:05:00   Found known binary: gzip (compressing utility) - /usr/bin/gzip
+2025-05-06 00:05:00   Found known binary: head (text filter) - /usr/bin/head
+2025-05-06 00:05:00   Found known binary: ip (IP configuration) - /usr/bin/ip
+2025-05-06 00:05:00   Found known binary: journalctl (systemd journal) - /usr/bin/journalctl
+2025-05-06 00:05:00   Found known binary: ls (file listing) - /usr/bin/ls
+2025-05-06 00:05:00   Found known binary: lsattr (file attributes) - /usr/bin/lsattr
+2025-05-06 00:05:00   Found known binary: lsblk (block devices) - /usr/bin/lsblk
+2025-05-06 00:05:00   Found known binary: lsmod (kernel modules) - /usr/bin/lsmod
+2025-05-06 00:05:00   Found known binary: lsof (open files) - /usr/bin/lsof
+2025-05-06 00:05:00 Note: added -K i to ignore tasks on Linux
+2025-05-06 00:05:00   Found known binary: md5sum (hash tool) - /usr/bin/md5sum
+2025-05-06 00:05:00   Found known binary: mount (disk utility) - /usr/bin/mount
+2025-05-06 00:05:00 Found /usr/bin/mysql (version: 10.11.11-MariaDB)
+2025-05-06 00:05:00   Found known binary: netstat (network statistics) - /usr/bin/netstat
+2025-05-06 00:05:00 Found /usr/bin/openssl (version 3.0.15)
+2025-05-06 00:05:00 Found /usr/bin/perl (version 5.36.0)
+2025-05-06 00:05:00   Found known binary: pgrep (search in process list) - /usr/bin/pgrep
+2025-05-06 00:05:00 Found known binary: php (programming language interpreter) - /usr/bin/php (version 8.2.28)
+2025-05-06 00:05:00   Found known binary: ps (process listing) - /usr/bin/ps
+2025-05-06 00:05:00 Found known binary: python3 (programming language interpreter) - /usr/bin/python3 (version 3.>
+2025-05-06 00:05:00   Found known binary: readlink (follows symlinks) - /usr/bin/readlink
+2025-05-06 00:05:00   Found known binary: sed (text stream editor) - /usr/bin/sed
+2025-05-06 00:05:00   Found known binary: sha1/sha1sum/shasum (crypto hashing) - /usr/bin/sha1sum
+2025-05-06 00:05:00   Found known binary: sha256/sha256sum (crypto hashing) - /usr/bin/sha256sum
+2025-05-06 00:05:00   Found known binary: sha1/sha1sum/shasum (crypto hashing) - /usr/bin/shasum
+2025-05-06 00:05:00   Found known binary: sort (sort data streams) - /usr/bin/sort
+2025-05-06 00:05:00   Found known binary: ss (show sockets) - /usr/bin/ss
+2025-05-06 00:05:00   Found known binary: ssh-keyscan (scanner for SSH keys) - /usr/bin/ssh-keyscan
+2025-05-06 00:05:00   Found known binary: stat (file information) - /usr/bin/stat
+2025-05-06 00:05:00   Found known binary: systemctl (client to systemd) - /usr/bin/systemctl
+2025-05-06 00:05:00   Found known binary: systemd-analyze (systemd service analysis tool) - /usr/bin/systemd-anal>
+2025-05-06 00:05:00   Found known binary: tail (text filter) - /usr/bin/tail
+2025-05-06 00:05:00   Found known binary: timedatectl (timedate client) - /usr/bin/timedatectl
+2025-05-06 00:05:00   Found known binary: tr (text transformation) - /usr/bin/tr
+2025-05-06 00:05:00   Found known binary: uname (operating system details) - /usr/bin/uname
+2025-05-06 00:05:00   Found known binary: uniq (text manipulation utility) - /usr/bin/uniq
+2025-05-06 00:05:00   Found known binary: wc (word count) - /usr/bin/wc
+2025-05-06 00:05:00 Found /usr/bin/wget (version 1.21.3)
+2025-05-06 00:05:00   Found known binary: xargs (command output redirection) - /usr/bin/xargs
+2025-05-06 00:05:00   Found known binary: zgrep (text search for compressed files) - /usr/bin/zgrep
+2025-05-06 00:05:00 Test: Checking binaries in directory /sbin
+2025-05-06 00:05:00 Result: directory exists, but is actually a symlink
+2025-05-06 00:05:00 Action: checking symlink for file /sbin
+2025-05-06 00:05:00 Note: Using real readlink binary to determine symlink on /sbin
+2025-05-06 00:05:00 Result: readlink shows /usr/sbin as output
+2025-05-06 00:05:00 Result: symlink found, pointing to directory /usr/sbin
+2025-05-06 00:05:00 Result: found the path behind this symlink (/sbin --> /usr/sbin)
+2025-05-06 00:05:00 Directory /usr/sbin exists. Starting directory scanning...
+2025-05-06 00:05:00   Found known binary: apache2 (web server) - /usr/sbin/apache2
+2025-05-06 00:05:00   Found known binary: blkid (information about block devices) - /usr/sbin/blkid
+2025-05-06 00:05:00   Found known binary: dmidecode (hardware collector tool) - /usr/sbin/dmidecode
+2025-05-06 00:05:00   Found known binary: getcap (kernel capabilities) - /usr/sbin/getcap
+2025-05-06 00:05:00   Found known binary: grpck (consistency checker) - /usr/sbin/grpck
+2025-05-06 00:05:00   Found known binary: ipconfig (IP configuration) - /usr/sbin/ifconfig
+2025-05-06 00:05:00   Found known binary: ip (IP configuration) - /usr/sbin/ip
+2025-05-06 00:05:00   Found known binary: iptables (firewall) - /usr/sbin/iptables
+2025-05-06 00:05:00   Found known binary: iptables-save (firewall) - /usr/sbin/iptables-save
+2025-05-06 00:05:00   Found known binary: logrotate (log rotation tool) - /usr/sbin/logrotate
+2025-05-06 00:05:00   Found known binary: lsmod (kernel modules) - /usr/sbin/lsmod
+2025-05-06 00:05:00   Found known binary: modprobe (kernel modules) - /usr/sbin/modprobe
+2025-05-06 00:05:00   Found known binary: nft (nftables client) - /usr/sbin/nft
+2025-05-06 00:05:00   Found known binary: postconf (postfix configuration) - /usr/sbin/postconf
+2025-05-06 00:05:00   Found known binary: postfix (postfix binary) - /usr/sbin/postfix
+2025-05-06 00:05:00   Found known binary: runlevel (system utility) - /usr/sbin/runlevel
+2025-05-06 00:05:00   Found known binary: service (system services) - /usr/sbin/service
+2025-05-06 00:05:00 Found /usr/sbin/sshd (version 9.2)
+2025-05-06 00:05:00   Found known binary: swapon (swap device tool) - /usr/sbin/swapon
+2025-05-06 00:05:00   Found known binary: sysctl (kernel parameters) - /usr/sbin/sysctl
+2025-05-06 00:05:00   Found known binary: tune2fs (file system tool) - /usr/sbin/tune2fs
+2025-05-06 00:05:00 Test: Checking binaries in directory /usr/bin
+2025-05-06 00:05:00 Result: Skipping this directory as it was already scanned
+2025-05-06 00:05:00 Result: Directory /usr/bin skipped
+2025-05-06 00:05:00 Test: Checking binaries in directory /usr/sbin
+2025-05-06 00:05:00 Result: Skipping this directory as it was already scanned
+2025-05-06 00:05:00 Result: Directory /usr/sbin skipped
+2025-05-06 00:05:00 Test: Checking binaries in directory /usr/local/bin
+2025-05-06 00:05:01 Directory /usr/local/bin exists. Starting directory scanning...
+2025-05-06 00:05:01 Test: Checking binaries in directory /usr/local/sbin
+2025-05-06 00:05:01 Directory /usr/local/sbin exists. Starting directory scanning...
+2025-05-06 00:05:01 Discovered directories: /usr/bin,/usr/sbin,/usr/local/bin,/usr/local/sbin
+2025-05-06 00:05:01 Result: found 965 binaries including 9 set-uid and 8 set-gid
+2025-05-06 00:05:01 Result: set-uid binaries: /usr/bin/chfn /usr/bin/chsh /usr/bin/gpasswd /usr/bin/mount /usr/bi>
+2025-05-06 00:05:01 Result: set-gid binaries: /usr/bin/chage /usr/bin/crontab /usr/bin/dotlockfile /usr/bin/expir>
+2025-05-06 00:05:01 ====
+2025-05-06 00:05:01 Informational: package manager is used
+2025-05-06 00:05:01 Test: Determine if this system is a virtual machine
+2025-05-06 00:05:01 Result: found lxc
+2025-05-06 00:05:01 Result: skipped facter test, as we already found machine type
+2025-05-06 00:05:01 Result: skipped systemd test, as we already found machine type
+2025-05-06 00:05:01 Result: skipped lscpu test, as we already found machine type
+2025-05-06 00:05:01 Result: skipped dmidecode test, as we already found machine type
+2025-05-06 00:05:01 Result: skipped processes test, as we already found platform
+2025-05-06 00:05:01 Result: skipped Amazon EC2 test, as we already found platform
+2025-05-06 00:05:01 Result: skipped sysctl test, as we already found platform
+2025-05-06 00:05:01 Result: skipped lshw test, as we already found machine type
+2025-05-06 00:05:01 Result: found virtual machine (type: lxc, Linux Containers)
+2025-05-06 00:05:01 Result: found LXC in environment (/proc/1/environ), so we are running in LXC container
+2025-05-06 00:05:01 Result: Lynis is running in container (LXC)
+2025-05-06 00:05:01 Result: system is using systemd
+2025-05-06 00:05:01 ====
+2025-05-06 00:05:01 Action: Performing plugin tests
+2025-05-06 00:05:01 Searching plugins...
+2025-05-06 00:05:01 Found plugin file: /etc/lynis/plugins/plugin_debian_phase1
+2025-05-06 00:05:01 Action: checking plugin status in profile: /etc/lynis/default.prf
+2025-05-06 00:05:01 Result: plugin enabled in profile (/etc/lynis/default.prf)
+2025-05-06 00:05:01 Result: plugin debian is enabled
+2025-05-06 00:05:01 Checking permissions of /etc/lynis/plugins/plugin_debian_phase1
+2025-05-06 00:05:01 File permissions are OK
+2025-05-06 00:05:01 Including plugin file: /etc/lynis/plugins/plugin_debian_phase1 (version: 1.0.1)
+2025-05-06 00:05:01 ====
+2025-05-06 00:05:01 Action: Performing tests from category: Debian Tests
+2025-05-06 00:05:01 ====
+2025-05-06 00:05:01 Performing test ID DEB-0001 (Check for system binaries required by Debian Tests)
+2025-05-06 00:05:01 Status: Starting binary scan...
+2025-05-06 00:05:01 Test: Checking binaries in directory /bin
+2025-05-06 00:05:01 Directory /bin exists. Starting directory scanning...
+2025-05-06 00:05:01 Binary: /bin/X11
+2025-05-06 00:05:01 Binary: /bin/[
+2025-05-06 00:05:01 Binary: /bin/ab
+2025-05-06 00:05:01 Binary: /bin/addpart
+2025-05-06 00:05:01 Binary: /bin/apropos
+2025-05-06 00:05:01 Binary: /bin/apt
+2025-05-06 00:05:01 Binary: /bin/apt-cache
+2025-05-06 00:05:01 Binary: /bin/apt-cdrom
+2025-05-06 00:05:01 Binary: /bin/apt-config
+2025-05-06 00:05:01 Binary: /bin/apt-extracttemplates
+2025-05-06 00:05:01 Binary: /bin/apt-ftparchive
+2025-05-06 00:05:01 Binary: /bin/apt-get
+2025-05-06 00:05:01 Binary: /bin/apt-key
+2025-05-06 00:05:01 Binary: /bin/apt-listchanges
+2025-05-06 00:05:01   Found known binary: apt-listchanges (System tool) - /bin/apt-listchanges
+2025-05-06 00:05:01 Binary: /bin/apt-mark
+2025-05-06 00:05:01 Binary: /bin/apt-sortpkgs
+2025-05-06 00:05:01 Binary: /bin/arch
+2025-05-06 00:05:01 Binary: /bin/awk
+2025-05-06 00:05:01 Binary: /bin/b2sum
+2025-05-06 00:05:01 Binary: /bin/base32
+2025-05-06 00:05:01 Binary: /bin/base64
+2025-05-06 00:05:01 Binary: /bin/basename
+2025-05-06 00:05:01 Binary: /bin/basenc
+2025-05-06 00:05:01 Binary: /bin/bash
+2025-05-06 00:05:01 Binary: /bin/bashbug
+2025-05-06 00:05:01 Binary: /bin/bdftopcf
+2025-05-06 00:05:01 Binary: /bin/bdftruncate
+2025-05-06 00:05:01 Binary: /bin/bunzip2
+2025-05-06 00:05:01 Binary: /bin/busctl
+2025-05-06 00:05:01 Binary: /bin/bzcat
+2025-05-06 00:05:01 Binary: /bin/bzcmp
+2025-05-06 00:05:01 Binary: /bin/bzdiff
+2025-05-06 00:05:01 Binary: /bin/bzegrep
+2025-05-06 00:05:01 Binary: /bin/bzexe
+2025-05-06 00:05:01 Binary: /bin/bzfgrep
+2025-05-06 00:05:01 Binary: /bin/bzgrep
+2025-05-06 00:05:01 Binary: /bin/bzip2
+2025-05-06 00:05:01 Binary: /bin/bzip2recover
+2025-05-06 00:05:01 Binary: /bin/bzless
+2025-05-06 00:05:01 Binary: /bin/bzmore
+2025-05-06 00:05:01 Binary: /bin/c_rehash
+2025-05-06 00:05:01 Binary: /bin/captoinfo
+2025-05-06 00:05:01 Binary: /bin/cat
+2025-05-06 00:05:01 Binary: /bin/catman
+2025-05-06 00:05:01 Binary: /bin/chage
+2025-05-06 00:05:01 Binary: /bin/chardet
+2025-05-06 00:05:01 Binary: /bin/chardetect
+2025-05-06 00:05:01 Binary: /bin/chattr
+2025-05-06 00:05:01 Binary: /bin/chcon
+2025-05-06 00:05:01 Binary: /bin/checkgid
+2025-05-06 00:05:01 Binary: /bin/chfn
+2025-05-06 00:05:01 Binary: /bin/chgrp
+2025-05-06 00:05:01 Binary: /bin/chmod
+2025-05-06 00:05:01 Binary: /bin/choom
+2025-05-06 00:05:01 Binary: /bin/chown
+2025-05-06 00:05:01 Binary: /bin/chrt
+2025-05-06 00:05:01 Binary: /bin/chsh
+2025-05-06 00:05:01 Binary: /bin/cksum
+2025-05-06 00:05:01 Binary: /bin/clambc
+2025-05-06 00:05:01 Binary: /bin/clamscan
+2025-05-06 00:05:01 Binary: /bin/clamsubmit
+2025-05-06 00:05:01 Binary: /bin/clear
+2025-05-06 00:05:01 Binary: /bin/clear_console
+2025-05-06 00:05:01 Binary: /bin/cmp
+2025-05-06 00:05:01 Binary: /bin/col
+2025-05-06 00:05:01 Binary: /bin/colcrt
+2025-05-06 00:05:01 Binary: /bin/colrm
+2025-05-06 00:05:01 Binary: /bin/column
+2025-05-06 00:05:01 Binary: /bin/comm
+2025-05-06 00:05:01 Binary: /bin/compose
+2025-05-06 00:05:01 Binary: /bin/corelist
+2025-05-06 00:05:01 Binary: /bin/cp
+2025-05-06 00:05:01 Binary: /bin/cpan
+2025-05-06 00:05:01 Binary: /bin/cpan5.36-x86_64-linux-gnu
+2025-05-06 00:05:01 Binary: /bin/cpio
+2025-05-06 00:05:01 Binary: /bin/crontab
+2025-05-06 00:05:01 Binary: /bin/csplit
+2025-05-06 00:05:01 Binary: /bin/ctstat
+2025-05-06 00:05:01 Binary: /bin/curl
+2025-05-06 00:05:01 Binary: /bin/cut
+2025-05-06 00:05:01 Binary: /bin/dash
+2025-05-06 00:05:01 Binary: /bin/date
+2025-05-06 00:05:01 Binary: /bin/dbilogstrip
+2025-05-06 00:05:01 Binary: /bin/dbiprof
+2025-05-06 00:05:01 Binary: /bin/dbiproxy
+2025-05-06 00:05:01 Binary: /bin/dbus-cleanup-sockets
+2025-05-06 00:05:01 Binary: /bin/dbus-daemon
+2025-05-06 00:05:01 Binary: /bin/dbus-monitor
+2025-05-06 00:05:01 Binary: /bin/dbus-run-session
+2025-05-06 00:05:01 Binary: /bin/dbus-send
+2025-05-06 00:05:01 Binary: /bin/dbus-update-activation-environment
+2025-05-06 00:05:01 Binary: /bin/dbus-uuidgen
+2025-05-06 00:05:01 Binary: /bin/dd
+2025-05-06 00:05:01 Binary: /bin/deb-systemd-helper
+2025-05-06 00:05:01 Binary: /bin/deb-systemd-invoke
+2025-05-06 00:05:01 Binary: /bin/debconf
+2025-05-06 00:05:01 Binary: /bin/debconf-apt-progress
+2025-05-06 00:05:01 Binary: /bin/debconf-communicate
+2025-05-06 00:05:01 Binary: /bin/debconf-copydb
+2025-05-06 00:05:01 Binary: /bin/debconf-escape
+2025-05-06 00:05:01 Binary: /bin/debconf-set-selections
+2025-05-06 00:05:01 Binary: /bin/debconf-show
+2025-05-06 00:05:01 Binary: /bin/debianbts
+2025-05-06 00:05:01 Binary: /bin/delpart
+2025-05-06 00:05:01 Binary: /bin/delv
+2025-05-06 00:05:01 Binary: /bin/df
+2025-05-06 00:05:01 Binary: /bin/dh_bash-completion
+2025-05-06 00:05:01 Binary: /bin/dh_perl_dbi
+2025-05-06 00:05:01 Binary: /bin/diff
+2025-05-06 00:05:01 Binary: /bin/diff3
+2025-05-06 00:05:01 Binary: /bin/dig
+2025-05-06 00:05:01 Binary: /bin/dir
+2025-05-06 00:05:01 Binary: /bin/dircolors
+2025-05-06 00:05:01 Binary: /bin/dirname
+2025-05-06 00:05:01 Binary: /bin/dmesg
+2025-05-06 00:05:01 Binary: /bin/dnsdomainname
+2025-05-06 00:05:01 Binary: /bin/dnstap-read
+2025-05-06 00:05:01 Binary: /bin/domainname
+2025-05-06 00:05:01 Binary: /bin/dotlockfile
+2025-05-06 00:05:01 Binary: /bin/dpkg
+2025-05-06 00:05:01 Binary: /bin/dpkg-deb
+2025-05-06 00:05:01 Binary: /bin/dpkg-divert
+2025-05-06 00:05:01 Binary: /bin/dpkg-maintscript-helper
+2025-05-06 00:05:01 Binary: /bin/dpkg-query
+2025-05-06 00:05:01 Binary: /bin/dpkg-realpath
+2025-05-06 00:05:01 Binary: /bin/dpkg-split
+2025-05-06 00:05:01 Binary: /bin/dpkg-statoverride
+2025-05-06 00:05:01 Binary: /bin/dpkg-trigger
+2025-05-06 00:05:01 Binary: /bin/du
+2025-05-06 00:05:01 Binary: /bin/dvipdf
+2025-05-06 00:05:01 Binary: /bin/echo
+2025-05-06 00:05:01 Binary: /bin/edit
+2025-05-06 00:05:01 Binary: /bin/editor
+2025-05-06 00:05:01 Binary: /bin/egrep
+2025-05-06 00:05:01 Binary: /bin/enc2xs
+2025-05-06 00:05:01 Binary: /bin/encguess
+2025-05-06 00:05:01 Binary: /bin/env
+2025-05-06 00:05:01 Binary: /bin/envsubst
+2025-05-06 00:05:01 Binary: /bin/eps2eps
+2025-05-06 00:05:01 Binary: /bin/eqn
+2025-05-06 00:05:01 Binary: /bin/ex
+2025-05-06 00:05:01 Binary: /bin/expand
+2025-05-06 00:05:01 Binary: /bin/expiry
+2025-05-06 00:05:01 Binary: /bin/expr
+2025-05-06 00:05:01 Binary: /bin/factor
+2025-05-06 00:05:01 Binary: /bin/fail2ban-client
+2025-05-06 00:05:01 Binary: /bin/fail2ban-python
+2025-05-06 00:05:01 Binary: /bin/fail2ban-regex
+2025-05-06 00:05:01 Binary: /bin/fail2ban-server
+2025-05-06 00:05:01   Found known binary: fail2ban-server (Security tool) - /bin/fail2ban-server
+2025-05-06 00:05:01 Binary: /bin/fail2ban-testcases
+2025-05-06 00:05:01 Binary: /bin/faillog
+2025-05-06 00:05:01 Binary: /bin/fallocate
+2025-05-06 00:05:01 Binary: /bin/false
+2025-05-06 00:05:01 Binary: /bin/fcgistarter
+2025-05-06 00:05:01 Binary: /bin/fgrep
+2025-05-06 00:05:01 Binary: /bin/file
+2025-05-06 00:05:01 Binary: /bin/fincore
+2025-05-06 00:05:01 Binary: /bin/find
+2025-05-06 00:05:01 Binary: /bin/findmnt
+2025-05-06 00:05:01 Binary: /bin/findrule
+2025-05-06 00:05:01 Binary: /bin/flock
+2025-05-06 00:05:01 Binary: /bin/fmt
+2025-05-06 00:05:01 Binary: /bin/fold
+2025-05-06 00:05:01 Binary: /bin/fonttosfnt
+2025-05-06 00:05:01 Binary: /bin/free
+2025-05-06 00:05:01 Binary: /bin/freshclam
+2025-05-06 00:05:01 Binary: /bin/funzip
+2025-05-06 00:05:01 Binary: /bin/fuser
+2025-05-06 00:05:01 Binary: /bin/geqn
+2025-05-06 00:05:01 Binary: /bin/getconf
+2025-05-06 00:05:01 Binary: /bin/getent
+2025-05-06 00:05:01 Binary: /bin/getopt
+2025-05-06 00:05:01 Binary: /bin/gettext
+2025-05-06 00:05:01 Binary: /bin/gettext.sh
+2025-05-06 00:05:01 Binary: /bin/ghostscript
+2025-05-06 00:05:01 Binary: /bin/gpasswd
+2025-05-06 00:05:01 Binary: /bin/gpgv
+2025-05-06 00:05:01 Binary: /bin/gpic
+2025-05-06 00:05:01 Binary: /bin/grep
+2025-05-06 00:05:01 Binary: /bin/groff
+2025-05-06 00:05:01 Binary: /bin/grog
+2025-05-06 00:05:01 Binary: /bin/grops
+2025-05-06 00:05:01 Binary: /bin/grotty
+2025-05-06 00:05:01 Binary: /bin/groups
+2025-05-06 00:05:01 Binary: /bin/gs
+2025-05-06 00:05:01 Binary: /bin/gsbj
+2025-05-06 00:05:01 Binary: /bin/gsdj
+2025-05-06 00:05:01 Binary: /bin/gsdj500
+2025-05-06 00:05:01 Binary: /bin/gslj
+2025-05-06 00:05:01 Binary: /bin/gslp
+2025-05-06 00:05:01 Binary: /bin/gsnd
+2025-05-06 00:05:01 Binary: /bin/gtbl
+2025-05-06 00:05:01 Binary: /bin/gunzip
+2025-05-06 00:05:01 Binary: /bin/gzexe
+2025-05-06 00:05:01 Binary: /bin/gzip
+2025-05-06 00:05:01 Binary: /bin/h2ph
+2025-05-06 00:05:01 Binary: /bin/h2xs
+2025-05-06 00:05:01 Binary: /bin/hardlink
+2025-05-06 00:05:01 Binary: /bin/hd
+2025-05-06 00:05:01 Binary: /bin/head
+2025-05-06 00:05:01 Binary: /bin/helpztags
+2025-05-06 00:05:01 Binary: /bin/hexdump
+2025-05-06 00:05:01 Binary: /bin/host
+2025-05-06 00:05:01 Binary: /bin/hostid
+2025-05-06 00:05:01 Binary: /bin/hostname
+2025-05-06 00:05:01 Binary: /bin/hostnamectl
+2025-05-06 00:05:01 Binary: /bin/htcacheclean
+2025-05-06 00:05:01 Binary: /bin/htdbm
+2025-05-06 00:05:01 Binary: /bin/htdigest
+2025-05-06 00:05:01 Binary: /bin/htpasswd
+2025-05-06 00:05:01 Binary: /bin/i386
+2025-05-06 00:05:01 Binary: /bin/iconv
+2025-05-06 00:05:01 Binary: /bin/id
+2025-05-06 00:05:01 Binary: /bin/inetutils-telnet
+2025-05-06 00:05:01 Binary: /bin/infocmp
+2025-05-06 00:05:01 Binary: /bin/infotocap
+2025-05-06 00:05:01 Binary: /bin/innotop
+2025-05-06 00:05:01 Binary: /bin/install
+2025-05-06 00:05:01 Binary: /bin/install-menu
+2025-05-06 00:05:01 Binary: /bin/instmodsh
+2025-05-06 00:05:01 Binary: /bin/ionice
+2025-05-06 00:05:01 Binary: /bin/ip
+2025-05-06 00:05:01 Binary: /bin/ipcmk
+2025-05-06 00:05:01 Binary: /bin/ipcrm
+2025-05-06 00:05:01 Binary: /bin/ipcs
+2025-05-06 00:05:01 Binary: /bin/iptables-xml
+2025-05-06 00:05:01 Binary: /bin/ischroot
+2025-05-06 00:05:01 Binary: /bin/join
+2025-05-06 00:05:01 Binary: /bin/journalctl
+2025-05-06 00:05:01 Binary: /bin/json_pp
+2025-05-06 00:05:01 Binary: /bin/kernel-install
+2025-05-06 00:05:01 Binary: /bin/kill
+2025-05-06 00:05:01 Binary: /bin/killall
+2025-05-06 00:05:01 Binary: /bin/kmod
+2025-05-06 00:05:01 Binary: /bin/last
+2025-05-06 00:05:01 Binary: /bin/lastb
+2025-05-06 00:05:01 Binary: /bin/lastlog
+2025-05-06 00:05:01 Binary: /bin/lcf
+2025-05-06 00:05:01 Binary: /bin/ld.so
+2025-05-06 00:05:01 Binary: /bin/ldd
+2025-05-06 00:05:01 Binary: /bin/less
+2025-05-06 00:05:01 Binary: /bin/lessecho
+2025-05-06 00:05:01 Binary: /bin/lessfile
+2025-05-06 00:05:01 Binary: /bin/lesskey
+2025-05-06 00:05:01 Binary: /bin/lesspipe
+2025-05-06 00:05:01 Binary: /bin/lexgrog
+2025-05-06 00:05:01 Binary: /bin/lft
+2025-05-06 00:05:01 Binary: /bin/lft.db
+2025-05-06 00:05:01 Binary: /bin/libnetcfg
+2025-05-06 00:05:01 Binary: /bin/link
+2025-05-06 00:05:01 Binary: /bin/linux32
+2025-05-06 00:05:01 Binary: /bin/linux64
+2025-05-06 00:05:01 Binary: /bin/ln
+2025-05-06 00:05:01 Binary: /bin/lnstat
+2025-05-06 00:05:01 Binary: /bin/locale
+2025-05-06 00:05:01 Binary: /bin/localectl
+2025-05-06 00:05:01 Binary: /bin/localedef
+2025-05-06 00:05:01 Binary: /bin/logger
+2025-05-06 00:05:01 Binary: /bin/login
+2025-05-06 00:05:01 Binary: /bin/loginctl
+2025-05-06 00:05:01 Binary: /bin/logname
+2025-05-06 00:05:01 Binary: /bin/logresolve
+2025-05-06 00:05:01 Binary: /bin/look
+2025-05-06 00:05:01 Binary: /bin/ls
+2025-05-06 00:05:01 Binary: /bin/lsattr
+2025-05-06 00:05:01 Binary: /bin/lsblk
+2025-05-06 00:05:01 Binary: /bin/lscpu
+2025-05-06 00:05:01 Binary: /bin/lsfd
+2025-05-06 00:05:01 Binary: /bin/lsipc
+2025-05-06 00:05:01 Binary: /bin/lsirq
+2025-05-06 00:05:01 Binary: /bin/lslocks
+2025-05-06 00:05:01 Binary: /bin/lslogins
+2025-05-06 00:05:01 Binary: /bin/lsmem
+2025-05-06 00:05:01 Binary: /bin/lsmod
+2025-05-06 00:05:01 Binary: /bin/lsns
+2025-05-06 00:05:01 Binary: /bin/lsof
+2025-05-06 00:05:01 Binary: /bin/lzcat
+2025-05-06 00:05:01 Binary: /bin/lzcmp
+2025-05-06 00:05:01 Binary: /bin/lzdiff
+2025-05-06 00:05:01 Binary: /bin/lzegrep
+2025-05-06 00:05:01 Binary: /bin/lzfgrep
+2025-05-06 00:05:01 Binary: /bin/lzgrep
+2025-05-06 00:05:01 Binary: /bin/lzless
+2025-05-06 00:05:01 Binary: /bin/lzma
+2025-05-06 00:05:01 Binary: /bin/lzmainfo
+2025-05-06 00:05:01 Binary: /bin/lzmore
+2025-05-06 00:05:01 Binary: /bin/mailq
+2025-05-06 00:05:01 Binary: /bin/man
+2025-05-06 00:05:01 Binary: /bin/man-recode
+2025-05-06 00:05:01 Binary: /bin/mandb
+2025-05-06 00:05:01 Binary: /bin/manpath
+2025-05-06 00:05:01 Binary: /bin/mariadb
+2025-05-06 00:05:01 Binary: /bin/mariadb-access
+2025-05-06 00:05:01 Binary: /bin/mariadb-admin
+2025-05-06 00:05:01 Binary: /bin/mariadb-analyze
+2025-05-06 00:05:01 Binary: /bin/mariadb-binlog
+2025-05-06 00:05:01 Binary: /bin/mariadb-check
+2025-05-06 00:05:01 Binary: /bin/mariadb-conv
+2025-05-06 00:05:01 Binary: /bin/mariadb-convert-table-format
+2025-05-06 00:05:01 Binary: /bin/mariadb-dump
+2025-05-06 00:05:01 Binary: /bin/mariadb-dumpslow
+2025-05-06 00:05:01 Binary: /bin/mariadb-find-rows
+2025-05-06 00:05:01 Binary: /bin/mariadb-fix-extensions
+2025-05-06 00:05:01 Binary: /bin/mariadb-hotcopy
+2025-05-06 00:05:01 Binary: /bin/mariadb-import
+2025-05-06 00:05:01 Binary: /bin/mariadb-optimize
+.
+2025-05-06 00:05:04 Test: Checking binaries in directory /usr/local/sbin
+2025-05-06 00:05:04 Directory /usr/local/sbin exists. Starting directory scanning...
+2025-05-06 00:05:04 ====
+2025-05-06 00:05:04 Discovered directories: /bin, /sbin, /usr/bin, /usr/sbin, /usr/local/bin, /usr/local/sbin
+2025-05-06 00:05:04 DEB-0001 Result: found 1925 binaries
+2025-05-06 00:05:04 Status: Starting Authentication checks...
+2025-05-06 00:05:04 Status: Checking if libpam-tmpdir is installed and enabled...
+2025-05-06 00:05:04 ====
+2025-05-06 00:05:04 Performing test ID DEB-0280 (Checking if libpam-tmpdir is installed and enabled.)
+2025-05-06 00:05:04  - libpam-tmpdir is not installed.
+2025-05-06 00:05:04 Hardening: assigned partial number of hardening points (0 of 2). Currently having 0 points (o>
+2025-05-06 00:05:04 Suggestion: Install libpam-tmpdir to set $TMP and $TMPDIR for PAM sessions [test:DEB-0280] [d>
+2025-05-06 00:05:04 Status: Starting file system checks...
+2025-05-06 00:05:04 Status: Starting file system checks for dm-crypt, cryptsetup & cryptmount...
+2025-05-06 00:05:04 ====
+2025-05-06 00:05:04 Skipped test DEB-0510 (Checking if LVM volume groups or file systems are stored on encrypted >
+2025-05-06 00:05:04 Reason to skip: Prerequisites not met (ie missing tool, other type of Linux distribution)
+2025-05-06 00:05:04 ====
+2025-05-06 00:05:04 Skipped test DEB-0520 (Checking for Ecryptfs)
+2025-05-06 00:05:04 Reason to skip: Prerequisites not met (ie missing tool, other type of Linux distribution)
+2025-05-06 00:05:04 Status: Starting Software checks...
+2025-05-06 00:05:04 ====
+2025-05-06 00:05:04 Performing test ID DEB-0810 (Checking for apt-listbugs)
+2025-05-06 00:05:04  - apt-listbugs is not installed.
+2025-05-06 00:05:04 Hardening: assigned partial number of hardening points (0 of 2). Currently having 0 points (o
+2025-05-06 00:05:04 Performing test ID DEB-0811 (Checking for apt-listchanges)
+2025-05-06 00:05:04  - apt-listchanges is installed.
+2025-05-06 00:05:04 Hardening: assigned maximum number of hardening points for this item (1). Currently having 1 >
+2025-05-06 00:05:04  - Apt configured to use apt-listchanges
+2025-05-06 00:05:04 Hardening: assigned maximum number of hardening points for this item (1). Currently having 2 >
+2025-05-06 00:05:04 ====
+2025-05-06 00:05:04 Performing test ID DEB-0831 (Verifying that needrestart is installed.)
+2025-05-06 00:05:04  - needrestart is not installed.
+2025-05-06 00:05:04 Suggestion: Install needrestart, alternatively to debian-goodies, so that you can run needres>
+2025-05-06 00:05:04 Hardening: assigned partial number of hardening points (0 of 1). Currently having 2 points (o>
+2025-05-06 00:05:04 ====
+2025-05-06 00:05:04 Performing test ID DEB-0880 (Checking for fail2ban)
+2025-05-06 00:05:04  - fail2ban is installed.
+2025-05-06 00:05:04 Hardening: assigned maximum number of hardening points for this item (1). Currently having 3 >
+2025-05-06 00:05:04  - fail2ban local custom configuration enabled.
+2025-05-06 00:05:05 Hardening: assigned maximum number of hardening points for this item (1). Currently having 4 >
+2025-05-06 00:05:05 ====
+2025-05-06 00:05:05 ====
+2025-05-06 00:05:05 Result: debian plugin (phase 1) finished
+2025-05-06 00:05:05 --
+2025-05-06 00:05:05 Result: Found 1 plugins of which 1 are enabled
+2025-05-06 00:05:05 Result: Plugins phase 1 finished
+2025-05-06 00:05:05 ====
+2025-05-06 00:05:05 Info: found hashing tool, start generation of HostID
+2025-05-06 00:05:05 Info: trying output from 'ip' to generate HostID
+2025-05-06 00:05:05 Info: using hardware address 'bc:24:11:9d:d9:c4' to create HostID
+2025-05-06 00:05:05 Result: Found HostID: f67f23d32578d6b35e3d23d947772886297741ad
+2025-05-06 00:05:05 Found running service: container-getty@1
+2025-05-06 00:05:05 Found running service: container-getty@2
+2025-05-06 00:05:05 Found running service: cron
+2025-05-06 00:05:05 Found running service: dbus
+2025-05-06 00:05:05 Found running service: fail2ban
+2025-05-06 00:05:05 Found running service: lynis
+2025-05-06 00:05:05 Found running service: node_exporter
+2025-05-06 00:05:05 Found running service: postfix@-
+2025-05-06 00:05:05 Found running service: promtail
+2025-05-06 00:05:05 Found running service: rsyslog
+2025-05-06 00:05:05 Found running service: ssh
+2025-05-06 00:05:05 Found running service: systemd-journald
+2025-05-06 00:05:05 Found running service: systemd-logind
+2025-05-06 00:05:05 Found running service: systemd-networkd
+2025-05-06 00:05:05 Hint: Run systemctl --full --type=service to see all services
+2025-05-06 00:05:05 Result: Found 17 running services
+2025-05-06 00:05:05 Searching for enabled services (systemctl services only)
+2025-05-06 00:05:06 Found enabled service at boot: apache2
+2025-05-06 00:05:06 Found enabled service at boot: cron
+2025-05-06 00:05:06 Found enabled service at boot: e2scrub_reap
+2025-05-06 00:05:06 Found enabled service at boot: fail2ban
+2025-05-06 00:05:06 Found enabled service at boot: ifupdown-wait-online
+2025-05-06 00:05:06 Found enabled service at boot: networking
+2025-05-06 00:05:06 Found enabled service at boot: nftables
+2025-05-06 00:05:06 Found enabled service at boot: node_exporter
+2025-05-06 00:05:06 Found enabled service at boot: postfix-resolvconf
+2025-05-06 00:05:06 Found enabled service at boot: postfix
+2025-05-06 00:05:06 Found enabled service at boot: promtail
+
+2025-05-06 00:05:07 Result: symlink found, pointing to file /etc/init.d/cron
+2025-05-06 00:05:07 Result: good, file /etc/rc5.d/S01cron not world writable
+2025-05-06 00:05:07 Action: checking symlink for file /etc/rc5.d/S01dbus
+2025-05-06 00:05:07 Note: Using real readlink binary to determine symlink on /etc/rc5.d/S01dbus
+2025-05-06 00:05:07 Result: readlink shows /etc/init.d/dbus as output
+2025-05-06 00:05:07 Result: symlink found, pointing to file /etc/init.d/dbus
+2025-05-06 00:05:07 Result: good, file /etc/rc5.d/S01dbus not world writable
+2025-05-06 00:05:07 Action: checking symlink for file /etc/rc5.d/S01fail2ban
+2025-05-06 00:05:07 Note: Using real readlink binary to determine symlink on /etc/rc5.d/S01fail2ban
+2025-05-06 00:05:07 Result: readlink shows /etc/init.d/fail2ban as output
+2025-05-06 00:05:07 Result: symlink found, pointing to file /etc/init.d/fail2ban
+2025-05-06 00:05:07 Result: good, file /etc/rc5.d/S01fail2ban not world writable
+2025-05-06 00:05:07 Action: checking symlink for file /etc/rc5.d/S01postfix
+2025-05-06 00:05:07 Note: Using real readlink binary to determine symlink on /etc/rc5.d/S01postfix
+2025-05-06 00:05:07 Result: readlink shows /etc/init.d/postfix as output
+2025-05-06 00:05:07 Result: symlink found, pointing to file /etc/init.d/postfix
+2025-05-06 00:05:07 Result: good, file /etc/rc5.d/S01postfix not world writable
+2025-05-06 00:05:07 Action: checking symlink for file /etc/rc5.d/S01ssh
+2025-05-06 00:05:07 Note: Using real readlink binary to determine symlink on /etc/rc5.d/S01ssh
+2025-05-06 00:05:07 Result: readlink shows /etc/init.d/ssh as output
+2025-05-06 00:05:07 Result: symlink found, pointing to file /etc/init.d/ssh
+2025-05-06 00:05:07 Result: good, file /etc/rc5.d/S01ssh not world writable
+2025-05-06 00:05:07 Test: Checking /etc/rc6.d scripts for writable bit
+2025-05-06 00:05:07 Action: checking symlink for file /etc/rc6.d/K01apache-htcacheclean
+2025-05-06 00:05:07 Note: Using real readlink binary to determine symlink on /etc/rc6.d/K01apache-htcacheclean
+2025-05-06 00:05:07 Result: readlink shows /etc/init.d/apache-htcacheclean as output
+2025-05-06 00:05:07 Performing test ID BOOT-5264 (Run systemd-analyze security)
+2025-05-06 00:05:07 Test: Run systemd-analyze security
+2025-05-06 00:05:07 Result: apache2.service: 9.2 UNSAFE
+2025-05-06 00:05:07 Result: clamav-freshclam.service: 9.6 UNSAFE
+2025-05-06 00:05:07 Result: console-getty.service: 9.6 UNSAFE
+2025-05-06 00:05:07 Result: container-getty@1.service: 9.6 UNSAFE
+2025-05-06 00:05:07 Result: container-getty@2.service: 9.6 UNSAFE
+2025-05-06 00:05:07 Result: cron.service: 9.6 UNSAFE
+2025-05-06 00:05:07 Result: dbus.service: 9.6 UNSAFE
+2025-05-06 00:05:07 Result: emergency.service: 9.5 UNSAFE
+2025-05-06 00:05:07 Result: fail2ban.service: 9.6 UNSAFE
+2025-05-06 00:05:07 Result: lynis.service: 9.6 UNSAFE
+2025-05-06 00:05:07 Result: node_exporter.service: 9.2 UNSAFE
+2025-05-06 00:05:07 Result: postfix-resolvconf.service: 9.6 UNSAFE
+2025-05-06 00:05:07 Result: postfix@-.service: 9.6 UNSAFE
+2025-05-06 00:05:07 Result: promtail.service: 9.2 UNSAFE
+2025-05-06 00:05:07 Result: rc-local.service: 9.6 UNSAFE
+2025-05-06 00:05:07 Result: rescue.service: 9.5 UNSAFE
+2025-05-06 00:05:07 Result: rsyslog.service: 9.6 UNSAFE
+2025-05-06 00:05:07 Result: ssh.service: 9.6 UNSAFE
+2025-05-06 00:05:07 Result: systemd-ask-password-console.service: 9.4 UNSAFE
+2025-05-06 00:05:07 Result: systemd-ask-password-wall.service: 9.4 UNSAFE
+2025-05-06 00:05:07 Result: systemd-fsckd.service: 9.5 UNSAFE
+2025-05-06 00:05:07 Result: systemd-initctl.service: 9.4 UNSAFE
+2025-05-06 00:05:07 Result: systemd-journald.service: 4.3 PROTECTED
+2025-05-06 00:05:07 Result: systemd-logind.service: 2.8 PROTECTED
+2025-05-06 00:05:07 Result: systemd-networkd.service: 2.6 PROTECTED
+2025-05-06 00:05:07 Result: systemd-timesyncd.service: 2.1 PROTECTED
+2025-05-06 00:05:08 Performing test ID AUTH-9266 (Checking presence pam.d files)
+2025-05-06 00:05:08 Test: Checking directory /etc/pam.d
+2025-05-06 00:05:08 Result: directory /etc/pam.d exists
+2025-05-06 00:05:08 Test: searching PAM configuration files
+2025-05-06 00:05:08 Found file: /etc/pam.d/chfn
+2025-05-06 00:05:08 Found file: /etc/pam.d/chpasswd
+2025-05-06 00:05:08 Found file: /etc/pam.d/chsh
+2025-05-06 00:05:08 Found file: /etc/pam.d/common-account
+2025-05-06 00:05:08 Found file: /etc/pam.d/common-auth
+2025-05-06 00:05:08 Found file: /etc/pam.d/common-password
+2025-05-06 00:05:08 Found file: /etc/pam.d/common-session
+2025-05-06 00:05:08 Found file: /etc/pam.d/common-session-noninteractive
+2025-05-06 00:05:08 Found file: /etc/pam.d/cron
+2025-05-06 00:05:08 Found file: /etc/pam.d/login
+2025-05-06 00:05:08 Found file: /etc/pam.d/newusers
+2025-05-06 00:05:08 Found file: /etc/pam.d/other
+2025-05-06 00:05:08 Found file: /etc/pam.d/passwd
+2025-05-06 00:05:08 Found file: /etc/pam.d/runuser
+2025-05-06 00:05:08 Found file: /etc/pam.d/runuser-l
+2025-05-06 00:05:08 Found file: /etc/pam.d/sshd
+2025-05-06 00:05:08 Found file: /etc/pam.d/su
+2025-05-06 00:05:08 Found file: /etc/pam.d/su-l
+2025-05-06 00:05:08 ====
+2025-05-06 00:05:08 Performing test ID AUTH-9268 (Checking presence pam.d files)
+2025-05-06 00:05:32 Performing test ID HRDN-7230 (Check for malware scanner)
+2025-05-06 00:05:32 Test: Check if a malware scanner is installed
+2025-05-06 00:05:32 Result: found at least one malware scanner
+2025-05-06 00:05:32 Hardening: assigned maximum number of hardening points for this item (3). Currently having 211 points (out of 316)
+2025-05-06 00:05:32 ====
+2025-05-06 00:05:32 Performing test ID HRDN-7231 (Check for registered non-native binary formats)
+2025-05-06 00:05:32 Test: Check for registered non-native binary formats
+2025-05-06 00:05:32 Result: no non-native binary formats found
+2025-05-06 00:05:32 ====
+2025-05-06 00:05:32 Action: Performing tests from category: Custom tests
+2025-05-06 00:05:32 Test: Checking for tests_custom file
+2025-05-06 00:05:32 ====
+2025-05-06 00:05:32 Action: Performing plugin tests
+2025-05-06 00:05:32 Result: Found 1 plugins of which 1 are enabled
+2025-05-06 00:05:32 Result: Plugins phase 2 finished
+2025-05-06 00:05:32 Checking permissions of /usr/share/lynis/include/report
+2025-05-06 00:05:32 File permissions are OK
+2025-05-06 00:05:32 Hardening index : [66] [#############       ]
+2025-05-06 00:05:32 Hardening strength: System has been hardened, but could use additional hardening
+2025-05-06 00:05:32 ====
+2025-05-06 00:05:34 Checking permissions of /usr/share/lynis/include/tool_tips
+2025-05-06 00:05:34 File permissions are OK
+2025-05-06 00:05:34 Tool tips: enabled
+2025-05-06 00:05:34 ================================================================================
+2025-05-06 00:05:34 Tests performed:     257
+2025-05-06 00:05:34 Total tests:         453
+2025-05-06 00:05:34 Active plugins:      1
+2025-05-06 00:05:34 Total plugins:       1
+2025-05-06 00:05:34 ================================================================================
+2025-05-06 00:05:34 Lynis 3.0.8
+2025-05-06 00:05:34 2007-2021, CISOfy - https://cisofy.com/lynis/
+2025-05-06 00:05:34 Enterprise support available (compliance, plugins, interface and tools)
+2025-05-06 00:05:34 Program ended successfully
+2025-05-06 00:05:34 ================================================================================
+2025-05-06 00:05:34 PID file removed (/var/run/lynis.pid)
+2025-05-06 00:05:34 Temporary files:  /tmp/lynis.uG8XJABssn /tmp/lynis.oZiuPOyrOm /tmp/lynis.79uEfw8SeA /tmp/lynis.shkgW3bXaW
+2025-05-06 00:05:34 Action: removing temporary file /tmp/lynis.uG8XJABssn
+2025-05-06 00:05:34 Info: temporary file /tmp/lynis.oZiuPOyrOm was already removed
+2025-05-06 00:05:34 Info: temporary file /tmp/lynis.79uEfw8SeA was already removed
+2025-05-06 00:05:34 Action: removing temporary file /tmp/lynis.shkgW3bXaW
+2025-05-06 00:05:34 Lynis ended successfully.
