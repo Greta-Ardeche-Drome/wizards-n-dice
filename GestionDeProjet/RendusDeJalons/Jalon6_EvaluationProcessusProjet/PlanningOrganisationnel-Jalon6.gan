@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Planning Wizards &amp; Dices" company="" webLink="http://" view-date="2024-09-01" view-index="0" gantt-divider-location="745" resource-divider-location="424" version="3.3.3312" locale="fr_FR">
+<?xml version="1.0" encoding="UTF-8"?><project name="Planning Wizards &amp; Dices" company="" webLink="http://" view-date="2024-07-01" view-index="0" gantt-divider-location="624" resource-divider-location="424" version="3.3.3312" locale="fr_FR">
     <description/>
-    <view zooming-state="default:9" id="gantt-chart">
-        <field id="tpd3" name="Nom" width="452" order="0"/>
-        <field id="tpd4" name="Date de début" width="82" order="1"/>
-        <field id="tpd5" name="Date de fin" width="113" order="2"/>
-        <field id="tpd1" name="Priorité" width="97" order="3"/>
+    <view zooming-state="default:10" id="gantt-chart">
+        <field id="tpd3" name="Nom" width="303" order="0"/>
+        <field id="tpd4" name="Date de début" width="94" order="1"/>
+        <field id="tpd5" name="Date de fin" width="94" order="2"/>
+        <field id="tpd1" name="Priorité" width="117" order="3"/>
         <option id="filter.completedTasks" value="false"/>
         <option id="filter.dueTodayTasks" value="false"/>
         <option id="filter.overdueTasks" value="false"/>
@@ -106,7 +106,7 @@ Pas y souscrire mais ...
                 </task>
             </task>
             <task id="549" uid="411411fdaac1423d8c5c4d6e94f0c9a8" name="Organisation interne" color="#00a933" meeting="false" start="2024-11-09" duration="89" complete="0" expand="false">
-                <task id="536" uid="bb67ded50abf499c862529eae68a1dc5" name="Plannification détaillé" color="#00a933" meeting="false" start="2024-11-17" duration="29" complete="0" priority="2" expand="true"/>
+                <task id="536" uid="bb67ded50abf499c862529eae68a1dc5" name="Plannification détaillé" color="#00a933" meeting="false" start="2024-11-17" duration="29" complete="0" priority="4" expand="true"/>
                 <task id="550" uid="aa0b6162d1a2468493df9a4c7a3a71bf" name="Rédaction d'une charte graphique" color="#00a933" meeting="false" start="2024-11-09" duration="44" complete="0" priority="2" expand="true">
                     <notes><![CDATA[Inclus la préparation de template pour les documents de l'équipe]]></notes>
                     <depend id="551" type="2" difference="0" hardness="Strong"/>
@@ -194,7 +194,7 @@ Lien vers Moodle de dépôts : https://cours.univ-grenoble-alpes.fr/mod/assign/v
             <task id="571" uid="866b39e1abfa4f0296ac1fe692bd255a" name="Liste des produits et services" color="#00a933" meeting="false" start="2025-01-05" duration="14" complete="0" priority="2" expand="true">
                 <depend id="574" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="574" uid="3363bc2e3aaf425cb671a4f11a9eaa18" name="Revue de faisabilité" color="#00a933" meeting="false" start="2025-01-19" duration="21" complete="0" priority="2" expand="true"/>
+            <task id="574" uid="3363bc2e3aaf425cb671a4f11a9eaa18" name="Revue de faisabilité" color="#00a933" meeting="false" start="2025-01-19" duration="21" complete="0" priority="4" expand="true"/>
             <task id="575" uid="e708e71a51404212a023ec3ee3b37feb" name="Prestations du site" color="#000000" meeting="true" start="2025-02-08" duration="0" complete="0" expand="true"/>
             <task id="577" uid="86001412bb894b389dea144205bd0a52" name="Méthode de suivi des produits" color="#00a933" meeting="false" start="2025-02-02" duration="7" complete="0" priority="0" expand="true">
                 <notes><![CDATA[Peut-être fait en mode "dégrader" avec seulement quelques commandes factices]]></notes>
@@ -253,149 +253,6 @@ Externe = communication externe, pub, etc
                 <notes><![CDATA[Rendu maximal à 23:59]]></notes>
             </task>
         </task>
-        <task id="593" uid="ad62b021b1ce478b9d9d14843bc5d414" name="Création du site" color="#3399ff" meeting="false" start="2025-01-05" duration="180" complete="0" expand="false">
-            <task id="594" uid="a2412ea335b344b090d5f9ddfb3b6915" name="Matériel nécessaire" color="#00a933" meeting="false" start="2025-01-05" duration="21" complete="0" expand="true">
-                <depend id="596" type="2" difference="0" hardness="Strong"/>
-            </task>
-            <task id="596" uid="f2be787c0eed40e3aa7d756797220744" name="Déploiement de Brad Pitch" color="#00a933" meeting="false" start="2025-01-26" duration="7" complete="0" expand="true">
-                <depend id="597" type="2" difference="0" hardness="Strong"/>
-            </task>
-            <task id="597" uid="65f42abf9cae47afb9caee8c07b2689b" name="Création des identifiants communs" color="#00a933" meeting="false" start="2025-02-02" duration="7" complete="0" expand="true"/>
-            <task id="598" uid="88660c61e1344519aecace83921c61de" name="État de l'infrastructure" color="#000000" meeting="true" start="2025-02-08" duration="0" complete="0" expand="true"/>
-            <task id="599" uid="6962e42886ac4377a619398415b4d45a" name="Phase de déploiement" color="#00a933" meeting="false" start="2025-01-19" duration="35" complete="0" priority="2" expand="false">
-                <depend id="611" type="2" difference="0" hardness="Strong"/>
-                <depend id="613" type="2" difference="0" hardness="Strong"/>
-                <task id="602" uid="7487a86336b94c668542948191b690a5" name="Proxmox VE, NAS et parefeu" color="#00a933" meeting="false" start="2025-01-19" duration="11" complete="0" expand="true">
-                    <notes><![CDATA[Procédure de déploiement (à minima niveau 0 de rédaction)]]></notes>
-                    <depend id="603" type="2" difference="0" hardness="Strong"/>
-                    <depend id="605" type="2" difference="0" hardness="Strong"/>
-                </task>
-                <task id="603" uid="c9ee4403e7d748febb120d6f1a899524" name="Serveur Web et de Preprod" color="#00a933" meeting="false" start="2025-01-30" duration="10" complete="0" expand="true">
-                    <notes><![CDATA[Procédure de déploiement (à minima niveau 0 de rédaction)]]></notes>
-                    <depend id="608" type="2" difference="0" hardness="Strong"/>
-                </task>
-                <task id="608" uid="3f53579d9e37492f81f2f92c41330bc8" name="Bastion SSH et serveur de log" color="#00a933" meeting="false" start="2025-02-09" duration="14" complete="0" expand="true">
-                    <notes><![CDATA[Procédure de déploiement (à minima niveau 0 de rédaction)]]></notes>
-                </task>
-                <task id="605" uid="85c3069c75164323b0782d0e161f46de" name="Serveur Windows AD DNS, BDD et monitoring" color="#00a933" meeting="false" start="2025-01-30" duration="24" complete="0" expand="true">
-                    <notes><![CDATA[Procédure de déploiement (à minima niveau 0 de rédaction)]]></notes>
-                </task>
-            </task>
-            <task id="612" uid="0081382a924242b5beed1b232e8fa2c3" name="Déploiement Reverce Proxy / WAF" color="#00a933" meeting="false" start="2025-02-23" duration="14" complete="0" priority="4" expand="true">
-                <notes><![CDATA[Procédure de déploiement (à minima niveau 0 de rédaction)]]></notes>
-            </task>
-            <task id="611" uid="d8b5475574ac4c71b656335fdd6cd31f" name="Revue des fichiers de configurations (1)" color="#3399ff" meeting="false" start="2025-02-23" duration="7" complete="0" priority="0" expand="true">
-                <notes><![CDATA[Présence + à jour
-Potentiellement un tableur excel ]]></notes>
-            </task>
-            <task id="613" uid="eb7b6ffd797449cdb1b8e426b6de4f3c" name="Phase de configuration avancée" color="#00a933" meeting="false" start="2025-02-23" duration="42" complete="0" priority="2" expand="false">
-                <depend id="633" type="2" difference="0" hardness="Strong"/>
-                <depend id="642" type="2" difference="0" hardness="Strong"/>
-                <task id="615" uid="02d20c77d1894d9ea3994d79ca8461f1" name="Proxmox VE, Parefeu et bastion" color="#00a933" meeting="false" start="2025-02-23" duration="14" complete="0" expand="true"/>
-                <task id="614" uid="f5d8336ba14b4b5aad3d5c2465ef6d1d" name="NAS" color="#00a933" meeting="false" start="2025-02-23" duration="7" complete="0" expand="true">
-                    <depend id="617" type="2" difference="0" hardness="Strong"/>
-                </task>
-                <task id="617" uid="ee5b986974db449b8ddc56eef0ca1459" name="Reverce Proxy / WAF, serveur Web et BDD" color="#00a933" meeting="false" start="2025-03-02" duration="7" complete="0" expand="true">
-                    <depend id="621" type="2" difference="0" hardness="Strong"/>
-                </task>
-                <task id="621" uid="1738dac9f730484daa2ccaa132d1d79c" name="Serveur de log" color="#00a933" meeting="false" start="2025-03-09" duration="7" complete="0" expand="true">
-                    <depend id="622" type="2" difference="0" hardness="Strong"/>
-                </task>
-                <task id="622" uid="ff82773f3afd4dfab963bfb78e88a063" name="Serveur de test et LDAPS" color="#00a933" meeting="false" start="2025-03-16" duration="14" complete="0" expand="true">
-                    <depend id="626" type="2" difference="0" hardness="Strong"/>
-                </task>
-                <task id="626" uid="5f82840091814ceda3998be6008a61ab" name="Migration AD vers UCS" color="#00a933" meeting="false" start="2025-03-30" duration="7" complete="0" expand="true"/>
-                <task id="628" uid="71d51d5dae434d4e9e8493a63aa1d6b8" name="Méthodes de supervision" color="#00a933" meeting="false" start="2025-03-16" duration="7" complete="0" priority="0" expand="true">
-                    <notes><![CDATA[Inclus sans restreindre :
-- Rédiger les procédures de supervision du sites (market, sécurité, etc)
-- Outils techniques]]></notes>
-                    <depend id="629" type="2" difference="0" hardness="Strong"/>
-                </task>
-                <task id="629" uid="b4e6897d4aaa4ceca5e7f7ed61f286ec" name="Serveur de monitoring" color="#00a933" meeting="false" start="2025-03-23" duration="14" complete="0" expand="true"/>
-            </task>
-            <task id="632" uid="408fedfa7fd84783819306de72b109d9" name="État de l'infrastructure (2)" color="#000000" meeting="true" start="2025-04-05" duration="0" complete="0" expand="true"/>
-            <task id="633" uid="26f84db444cb423398ca51be474b38d6" name="Revue des fichiers de configurations (2)" color="#3399ff" meeting="false" start="2025-04-06" duration="7" complete="0" priority="0" expand="true">
-                <notes><![CDATA[Présence + à jour
-Potentiellement un tableur excel ]]></notes>
-                <depend id="634" type="2" difference="0" hardness="Strong"/>
-            </task>
-            <task id="634" uid="b0d2ad3694084a9e9f8c699105672e6f" name="Optimisation de l'impact environnemental" color="#3399ff" meeting="false" start="2025-04-13" duration="14" complete="0" priority="3" expand="true">
-                <depend id="636" type="2" difference="0" hardness="Strong"/>
-            </task>
-            <task id="636" uid="0156573eabe5496eb09b52a4bca6a8ea" name="Changements hypothétique" color="#3399ff" meeting="false" start="2025-04-27" duration="12" complete="0" priority="0" expand="true">
-                <notes><![CDATA[Création d'une infrastructure idélisée]]></notes>
-                <depend id="638" type="2" difference="0" hardness="Strong"/>
-            </task>
-            <task id="638" uid="23b7d5b5c2c94825a0ea9c94bdb69294" name="Critère de disponibilité" color="#3399ff" meeting="false" start="2025-05-11" duration="7" complete="0" priority="0" expand="true">
-                <notes><![CDATA[fictif et réel]]></notes>
-            </task>
-            <task id="641" uid="583b31dfb830481ab608582a36948314" name="Niveau de sécurité et respect des normes" color="#000000" meeting="true" start="2025-05-17" duration="0" complete="0" expand="true"/>
-            <task id="637" uid="8eb8082e46ff49ef9428d7dce36d851e" name="Rédaction d'un PCA et d'un PRA" color="#3399ff" meeting="false" start="2025-05-11" duration="14" complete="0" expand="true">
-                <depend id="640" type="2" difference="0" hardness="Strong"/>
-            </task>
-            <task id="640" uid="30f2fc97af0a41c6bd752bdd61176376" name="Revue des normes (RGPD, etc)" color="#3399ff" meeting="false" start="2025-05-25" duration="7" complete="0" priority="0" expand="true"/>
-            <task id="642" uid="29ce803546e3427dbd69ec2d8a229000" name="Phase de sécurisation" color="#3399ff" meeting="false" start="2025-04-06" duration="54" complete="0" priority="4" expand="false">
-                <depend id="660" type="2" difference="0" hardness="Strong"/>
-                <task id="643" uid="fc15e87f2b4b4ce4b8b5cca8ac40408b" name="Parefeu, UCS, bastion et reverse proxy / WAF" color="#00a933" meeting="false" start="2025-04-06" duration="14" complete="0" priority="2" expand="true">
-                    <notes><![CDATA[Restriction des règles de traffic]]></notes>
-                    <depend id="647" type="2" difference="0" hardness="Strong"/>
-                    <depend id="652" type="2" difference="7" hardness="Strong"/>
-                </task>
-                <task id="652" uid="e3fcbbd301544f29883ec3ce2bf5d9e8" name="Serveur de log et preprod" color="#3399ff" meeting="false" start="2025-04-27" duration="6" complete="0" expand="true">
-                    <notes><![CDATA[Configuration de UP Armor]]></notes>
-                </task>
-                <task id="647" uid="fc83c31dc0ed402496568d7b0515d141" name="NAS, Proxmox VE, Serveur Web, BDD et monitoring" color="#3399ff" meeting="false" start="2025-04-20" duration="13" complete="0" expand="true">
-                    <notes><![CDATA[Configuration de UP Armor]]></notes>
-                    <depend id="654" type="2" difference="0" hardness="Strong"/>
-                </task>
-                <task id="654" uid="64a473a5a4474782a5d593a4fa9edb3d" name="Configuration de la redondance" color="#ea7500" meeting="false" start="2025-05-04" duration="6" complete="0" priority="4" expand="true">
-                    <depend id="658" type="2" difference="0" hardness="Strong"/>
-                </task>
-                <task id="658" uid="3c812dafe0074cb8b500de7788d0df81" name="Recherche de failles" color="#3399ff" meeting="false" start="2025-05-11" duration="7" complete="0" priority="2" expand="true">
-                    <depend id="659" type="2" difference="0" hardness="Strong"/>
-                </task>
-                <task id="659" uid="94fd9e196a4a4d8ebd92cac128c2bf24" name="Durcissement des failles trouvées" color="#3399ff" meeting="false" start="2025-05-18" duration="14" complete="0" priority="2" expand="true"/>
-            </task>
-            <task id="660" uid="1394b5b87d24458dad12fddbdee54c4d" name="Revue des fichiers de configurations (3)" color="#3399ff" meeting="false" start="2025-06-01" duration="7" complete="0" priority="3" expand="true">
-                <notes><![CDATA[Présence + à jour
-Potentiellement un tableur excel ]]></notes>
-                <depend id="675" type="2" difference="0" hardness="Strong"/>
-            </task>
-            <task id="675" uid="e1cef574a56b4fe4ac95f03f9767f5a3" name="Finalisations post projet" color="#3399ff" meeting="false" start="2025-06-08" duration="28" complete="0" priority="3" expand="true">
-                <notes><![CDATA[Présence + à jour
-Potentiellement un tableur excel ]]></notes>
-            </task>
-            <task id="662" uid="a19246d2751746e39ac50e9f5e338c74" name="Développement du site" color="#3399ff" meeting="false" start="2025-02-16" duration="90" complete="0" priority="2" expand="true">
-                <task id="661" uid="38561e906faa4aa888ee39829825a331" name="Choix d'un CMS" color="#00a933" meeting="false" start="2025-02-16" duration="7" complete="0" priority="2" expand="true">
-                    <notes><![CDATA[Pas vraiment de première approche]]></notes>
-                    <depend id="663" type="2" difference="0" hardness="Strong"/>
-                </task>
-                <task id="663" uid="4b1431e0c65a4e759b62b47c294d0962" name="Design du site" color="#00a933" meeting="false" start="2025-02-23" duration="14" complete="0" priority="4" expand="true">
-                    <notes><![CDATA[Dialogue : Axel -> Lois -> Axel ->  ...]]></notes>
-                    <depend id="664" type="2" difference="0" hardness="Strong"/>
-                </task>
-                <task id="664" uid="c14d2e13e3a64b56b9aaa0f9c9ae39e0" name="Prise en main de WordPress et d'Elementor" color="#00a933" meeting="false" start="2025-03-09" duration="28" complete="0" expand="true">
-                    <depend id="665" type="2" difference="0" hardness="Strong"/>
-                </task>
-                <task id="667" uid="c16d8d0464164ba1bb15c6b45b14f4a2" name="Fonctionnement des essentiels" color="#000000" meeting="true" start="2025-04-05" duration="0" complete="0" expand="true"/>
-                <task id="665" uid="7787025f00a242aabee2b3662367dd1f" name="Construction d'une base pour le site" color="#00a933" meeting="false" start="2025-04-06" duration="7" complete="0" expand="true">
-                    <notes><![CDATA[structure des pages, débuts des tests comptes/produits/post]]></notes>
-                    <depend id="666" type="2" difference="0" hardness="Strong"/>
-                </task>
-                <task id="666" uid="dba037910d4c41f48a568dc0b591fc32" name="Implémentation des fonctionnalités principales" color="#f10d0c" meeting="false" start="2025-04-13" duration="20" complete="0" expand="true">
-                    <notes><![CDATA[Suite des tests comptes/produits/post]]></notes>
-                </task>
-                <task id="669" uid="5bfcf8a84e534734b447756bf725355f" name="Création d'une carte" color="#3399ff" meeting="false" start="2025-04-13" duration="7" complete="0" priority="0" expand="true">
-                    <depend id="670" type="2" difference="0" hardness="Strong"/>
-                </task>
-                <task id="670" uid="bf7483540f75471595fb887328b27cd5" name="Amélioration l'ergonomie et l'esthétisme" color="#3399ff" meeting="false" start="2025-04-20" duration="13" complete="0" priority="0" expand="true">
-                    <notes><![CDATA[Axel -> Ergonomie
-Loïs -> Esthétique]]></notes>
-                    <depend id="671" type="2" difference="0" hardness="Strong"/>
-                </task>
-                <task id="671" uid="d449e4a61bb64dc69cdc67f5ceef0898" name="Ajout de fonctionnalités" color="#3399ff" meeting="false" start="2025-05-04" duration="14" complete="0" priority="3" expand="true"/>
-            </task>
-        </task>
         <task id="521" uid="df38745692234d29bcdebc40c4be1b2a" name="Jalon 6" color="#ea7500" meeting="false" start="2025-04-20" duration="26" complete="0" expand="false">
             <task id="409" uid="f466bfaa9a894d9aa7e4e6dd49270a32" name="Préparation de l'oral du jalon 6" color="#ea7500" meeting="false" start="2025-04-20" duration="19" complete="0" expand="true"/>
             <task id="365" uid="e4ae00a74ea044488b149708b79d6326" name="Rendu des livrables du jalon 6" color="#000000" meeting="true" start="2025-05-12" duration="0" complete="0" priority="4" expand="true">
@@ -412,7 +269,151 @@ Loïs -> Esthétique]]></notes>
             <task id="389" uid="51358ffabf3a47af813aad39381ecfd9" name="Préparation des livrables du jalon 8" color="#ea7500" meeting="false" start="2025-05-11" duration="21" complete="0" expand="true"/>
             <task id="383" uid="2e0f73fd726241b38bcda05094abd655" name="Rendu des livrables du jalon 8" color="#000000" meeting="true" start="2025-06-02" duration="0" complete="0" priority="4" expand="true"/>
         </task>
-        <task id="101" uid="09681227ca1a47cd97613dd6bebcdcff" name="Jalon 9" color="#ea7500" meeting="false" start="2025-05-17" duration="16" complete="0" priority="4" expand="false">
+        <task id="101" uid="09681227ca1a47cd97613dd6bebcdcff" name="Jalon 9" color="#ea7500" meeting="false" start="2025-01-05" duration="159" complete="0" priority="4" expand="false">
+            <task id="593" uid="ad62b021b1ce478b9d9d14843bc5d414" name="Création du site" color="#3399ff" meeting="false" start="2025-01-05" duration="159" complete="0" expand="false">
+                <task id="594" uid="a2412ea335b344b090d5f9ddfb3b6915" name="Matériel nécessaire" color="#00a933" meeting="false" start="2025-01-05" duration="21" complete="0" expand="true">
+                    <depend id="596" type="2" difference="0" hardness="Strong"/>
+                </task>
+                <task id="596" uid="f2be787c0eed40e3aa7d756797220744" name="Déploiement de Brad Pitch" color="#00a933" meeting="false" start="2025-01-26" duration="7" complete="0" expand="true">
+                    <depend id="597" type="2" difference="0" hardness="Strong"/>
+                </task>
+                <task id="597" uid="65f42abf9cae47afb9caee8c07b2689b" name="Création des identifiants communs" color="#00a933" meeting="false" start="2025-02-02" duration="7" complete="0" expand="true"/>
+                <task id="598" uid="88660c61e1344519aecace83921c61de" name="État de l'infrastructure" color="#000000" meeting="true" start="2025-02-08" duration="0" complete="0" expand="true"/>
+                <task id="599" uid="6962e42886ac4377a619398415b4d45a" name="Phase de déploiement" color="#00a933" meeting="false" start="2025-01-19" duration="35" complete="0" priority="2" expand="false">
+                    <depend id="611" type="2" difference="0" hardness="Strong"/>
+                    <depend id="613" type="2" difference="0" hardness="Strong"/>
+                    <depend id="662" type="2" difference="0" hardness="Strong"/>
+                    <task id="602" uid="7487a86336b94c668542948191b690a5" name="Proxmox VE, NAS et parefeu" color="#00a933" meeting="false" start="2025-01-19" duration="11" complete="0" expand="true">
+                        <notes><![CDATA[Procédure de déploiement (à minima niveau 0 de rédaction)]]></notes>
+                        <depend id="603" type="2" difference="0" hardness="Strong"/>
+                        <depend id="605" type="2" difference="0" hardness="Strong"/>
+                    </task>
+                    <task id="603" uid="c9ee4403e7d748febb120d6f1a899524" name="Serveur Web et de Preprod" color="#00a933" meeting="false" start="2025-01-30" duration="10" complete="0" expand="true">
+                        <notes><![CDATA[Procédure de déploiement (à minima niveau 0 de rédaction)]]></notes>
+                        <depend id="608" type="2" difference="0" hardness="Strong"/>
+                    </task>
+                    <task id="608" uid="3f53579d9e37492f81f2f92c41330bc8" name="Bastion SSH et serveur de log" color="#00a933" meeting="false" start="2025-02-09" duration="14" complete="0" expand="true">
+                        <notes><![CDATA[Procédure de déploiement (à minima niveau 0 de rédaction)]]></notes>
+                    </task>
+                    <task id="605" uid="85c3069c75164323b0782d0e161f46de" name="Serveur Windows AD DNS, BDD et monitoring" color="#00a933" meeting="false" start="2025-01-30" duration="24" complete="0" expand="true">
+                        <notes><![CDATA[Procédure de déploiement (à minima niveau 0 de rédaction)]]></notes>
+                    </task>
+                </task>
+                <task id="612" uid="0081382a924242b5beed1b232e8fa2c3" name="Déploiement Reverce Proxy / WAF" color="#00a933" meeting="false" start="2025-02-23" duration="14" complete="0" priority="4" expand="true">
+                    <notes><![CDATA[Procédure de déploiement (à minima niveau 0 de rédaction)]]></notes>
+                </task>
+                <task id="611" uid="d8b5475574ac4c71b656335fdd6cd31f" name="Revue des fichiers de configurations (1)" color="#3399ff" meeting="false" start="2025-02-23" duration="7" complete="0" priority="0" expand="true">
+                    <notes><![CDATA[Présence + à jour
+Potentiellement un tableur excel ]]></notes>
+                </task>
+                <task id="613" uid="eb7b6ffd797449cdb1b8e426b6de4f3c" name="Phase de configuration avancée" color="#00a933" meeting="false" start="2025-02-23" duration="42" complete="0" priority="2" expand="false">
+                    <depend id="633" type="2" difference="0" hardness="Strong"/>
+                    <depend id="642" type="2" difference="0" hardness="Strong"/>
+                    <task id="615" uid="02d20c77d1894d9ea3994d79ca8461f1" name="Proxmox VE, Parefeu et bastion" color="#00a933" meeting="false" start="2025-02-23" duration="14" complete="0" expand="true"/>
+                    <task id="614" uid="f5d8336ba14b4b5aad3d5c2465ef6d1d" name="NAS" color="#00a933" meeting="false" start="2025-02-23" duration="7" complete="0" expand="true">
+                        <depend id="617" type="2" difference="0" hardness="Strong"/>
+                    </task>
+                    <task id="617" uid="ee5b986974db449b8ddc56eef0ca1459" name="Reverce Proxy / WAF, serveur Web et BDD" color="#00a933" meeting="false" start="2025-03-02" duration="7" complete="0" expand="true">
+                        <depend id="621" type="2" difference="0" hardness="Strong"/>
+                    </task>
+                    <task id="621" uid="1738dac9f730484daa2ccaa132d1d79c" name="Serveur de log" color="#00a933" meeting="false" start="2025-03-09" duration="7" complete="0" expand="true">
+                        <depend id="622" type="2" difference="0" hardness="Strong"/>
+                    </task>
+                    <task id="622" uid="ff82773f3afd4dfab963bfb78e88a063" name="Serveur de test et LDAPS" color="#00a933" meeting="false" start="2025-03-16" duration="14" complete="0" expand="true">
+                        <depend id="626" type="2" difference="0" hardness="Strong"/>
+                    </task>
+                    <task id="626" uid="5f82840091814ceda3998be6008a61ab" name="Migration AD vers UCS" color="#00a933" meeting="false" start="2025-03-30" duration="7" complete="0" expand="true"/>
+                    <task id="628" uid="71d51d5dae434d4e9e8493a63aa1d6b8" name="Méthodes de supervision" color="#00a933" meeting="false" start="2025-03-16" duration="7" complete="0" priority="0" expand="true">
+                        <notes><![CDATA[Inclus sans restreindre :
+- Rédiger les procédures de supervision du sites (market, sécurité, etc)
+- Outils techniques]]></notes>
+                        <depend id="629" type="2" difference="0" hardness="Strong"/>
+                    </task>
+                    <task id="629" uid="b4e6897d4aaa4ceca5e7f7ed61f286ec" name="Serveur de monitoring" color="#00a933" meeting="false" start="2025-03-23" duration="14" complete="0" expand="true"/>
+                </task>
+                <task id="632" uid="408fedfa7fd84783819306de72b109d9" name="État de l'infrastructure (2)" color="#000000" meeting="true" start="2025-04-05" duration="0" complete="0" expand="true"/>
+                <task id="633" uid="26f84db444cb423398ca51be474b38d6" name="Revue des fichiers de configurations (2)" color="#3399ff" meeting="false" start="2025-04-06" duration="7" complete="0" priority="0" expand="true">
+                    <notes><![CDATA[Présence + à jour
+Potentiellement un tableur excel ]]></notes>
+                    <depend id="634" type="2" difference="0" hardness="Strong"/>
+                </task>
+                <task id="634" uid="b0d2ad3694084a9e9f8c699105672e6f" name="Optimisation de l'impact environnemental" color="#3399ff" meeting="false" start="2025-04-13" duration="14" complete="0" priority="3" expand="true">
+                    <depend id="636" type="2" difference="0" hardness="Strong"/>
+                </task>
+                <task id="636" uid="0156573eabe5496eb09b52a4bca6a8ea" name="Changements hypothétique" color="#3399ff" meeting="false" start="2025-04-27" duration="12" complete="0" priority="0" expand="true">
+                    <notes><![CDATA[Création d'une infrastructure idélisée]]></notes>
+                    <depend id="638" type="2" difference="0" hardness="Strong"/>
+                </task>
+                <task id="638" uid="23b7d5b5c2c94825a0ea9c94bdb69294" name="Critère de disponibilité" color="#3399ff" meeting="false" start="2025-05-11" duration="7" complete="0" priority="0" expand="true">
+                    <notes><![CDATA[fictif et réel]]></notes>
+                </task>
+                <task id="641" uid="583b31dfb830481ab608582a36948314" name="Niveau de sécurité et respect des normes" color="#000000" meeting="true" start="2025-05-17" duration="0" complete="0" expand="true"/>
+                <task id="637" uid="8eb8082e46ff49ef9428d7dce36d851e" name="Rédaction d'un PCA et d'un PRA" color="#3399ff" meeting="false" start="2025-05-11" duration="14" complete="0" expand="true">
+                    <depend id="640" type="2" difference="0" hardness="Strong"/>
+                </task>
+                <task id="640" uid="30f2fc97af0a41c6bd752bdd61176376" name="Revue des normes (RGPD, etc)" color="#3399ff" meeting="false" start="2025-05-25" duration="7" complete="0" priority="0" expand="true"/>
+                <task id="642" uid="29ce803546e3427dbd69ec2d8a229000" name="Phase de sécurisation" color="#3399ff" meeting="false" start="2025-04-06" duration="33" complete="0" priority="4" expand="true">
+                    <depend id="660" type="2" difference="0" hardness="Strong"/>
+                    <task id="643" uid="fc15e87f2b4b4ce4b8b5cca8ac40408b" name="Parefeu, UCS, bastion et reverse proxy / WAF" color="#00a933" meeting="false" start="2025-03-16" duration="14" complete="0" priority="2" expand="true">
+                        <notes><![CDATA[Restriction des règles de traffic]]></notes>
+                        <depend id="647" type="2" difference="0" hardness="Strong"/>
+                        <depend id="652" type="2" difference="7" hardness="Strong"/>
+                    </task>
+                    <task id="652" uid="e3fcbbd301544f29883ec3ce2bf5d9e8" name="Serveur de log et preprod" color="#3399ff" meeting="false" start="2025-04-06" duration="6" complete="0" expand="true">
+                        <notes><![CDATA[Configuration de UP Armor]]></notes>
+                    </task>
+                    <task id="647" uid="fc83c31dc0ed402496568d7b0515d141" name="NAS, Proxmox VE, Serveur Web, BDD et monitoring" color="#3399ff" meeting="false" start="2025-03-30" duration="13" complete="0" expand="true">
+                        <notes><![CDATA[Configuration de UP Armor]]></notes>
+                        <depend id="654" type="2" difference="0" hardness="Strong"/>
+                    </task>
+                    <task id="654" uid="64a473a5a4474782a5d593a4fa9edb3d" name="Configuration de la redondance" color="#ea7500" meeting="false" start="2025-04-12" duration="6" complete="0" priority="4" expand="true">
+                        <depend id="658" type="2" difference="0" hardness="Strong"/>
+                    </task>
+                    <task id="658" uid="3c812dafe0074cb8b500de7788d0df81" name="Recherche de failles" color="#3399ff" meeting="false" start="2025-04-18" duration="7" complete="0" priority="2" expand="true">
+                        <depend id="659" type="2" difference="0" hardness="Strong"/>
+                    </task>
+                    <task id="659" uid="94fd9e196a4a4d8ebd92cac128c2bf24" name="Durcissement des failles trouvées" color="#3399ff" meeting="false" start="2025-04-25" duration="14" complete="0" priority="2" expand="true"/>
+                </task>
+                <task id="660" uid="1394b5b87d24458dad12fddbdee54c4d" name="Revue des fichiers de configurations (3)" color="#3399ff" meeting="false" start="2025-05-11" duration="7" complete="0" priority="3" expand="true">
+                    <notes><![CDATA[Présence + à jour
+Potentiellement un tableur excel ]]></notes>
+                    <depend id="675" type="2" difference="0" hardness="Strong"/>
+                </task>
+                <task id="675" uid="e1cef574a56b4fe4ac95f03f9767f5a3" name="Finalisations post projet" color="#3399ff" meeting="false" start="2025-05-18" duration="28" complete="0" priority="3" expand="true">
+                    <notes><![CDATA[Présence + à jour
+Potentiellement un tableur excel ]]></notes>
+                </task>
+                <task id="662" uid="a19246d2751746e39ac50e9f5e338c74" name="Développement du site" color="#3399ff" meeting="false" start="2025-02-23" duration="83" complete="0" priority="2" expand="true">
+                    <task id="661" uid="38561e906faa4aa888ee39829825a331" name="Choix d'un CMS" color="#00a933" meeting="false" start="2025-02-23" duration="7" complete="0" priority="2" expand="true">
+                        <notes><![CDATA[Pas vraiment de première approche]]></notes>
+                        <depend id="663" type="2" difference="0" hardness="Strong"/>
+                    </task>
+                    <task id="663" uid="4b1431e0c65a4e759b62b47c294d0962" name="Design du site" color="#00a933" meeting="false" start="2025-03-02" duration="14" complete="0" priority="4" expand="true">
+                        <notes><![CDATA[Dialogue : Axel -> Lois -> Axel ->  ...]]></notes>
+                        <depend id="664" type="2" difference="0" hardness="Strong"/>
+                    </task>
+                    <task id="664" uid="c14d2e13e3a64b56b9aaa0f9c9ae39e0" name="Prise en main de WordPress et d'Elementor" color="#00a933" meeting="false" start="2025-03-16" duration="28" complete="0" expand="true">
+                        <depend id="665" type="2" difference="0" hardness="Strong"/>
+                    </task>
+                    <task id="667" uid="c16d8d0464164ba1bb15c6b45b14f4a2" name="Fonctionnement des essentiels" color="#000000" meeting="true" start="2025-04-05" duration="0" complete="0" expand="true"/>
+                    <task id="665" uid="7787025f00a242aabee2b3662367dd1f" name="Construction d'une base pour le site" color="#00a933" meeting="false" start="2025-04-13" duration="7" complete="0" expand="true">
+                        <notes><![CDATA[structure des pages, débuts des tests comptes/produits/post]]></notes>
+                        <depend id="666" type="2" difference="0" hardness="Strong"/>
+                    </task>
+                    <task id="666" uid="dba037910d4c41f48a568dc0b591fc32" name="Implémentation des fonctionnalités principales" color="#f10d0c" meeting="false" start="2025-04-20" duration="19" complete="0" expand="true">
+                        <notes><![CDATA[Suite des tests comptes/produits/post]]></notes>
+                    </task>
+                    <task id="669" uid="5bfcf8a84e534734b447756bf725355f" name="Création d'une carte" color="#3399ff" meeting="false" start="2025-04-13" duration="7" complete="0" priority="0" expand="true">
+                        <depend id="670" type="2" difference="0" hardness="Strong"/>
+                    </task>
+                    <task id="670" uid="bf7483540f75471595fb887328b27cd5" name="Amélioration l'ergonomie et l'esthétisme" color="#3399ff" meeting="false" start="2025-04-20" duration="13" complete="0" priority="0" expand="true">
+                        <notes><![CDATA[Axel -> Ergonomie
+Loïs -> Esthétique]]></notes>
+                        <depend id="671" type="2" difference="0" hardness="Strong"/>
+                    </task>
+                    <task id="671" uid="d449e4a61bb64dc69cdc67f5ceef0898" name="Ajout de fonctionnalités" color="#3399ff" meeting="false" start="2025-05-04" duration="14" complete="0" priority="3" expand="true"/>
+                </task>
+            </task>
             <task id="387" uid="7ad3c57aa8254094932f106d69a724dd" name="Préparation du PoC du jalon 9" color="#ea7500" meeting="false" start="2025-05-17" duration="14" complete="0" expand="true"/>
             <task id="386" uid="7f8bafb6b109418c850042fd11171c2e" name="Rendu des livrables du jalon 9" color="#000000" meeting="true" start="2025-06-02" duration="0" complete="0" priority="4" expand="true"/>
         </task>
@@ -473,10 +474,11 @@ Loïs -> Esthétique]]></notes>
         <allocation task-id="660" resource-id="0" function="Default:1" responsible="false" load="100.0"/>
         <allocation task-id="663" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
         <allocation task-id="664" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
-        <allocation task-id="667" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
         <allocation task-id="670" resource-id="0" function="Default:1" responsible="false" load="100.0"/>
         <allocation task-id="671" resource-id="0" function="Default:1" responsible="false" load="100.0"/>
         <allocation task-id="675" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="666" resource-id="0" function="Default:1" responsible="false" load="100.0"/>
+        <allocation task-id="665" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
         <allocation task-id="340" resource-id="1" function="3" responsible="false" load="100.0"/>
         <allocation task-id="343" resource-id="1" function="3" responsible="false" load="100.0"/>
         <allocation task-id="346" resource-id="1" function="3" responsible="false" load="100.0"/>
@@ -530,6 +532,8 @@ Loïs -> Esthétique]]></notes>
         <allocation task-id="671" resource-id="1" function="3" responsible="true" load="100.0"/>
         <allocation task-id="409" resource-id="1" function="3" responsible="false" load="100.0"/>
         <allocation task-id="675" resource-id="1" function="3" responsible="false" load="100.0"/>
+        <allocation task-id="666" resource-id="1" function="3" responsible="true" load="100.0"/>
+        <allocation task-id="665" resource-id="1" function="3" responsible="false" load="100.0"/>
         <allocation task-id="340" resource-id="2" function="1" responsible="false" load="100.0"/>
         <allocation task-id="343" resource-id="2" function="1" responsible="false" load="100.0"/>
         <allocation task-id="346" resource-id="2" function="1" responsible="false" load="100.0"/>

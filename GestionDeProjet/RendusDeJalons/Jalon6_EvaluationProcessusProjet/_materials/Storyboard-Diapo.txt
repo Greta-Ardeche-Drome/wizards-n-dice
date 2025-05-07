@@ -38,7 +38,7 @@ Diapo 3 : II. Histoire et enjeux du projet - P1
 		> Volonté d'action communautaire : donner vie à une espace convivial ; auto-hébergé, sécurisé et 100% français ; accessibilité, simplicité, communauté, sécurité
 
 Diapo 4 : II. Histoire et enjeux du projet - P2
-	Eléments visuels en lien avec les sujets abordés : besoins (logo d'argents, RGPD, e-commerce etc), objectifs ()
+	Eléments visuels en lien avec les sujets abordés : besoins (logo d'argents, RGPD, e-commerce etc), objectifs (je sais pas désolé)
 	Texte à faire apparaître :
 		> Les besoins auxquels nous répondons : site de e-commerce pour des articles liées au JDR et des produits dérivées ; gestion des données personnels, commandes, transactions, etc
 		> Les implications de l'auto-hébergement : gérer l'infrastructure ; haute disponibilité ; développement du site 
@@ -54,12 +54,12 @@ Diapo 5 : II. Histoire et enjeux du projet - P3
 		> Ressources matériel : éléments déjà en notre possession ; matériel fourni par l'IUT
 
 Diapo 6 : II. Histoire et enjeux du projet - P4
-	L'analyse SWOT
+	# L'analyse SWOT
 	Texte à faire apparaître :
 		> N/A
 
 Diapo 7 : III. Organisation du projet - P1
-	Screen du faux GANTT en vue généraliste et en vue des phases de la création du site (mettre en évidence certains éléments ?)
+	# Screen du faux GANTT en vue généraliste et en vue des phases de la création du site (mettre en évidence certains éléments ?)
 	Texte à faire apparaître :
 		> Fonctionnement par axes : Documentation et recherches ; Produits et services ; Création du site
 		> La création du site décomposent les tâches techniques en quatres phases : Mise en place ; Configuration avancée et construction du site ; Sécurisation
@@ -67,7 +67,7 @@ Diapo 7 : III. Organisation du projet - P1
 		> Tâches visibles aussi au détail pour l'avancé semaine après semaine
 
 Diapo 8 : III. Organisation du projet - P2
-	Screen du faux GANTT en vue des priorités des tâches (mettre en évidence certains éléments ?)
+	# Screen du faux GANTT en vue des priorités des tâches (mettre en évidence certains éléments ?)
 	Texte à faire apparaître :
 		> Rythme semaine après semaine : flexibilité pour les membres ; inertie
 		> Priorisation des tâches pour palier à l'inertie
@@ -75,8 +75,8 @@ Diapo 8 : III. Organisation du projet - P2
 		> Priorité en fonction de leur criticité et l’impact 
 
 Diapo 9 : III. Organisation du projet - P3
-	Screen du GANTT prévisionnel en vue généraliste : étendre quelques parties mais rester concis 
-	Screen du faux GANTT en vue illustrant les couleurs, les successions de tâches 
+	# Screen du GANTT prévisionnel en vue généraliste : étendre quelques parties mais rester concis 
+	# Screen du faux GANTT en vue illustrant les couleurs, les successions de tâches (création du site > développement du site ?)
 	Texte à faire apparaître :
 		> Planning prévisonnel et organisationnel
 		> Réalisé avec GANTT Project
@@ -86,13 +86,14 @@ Diapo 9 : III. Organisation du projet - P3
 		> En cas d'imprévu impactant le délai de réalisation des tâches : Se satisfaire de l’avancement ; Rallonger la durée ; Assigner quelqu’un en plus
 
 Diapo 10 : III. Organisation du projet - P4
-	Screen du faux GANTT sur des visuels d'assignation de tâches à des membres (2 ou 3 cas)
+	# Screen du faux GANTT sur des visuels d'assignation de tâches à des membres (2 ou 3 cas)
+	Matrice RACI
 	Texte à faire apparaître :
 		> Répartition des tâches : équilibre de la charge de travail ; travail sur des aspects variés ; "pseudo-binôme"
 		> But rester flexible, assurer un état mental stable, garder une répartition cohérente (rôles et taches précédentes)
 
 Diapo 11 : III. Organisation du projet - P5
-	Screen d'un sommaire de réunion, screen d'un message d'annonce, photo prise en LAN 
+	# Screen d'un sommaire de réunion, screen d'un message d'annonce, photo prise en LAN 
 	Texte à faire apparaître :
 		> Hebdomadaire : samedi entre 14h30 et 16h30
 		> 39 réunions au total
@@ -101,45 +102,52 @@ Diapo 11 : III. Organisation du projet - P5
 		> Événèments de team building
 
 Diapo 12 : III. Organisation du projet - P6
-	Screen des salons de discussion Discord (avec des gens dans un vocal idéalement), screen du rôle @Corporate, screen de tickets taïga (vue général et d'un ticket particulier)
+	# Screen des salons de discussion Discord (avec des gens dans un vocal idéalement), screen du rôle @Corporate, screen de tickets taïga (vue général et d'un ticket particulier)
 	Texte à faire apparaître :
 		> Serveur Discord : plusieurs salons triées avec des catégories ; salons textuels et vocaux ; familier, gratuit et adapté à notre équipe
 		> Taïga : gestion de tickets pour les incidents et les demandes ; utilisé mais pas optimal
 
 Diapo 13 : III. Organisation du projet - P7
-	Screen Tricount, screen des documents justificatifs (général et un doc en particulier), photo à 4 en Italie
+	# Screen Tricount, screen des documents justificatifs (général et un doc en particulier), photo à 4 en Italie
 	Texte à faire apparaître :
 		> Initialement : 900 € ou 1 800 € dépendamment du lancement commercial du projet
 		> Révision du budget à 1 400 € 
-		> Actuellement à 1 356,32 € dépensé ; Rachat des parts du NAS par Hugo pour 290,83 € ; Ramène à 1 065,49 € dépensé 
+		> Actuellement à 1 475,12 € dépensé ; Rachat des parts du NAS par Hugo pour 290,83 € ; Ramène à 1 184,29 € dépensé 
 		> Tricount : suivre nos dépenses ; répartir équitablement entre les membres du projet ; application gratuite 
 		> Documents enregistrés : duplicata filigranné et censuré pour justifier nos dépenses et attester de l'équilibre des dépenses
 		> Ressources humaines :  flexibilité et compréhension mutuelle ; priorité sur l'écoute et le moral dans l'équipe ; collègues[barré] -> amis
 
 Diapo 14 : III. Organisation du projet - P8
-	[En 3 colonne ?] Screen du premier niveau de l'arborescence et d'un niveau "bas" (avec un "_materials" dedans)
-	Screen du contenu de "GestionDeProjet/" et du sommaire du doc de synthèse des méthode de travail
-	Screen du contenu de "Documentation/" et de "Infrastructure/"
+	# [En 3 colonne ?] Screen du premier niveau de l'arborescence et d'un niveau "bas" (avec un "_materials" dedans)
+	# Screen du contenu de "GestionDeProjet/" et du sommaire du doc de synthèse des méthode de travail
+	# Screen du contenu de "Documentation/" et de "Infrastructure/"
 	Texte à faire apparaître :
 		> Arborescence claire et structurée : quelques règles communes
 		> Documents d’organisation interne : facilite nos méthodes de travail
 		> Documentation du projet variés : en fonction de l'information à retenir
 
 Diapo 15 : IV. Points d'achoppement du projet - P1
-	Comparatif de priorité des tâches entre les planning prévisionnel et organisationnel
+	# Comparatif de priorité des tâches entre les planning prévisionnel et organisationnel
 	Texte à faire apparaître :
 		> Priorisation des tâches : pas mis en place tout de suite ; 
 		> Pas assez de granularité et de visibilité > Mis en place du système de priorité fin février > Améliorations nettes 
 		> Difficultés de compréhension des attendus : beaucoup d'efforts de production des jalons et des notes moins bonnes qu’attendus
 		> Recentrer notre attention sur les jalons mais difficile de confirmer que nous répondons aux attendus
-Diapo 17 : IV. Points d'achoppement du projet - P2
-	Screen shot de l'adresse "mourillon7274.fr" et du PVE ou la preprod est désactiver 
+
+Diapo 16 : IV. Points d'achoppement du projet - P2
+	Elements visuels en raccord (pas d'idée honnêtement)
+	Texte à faire apparaître :
+		> Gestion de la charge de travail : difficultés à calibrer la charge de travail ;  effort <-> note => peu gratifiant ; amélioration depuis la priorisation des tâches
+		> Compréhension et réponses aux attendus : note plus basse qu'attendu dû à une mauvaise compréhension des sujets ; recentrage de nos efforts sur les jalons ; difficile de confirmer les éventuels progrès
+
+Diapo 17 : IV. Points d'achoppement du projet - P3
+	# Screen shot de l'adresse "mourillon7274.fr" et du PVE ou la preprod est désactiver 
 	Texte à faire apparaître :
 		> Utilisation d’une preproduction : version publique (visible) et version expérimentale (travail en interne)
 		> Contraintes en matériel : preprod fonctionnelle mais trop lente
 		> Hébergeur tiers : Ionos et désactivation des machines concernées
 
-Diapo 18 : IV. Points d'achoppement du projet - P3
+Diapo 18 : IV. Points d'achoppement du projet - P4
 	Texte épuré : 2 colonnes
 	Texte à faire apparaître :
 		> Dans le contexte du PTUT : 
@@ -152,7 +160,7 @@ Diapo 18 : IV. Points d'achoppement du projet - P3
 			- Outils métier adaptés (ex : communication d'équipe)
 			- Travail à plein temps : moins de contraintes extérieur
 
-Diapo 19 : IV. Points d'achoppement du projet - P4
+Diapo 19 : IV. Points d'achoppement du projet - P5
 	Frise reprenant les points temporel cités
 	Texte à faire apparaître :
 		> Début du projet => Motivé mais anxieux
@@ -161,7 +169,7 @@ Diapo 19 : IV. Points d'achoppement du projet - P4
 		> Vacances de pâques => Amélioration de la motivation puis re-passage à vide 
 		> Jusqu'à la fin de l'année => Moment le plus dur mais sprint final 
 
-Diapo 20 : 
+Diapo 20 : Conclusion
 	Eléments précédent montrant "l'histoire", "l'organisation" et "les difficultés" (ex : photo de nous en Italie ; random Gannt ; Screen de la date du dernier ticket)
 	Texte à faire apparaître :
 		> Appréhension mais confiance pour les derniers jalons
