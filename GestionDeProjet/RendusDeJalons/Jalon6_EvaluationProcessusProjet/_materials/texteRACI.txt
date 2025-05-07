@@ -1,0 +1,22 @@
+Tâche,Arthur YANG,Axel MOURILLON,Hugo CLAMOND,Loïs ALLAIRE
+Ajout de fonctionnalités,,R,,R
+Amélioration l'ergonomie et l'esthétisme,,R,,R
+Aspects légaux et administratifs (RGPD, etc),R,,,
+Assurance de responsabilité civile,R,,,
+Avancée de la documentation (1),R,R,R,
+Avancée de la documentation (2),R,R,R,
+Création de la page d'accueil (HTML/CSS),,,R,
+Création de pages secondaires (HTML/CSS),,,R,
+Déclaration CNIL,R,,,
+Définition des besoins,R,R,R,
+Diagramme de classe,R,R,R,
+Gestion de base de données,R,R,R,
+Intégration de fonctionnalités (JS),,,R,
+Mise en production,R,R,R,
+Mise en service sur serveur distant,R,R,R,
+Mise en situation et tests utilisateur,R,R,R,
+Modélisation MCD/MLD,R,R,R,
+Nettoyage et optimisation,R,R,R,
+Répartition des tâches,R,R,R,
+Suivi d’avancement,R,R,R,
+Validation technique,R,R,R,
