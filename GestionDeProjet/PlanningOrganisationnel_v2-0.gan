@@ -1,16 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Planning Wizards &amp; Dices" company="" webLink="http://" view-date="2025-03-24" view-index="0" gantt-divider-location="606" resource-divider-location="424" version="3.3.3312" locale="fr_FR">
+<?xml version="1.0" encoding="UTF-8"?><project name="Planning Wizards &amp; Dices" company="" webLink="http://" view-date="2025-03-24" view-index="0" gantt-divider-location="592" resource-divider-location="424" version="3.3.3312" locale="fr_FR">
     <description/>
     <view zooming-state="default:6" id="gantt-chart">
         <field id="tpd3" name="Nom" width="333" order="0"/>
         <field id="tpd4" name="Date de début" width="91" order="1"/>
         <field id="tpd5" name="Date de fin" width="90" order="2"/>
-        <field id="tpd1" name="Priorité" width="76" order="3"/>
+        <field id="tpd1" name="Priorité" width="77" order="3"/>
         <option id="filter.completedTasks" value="false"/>
         <option id="filter.dueTodayTasks" value="false"/>
         <option id="filter.overdueTasks" value="false"/>
         <option id="filter.inProgressTodayTasks" value="false"/>
         <timeline><![CDATA[465]]></timeline>
-        <option id="color.recent"><![CDATA[#666666 #ea7500 #00a933 #2a6099 #55308d #f10d0c #f4f4f4 #d60be4]]></option>
+        <option id="color.recent"><![CDATA[#ea7500 #666666 #00a933 #2a6099 #55308d #f10d0c #f4f4f4 #d60be4]]></option>
     </view>
     <view id="resource-table">
         <field id="0" name="Nom" width="158" order="0"/>
@@ -69,7 +69,7 @@
             <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
             <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
         </taskproperties>
-        <task id="80" uid="2d76ef79251848059c2b22eb06bd755a" name="Jalons imposés" color="#f10d0c" meeting="false" start="2024-10-07" duration="237" complete="0" priority="4" expand="true">
+        <task id="80" uid="2d76ef79251848059c2b22eb06bd755a" name="Jalons imposés" color="#f10d0c" meeting="false" start="2024-10-07" duration="244" complete="0" priority="4" expand="true">
             <task id="81" uid="f4e57e4caccb40619e4879537c210335" name="Jalon 1" color="#f10d0c" meeting="false" start="2024-10-07" duration="38" complete="0" priority="4" expand="false">
                 <task id="342" uid="f1120becc4f44a12ae7aea190e001bda" name="Rédiger la fiche projet tutoré" color="#00a933" meeting="false" start="2024-10-07" duration="33" complete="0" expand="true"/>
                 <task id="341" uid="9f14c87c2f0348a2ba4c2808c1d5aef1" name="Préparer oral de présentation du projet" color="#00a933" meeting="false" start="2024-11-02" duration="11" complete="0" expand="true"/>
@@ -137,27 +137,31 @@ Lien vers Moodle de dépôts : https://cours.univ-grenoble-alpes.fr/mod/assign/v
                 <task id="369" uid="36c2e1c1f7274f9e9f0135bb8f5603c4" name="Mémoire de projet : prêt" color="#f10d0c" meeting="true" start="2025-05-31" duration="0" complete="0" expand="true"/>
                 <task id="360" uid="1f43ee2eb5cc4749b84cce756fcdfbcd" name="J7 - Livrer le mémoire de projet" color="#f10d0c" meeting="true" start="2025-06-02" duration="0" complete="0" priority="4" expand="true"/>
             </task>
-            <task id="533" uid="f216c91efe7d410a8150619e7a2ceb41" name="Jalon 8" color="#f10d0c" meeting="false" start="2025-05-11" duration="22" complete="0" priority="4" expand="false">
-                <task id="388" uid="21905eddfe0947468678d5caaae765a0" name="Préparer le script pour la présentation finale du projet" color="#666666" meeting="false" start="2025-05-11" duration="7" complete="0" expand="true">
+            <task id="550" uid="9411d3484a254b0ebdf78fc92d3c4c90" name="Cadrer les jalons 8 et 9" color="#ea7500" meeting="false" start="2025-05-11" duration="7" complete="0" priority="4" expand="true">
+                <depend id="533" type="2" difference="0" hardness="Strong"/>
+                <depend id="548" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="533" uid="f216c91efe7d410a8150619e7a2ceb41" name="Jalon 8" color="#f10d0c" meeting="false" start="2025-05-18" duration="23" complete="0" priority="4" expand="true">
+                <task id="388" uid="21905eddfe0947468678d5caaae765a0" name="Préparer le script pour la présentation finale du projet" color="#666666" meeting="false" start="2025-05-18" duration="7" complete="0" expand="true">
                     <depend id="411" type="2" difference="0" hardness="Strong"/>
                 </task>
-                <task id="411" uid="4191575ebd1042e3b7cd0248c73579ab" name="Préparer le support de diapositive pour la présentation" color="#666666" meeting="false" start="2025-05-18" duration="7" complete="0" expand="true"/>
-                <task id="389" uid="51358ffabf3a47af813aad39381ecfd9" name="Préparer le script de la vidéo de démonstration" color="#666666" meeting="false" start="2025-05-11" duration="7" complete="0" expand="true">
+                <task id="411" uid="4191575ebd1042e3b7cd0248c73579ab" name="Préparer le support de diapositive pour la présentation" color="#666666" meeting="false" start="2025-05-25" duration="7" complete="0" expand="true"/>
+                <task id="389" uid="51358ffabf3a47af813aad39381ecfd9" name="Préparer le script de la vidéo de démonstration" color="#666666" meeting="false" start="2025-05-18" duration="7" complete="0" expand="true">
                     <depend id="413" type="2" difference="0" hardness="Strong"/>
                 </task>
-                <task id="413" uid="84ca932a10374a12942871338d6fd60e" name="Tourner la vidéo de démonstration" color="#666666" meeting="false" start="2025-05-18" duration="7" complete="0" expand="true">
+                <task id="413" uid="84ca932a10374a12942871338d6fd60e" name="Tourner la vidéo de démonstration" color="#666666" meeting="false" start="2025-05-25" duration="7" complete="0" expand="true">
                     <depend id="412" type="2" difference="0" hardness="Strong"/>
                 </task>
-                <task id="412" uid="25d6253524524cd2a15f4d9fc1dcb36b" name="Monter la vidéo de démonstration" color="#666666" meeting="false" start="2025-05-25" duration="6" complete="0" expand="true"/>
-                <task id="384" uid="a852969e68cd40ad99cbee9ed5945e52" name="Présentation et vidéo de démo : prêtes" color="#f10d0c" meeting="true" start="2025-05-31" duration="0" complete="0" expand="true"/>
-                <task id="383" uid="2e0f73fd726241b38bcda05094abd655" name="J8 - Présenter le projet et la vidéo de démo" color="#f10d0c" meeting="true" start="2025-06-02" duration="0" complete="0" priority="4" expand="true"/>
+                <task id="412" uid="25d6253524524cd2a15f4d9fc1dcb36b" name="Monter la vidéo de démonstration" color="#666666" meeting="false" start="2025-06-01" duration="6" complete="0" expand="true"/>
+                <task id="384" uid="a852969e68cd40ad99cbee9ed5945e52" name="Présentation et vidéo de démo : prêtes" color="#f10d0c" meeting="true" start="2025-06-08" duration="0" complete="0" expand="true"/>
+                <task id="383" uid="2e0f73fd726241b38bcda05094abd655" name="J8 - Présenter le projet et la vidéo de démo" color="#f10d0c" meeting="true" start="2025-06-10" duration="0" complete="0" priority="4" expand="true"/>
             </task>
-            <task id="548" uid="ced943bfda33439ca7485ebf40db6b3f" name="Jalon 9" color="#f10d0c" meeting="false" start="2025-05-17" duration="16" complete="0" priority="4" expand="false">
-                <task id="387" uid="7ad3c57aa8254094932f106d69a724dd" name="Préparration du Proof Of Concept" color="#666666" meeting="false" start="2025-05-17" duration="14" complete="0" expand="true"/>
-                <task id="385" uid="fe49486f29c0475199eab45f28d8a19f" name="Proof Of Concept : prêt" color="#f10d0c" meeting="true" start="2025-05-31" duration="0" complete="0" expand="true"/>
-                <task id="386" uid="7f8bafb6b109418c850042fd11171c2e" name="J9 - Présentation du Proof Of Concept" color="#f10d0c" meeting="true" start="2025-06-02" duration="0" complete="0" priority="4" expand="true"/>
+            <task id="548" uid="ced943bfda33439ca7485ebf40db6b3f" name="Jalon 9" color="#f10d0c" meeting="false" start="2025-05-18" duration="23" complete="0" priority="4" expand="true">
+                <task id="387" uid="7ad3c57aa8254094932f106d69a724dd" name="Préparration du Proof Of Concept" color="#666666" meeting="false" start="2025-05-18" duration="14" complete="0" expand="true"/>
+                <task id="385" uid="fe49486f29c0475199eab45f28d8a19f" name="Proof Of Concept : prêt" color="#f10d0c" meeting="true" start="2025-06-08" duration="0" complete="0" expand="true"/>
+                <task id="386" uid="7f8bafb6b109418c850042fd11171c2e" name="J9 - Présentation du Proof Of Concept" color="#f10d0c" meeting="true" start="2025-06-10" duration="0" complete="0" priority="4" expand="true"/>
             </task>
-            <task id="394" uid="66dfa55bb45e488391426945b74c97f9" name="Débriefer des jalons 7 à 9" color="#666666" meeting="true" start="2025-06-07" duration="0" complete="0" expand="true"/>
+            <task id="394" uid="66dfa55bb45e488391426945b74c97f9" name="Débriefer des jalons 7 à 9" color="#666666" meeting="true" start="2025-06-14" duration="0" complete="0" expand="true"/>
         </task>
         <task id="0" uid="1e2188cfd5a746838d03251ca51480d7" name="Documentation, recherches et définition des aspects inconnus" color="#55308d" meeting="false" start="2024-09-07" duration="207" complete="0" thirdDate="2024-11-12" thirdDate-constraint="0" expand="false">
             <task id="433" uid="1350ccfd5d4643fda5e4a8a1fb533d79" name="Recherches documentaires" color="#55308d" meeting="false" start="2024-09-07" duration="144" complete="0" expand="false">
@@ -577,6 +581,7 @@ Loïs -> Esthétique]]></notes>
         <allocation task-id="524" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
         <allocation task-id="525" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
         <allocation task-id="526" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="550" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
         <allocation task-id="342" resource-id="1" function="3" responsible="true" load="100.0"/>
         <allocation task-id="341" resource-id="1" function="3" responsible="false" load="100.0"/>
         <allocation task-id="340" resource-id="1" function="3" responsible="false" load="100.0"/>
