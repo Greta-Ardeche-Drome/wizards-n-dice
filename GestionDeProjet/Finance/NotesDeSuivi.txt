@@ -3,13 +3,19 @@
 #	Créateur : Axel MOURILLON - Chef de projet 		#
 #	Date de création : 21/02/2025				#
 #								#
-#	Dernier modificateur : <Prénom NOM> - <Rôle>		#
-#	Date de modification : JJ/MM/AAAA			#
+#	Dernier modificateur : Axel MOURILLON - Chef de projet	#
+#	Date de modification : 22/03/2025			#
 #								#
-#		Version actuelle : 1.0				#
+#		Version actuelle : 1.1				#
 #								#
 #################################################################
 
+Budget initial :
+Entre et 900€, 1 800€ dépendamment du lancement du projet
+
+Budget maximum actuel : 1 400 €
+
+-----------------------------------------------------------------
 
 Éléments documentaires manquants : (opération effectués mais pas de traces enregistrés hors Tricount)
 - Remboursement des capes - Part Hugo

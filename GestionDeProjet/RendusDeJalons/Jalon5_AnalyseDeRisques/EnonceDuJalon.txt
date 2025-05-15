@@ -1,0 +1,15 @@
+À rendre le dimanche 4 mai 2025, à 23:59 
+
+Mener une analyse de risque sur vos projets PTUT (produit ou service) 
+Fournir les livrables nécessaires selon la méthode EBIOS RM.
+
+Les livrables attendus sont :
+- Choix d'un référentiel, d'une norme ou d'en standard comme socle de sécurité
+- Identification de 5 valeurs métiers maximum et leur(s) bien(s) support associé(s)
+- Identification de 2 évènements redoutés minimum par valeur métier
+- Identification de 4 paires de sources de risques/objectifs visés maximum
+- Identification des parties prenantes liées
+- 4 scénarios stratégiques
+- 2 scénarios opérationnels avec mesure de remédiation
+
+Document à remettre en PDF sur le moodle du GRETA, sous le nom suivant : EBIOS_PTUT_nomduprojet_2425.pdf

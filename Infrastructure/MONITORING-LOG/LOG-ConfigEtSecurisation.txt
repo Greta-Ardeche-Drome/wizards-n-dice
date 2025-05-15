@@ -18,18 +18,258 @@
 Sources : 
 
 Activer les alertes dans Grafana
-Si un service commence à générer trop d'erreurs , nous pouvons configurer des alertes dans Grafana via Alertmanager .
-
-Nous pouvons ajouter cette ligne dans la config de Loki pour activer Alertmanager :
-
-=> ruler:
-     alertmanager_url: http://192.168.7.134:XXXXXXX (Voir conf sur le serveur pour voir le port)
-
-Grafana pourra maintenant déclencher des alertes sur les logs.
+Si un service commence à générer trop d'erreurs , nous pouvons configurer des alertes dans Grafana via le menu Alert dans GRAFANA.
 
 
-=> Ouverture du port 9093 depuis le serveur de monitoring vers serveurs ( et autres VLAN sur stormshield ) 
-	=> Ajout comme rappel a faire comme règle dans le fichier EXCEL des règles sur le FW pour plus tard
+Pour la conf du serveur, on fera pas plus.
+
+
+Pour promtail, on a déja une config qui récupère les fichiers log.
+
+
+On va installer pour la fin, NODE EXPORTER pour récupérer des informations plus précises que avec SNMP, qui surveillera les serveurs directs et non les équipements réseaux.
+
+	=> Dans /usr/local/bin/ , on télécharge NODE Exporter qui va nous servir à récupérer les métriques du serveur de log ici.
+
+		=> wget https://github.com/prometheus/node_exporter/releases/download/v1.9.0/node_exporter-1.9.0.linux-amd64.tar.gz
+		=> tar -xvzf node_exporter-1.9.0.linux-amd64.tar.gz
+		=> rm node_exporter-1.9.0.linux-amd64.tar.gz
+		=> mv /usr/local/bin/node_exporter-1.9.0.linux-amd64/node_exporter /usr/local/bin/
+		=> chown -R log:log /usr/local/bin/node_exporter
+		=> chmod 755 /usr/local/bin/node_exporter
+		=> rm -r /usr/local/bin/node_exporter-1.9.0.linux-amd64/
+
+
+=> Création du fichier : nano /etc/systemd/system/node_exporter.service
+
+--------------------------------------------------------------------------------------------
+
+[Unit]
+Description=Prometheus NODE Exporter
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=log
+Group=log
+ExecStart=/usr/local/bin/node_exporter \
+  --web.listen-address=0.0.0.0:XXXX \
+  --collector.systemd \
+  --collector.processes
+
+SyslogIdentifier=log
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
+--------------------------------------------------------------------------------------------
+
+On a changé ici le port d'écoute de SNMP EXPORTER de Prometheus ici, dans le fichier du service. Ca ne se fait pas dans le .yml car il n'y pas de fichier .yml pour NODE Exporter .
+
+Commandes système et visualisation des logs en direct :
+
+		=> systemctl daemon-reexec
+		=> systemctl daemon-reload
+		=> systemctl enable node_exporter.service 
+		=> systemctl start node_exporter.service 
+		=> systemctl status node_exporter.service 
+		=> journalctl -f -u node_exporter.service
+
+Voila pour l'installation de NODE EXPORTER.
 
 
 Partie sécurisation : 
+
+
+=> Ajout du MOTD personnalisé sur la VM (et toutes) du NAS.
+/etc/motd
+
+Wizards & Dice | Shell Access for Debian GNU/Linux
+
+***********************************************************************************************************************
+*							LEGAL NOTICE
+* This system is for authorized use only. All activities on this system may be * monitored and recorded. Unauthorized access or use is strictly prohibited * and may result in disciplinary action, criminal prosecution, or both. By * continuing to use and access this system, you consent to such monitoring.*
+
+***********************************************************************************************************************
+
+
+=> Ajout des éléments pour le monitoring des machines et de leurs MAJS.
+
+	=> wget https://raw.githubusercontent.com/labmonkeys-space/apt-prometheus/main/script/apt-metrics.sh -O /usr/local/bin/apt-metrics.sh
+	=> chmod 750 /usr/local/bin/apt-metrics.sh
+	=> chown log /usr/local/bin/apt-metrics.sh
+	=> Puis on change tout le fichier : 
+
+-------------------------------------------------------------------------------------------------------------------------
+
+#!/bin/bash
+
+OUT_FILE="/var/lib/node_exporter/textfile_collector/apt_updates.prom"
+
+# Total updates
+TOTAL_UPDATES=$(apt list --upgradeable 2>/dev/null | grep -v "Listing" | wc -l)
+
+# Security updates (si 'unattended-upgrades' est installé)
+SEC_UPDATES=$(apt list --upgradeable 2>/dev/null | grep security | wc -l)
+
+# Reboot required (flag fichier)
+if [ -f /var/run/reboot-required ]; then
+  REBOOT_NEEDED=1
+else
+  REBOOT_NEEDED=0
+fi
+
+# Export en format Prometheus
+echo "# HELP debian_apt_updates Nombre total de mises à jour APT" > "$OUT_FILE"
+echo "# TYPE debian_apt_updates gauge" >> "$OUT_FILE"
+echo "debian_apt_updates $TOTAL_UPDATES" >> "$OUT_FILE"
+
+echo "# HELP debian_security_updates Nombre de mises à jour de sécurité" >> "$OUT_FILE"
+echo "# TYPE debian_security_updates gauge" >> "$OUT_FILE"
+echo "debian_security_updates $SEC_UPDATES" >> "$OUT_FILE"
+
+echo "# HELP debian_reboot_required Système nécessite un redémarrage" >> "$OUT_FILE"
+echo "# TYPE debian_reboot_required gauge" >> "$OUT_FILE"
+echo "debian_reboot_required $REBOOT_NEEDED" >> "$OUT_FILE"
+
+-------------------------------------------------------------------------------------------------------------------------
+
+Dans le node_exporter.service
+
+-------------------------------------------------------------------------------------------------------------------------
+
+[Unit]
+Description=Prometheus NODE Exporter
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=log
+Group=log
+ExecStart=/usr/local/bin/node_exporter --web.listen-address=0.0.0.0:XXXX --collector.systemd --collector.processes --collector.textfile --collector.textfile.directory=/var/lib/node_exporter/textfile_collector
+
+SyslogIdentifier=log
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
+-------------------------------------------------------------------------------------------------------------------------
+
+=> mkdir -p /var/lib/node_exporter/textfile_collector
+=> chown -R log:root /var/lib/node_exporter/textfile_collector
+=> chmod -R 770 /var/lib/node_exporter/textfile_collector
+
+		=> systemctl daemon-reexec
+		=> systemctl daemon-reload
+		=> systemctl restart node_exporter.service 
+
+Il faut maintenant faire un cron, pour executer le script "apt-metrics.sh" régulièrement : 
+
+-------------------------------------------------------------------------------------------------------------------------
+=> crontab -e
+
+30 7 * * * /usr/local/bin/apt-metrics.sh
+
+-------------------------------------------------------------------------------------------------------------------------
+
+Maintenant il suffit sur grafana avec le dashboard, de regarder ce que nous voulons voir.
+
+
+Mise en place de UFW : 
+
+	=> apt install ufw
+
+Politique par défaut
+
+	=> ufw default deny incoming
+	=> ufw default deny outgoing
+
+Maintenant les règles précises : 
+
+=> ufw allow from 172.16.14.1 to any port 14714 proto tcp comment 'SSH depuis bastion'
+=> ufw allow from 192.168.7.132 to any port 14714 proto tcp comment 'SSH depuis SRV-RDS-AARD'
+=> ufw allow from 192.168.7.128/28 to any port 9080 proto tcp comment 'VUE WEB DES TARGETS PROMTAIL'
+=> ufw allow from 192.168.7.128/28 to any port 9100 proto tcp comment 'VUE WEB DES TARGETS PROMTAIL'
+=> ufw allow from 192.168.7.134 to any port 59051 proto tcp comment 'Prometheus avec node_exporter'
+=> ufw allow 3100/tcp comment 'Autorisation reception logs des serveurs'
+=> ufw allow out 80/tcp comment 'Sortie HTTP vers dépôts Linux'
+=> ufw allow out 443/tcp comment 'Sortie HTTPS vers dépôts Linux'
+=> ufw allow out to 192.168.7.140 port 53 proto udp comment 'Sortie DNS vers SRV-UCS-AARD'
+=> ufw allow out 123/udp comment 'NTP'
+=> ufw enabled
+
+Pour ajouter la possibilité de PING, il faut modifier le fichier /etc/ufw/before.rules et ajouter :
+
+----------------------------------------------------------------------------------
+
+# allow ICMP outbound (ping vers l'extérieur)
+-A ufw-before-output -p icmp --icmp-type echo-request -j ACCEPT
+-A ufw-before-output -p icmp --icmp-type destination-unreachable -j ACCEPT
+-A ufw-before-output -p icmp --icmp-type time-exceeded -j ACCEPT
+-A ufw-before-output -p icmp --icmp-type echo-reply -j ACCEPT
+
+----------------------------------------------------------------------------------
+
+
+Voila pour UFW, il faudra voir si d'autres problèmes sont présent, comme ça on ajoute ou enleve des règles.
+
+
+Installation lynis + fail2ban
+
+=> Executer lynis dans syslog : lynis audit system | logger -t lynis
+
+OU
+
+=> Executer le script dans /usr/local/bin/lynis-syslog.sh
+
+nano /usr/local/bin/lynis-syslog.sh
+
+Script : 
+
+--------------------------------------
+
+#!/bin/bash
+lynis audit system | logger -t lynis
+
+--------------------------------------
+
+=> chmod 750 /usr/local/bin/lynis-syslog.sh
+=> chown log /usr/local/bin/lynis-syslog.sh
+
+Pas de cron.
+
+On peut voir depuis GRAFANA dans les logs, le résultat.
+
+Fail2Ban : 
+
+=> apt install fail2ban -y
+=> systemctl enable fail2ban
+=> systemctl start fail2ban
+
+On ne modifie jamais directement jail.conf. On crée un fichier jail.local :
+
+=> cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
+=> nano /etc/fail2ban/jail.local
+
+--------------------------
+
+[sshd]
+enabled = true
+port    = ssh
+logpath = %(sshd_log)s
+backend = %(sshd_backend)s
+maxretry = 5
+bantime = 500
+findtime = 600
+
+--------------------------
+
+=> systemctl restart fail2ban
+=> fail2ban-client status
+=> fail2ban-client status sshd
+
+Fail2Ban lit les logs /var/log/auth.log (par défaut) pour détecter les tentatives SSH.

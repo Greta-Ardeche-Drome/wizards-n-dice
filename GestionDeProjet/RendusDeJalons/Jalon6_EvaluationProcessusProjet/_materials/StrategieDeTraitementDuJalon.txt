@@ -1,0 +1,80 @@
+Jalon 6 sera réussi si :
+	- Nous avons parfaitement compris l’histoire de votre projet
+	- Nous avons parfaitement ses enjeux et ses objectifs 
+	- Nous avons parfaitement compris l’organisation et les moyens mis en place depuis le début
+	- Nous avons parfaitement compris ce qui était prévu, ce qui a été fait, et ce qu’il reste à faire
+	- Nous sommes rassurés sur votre maîtrise 
+	- Vous ne nous avez pas parlé technique pendant 75% du temps
+
+============= Plan =============
+I- Intro
+	> Bonjour
+	> Rappel jalon rapide 
+	> Présentation de l'équipe avec les rôles + chef de projet qui parle bcp mais c'est normal
+
+II- Histoire et enjeux généraux du projet
+	### Utiliser et mentionner la fiche du jalon 1 si possible
+	> Histoire derrière Wizards & Dice
+		> Mentionner le voyage en Italie
+		> Remarquer que les articles de JDR sont éparpillés de fou sur le web
+		> Volonté d’une action communautaire
+	> Enjeux et objectifs 
+		> Définition des besoins auxquels on répond : quels sont les résultats attendus ? quels sont les objectifs à atteindre ?
+		> Définition des objectifs : ce qu'on veut atteindre ; ce qui ferait la réussite à court, moyen et long terme 
+	> Contraintes et ressources au lancement 
+		> Définition des ressources : financières et humaines 
+		> Analyse et maîtrise des risques préalables : forces et faiblesses du projet dans une analyse SWOT
+
+III- Organisation du projet
+	> Planification du projet 
+		> Fonctionnement par phases, composées de tâches
+		> Priorisation des jalons, puis des tâches importantes, puis des tâches mineurs
+		> Présentation de planning de GANTT : planning prévisionnel et organisationnel (comparaison et ajustements - QCD à définir)
+		> Respect des délais : analyse des retards (prévisibles ou non) et leur impact sur les objectifs 
+	> Moyens mis en oeuvre pour obtenir le résultat attendu
+		> Répartition des tâches : binômes, flexible, cohérente avec les tâches accomplies précédemment 
+		> Réunions : nombres ; fréquences ; utilités ; ce qui remonte des comptes rendus de réunions ; actions mise en place après les réunions
+		> Gestion des coûts: ressources financières (tricount, ok niveau finances mais mettre des chiffres) et humaines (pas trop s'étaler mais coup de moins bien) ; dépassement ?
+	> Documents d'organisation
+		> Structure organisationnel de nos documents
+		> Notes techniques : documentation du projet ; forme de cette documentation
+
+IV- Points d'achoppement du projet
+	> Difficulté majeurs
+		> Priorisation des tâches
+		> Gestion de la charge de travail
+		> Compréhension et réponses aux attendus
+	> Améliorations possibles 
+		> Contexte PTUT
+		> Hors contexte PTUT
+	> État d'esprit de l'équipe
+		> Début du projet 
+		> Vacances de noël 
+		> Hiver
+		> Vacances de pâques
+		> Prévisionnel jusqu'à la fin de l'année 
+
+V- Conclusion 
+	> Le projet est cool mais la partie front end sera pas OK pour Juin
+	> La partie technique cependant : ça ira (i guess) 
+	> Question sur notre capacité a assuré un aussi bon travail que voulu, compte tenu de toute les contraintes extérieurs 
+
+======================================
+Élements à produire : 
+	> Schéma des rôles de l'équipe : reprendre les cartes de Lois
+	> Schéma RACI (répartition des rôles) : voir internet
+	> Visuel explicite des faux planning et des comparatifs
+	> Schéma SWOT
+	> Intégration des collègues dans la présentation
+	> Screen de documents (document de synthèse, planning prévi/orga)
+
+======================================
+Un peu partout :
+	- Justification des choix et prises de décisions
+	- Problèmes rencontrés et solutions apportées
+
+
+
+
+
+
