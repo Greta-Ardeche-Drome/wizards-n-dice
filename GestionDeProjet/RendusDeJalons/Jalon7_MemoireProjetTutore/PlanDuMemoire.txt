@@ -47,51 +47,51 @@ Hors annexes
 # Conclusion du projet 
 
 ============== PLAN DU MEMOIRE ============== 
-I. Introduction
+1. Introduction
 	> Notre groupe, succinctement et de façon général (3ème annnée BUT RT, etc)
 	> Contexte de projet tutoré : générale, méthode de notations, etc
 	> Plan
-II. Projet Wizards & Dice
-	A) Présentation de votre société et offre sur le marché
+2. Projet Wizards & Dice
+	2.1. Présentation de la société et de son offre sur le marché
 		> Présenter notre société fictive : histoire 
 		> Besoins du marché
 		> Demande des consommateurs 
 		> Offre de Wizards & Dice
-	B) Périmètre du projet 
+	2.2. Périmètre du projet 
 		> Format de site auto-hébergé dit "maquette"
 		> Livraison pour les derniers jalons : centrée sur la partie technique
 		> But "post livraison" (si on avait le temps et les ressources réellement nécessaire)
-	C) Contraintes du projet
+	2.3. Contraintes du projet
 		[Contraintes techniques et humaines]
 		> Contraintes (au départ du projet et prévisonnel) : temporelles et imposées
 		> Risques (au départ du projet et prévisonnel) : SWOT, Analyse de risques (en annexe)
 		> Ressources (au départ du projet et prévisonnel) : financières, humaines, matériels
-III. Déroulement du projet
-	A) Gestion de projet
+3. Déroulement du projet
+	3.1. Gestion de projet
 		> Maquette, répartition des tâches (vrai RACI), planning
 		> Idée principale : synthétiser le jalon 6
-	B) Aspects commerciale et documentaire
+	3.2. Aspects commerciale et documentaire
 		> Travaux de recherches en début de projet
 		> Formalisation de la proposition commercial : étude de marché, des coûts, etc
 		> Gestion des aspects commerciaux et marketing : charte graphique, réseaux sociaux, etc
 		> Aspect développement durable et français
-	C) Aspects techniques
+	3.3. Aspects techniques
 		> Réponse(s) technique(s) à la problématique : choix effectué, évaluation des possibilités à notre portée, etc
 		> Fonctionnalité en place (vs voulues ?)
 		> Sécurité informatique
-IV. Bilan du projet
-	A) Difficultés majeures
+4. Bilan du projet
+	4.1. Difficultés majeures
 		> Organisationnel 
 		> Technique
-	B) Pérennité de Wizards & Dice
+	4.2. Pérennité de Wizards & Dice
 		> Intérêt pour l’entreprise
 		> Cohérence et amélioration des choix techniques
 		> Évolutions possible du projet (= solution à choisir en cadre "réel")
-	C) Compétences et expérience acquises
+	4.3. Compétences et expérience acquises
 		> Compétences vue et niveau d'acquisition de celles-ci
 		> Retour d'expérience de l'équipe 
 		> Évolutions possible (depuis le projet, pour l'équipe
-V. Conclusion 
+5. Conclusion 
 	> Rappeler succinctement ce qui a été vu dans le mémoire : Projet Wizards & Dice ; Déroulement du projet ; Bilan du projet
 	> Remercier les équipes enseignantes, les intervants et le GRETA (...) - Ne pas nommé pour éviter les problèmes
 	> Sucer en mode "très enrichissant" et "on a beaucoup appris" et "ça va nous servir"
@@ -102,15 +102,15 @@ S'assurer des contraintes autour des annexes avant de se lancer dedans
 Mot d'ordre : ON BLINDE COMME DES SALOPES (pardon mais faut parler en français), déverser le Git dans le cahier d'annexes
 
 ------ Plan (peut évoluer)
-I. Introduction
+1. Introduction
 	> Rappeler qui nous sommes et notre projet TRÈS rapidement
 	> Ceci est un cahier d'annexe
 	> Plan
-II. Annexes organisationnelles
+2. Annexes organisationnelles
 	> Documents d'organisation, planning détaillé, RACI complet, doc interne, jalons organisationels (fiche PTUT, présentation du jalon 6, etc)
-III. Annexes techniques
+3. Annexes techniques
 	> Documents technique, procédure et tuto interne, jalons techniques (analyse de risuqe, présentation du jalon 4, etc)
-IV. Annexes documentaires 
+4. Annexes documentaires 
 	> Documents de recherches, de formalisation commerciales, jalons documentaires (pitch, affiche, etc)
 
 
