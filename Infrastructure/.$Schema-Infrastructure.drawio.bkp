@@ -1,17 +1,20 @@
 <mxfile host="Electron" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/25.0.2 Chrome/128.0.6613.186 Electron/32.2.5 Safari/537.36" version="25.0.2">
   <diagram name="Page-1" id="TismizE8A68H-9k3w-Sa">
-    <mxGraphModel dx="819" dy="1654" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#ffffff" math="0" shadow="0">
+    <mxGraphModel dx="819" dy="1647" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#ffffff" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="YqawrPtrUhzIzxj1BCeo-4" value="DMZ WEB&amp;nbsp;&lt;div&gt;(DMZ publique)&lt;/div&gt;&lt;div&gt;172.16.7.0/24&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFF00;strokeColor=#000000;align=left;verticalAlign=top;fontColor=#000000;fontSize=10;" parent="1" vertex="1">
-          <mxGeometry x="81.77" y="75.01" width="238.23" height="160" as="geometry" />
+          <mxGeometry x="31.77" y="75" width="320" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="IB3uZ79_0tRTxkBwEHRQ-3" value="VLAN WAF&lt;div&gt;172.16.7.192/26&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#00CC66;align=left;verticalAlign=top;fontSize=8;fontColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="241.77" y="125" width="100" height="100" as="geometry" />
         </mxCell>
         <mxCell id="IB3uZ79_0tRTxkBwEHRQ-2" value="VLAN PROXY&lt;div&gt;172.16.7.128/26&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#33FF99;align=left;verticalAlign=top;fontSize=8;fontColor=#000000;" parent="1" vertex="1">
-          <mxGeometry x="191.77" y="125.01" width="100" height="100" as="geometry" />
+          <mxGeometry x="141.77" y="125" width="100" height="100" as="geometry" />
         </mxCell>
         <mxCell id="IB3uZ79_0tRTxkBwEHRQ-1" value="VLAN WEB&lt;div&gt;172.16.7.0/25&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#99FFCC;align=left;verticalAlign=top;fontColor=#000000;fontSize=8;" parent="1" vertex="1">
-          <mxGeometry x="91.77000000000001" y="125.01" width="100" height="100" as="geometry" />
+          <mxGeometry x="41.77" y="125" width="100" height="100" as="geometry" />
         </mxCell>
         <mxCell id="YqawrPtrUhzIzxj1BCeo-30" value="DMZ BASTION&amp;nbsp;&lt;div&gt;(DMZ privée)&lt;/div&gt;&lt;div&gt;172.16.14.0/30&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#a20025;strokeColor=#6F0000;align=left;verticalAlign=top;fontColor=#ffffff;fontSize=10;" parent="1" vertex="1">
           <mxGeometry x="560" y="105" width="140" height="100" as="geometry" />
@@ -32,10 +35,13 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="YqawrPtrUhzIzxj1BCeo-5" value="Serveur Web" style="image;aspect=fixed;perimeter=ellipsePerimeter;html=1;align=center;shadow=0;dashed=0;spacingTop=3;image=img/lib/active_directory/web_server.svg;labelBackgroundColor=none;fontColor=#000000;fontSize=8;" parent="1" vertex="1">
-          <mxGeometry x="121.77" y="150.01" width="40" height="50" as="geometry" />
+          <mxGeometry x="71.77" y="150" width="40" height="50" as="geometry" />
         </mxCell>
         <mxCell id="YqawrPtrUhzIzxj1BCeo-7" value="Reverse Proxy" style="image;aspect=fixed;perimeter=ellipsePerimeter;html=1;align=center;shadow=0;dashed=0;spacingTop=3;image=img/lib/active_directory/generic_server.svg;labelBackgroundColor=none;fontColor=#000000;fontSize=8;" parent="1" vertex="1">
-          <mxGeometry x="228" y="150.01" width="28.000000000000004" height="50" as="geometry" />
+          <mxGeometry x="178" y="150" width="28.000000000000004" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="YqawrPtrUhzIzxj1BCeo-8" value="WAF" style="image;aspect=fixed;perimeter=ellipsePerimeter;html=1;align=center;shadow=0;dashed=0;spacingTop=3;image=img/lib/active_directory/generic_server.svg;labelBackgroundColor=none;fontColor=#000000;fontSize=8;" parent="1" vertex="1">
+          <mxGeometry x="278" y="150" width="28.000000000000004" height="50" as="geometry" />
         </mxCell>
         <mxCell id="YqawrPtrUhzIzxj1BCeo-9" value="VLAN SERVERS&lt;br&gt;&lt;div&gt;192.168.7.128/28&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#007FFF;strokeColor=#000000;align=left;verticalAlign=top;fontColor=#000000;fontSize=10;" parent="1" vertex="1">
           <mxGeometry x="90" y="270" width="350" height="150" as="geometry" />
