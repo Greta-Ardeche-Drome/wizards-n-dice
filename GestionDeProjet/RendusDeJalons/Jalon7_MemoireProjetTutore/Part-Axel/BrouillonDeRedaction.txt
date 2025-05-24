@@ -1,0 +1,103 @@
+================= Partie 2 : Projet Wizards & Dice =================  
+### 2.1. Présentation de la société et de son offre sur le marché
+
+Wizards & Dice est un projet né d’une passion partagée par les quatre membres de l’équipe pour l’univers du jeu de rôle (JDR). Cette idée a émergé à la suite d’un voyage en Italie, durant lequel nous avons eu l’occasion de participer ensemble à une partie de JDR. Cette expérience a marqué l’équipe, mêlant découverte pour certains et retrouvailles ludiques pour d'autres. À notre retour, lorsque le cadre du projet tutoré a été présenté, nous nous sommes rapidement rassemblés autour de cette thématique commune, motivés par notre bonne entente et notre volonté de travailler ensemble.
+
+Au fil des discussions, plusieurs constats se sont imposés. D’une part, les contenus liés au JDR sont souvent dispersés sur le web, mal référencés ou difficilement accessibles, notamment pour les débutants. D’autre part, les sites existants sont pour la plupart anglophones, peu visibles ou peu adaptés aux attentes des joueurs francophones. Ce déficit de lisibilité et d’accessibilité représente une difficulté réelle pour toute personne souhaitant s’initier ou approfondir sa pratique.
+
+Face à cette situation, nous avons décidé de créer une plateforme hybride : à la fois une boutique en ligne spécialisée dans les accessoires de jeu de rôle, et un espace communautaire favorisant les échanges entre joueurs. Cette plateforme, que nous avons nommée Wizards & Dice, vise à centraliser les contenus pertinents tout en proposant une expérience accessible, simple et conviviale.
+
+Sur le plan technique, nous avons opté pour un auto-hébergement quasi-total de notre infrastructure, dans une logique de souveraineté numérique. Ce choix s’inscrit dans une volonté d’offrir une solution hébergée en France, répondant aux préoccupations actuelles en matière de sécurité des données et d’indépendance technologique. Les principes qui guident notre projet sont clairs : accessibilité, simplicité, esprit communautaire et protection des données.
+
+### 2.2. Périmètre du projet
+
+Le périmètre de Wizards & Dice est structuré autour de deux axes principaux. D’une part, il s’agit de concevoir et de mettre en ligne une plateforme de commerce électronique permettant la gestion d’un catalogue de produits, la prise de commandes et le traitement de paiements sécurisés. D’autre part, la plateforme intègre un volet communautaire où les utilisateurs peuvent échanger, publier du contenu et participer à la vie du site.
+
+La réalisation de ce projet implique un ensemble d’activités techniques, organisationnelles et commerciales. Cela comprend la conception et le développement du site web, l’administration de l’infrastructure d’hébergement, la gestion de la sécurité informatique, la structuration de l’offre de produits, ainsi que la définition de l’identité graphique et des stratégies de communication.
+
+Nous avons décliné nos objectifs en trois horizons temporels. À court terme, notre priorité est de respecter les jalons du projet tutoré, notamment les livrables demandés et les délais imposés. À moyen terme, nous visons à produire une version fonctionnelle et esthétiquement soignée de la plateforme, tout en assurant sa stabilité et sa sécurité. À long terme, nous considérons que ce projet peut constituer une base pour une éventuelle activité entrepreneuriale. Plusieurs membres de l’équipe ont d’ailleurs exprimé un intérêt à poursuivre l’aventure au-delà du cadre académique.
+
+En somme, le périmètre de Wizards & Dice est à la fois ambitieux et cohérent, articulant des exigences pédagogiques et techniques autour d’un projet concret, porteur de sens et potentiellement évolutif.
+
+### 2.3. Contraintes du projet
+
+Dès le lancement du projet, nous avons identifié un ensemble de contraintes, mais également de ressources sur lesquelles nous pouvions nous appuyer.
+
+Sur le plan financier, le projet disposait d’un budget initial de 900 euros dans le cadre d’un projet purement académique, pouvant aller jusqu’à 1 800 euros si une suite commerciale était envisagée. Après réévaluation, et en tenant compte de nos besoins effectifs, nous avons décidé de fixer un budget de référence de 1 400 euros.
+
+Concernant les ressources humaines, l’équipe est composée de quatre étudiants en alternance, avec des emplois du temps irréguliers et chargés. Cette contrainte nous a conduits à adopter une organisation hebdomadaire, permettant d’adapter la répartition des tâches aux disponibilités réelles de chacun.
+
+Du point de vue matériel, nous avons principalement utilisé nos équipements personnels. Toutefois, certains matériels supplémentaires ont été fournis par l’IUT, sur demande, afin de compléter notre installation.
+
+En complément de cette analyse des ressources, nous avons mené une réflexion sur les risques du projet à l’aide d’une matrice SWOT. Parmi les forces identifiées, on retrouve une équipe soudée, un sujet motivant, ainsi qu’un bon niveau de maîtrise des aspects réseau et système. À l’inverse, nos principales faiblesses résident dans la limitation des ressources et le manque d’expérience en gestion de projet. Les opportunités sont nombreuses : l’engouement croissant pour le JDR, la rareté des concurrents directs sur le marché francophone et la possibilité de développer une plateforme ergonomique et visible. Enfin, nous avons mis en évidence plusieurs menaces, telles que la charge de travail élevée due à l’alternance, la dépendance à des services tiers, et les incertitudes liées aux retours pédagogiques.
+
+Ces éléments ont guidé nos choix dès les premières semaines, et ont constitué une base solide pour la planification et l’organisation du travail.
+
+
+================= section 3.1. – Gestion de projet ================= 
+## 3.1. Gestion de projet
+
+La gestion du projet Wizards & Dice s’est appuyée sur une structuration progressive, construite au fil des besoins et ajustée face aux contraintes rencontrées. Dès le début, l’équipe a fait le choix de s’organiser autour de principes de clarté, de flexibilité et de collaboration, en mettant l’accent sur une planification efficace, une répartition équilibrée des tâches, et un suivi régulier de l’avancement.
+
+L’un des outils centraux de notre organisation a été le planning de projet. Afin de structurer notre travail, nous avons divisé l’ensemble du projet en trois grands ensembles de tâches : la phase de documentation et de recherche, dédiée aux investigations préalables et à la définition de notre organisation interne ; la phase relative aux produits et services, centrée sur la gestion de l’offre, la mise en avant des produits et les aspects logistiques ; et enfin la phase de création du site, qui concerne l’ensemble des travaux liés à l’infrastructure, au développement et à la sécurisation du site web.
+
+Cette dernière phase a été elle-même subdivisée en trois sous-phases successives : le déploiement initial de l’infrastructure, la configuration avancée permettant d’atteindre les objectifs définis pour notre preuve de concept, et enfin la sécurisation de l’ensemble des composants. En parallèle de ces trois étapes techniques, le développement du site web a été mené sur une instance miroir, ou "préproduction", afin de permettre des tests sans perturber la version principale. Le transfert vers la version publique était réalisé une fois les fonctionnalités validées.
+
+Nous avons volontairement distingué dans notre planification les jalons officiels du projet tutoré. Ces points d’étape, qui structurent l’évaluation par l’équipe pédagogique, ont été considérés comme des priorités majeures, et mis en valeur dans nos outils de suivi.
+
+Notre rythme de travail était défini de manière hebdomadaire, afin de tenir compte de la variabilité de nos emplois du temps d’alternants. Cette méthode de planification souple nous a offert une certaine flexibilité, mais a également introduit une forme d’inertie, parfois difficile à surmonter. Pour compenser ce défaut, nous avons instauré un système de priorisation des tâches. Chaque tâche a été classée selon son niveau de criticité : les plus urgentes devaient être réalisées sans délai, tandis que d’autres pouvaient être planifiées avec une marge de tolérance. Cette hiérarchisation a amélioré notre visibilité sur l’avancement réel du projet, et nous a permis d’ajuster nos efforts en fonction des objectifs prioritaires.
+
+En matière d’outils, nous avons d’abord conçu un planning prévisionnel en début de projet. Celui-ci avait pour but de nous donner une ligne directrice, bien qu’il ait rapidement été adapté au fur et à mesure des évolutions du projet. Nous avons ensuite produit un planning organisationnel détaillé à l’aide du logiciel GanttProject, qui nous a permis de visualiser clairement les différentes tâches, leurs statuts et leurs interdépendances. Les couleurs utilisées dans ce planning facilitaient la lecture : le vert signalait les tâches accomplies, le bleu celles en cours ou à venir, l’orange les plus importantes, et le rouge les tâches en retard. Les jalons, quant à eux, étaient représentés sous forme de losanges noirs.
+
+La gestion des retards et des imprévus a fait l’objet d’un travail collectif en réunion hebdomadaire. Lorsqu’une tâche prenait du retard, plusieurs options étaient envisagées en fonction de son importance et de son état d’avancement : soit nous laissions la tâche en l’état et passions à la suivante, soit nous prolongions son délai de traitement, soit encore nous renforcions l’équipe en charge. Ces décisions étaient prises de manière collégiale, en veillant à limiter les impacts négatifs sur l’ensemble du projet.
+
+Par ailleurs, la répartition des tâches au sein de l’équipe a été pensée de manière équilibrée. Chaque membre s’est vu confier des responsabilités en lien avec ses compétences et ses préférences, tout en assurant une certaine polyvalence. Nous avons souvent fonctionné par binômes thématiques, ce qui permettait une continuité en cas d’absence, et facilitait le transfert de compétences. Cette souplesse dans l’organisation visait également à préserver la motivation de chacun, notamment en période de forte charge.
+
+Les réunions hebdomadaires, en général fixées le samedi après-midi, ont constitué le pilier de notre suivi de projet. À ce jour, nous en avons organisé trente-neuf, certaines supplémentaires ayant été planifiées en début de projet pour caler nos méthodes de travail. Chaque réunion faisait l’objet d’un compte-rendu structuré, partagé au sein de l’équipe afin de garantir une bonne circulation de l’information. Après chaque réunion, un message de synthèse était également posté sur notre serveur Discord, résumant les points essentiels et rappelant les tâches à réaliser.
+
+La communication interne s’est appuyée principalement sur ce serveur Discord, que nous avons spécialement aménagé pour le projet. Des salons textuels thématiques et des canaux vocaux nous permettaient de discuter efficacement, de centraliser les échanges et de maintenir un contact constant. En parallèle, nous avons utilisé la plateforme Taïga pour le suivi de certaines tâches via un système de tickets, bien que cette solution se soit révélée inadaptée à notre usage et ait été peu exploitée au fil du temps.
+
+Enfin, la gestion des ressources financières a été assurée à l’aide de l’application Tricount. Celle-ci nous a permis de suivre en temps réel l’ensemble de nos dépenses, et de les répartir équitablement entre les membres. À ce jour, le total des dépenses s’élève à 1 184,29 €, après déduction des montants correspondant à du matériel conservé à titre personnel. Ce suivi a été complété par la conservation rigoureuse de justificatifs, partagés en version anonymisée au sein de nos documents de projet.
+
+En somme, la gestion du projet Wizards & Dice repose sur une méthode pragmatique et évolutive, s’appuyant à la fois sur des outils concrets, des décisions collectives et une attention constante portée à l’équilibre entre rigueur et adaptabilité.
+
+
+================= Partie 4. – Bilan du projet ================= 
+### 4.1. Difficultés majeures
+
+Comme tout projet d’envergure mené en autonomie, Wizards & Dice a été confronté à des obstacles variés. L’un des premiers problèmes rencontrés concerne la priorisation des tâches. Par manque d’expérience, nous n’avions pas mis en place un système structuré de hiérarchisation au lancement du projet. Bien que nous ayons eu une idée générale des tâches critiques, notre manque de granularité nous a empêchés d’avoir une vision claire des enchaînements prioritaires.
+
+Ce déficit de clarté est devenu particulièrement visible à la fin du mois de février. Nous nous sommes alors rendu compte que certaines tâches essentielles — notamment celles évaluées dans les jalons — avaient été repoussées au profit de travaux à la valeur ajoutée moindre. Pour y remédier, nous avons défini un système de priorisation précis, qui a par la suite profondément amélioré notre capacité à organiser le travail et à réagir efficacement face aux imprévus.
+
+La gestion de la charge de travail a constitué une seconde difficulté importante. En tant qu’étudiants en alternance, nous devions composer avec des emplois du temps instables, une forte charge académique en parallèle, et les contraintes liées à nos entreprises d’accueil. Le projet tutoré étant d’une ampleur inédite pour nous, il nous a fallu un temps d’adaptation pour calibrer l’effort nécessaire. Certains moments ont été marqués par des écarts significatifs entre ce que nous avions prévu de faire et ce qu’il nous était réellement possible d’accomplir.
+
+À cela s’est ajoutée une incertitude persistante vis-à-vis des attentes pédagogiques. À plusieurs reprises, nous avons dû relancer nos enseignants afin d’obtenir des précisions sur les livrables ou les modalités d’évaluation des jalons. Malgré les efforts fournis, certains rendus très travaillés n’ont pas été valorisés comme nous l’espérions. Ce décalage entre l’investissement fourni et les résultats obtenus a eu un impact sur la motivation de l’équipe à certains moments.
+
+Enfin, bien que secondaire dans l’organisation globale, une difficulté technique spécifique mérite d’être mentionnée. Notre infrastructure initiale prévoyait la mise en place d’une version "préproduction" du site, permettant de tester les nouvelles fonctionnalités avant de les déployer sur la version publique. Toutefois, en raison de ressources matérielles limitées, cette instance était trop lente pour être utilisée de manière efficace. Nous avons finalement contourné ce problème en recourant à un hébergeur externe (Ionos), et en désactivant certains services pour alléger l’ensemble.
+
+### 4.2. Pérennité de Wizards & Dice
+
+Au fil de son développement, Wizards & Dice a démontré son potentiel à aller au-delà du simple cadre académique. Si le projet reste aujourd’hui ancré dans une logique pédagogique, plusieurs éléments laissent entrevoir une possibilité de prolongement, voire de transformation en activité réelle.
+
+D’une part, les compétences acquises au sein de l’équipe, ainsi que la solidité des choix techniques opérés, laissent entrevoir la faisabilité d’une évolution vers une version pleinement opérationnelle. L’auto-hébergement partiel, la gestion de la sécurité réseau, l’identité visuelle, ou encore la réflexion autour de la communauté montrent que les fondations posées sont sérieuses.
+
+D’autre part, la question du financement a été envisagée dès le départ. Un budget maximal de 1 800 euros avait été anticipé en cas de lancement à but lucratif. Cette projection budgétaire réaliste, associée à une réflexion sur la gestion des stocks et des fournisseurs, ouvre la voie à une structuration progressive du projet en micro-entreprise ou en startup si les conditions sont réunies.
+
+Enfin, certains membres de l’équipe ont exprimé leur volonté de poursuivre l’aventure après la fin de l’année universitaire. Que ce soit sous forme associative, entrepreneuriale, ou à travers une refonte plus ambitieuse du site, l’idée d’un prolongement concret est bel et bien présente. Cette perspective n’est pas encore arrêtée, mais le fait qu’elle soit considérée témoigne de la maturité du projet.
+
+### 4.3. Compétences et expérience acquises
+
+Au-delà des livrables réalisés et des objectifs atteints, Wizards & Dice a été une source d’apprentissage riche et multidimensionnelle pour tous les membres de l’équipe. Ce projet nous a permis de développer des compétences techniques pointues, mais également des savoir-faire transversaux tout aussi essentiels dans un cadre professionnel.
+
+Sur le plan technique, nous avons acquis une expérience solide en matière de gestion d’infrastructure, de déploiement sécurisé, d’administration réseau et de développement web. Ces compétences sont directement liées à notre formation, mais elles ont été renforcées par la mise en situation concrète imposée par le projet.
+
+Du côté des compétences transversales, la gestion de projet, la planification, la priorisation des tâches, la production documentaire, et la communication d’équipe ont été au cœur de notre quotidien pendant plusieurs mois. Nous avons appris à gérer un projet complexe sur la durée, à travailler sous contraintes, à ajuster notre organisation en fonction des imprévus, et à maintenir une dynamique collective malgré les périodes de surcharge ou de découragement.
+
+L’expérience acquise s’étend également à la dimension humaine. La qualité des relations au sein de l’équipe a été un facteur clé de réussite. Nos échanges réguliers, notre écoute mutuelle, notre capacité à nous soutenir lors des moments difficiles, et les événements extra-professionnels que nous avons partagés ont tous contribué à renforcer notre cohésion.
+
+En somme, Wizards & Dice ne nous a pas seulement permis de produire un site et de satisfaire à des objectifs pédagogiques. Il nous a offert une véritable immersion dans la réalité d’un projet collaboratif, avec ses exigences, ses défis, et les nombreuses compétences qu’il permet de forger. Cette expérience constitue un socle solide pour nos projets futurs, qu’ils soient professionnels ou personnels.
+
+
+
+
+
