@@ -1,0 +1,24 @@
+Aspects techniques :
+1- Choix sur l'infrastructure
+    1.1- Choix matériels
+    1.2- Choix logiciels
+    1.3- Limites estimées
+2- Fonctionnalités en place
+    2.1- Fonctionnalités internes
+        2.1.1- Virtualisation
+        2.1.2- Gestion des utilisateurs internes
+        2.1.3- Supervision & journalisation
+        2.1.4- Accès à distance
+        2.1.5- Centralisation des accès à l'infrastructure
+        2.1.5- Interconnexion des sites
+    2.2- Fonctionnalités publiques
+        2.2.1- Site internet
+3- Fonctionnalités non réalisées
+    3.1- Fonctionnalités internes
+        3.1.1- Synchronisation des bases de données
+    3.2- Fonctionnalités publiques
+        3.2.1- Synchronisation des sites web
+4- Sécurisation de l'infrastructure
+    4.1- Niveau 1 - Système
+    4.2- Niveau 2 - Réseau
+    4.3- Niveau 3 - Mises à jour & monitoring

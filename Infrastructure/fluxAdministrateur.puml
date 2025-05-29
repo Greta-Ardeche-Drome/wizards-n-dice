@@ -1,0 +1,14 @@
+@startuml
+
+:Administrateur: as admin
+[Freebox] as box
+[SNS EVA1] as firewall
+(Proxmox Virtual Environment) as pve
+
+admin --> box : VPN SSL Freebox
+box --> firewall : Accès admin
+box --> pve : Accès admin
+
+
+
+@enduml
